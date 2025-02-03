@@ -1,12 +1,11 @@
-elements.test = {
-    color: "#5603fc",
+elements.syrup = {
+    color: "#a13d08",
     behavior: behaviors.LIQUID,
     category: "liquids",
-    viscosity: 100000,
+    viscosity: 9999999,
     state: "liquid",
     density: 720,
 	reactions: {
-		"humans": { elem1: "magma", elem2: "oil" },
+		"humans": { elem1: "null", elem2: "humans" },
 	}
-};
 };
