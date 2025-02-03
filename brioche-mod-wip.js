@@ -5,7 +5,6 @@ elements.syrup = {
     viscosity: 100000,
     state: "liquid",
     density: 720,
-    isFood: true,
 	}
 };
 
@@ -13,7 +12,6 @@ elements.brioche = {
     color: "#c2440e",
     behavior: behaviors.STURDYPOWDER,
     category: "food",
-    isFood: true,
     temp: 30,
     tempHigh: 80,
     stateHigh: ["fragrance", "ash"]
