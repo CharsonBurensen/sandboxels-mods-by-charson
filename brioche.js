@@ -16,8 +16,7 @@ elements.brioche_steam = {
     temp: 80,
     tempLow: 10,
     stateLow: ["cold_brioche"]
-	}
-;
+	};
 
 elements.fancy_dough = {
     color: "#d1c0a5",
