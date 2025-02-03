@@ -67,5 +67,5 @@ elements.syrup.behavior = [
 ];
 
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
-elements.fancy_flour.reactions.water = { "elem1": null, "elem2":"fancy_dough" },
+elements.water.reactions.fancy_flour = { "elem1": null, "elem2":"fancy_dough" },
 elements.brioche.breakInto = "fancy_flour";
