@@ -9,7 +9,7 @@ elements.syrup = {
 };
 
 elements.brioche = {
-    color: "#c2440e",
+    color: "#c2440e", "#ffbc82",
     behavior: behaviors.STURDYPOWDER,
     category: "food",
     temp: 30,
