@@ -5,7 +5,6 @@ elements.syrup = {
     viscosity: 100000,
     state: "liquid",
     density: 720,
-	}
 };
 
 elements.brioche_steam = {
@@ -30,7 +29,6 @@ elements.fancy_dough = {
     temp: 30,
     tempHigh: 50,
     stateHigh: ["steam", "brioche_steam"],
-	}
 };
 
 elements.brioche = {
@@ -42,7 +40,6 @@ elements.brioche = {
     tempLow: 10,
     stateHigh: ["fragrance", "ash"],
     stateLow: ["cold_brioche"],
-	}
 };
 
 elements.cold_brioche = {
@@ -52,7 +49,6 @@ elements.cold_brioche = {
     temp: 5,
     tempHigh: 30,
     stateHigh: ["brioche"],
-	}
 };
 
 elements.fancy_flour = {
@@ -62,7 +58,6 @@ elements.fancy_flour = {
     temp: 20,
     tempHigh: 70,
     stateHigh: ["fragrance", "smoke"],
-        }
 };
 
 //thanks to the creator of stickyslime.js for this code
@@ -73,7 +68,5 @@ elements.syrup.behavior = [
 ];
 
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
-
 elements.fancy_flour.reactions.water = { "elem1": null, "elem2":"fancy_dough" },
-	
-elements.brioche.breakInto = "fancy_flour",
+elements.brioche.breakInto = "fancy_flour";
