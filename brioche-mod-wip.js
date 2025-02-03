@@ -5,8 +5,7 @@ elements.syrup = {
     viscosity: 100000,
     state: "liquid",
     density: 720,
-	reactions: {
-		"humans": { elem1: null, elem2: "humans" },
+    isFood: true,
 	}
 };
 
