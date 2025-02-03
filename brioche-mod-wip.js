@@ -8,6 +8,16 @@ elements.syrup = {
 	}
 };
 
+elements.brioche_steam = {
+    color: "#ab8c60",
+    behavior: behaviors.GAS,
+    category: "gases",
+    state: "gas",
+    density: 720,
+    temp: 80,
+	}
+};
+
 elements.fancy_dough = {
     color: "#d1c0a5",
     behavior: behaviors.LIQUID,
@@ -15,6 +25,9 @@ elements.fancy_dough = {
     viscosity: 999999,
     state: "liquid",
     density: 720,
+    temp: 30,
+    tempHigh: 50,
+    stateHigh: ["steam", "brioche_steam"]
 	}
 };
 
