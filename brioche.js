@@ -42,7 +42,7 @@ elements.brioche = {
 };
 
 elements.cold_brioche = {
-    color: "#c2770e", "#8c7a5f",
+    color: "#5f7a8c",
     behavior: behaviors.WALL,
     category: "food",
     temp: 5,
