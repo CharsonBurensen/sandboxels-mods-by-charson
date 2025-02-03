@@ -31,7 +31,7 @@ elements.fancy_dough = {
 };
 
 elements.brioche = {
-    color: "#c2770e", "#ffbc82",
+    color: "#c2770e",
     behavior: behaviors.STURDYPOWDER,
     category: "food",
     temp: 30,
