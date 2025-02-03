@@ -14,6 +14,9 @@ elements.brioche = {
     behavior: behaviors.STURDYPOWDER,
     category: "food",
     isFood: true,
+    temp: 30,
+    tempHigh: 80,
+    stateHigh: ["fragrance", "ash"]
 };
 
 elements.fancy_flour = {
