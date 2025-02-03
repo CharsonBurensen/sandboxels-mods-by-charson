@@ -12,11 +12,9 @@ elements.syrup = {
 
 elements.brioche = {
     color: "#c2440e",
-    behavior: behaviors.POWDER,
+    behavior: behaviors.STURDYPOWDER,
     category: "food",
-	reactions: {
-		"humans": { elem1: null, elem2: "humans" },
-	}
+    isFood: true,
 };
 
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" }
