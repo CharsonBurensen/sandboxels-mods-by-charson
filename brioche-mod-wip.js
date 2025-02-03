@@ -16,4 +16,15 @@ elements.brioche = {
     isFood: true,
 };
 
+elements.fancy_flour = {
+    color: "#f5e9b5",
+    behavior: behaviors.POWDER,
+    category: "powder",
+    temp: 20,
+    tempHigh: 70,
+    stateHigh: ["fragrance", "smoke"],
+
+};
+
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" }
+elements.brioche.breakInto = "fancy_flour"
