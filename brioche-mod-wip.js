@@ -15,6 +15,8 @@ elements.brioche_steam = {
     state: "gas",
     density: 720,
     temp: 80,
+    tempLow: 0,
+    stateLow: ["ice"]
 	}
 };
 
@@ -27,7 +29,7 @@ elements.fancy_dough = {
     density: 720,
     temp: 30,
     tempHigh: 50,
-    stateHigh: ["steam", "brioche_steam"]
+    stateHigh: ["steam", "brioche_steam"],
 	}
 };
 
@@ -37,7 +39,7 @@ elements.brioche = {
     category: "food",
     temp: 30,
     tempHigh: 80,
-    stateHigh: ["fragrance", "ash"]
+    stateHigh: ["fragrance", "ash"],
 };
 
 elements.fancy_flour = {
