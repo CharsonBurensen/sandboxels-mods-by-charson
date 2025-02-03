@@ -63,6 +63,6 @@ elements.fancy_flour = {
 
 };
 
-elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" }
-elements.fancy_flour.reactions.water = { "elem1": null, "elem2":"fancy_dough" }
-elements.brioche.breakInto = "fancy_flour"
+elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
+elements.fancy_flour.reactions.water = { "elem1": null, "elem2":"fancy_dough" },
+elements.brioche.breakInto = "fancy_flour",
