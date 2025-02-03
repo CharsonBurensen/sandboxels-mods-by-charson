@@ -8,6 +8,16 @@ elements.syrup = {
 	}
 };
 
+elements.fancy_dough = {
+    color: "#d1c0a5",
+    behavior: behaviors.LIQUID,
+    category: "liquids",
+    viscosity: 999999,
+    state: "liquid",
+    density: 720,
+	}
+};
+
 elements.brioche = {
     color: "#c2440e", "#ffbc82",
     behavior: behaviors.STURDYPOWDER,
@@ -28,4 +38,5 @@ elements.fancy_flour = {
 };
 
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" }
+elements.fancy_flour.reactions.water = { "elem1": null, "elem2":"fancy_dough" }
 elements.brioche.breakInto = "fancy_flour"
