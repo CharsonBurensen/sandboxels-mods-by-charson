@@ -1,4 +1,4 @@
-eelements.syrup = {
+elements.syrup = {
     color: "#a13d08",
     behavior: behaviors.LIQUID,
     category: "liquids",
@@ -38,7 +38,7 @@ elements.fancy_dough = {
     density: 720,
     temp: 30,
     tempHigh: 50,
-    stateHigh: ["brioche_steam"],
+    stateHigh: ["steam", "brioche_steam"],
 };
 
 elements.brioche = {
@@ -93,7 +93,7 @@ elements.fancy_flour = {
     category: "powders",
     temp: 20,
     tempHigh: 70,
-    burn: 70,
+	burn: 70,
     stateHigh: ["fragrance", "smoke"],
 };
 
