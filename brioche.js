@@ -145,8 +145,44 @@ elements.pyric_nitrite = {
     category: "powders",
     state: "solid",
     temp: 20,
-    reactions: {
-    "air": "charged_ex": { elem1:explosion, elem2:null, charged:true }, // Elements must be charged
-    }
-];
+};
+
+elements.fyrium = {
+    color: "#ffa930",
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    temp: 20,
+    tempHigh: 40,
+    stateHigh: "molten_fyrium"
+};
+
+elements.molten_fyrium = {
+    color: "#ffffff",
+    behavior: behaviors.MOLTEN,
+    category: "states",
+    state: "solid",
+    temp: 40,
+    tempLow: -20,
+    stateLow: "fyrium"
+};
+
+elements.nitrol_fuel = {
+    color: "#4f180e",
+    behavior: behaviors.LIQUID,
+    category: "liquids",
+    state: "liquid",
+    temp: 20,
+};
+
+elements.fueled_wood = {
+    color: "#631608",
+    behavior: behaviors.WALL,
+    category: "weapons",
+    state: "solid",
+    temp: 20,
+};
+
+elements.fire.reactions.fueled_wood = { "elem1": "fire", "elem2":["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"] },
+elements.water.reactions.molten_fyrium = { "elem1": null, "elem2":["fire", "explosion"] };
 
