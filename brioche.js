@@ -161,7 +161,6 @@ elements.molten_fyrium = {
     color: "#ffffff",
     behavior: behaviors.MOLTEN,
     category: "states",
-    state: "solid",
     temp: 40,
     tempLow: -20,
     stateLow: ["fyrium"],
@@ -183,6 +182,6 @@ elements.fueled_wood = {
     temp: 20,
 };
 
-//elements.fire.reactions.fueled_wood = { "elem1": "fire", "elem2":["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"] },
-//elements.water.reactions.molten_fyrium = { "elem1": null, "elem2":["fire", "explosion"] };
+elements.fire.reactions.fueled_wood = { "elem1": "fire", "elem2":["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"] },
+elements.water.reactions.molten_fyrium = { "elem1": null, "elem2":["fire", "explosion"] };
 
