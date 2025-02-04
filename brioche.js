@@ -15,7 +15,7 @@ elements.brioche_steam = {
     density: 720,
     temp: 80,
     tempLow: 30,
-    stateLow: ["brioche", "ice"],
+    stateLow: ["brioche"],
 };
 
 elements.fancy_dough = {
