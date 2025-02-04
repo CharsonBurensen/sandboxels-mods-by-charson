@@ -182,6 +182,7 @@ elements.nitrol_fuel = {
     temp: 20,
     reactions: {
         "wood": { elem1: null, elem2:"fueled_wood" },
+    }
 };
 
 elements.fueled_wood = {
