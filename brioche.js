@@ -46,7 +46,7 @@ elements.aresium = {
     color: "#1017ad",
     behavior: behaviors.WALL,
     category: "solids",
-    temp: 19
+    temp: 19,
     tempHigh: 100,
     tempLow: -20,
     stateHigh: ["skibidi_aresium"],
@@ -59,7 +59,7 @@ elements.skibidi_aresium = {
     color: "#ad1051",
     behavior: behaviors.MOLTEN,
     category: "states",
-    temp: 100
+    temp: 100,
     tempHigh: 153,
     stateHigh: ["tnt", "molten_iron", "copper", "explosion"],
     burn: 0,
