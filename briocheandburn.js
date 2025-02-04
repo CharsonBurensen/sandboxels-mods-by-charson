@@ -6,6 +6,7 @@ elements.syrup = {
     state: "liquid",
     density: 720,
     isFood: true,
+    desc: "maple syrup",
 };
 
 elements.akshajium = {
@@ -39,6 +40,7 @@ elements.fancy_dough = {
     temp: 30,
     tempHigh: 50,
     stateHigh: ["steam", "brioche_steam"],
+    desc: "it can be evaporated",
 };
 
 elements.brioche = {
@@ -202,6 +204,7 @@ elements.kai_cenat = {
     behavior: behaviors.STURDYPOWDER,
     category: "special",
     state: "solid",
+    desc: "wow",
 };
 
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
