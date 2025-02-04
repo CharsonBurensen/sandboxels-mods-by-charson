@@ -1,4 +1,4 @@
-elements.syrup = {
+eelements.syrup = {
     color: "#a13d08",
     behavior: behaviors.LIQUID,
     category: "liquids",
@@ -145,6 +145,8 @@ elements.pyric_nitrite = {
     category: "powders",
     state: "solid",
     temp: 20,
-};
+    reactions: {
+    "air": "charged_ex": { elem1:explosion, elem2:null, charged:true }, // Elements must be charged
+    }
+];
 
-elements.pyric_nitrite.reactions_air = "explosion";
