@@ -126,3 +126,25 @@ elements.briochify = {
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
 elements.water.reactions.fancy_flour = { "elem1": null, "elem2":"fancy_dough" },
 elements.brioche.breakInto = "fancy_flour";
+
+//pyrane mod and stuff now below
+
+elements.pyrane = {
+    color: "#fc7c19",
+    behavior: behaviors.GAS,
+    category: "gases",
+    state: "gas",
+    temp: 50,
+    tempLow: -20,
+    stateLow: ["fyrium"],
+};
+
+elements.pyric_nitrite = {
+    color: "#b3270e",
+    behavior: behaviors.POWDER,
+    category: "powders",
+    state: "solid",
+    temp: 20,
+};
+
+elements.pyric_nitrite.reactions_air = "explosion";
