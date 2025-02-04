@@ -182,9 +182,10 @@ elements.wood.reactions.nitrol_fuel = { "elem1":"fueled_wood", "elem2": null },
 elements.fire.reactions.nitrogen = { "elem1": null, "elem2": "pyrane" },
 elements.ash.reactions.pyrane = { "elem1":"pyric_nitrite", "elem2": null },
 elements.oil.reactions.pyric_nitrite = { "elem1":"nitrol_fuel", "elem2": null },
+elements.hydrogen.reactions.pyrane = { "elem1":"hydroid", "elem2": null },
+elements.fire.reactions.fueled_wood = { "elem1": "fire", "elem2":["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"] },
+elements.water.reactions.molten_fyrium = { "elem1": null, "elem2":["fire", "explosion"] },
 elements.brioche.breakInto = "fancy_flour";
 elements.fyrium.breakInto = "fire";
 
-//elements.hydrogen.reactions.pyrane = { "elem1":"hydroid", "elem2": null },
-//elements.fire.reactions.fueled_wood = { "elem1": "fire", "elem2":["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"] },
-//elements.water.reactions.molten_fyrium = { "elem1": null, "elem2":["fire", "explosion"] };
+
