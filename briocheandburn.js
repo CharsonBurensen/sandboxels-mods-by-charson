@@ -139,6 +139,18 @@ elements.pyric_nitrite = {
     category: "powders",
     state: "solid",
     temp: 20,
+    reactions: {
+        "iron": { elem1:"pyric_nitrite", elem2:"pyric_rust" },
+};
+
+elements.pyric_rust = {
+    color: "#913e17",
+    behavior: behaviors.POWDER,
+    category: "powders",
+    state: "solid",
+    temp: 20,
+    reactions: {
+        "steel": { elem1: null, elem2:"tnt" },
 };
 
 elements.fyrium = {
@@ -166,6 +178,8 @@ elements.nitrol_fuel = {
     category: "liquids",
     state: "liquid",
     temp: 20,
+    reactions: {
+        "wood": { elem1: null, elem2:"fueled_wood" },
 };
 
 elements.fueled_wood = {
@@ -174,6 +188,8 @@ elements.fueled_wood = {
     category: "weapons",
     state: "solid",
     temp: 20,
+    tempHigh: 30,
+    stateHigh: ["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"],
 };
 
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
