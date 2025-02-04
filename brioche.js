@@ -54,7 +54,7 @@ elements.cold_brioche = {
 elements.fancy_flour = {
     color: "#f5e9b5",
     behavior: behaviors.POWDER,
-    category: "powder",
+    category: "powders",
     temp: 20,
     tempHigh: 70,
 	burn: 70,
