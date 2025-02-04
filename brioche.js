@@ -7,6 +7,15 @@ elements.syrup = {
     density: 720,
 };
 
+elements.akshajium = {
+    color: ["#ff0000", "#00ff00", "#0000ff"],
+    behavior: behaviors.LIQUID,
+    category: "liquids",
+    viscosity: 100000,
+    state: "liquid",
+    density: 720,
+};
+
 elements.brioche_steam = {
     color: "#ab8c60",
     behavior: behaviors.GAS,
