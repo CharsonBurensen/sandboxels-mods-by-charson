@@ -39,7 +39,31 @@ elements.brioche = {
     tempLow: 10,
     stateHigh: ["fragrance", "ash"],
     stateLow: ["cold_brioche"],
-	burn: 55,
+    burn: 55,
+};
+
+elements.aresium = {
+    color: "#1017ad",
+    behavior: behaviors.WALL,
+    category: "solids",
+    temp: 19
+    tempHigh: 100,
+    tempLow: -20,
+    stateHigh: ["skibidi_aresium"],
+    stateLow: ["magma", "electricity"],
+    burn: 0,
+    conduct: 1,
+};
+
+elements.skibidi_aresium = {
+    color: "#ad1051",
+    behavior: behaviors.MOLTEN,
+    category: "states",
+    temp: 100
+    tempHigh: 153,
+    stateHigh: ["tnt", "molten_iron", "copper", "explosion"],
+    burn: 0,
+    conduct: 1,
 };
 
 elements.cold_brioche = {
