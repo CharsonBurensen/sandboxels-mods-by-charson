@@ -50,7 +50,7 @@ elements.aresium = {
     tempHigh: 100,
     tempLow: -20,
     stateHigh: ["skibidi_aresium"],
-    stateLow: ["magma", "electricity"],
+    stateLow: ["magma", "electric"],
     burn: 0,
     conduct: 1,
 };
