@@ -93,7 +93,7 @@ elements.fancy_flour = {
     category: "powders",
     temp: 20,
     tempHigh: 70,
-	burn: 70,
+    burn: 70,
     stateHigh: ["fragrance", "smoke"],
 };
 
@@ -154,7 +154,7 @@ elements.fyrium = {
     state: "solid",
     temp: 20,
     tempHigh: 40,
-    stateHigh: "molten_fyrium"
+    stateHigh: ["molten_fyrium"],
 };
 
 elements.molten_fyrium = {
@@ -164,7 +164,7 @@ elements.molten_fyrium = {
     state: "solid",
     temp: 40,
     tempLow: -20,
-    stateLow: "fyrium"
+    stateLow: ["fyrium"],
 };
 
 elements.nitrol_fuel = {
