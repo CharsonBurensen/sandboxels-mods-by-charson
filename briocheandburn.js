@@ -211,7 +211,7 @@ elements.kai_cenat.behavior = [
     ["XX","CH:kai_cenat","XX"],
     ["CH:kai_cenat","XX","CH:kai_cenat"],
     ["M2","M1 AND CH:kai_cenat","M2"]
-]
+];
 
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
 elements.water.reactions.fancy_flour = { "elem1": null, "elem2":"fancy_dough" },
