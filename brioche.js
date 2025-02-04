@@ -5,6 +5,7 @@ elements.syrup = {
     viscosity: 100000,
     state: "liquid",
     density: 720,
+    isFood: true,
 };
 
 elements.akshajium = {
@@ -25,6 +26,7 @@ elements.brioche_steam = {
     temp: 80,
     tempLow: 30,
     stateLow: ["brioche"],
+    isFood: true,
 };
 
 elements.fancy_dough = {
@@ -49,6 +51,7 @@ elements.brioche = {
     stateHigh: ["fragrance", "ash"],
     stateLow: ["cold_brioche"],
     burn: 55,
+    isFood: true,
 };
 
 elements.aresium = {
