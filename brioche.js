@@ -14,7 +14,7 @@ elements.brioche_steam = {
     state: "gas",
     density: 720,
     temp: 80,
-    tempLow: 10,
+    tempLow: 30,
     stateLow: ["brioche", "brioche"]
 	};
 
