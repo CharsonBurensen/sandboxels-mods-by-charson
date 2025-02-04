@@ -38,7 +38,7 @@ elements.fancy_dough = {
     density: 720,
     temp: 30,
     tempHigh: 50,
-    stateHigh: ["steam", "brioche_steam"],
+    stateHigh: ["brioche_steam"],
 };
 
 elements.brioche = {
@@ -139,49 +139,4 @@ elements.pyrane = {
     stateLow: ["fyrium"],
 };
 
-elements.pyric_nitrite = {
-    color: "#b3270e",
-    behavior: behaviors.POWDER,
-    category: "powders",
-    state: "solid",
-    temp: 20,
-};
-
-elements.fyrium = {
-    color: "#ffa930",
-    behavior: behaviors.WALL,
-    category: "solids",
-    state: "solid",
-    temp: 20,
-    tempHigh: 40,
-    stateHigh: ["molten_fyrium"],
-};
-
-elements.molten_fyrium = {
-    color: "#ffffff",
-    behavior: behaviors.MOLTEN,
-    category: "states",
-    temp: 40,
-    tempLow: -20,
-    stateLow: ["fyrium"],
-};
-
-elements.nitrol_fuel = {
-    color: "#4f180e",
-    behavior: behaviors.LIQUID,
-    category: "liquids",
-    state: "liquid",
-    temp: 20,
-};
-
-elements.fueled_wood = {
-    color: "#631608",
-    behavior: behaviors.WALL,
-    category: "weapons",
-    state: "solid",
-    temp: 20,
-};
-
-//elements.fire.reactions.fueled_wood = { "elem1": "fire", "elem2":["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"] },
-//elements.water.reactions.molten_fyrium = { "elem1": null, "elem2":["fire", "explosion"] };
 
