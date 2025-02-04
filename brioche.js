@@ -125,7 +125,7 @@ elements.briochify = {
 
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
 elements.water.reactions.fancy_flour = { "elem1": null, "elem2":"fancy_dough" },
-elements.brioche.breakInto = "fancy_flour";
+elements.brioche.breakInto = "fancy_flour",
 
 //pyrane mod and stuff now below
 
