@@ -42,7 +42,7 @@ elements.fancy_dough = {
 };
 
 elements.brioche = {
-    color: ["#c2770e", "#ffdec4"],
+    color: ["#c2770e", "#b06227"],
     behavior: behaviors.STURDYPOWDER,
     category: "food",
     temp: 30,
@@ -123,6 +123,63 @@ elements.briochify = {
     category: "tools",
 };
 
+elements.pyrane = {
+    color: "#fc7c19",
+    behavior: behaviors.GAS,
+    category: "gases",
+    state: "gas",
+    temp: 50,
+    tempLow: -20,
+    stateLow: ["fyrium"],
+};
+
+elements.pyric_nitrite = {
+    color: "#b3270e",
+    behavior: behaviors.POWDER,
+    category: "powders",
+    state: "solid",
+    temp: 20,
+};
+
+elements.fyrium = {
+    color: "#ffa930",
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    temp: 20,
+    tempHigh: 40,
+    stateHigh: ["molten_fyrium"],
+};
+
+elements.molten_fyrium = {
+    color: "#ffffff",
+    behavior: behaviors.MOLTEN,
+    category: "states",
+    temp: 40,
+    tempLow: -20,
+    stateLow: ["fyrium"],
+};
+
+elements.nitrol_fuel = {
+    color: "#4f180e",
+    behavior: behaviors.LIQUID,
+    category: "liquids",
+    state: "liquid",
+    temp: 20,
+};
+
+elements.fueled_wood = {
+    color: "#631608",
+    behavior: behaviors.WALL,
+    category: "weapons",
+    state: "solid",
+    temp: 20,
+};
+
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
 elements.water.reactions.fancy_flour = { "elem1": null, "elem2":"fancy_dough" },
 elements.brioche.breakInto = "fancy_flour";
+elements.fyrium.breakInto = "fire";
+
+//elements.fire.reactions.fueled_wood = { "elem1": "fire", "elem2":["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"] },
+//elements.water.reactions.molten_fyrium = { "elem1": null, "elem2":["fire", "explosion"] };
