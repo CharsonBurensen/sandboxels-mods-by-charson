@@ -11,9 +11,9 @@ elements.akshajium = {
     color: ["#ff0000", "#00ff00", "#0000ff"],
     behavior: behaviors.LIQUID,
     category: "liquids",
-    viscosity: 100000,
+    viscosity: 10000,
     state: "liquid",
-    density: 720,
+    density: 100,
 };
 
 elements.brioche_steam = {
@@ -40,7 +40,7 @@ elements.fancy_dough = {
 };
 
 elements.brioche = {
-    color: "#c2770e",
+    color: ["#c2770e", "#ffdec4"],
     behavior: behaviors.STURDYPOWDER,
     category: "food",
     temp: 30,
@@ -78,7 +78,7 @@ elements.skibidi_aresium = {
 elements.cold_brioche = {
     color: "#5f7a8c",
     behavior: behaviors.WALL,
-    category: "food",
+    category: "states",
     temp: 5,
     tempHigh: 30,
     stateHigh: ["brioche"],
@@ -100,6 +100,25 @@ elements.syrup.behavior = [
     "ST AND M2|XX|ST AND M2",
     "XX|ST AND M1|XX",
 ];
+
+elements.briochify = {
+    color: ["#c2770e", "#ff0000", "#00ff00", "#0000ff", "#ffdec4"],
+    tool: function(pixel) {
+        if (pixel.element == "bread") {
+            pixel.element = "brioche"
+        }
+	if (pixel.element == "flour") {
+            pixel.element = "fancy_flour"
+        }
+	if (pixel.element == "dough") {
+            pixel.element = "fancy_dough"
+        }
+	if (pixel.element == "steam") {
+            pixel.element = "brioche_steam"
+        }
+    },
+    category: "tools",
+};
 
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
 elements.water.reactions.fancy_flour = { "elem1": null, "elem2":"fancy_dough" },
