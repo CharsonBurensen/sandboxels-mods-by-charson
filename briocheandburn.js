@@ -140,7 +140,8 @@ elements.pyric_nitrite = {
     state: "solid",
     temp: 20,
     reactions: {
-        "iron": { elem1:"pyric_nitrite", elem2:"pyric_rust" }
+        "iron": { elem1:"pyric_nitrite", elem2:"pyric_rust" },
+	"oil": { elem1: null, elem2:"nitrol_fuel" }
     }
 };
 
@@ -193,6 +194,14 @@ elements.fueled_wood = {
     temp: 20,
     tempHigh: 30,
     stateHigh: ["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"],
+};
+
+//by someone named spencer
+elements.kai_cenat = {
+    color: "#e00b0b",
+    behavior: behaviors.STURDYPOWDER,
+    category: "special",
+    state: "solid",
 };
 
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
