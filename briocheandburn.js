@@ -207,7 +207,7 @@ elements.kai_cenat = {
     desc: "wow",
 };
 
-elements.kai_cenat.behaviors = [
+elements.kai_cenat.behavior = [
     ["XX","CH:kai_cenat","XX"],
     ["CH:kai_cenat","XX","CH:kai_cenat"],
     ["M2","M1 AND CH:kai_cenat","M2"]
