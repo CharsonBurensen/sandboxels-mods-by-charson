@@ -142,6 +142,9 @@ elements.pyrane = {
     temp: 50,
     tempLow: -20,
     stateLow: ["fyrium"],
+    reactions: {
+        "ash": { elem1: null, elem2:"pyric_nitrite" },
+    }
 };
 
 elements.pyric_nitrite = {
