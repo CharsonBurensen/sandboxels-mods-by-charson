@@ -1,41 +1,49 @@
-elements.powder = {
-    color: ["#a8160c", "#fdff94", "#d47d20"],
+elements.tocopherol = {
+    color: "#094237",
     behavior: behaviors.POWDER,
-    category: "food",
+    category: "powders",
     viscosity: 10000,
     state: "solid",
     density: 100,
-    desc: "its pizza",
 	reactions: {
-        "head": { elem1: null, elem2:"head" },
+        "sodium_acetate": { elem1:"tocopheryl_acetate", elem2:"tocopheryl_acetate" },
     }
 };
 
-elements.gas = {
-    color: "#ab8c60",
-    behavior: behaviors.GAS,
+elements.freakium = {
+    color: "#ff4fed",
+    behavior: behaviors.DGAS,
     category: "gases",
     state: "gas",
     density: 720,
     temp: 80,
     tempLow: 30,
-    stateLow: ["brioche"],
-    isFood: true,
 };
 
-elements.liquid = {
-    color: "#d1c0a5",
+elements.tocopheryl_gas = {
+    color: "#ff4fed",
+    behavior: behaviors.GAS,
+    category: "gases",
+    state: "gas",
+    density: 720,
+    temp: 80,
+    tempLow: 0,
+    stateLow: "tocopherol"
+};
+
+elements.tocopheryl_acetate = {
+    color: "#cffdff",
     behavior: behaviors.LIQUID,
     category: "liquids",
     viscosity: 999999,
     state: "liquid",
     density: 720,
     temp: 30,
-    tempHigh: 50,
-    stateHigh: ["steam", "brioche_steam"],
+    tempHigh: 96,
+    stateHigh: ["tocopheryl gas"],
     desc: "it can be evaporated",
 	reactions: {
-        "head": { elem1: null, elem2:"head" },
+        "oil": { elem1:"baby_oil", elem2:"baby_oil" },
     }
 };
 
