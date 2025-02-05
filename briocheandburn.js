@@ -13,7 +13,7 @@ elements.syrup = {
 };
 
 elements.akshajium = {
-    color: ["#a8160c", "##fdff94", "#7d5b46"],
+    color: ["#a8160c", "#fdff94", "#7d5b46"],
     behavior: behaviors.WALL,
     category: "food",
     viscosity: 10000,
