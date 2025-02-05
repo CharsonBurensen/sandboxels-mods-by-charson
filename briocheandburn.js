@@ -13,8 +13,8 @@ elements.syrup = {
 };
 
 elements.akshajium = {
-    color: ["#a8160c", "#fdff94", "#7d5b46"],
-    behavior: behaviors.WALL,
+    color: ["#a8160c", "#fdff94", "#d47d20"],
+    behavior: behaviors.POWDER,
     category: "food",
     viscosity: 10000,
     state: "solid",
@@ -274,6 +274,7 @@ elements.kai_eraser = {
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
 elements.water.reactions.fancy_flour = { "elem1": null, "elem2":"fancy_dough" },
 elements.wood.reactions.nitrol_fuel = { "elem1":"fueled_wood", "elem2": null },
+	
 elements.brioche.breakInto = "fancy_flour";
 elements.fyrium.breakInto = "fire";
 
@@ -283,6 +284,7 @@ elements.oil.reactions.pyric_nitrite = { "elem1":"nitrol_fuel", "elem2": null },
 elements.hydrogen.reactions.pyrane = { "elem1":"hydroid", "elem2": null },
 elements.fire.reactions.fueled_wood = { "elem1": "fire", "elem2": ["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"] };
 elements.water.reactions.molten_fyrium = { "elem1": null, "elem2":["fire", "explosion"] },
+
 elements.brioche.breakInto = "fancy_flour";
 elements.fyrium.breakInto = "fire";
 
