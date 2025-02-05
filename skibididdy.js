@@ -41,7 +41,6 @@ elements.tocopheryl_acetate = {
     temp: 30,
     tempHigh: 96,
     stateHigh: ["tocopheryl_gas"],
-    desc: "it can be evaporated",
 	reactions: {
         "oil": { elem1:"baby_oil", elem2:"baby_oil" },
     }
@@ -57,7 +56,6 @@ elements.baby_oil = {
     temp: 30,
     tempHigh: 96,
     stateHigh: ["tocopheryl_gas"],
-    desc: "it can be evaporated",
 	reactions: {
         "uranium": { elem1: null, elem2:"diddium" },
     }
@@ -70,7 +68,6 @@ elements.diddium = {
     temp: 30,
     tempHigh: 80,
     tempLow: 10,
-    burn: 55,
 	reactions: {
         "baby_oil": { elem1:"diddium", elem2:"unstable_diddium" },
     }
@@ -83,32 +80,7 @@ elements.unstable_diddium = {
     temp: 30,
     tempHigh: 80,
     tempLow: 10,
-    burn: 55,
 	reactions: {
         "diddium": { elem1:"freakium", elem2:"baby_oil" },
     }
-};
-
-elements.metal = {
-    color: "#1017ad",
-    behavior: behaviors.WALL,
-    category: "solids",
-    temp: 19,
-    tempHigh: 100,
-    tempLow: -20,
-    stateHigh: ["skibidi_aresium"],
-    stateLow: ["magma", "electric"],
-    burn: 0,
-    conduct: 1,
-};
-
-elements.molten = {
-    color: "#ad1051",
-    behavior: behaviors.MOLTEN,
-    category: "states",
-    temp: 100,
-    tempHigh: 153,
-    stateHigh: ["tnt", "molten_iron", "copper", "explosion"],
-    burn: 0,
-    conduct: 1,
 };
