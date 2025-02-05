@@ -72,7 +72,7 @@ elements.diddium = {
     tempLow: 10,
     burn: 55,
 	reactions: {
-        "diddium": { elem1:"diddium", elem2:"unstable_diddium" },
+        "baby_oil": { elem1:"diddium", elem2:"unstable_diddium" },
     }
 };
 
@@ -85,7 +85,7 @@ elements.unstable_diddium = {
     tempLow: 10,
     burn: 55,
 	reactions: {
-        "unstable_diddium": { elem1:"freakium", elem2:"baby_oil" },
+        "diddium": { elem1:"freakium", elem2:"baby_oil" },
     }
 };
 
