@@ -144,7 +144,7 @@ elements.pyrane = {
     stateLow: ["fyrium"],
     reactions: {
         "ash": { elem1: null, elem2:"pyric_nitrite" },
-	"air": { elem1:"pyrane", elem2:"fire" },
+	"dirt": { elem1:"pyrane", elem2:"fire" },
     }
 };
 
@@ -154,6 +154,7 @@ elements.pyric_nitrite = {
     category: "powders",
     state: "solid",
     temp: 20,
+    conduct: 1,
     reactions: {
         "iron": { elem1:"pyric_nitrite", elem2:"pyric_rust" },
 	"oil": { elem1: null, elem2:"nitrol_fuel" },
@@ -189,6 +190,9 @@ elements.molten_fyrium = {
     temp: 40,
     tempLow: -20,
     stateLow: ["fyrium"],
+    reactions: {
+        "water": { elem1:"fire", elem2:"water" }
+    }
 };
 
 elements.nitrol_fuel = {
@@ -210,6 +214,28 @@ elements.fueled_wood = {
     temp: 20,
     tempHigh: 30,
     stateHigh: ["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"],
+};
+
+elements.hydroid = {
+    color: "#3a0ca6",
+    behavior: behaviors.LIQUID,
+    category: "liquids",
+    state: "liquid",
+    temp: 20,
+    tempHigh: 100,
+    density: 12,
+    stateHigh: ["pyrane", "steam"],
+    reactions: {
+        "fire": { elem1: "hydroid", elem2:"explosion" },
+	"body": { elem1: "hydroid", elem2:"fyrium" },
+        "head": { elem1: "hydroid", elem2:"pyrane" },
+        "water": { elem1: "hydroid", elem2:"hydroid" },
+        "syrup": { elem1: "hydroid", elem2:"hydroid" },
+	"magma": { elem1: "hydroid", elem2:"hydroid" },
+	"oil": { elem1: "hydroid", elem2:"hydroid" },
+        "juice": { elem1: "hydroid", elem2:"hydroid" },
+        "syrup": { elem1: "hydroid", elem2:"hydroid" },
+    }
 };
 
 //by someone named spencer
