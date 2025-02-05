@@ -12,7 +12,7 @@ elements.tocopherol = {
 
 elements.freakium = {
     color: "#ff4fed",
-    behavior: behaviors.GAS,
+    behavior: behaviors.DGAS,
     category: "gases",
     state: "gas",
     density: 720,
@@ -86,4 +86,42 @@ elements.baby_oil = {
         "uranium": { elem1: null, elem2:"diddium" },
         "diddium": { elem1:"unstable_diddium", elem2:"freakium" },
     }
+};
+
+//skibidi
+
+elements.stupidine = {
+    color: "#4e4b75",
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    temp: 20,
+    tempHigh: 137,
+    stateHigh: "liquid_stupidine",
+    tempLow: -237.15,
+    stateLow: "activated_stupidine",
+};
+
+elements.liquid_stupidine = {
+    color: ["#5328c9", "4089e3", "a15d58"],
+    behavior: behaviors.AGLIQUID,
+    category: "liquids",
+    state: "liquid",
+    temp: 140,
+    tempHigh: 500,
+    stateHigh: "stupidine_gas",
+    tempLow: 25,
+    stateLow: "stupidine",
+};
+
+elements.stupidine_gas = {
+    color: "#802d3a",
+    behavior: behaviors.GAS,
+    category: "liquids",
+    state: "liquid",
+    temp: 500,
+    tempHigh: 1000,
+    stateHigh: ["plasma", "explosion"],
+    tempLow: 200,
+    stateLow: "liquid_stupidine",
 };
