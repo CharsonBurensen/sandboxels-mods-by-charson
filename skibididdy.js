@@ -135,14 +135,26 @@ elements.activated_stupidine = {
     }
 };
 
-elements.skibidine = {
-    color: ["51649c", "949c51"],
-    behavior: behaviors.SUPERFLUID,
+elements.skibidi_soda = {
+    color: "#0f1936",
+    behavior: behaviors.LIQUID,
     category: "liquids",
     state: "liquid",
         reactions: {
-        "carbon_dioxide": { elem1:"skibidi_soda", elem2: null },
+        "skibidi_soda": { elem1:"skibidiness", elem2: null },
+        "head": { elem1: null, elem2:"head" },
     }
 };
 
 
+
+elements.skibidiness = {
+    color: "#567de8",
+    behavior: behaviors.DGAS,
+    category: "gases",
+    state: "gas",
+    temp: 20,
+        reactions: {
+        "water": { elem1:"skibidiness", elem2:"skibidi_soda"},
+    }
+};
