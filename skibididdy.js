@@ -100,5 +100,3 @@ elements.molten = {
     burn: 0,
     conduct: 1,
 };
-
-elements.fyrium.breakInto = "fire";
