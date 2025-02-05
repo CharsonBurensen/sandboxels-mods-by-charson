@@ -6,7 +6,7 @@ elements.tocopherol = {
     state: "solid",
     density: 100,
     reactions: {
-        "sodium_acetate": { elem1: "tocopheryl_acetate", elem2: "sodium" }
+        "sodium_acetate": { elem1:"tocopheryl_acetate", elem2:"sodium" },
     }
 };
 
@@ -42,7 +42,7 @@ elements.tocopheryl_acetate = {
     tempHigh: 96,
     stateHigh: ["tocopheryl_gas"],
     reactions: {
-        "oil": { elem1: "baby_oil", elem2: "baby_oil" }
+        "oil": { elem1:"baby_oil", elem2:"baby_oil" },
     }
 };
 
@@ -57,7 +57,7 @@ elements.baby_oil = {
     tempHigh: 96,
     stateHigh: ["tocopheryl_gas"],
     reactions: {
-        "uranium": { elem1: null, elem2: "diddium" }
+        "uranium": { elem1: null, elem2:"diddium" },
     }
 };
 
@@ -69,7 +69,7 @@ elements.diddium = {
     tempHigh: 80,
     tempLow: 10,
     reactions: {
-        "baby_oil": { elem1: "diddium", elem2: "unstable_diddium" }
+        "baby_oil": { elem1:"diddium", elem2:"unstable_diddium" },
     }
 };
 
@@ -81,6 +81,6 @@ elements.unstable_diddium = {
     tempHigh: 80,
     tempLow: 10,
     reactions: {
-        "diddium": { elem1: "freakium", elem2: "baby_oil" }
+        "diddium": { elem1:"freakium", elem2:"baby_oil" },
     }
 };
