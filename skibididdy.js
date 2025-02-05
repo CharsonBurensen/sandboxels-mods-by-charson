@@ -67,3 +67,5 @@ elements.unstable_diddium = {
     tempLow: 10,
         reactions: {
         "diddium": { elem1:"freakium", elem2: null },
+        }
+};
