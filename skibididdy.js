@@ -18,9 +18,10 @@ elements.freakium = {
     density: 720,
     temp: 80,
     tempLow: 30,
-    reactions: {
+        reactions: {
         "head": { elem1:"baby_oil", elem2:"meat" },
         "body": { elem1:"baby_oil", elem2:"meat" },
+    }
 };
 
 elements.tocopheryl_gas = {
