@@ -88,8 +88,6 @@ elements.baby_oil = {
     }
 };
 
-//skibidi
-
 elements.stupidine = {
     color: "#4e4b75",
     behavior: behaviors.WALL,
@@ -114,27 +112,6 @@ elements.liquid_stupidine = {
     stateLow: "stupidine",
 };
 
-elements.skibidine = {
-    color: ["51649c", "949c51"],
-    behavior: behaviors.SUPERFLUID,
-    category: "liquids",
-    state: "liquid",
-        reactions: {
-        "carbon_dioxide": { elem1:"skibidi_soda", elem2: null },
-    }
-};
-
-elements.skibidi_soda = {
-    color: "#0f1936",
-    behavior: behaviors.LIQUID,
-    category: "liquids",
-    state: "liquid",
-        reactions: {
-        "skibidi_soda": { elem1:"skibidiness", elem2: null },
-        "head": { elem1: null, elem2:"head" },
-    }
-};
-
 elements.stupidine_gas = {
     color: "#802d3a",
     behavior: behaviors.GAS,
@@ -145,16 +122,5 @@ elements.stupidine_gas = {
     stateHigh: ["plasma", "explosion"],
     tempLow: 200,
     stateLow: "liquid_stupidine",
-};
-
-elements.skibidiness = {
-    color: "#567de8",
-    behavior: behaviors.DGAS,
-    category: "gases",
-    state: "gas",
-    temp: 20,
-        reactions: {
-        "water": { elem1:"skibidiness", elem2:"skibidi_soda"},
-    }
 };
 
