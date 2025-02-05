@@ -77,8 +77,8 @@ elements.baby_oil = {
     temp: 30,
     tempHigh: 96,
     stateHigh: ["tocopheryl_gas"],
-    reactions: {
-    "uranium": { elem1: null, elem2:"diddium" },
+        reactions: {
+        "uranium": { elem1: null, elem2:"diddium" },
     }
 };
 
