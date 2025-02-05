@@ -66,7 +66,7 @@ elements.unstable_diddium = {
     tempHigh: 80,
     tempLow: 10,
         reactions: {
-        "diddium": { elem1:"freakium", elem2: null },
+        "diddium": { elem1:"freakium", elem2:baby_oil" },
     }
 };
 
@@ -74,13 +74,10 @@ elements.baby_oil = {
     color: "#ffeec",
     behavior: behaviors.LIQUID,
     category: "liquids",
-    viscosity: 10000,
-    density: 720,
     temp: 30,
     tempHigh: 96,
     stateHigh: ["tocopheryl_gas"],
     reactions: {
-        "uranium": { elem1: null, elem2: "diddium" }
-    }
+    "uranium": { elem1: null, elem2:"diddium" },
 };
 
