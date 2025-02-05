@@ -40,7 +40,7 @@ elements.tocopheryl_acetate = {
     density: 720,
     temp: 30,
     tempHigh: 96,
-    stateHigh: ["tocopheryl gas"],
+    stateHigh: ["tocopheryl_gas"],
     desc: "it can be evaporated",
 	reactions: {
         "oil": { elem1:"baby_oil", elem2:"baby_oil" },
@@ -56,7 +56,7 @@ elements.baby_oil = {
     density: 720,
     temp: 30,
     tempHigh: 96,
-    stateHigh: ["tocopheryl gas"],
+    stateHigh: ["tocopheryl_gas"],
     desc: "it can be evaporated",
 	reactions: {
         "uranium": { elem1: null, elem2:"diddium" },
