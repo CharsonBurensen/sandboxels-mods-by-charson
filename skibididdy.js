@@ -6,7 +6,7 @@ elements.tocopherol = {
     state: "solid",
     density: 100,
 	reactions: {
-        "sodium_acetate": { elem1:"tocopheryl_acetate", elem2:"tocopheryl_acetate" },
+        "sodium_acetate": { elem1:"tocopheryl_acetate", elem2:"sodium" },
     }
 };
 
@@ -21,7 +21,7 @@ elements.freakium = {
 };
 
 elements.tocopheryl_gas = {
-    color: "#ff4fed",
+    color: "#96e3d4",
     behavior: behaviors.GAS,
     category: "gases",
     state: "gas",
@@ -47,19 +47,33 @@ elements.tocopheryl_acetate = {
     }
 };
 
-elements.solid = {
-    color: ["#c2770e", "#b06227"],
+elements.baby_oil = {
+    color: "#ffeec",
+    behavior: behaviors.LIQUID,
+    category: "liquids",
+    viscosity: 25,
+    state: "liquid",
+    density: 720,
+    temp: 30,
+    tempHigh: 96,
+    stateHigh: ["tocopheryl gas"],
+    desc: "it can be evaporated",
+	reactions: {
+        "uranium": { elem1: null, elem2:"diddium" },
+    }
+};
+
+elements.diddium = {
+    color: ["#210742", "#9e20d4"],
     behavior: behaviors.STURDYPOWDER,
     category: "food",
     temp: 30,
     tempHigh: 80,
     tempLow: 10,
-    stateHigh: ["fragrance", "ash"],
-    stateLow: ["cold_brioche"],
     burn: 55,
     isFood: true,
 	reactions: {
-        "head": { elem1: null, elem2:"head" },
+        "diddium": { elem1:["diddium", "freakium"], elem2:["diddium", "baby_oil"] },
     }
 };
 
