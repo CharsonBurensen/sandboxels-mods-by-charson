@@ -245,6 +245,7 @@ elements.kai_cenat = {
     category: "special",
     state: "solid",
     desc: "wow",
+    conduct: 1,
 };
 
 elements.kai_cenat.behavior = [
@@ -252,6 +253,16 @@ elements.kai_cenat.behavior = [
     ["CH:kai_cenat","XX","CH:kai_cenat"],
     ["M2","M1 AND CH:kai_cenat","M2"]
 ];
+
+elements.kai_eraser = {
+    color: ["e00b0b", "#ff0000", "#00ff00", "#0000ff"],
+    tool: function(pixel) {
+        if (pixel.element == "kai_cenat") {
+            pixel.element = "foam"
+        }
+    },
+    category: "tools",
+};
 
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
 elements.water.reactions.fancy_flour = { "elem1": null, "elem2":"fancy_dough" },
