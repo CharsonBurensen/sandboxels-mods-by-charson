@@ -7,6 +7,9 @@ elements.syrup = {
     density: 720,
     isFood: true,
     desc: "maple syrup",
+	reactions: {
+        "head": { elem1: null, elem2:"head" },
+    }
 };
 
 elements.akshajium = {
@@ -41,6 +44,9 @@ elements.fancy_dough = {
     tempHigh: 50,
     stateHigh: ["steam", "brioche_steam"],
     desc: "it can be evaporated",
+	reactions: {
+        "head": { elem1: null, elem2:"head" },
+    }
 };
 
 elements.brioche = {
@@ -54,6 +60,9 @@ elements.brioche = {
     stateLow: ["cold_brioche"],
     burn: 55,
     isFood: true,
+	reactions: {
+        "head": { elem1: null, elem2:"head" },
+    }
 };
 
 elements.aresium = {
