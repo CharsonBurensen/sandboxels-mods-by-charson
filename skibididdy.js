@@ -100,6 +100,7 @@ elements.stupidine = {
     stateLow: "activated_stupidine",
         reactions: {
         "stupidine": { elem1: "stupidine", elem2:"fragrance" },
+    }
 };
 
 elements.liquid_stupidine = {
@@ -114,6 +115,7 @@ elements.liquid_stupidine = {
     stateLow: "stupidine",
         reactions: {
         "liquid_stupidine": { elem1: "liquid_stupidine", elem2:"slime" },
+    }
 };
 
 elements.stupidine_gas = {
@@ -128,6 +130,7 @@ elements.stupidine_gas = {
     stateLow: "liquid_stupidine",
         reactions: {
         "stupidine_gas": { elem1: "stupidine_gas", elem2:"stench" },
+    }
 };
 
 elements.activated_stupidine = {
