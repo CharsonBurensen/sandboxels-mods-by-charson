@@ -28,7 +28,7 @@ elements.tocopheryl_gas = {
     density: 720,
     temp: 80,
     tempLow: 0,
-    stateLow: "tocopherol",
+    stateLow: ["tocopherol"],
 };
 
 elements.tocopheryl_acetate = {
@@ -84,5 +84,3 @@ elements.unstable_diddium = {
         "diddium": { elem1:"freakium", elem2:"baby_oil" },
     }
 };
-
-
