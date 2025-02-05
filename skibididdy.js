@@ -5,7 +5,7 @@ elements.tocopherol = {
     viscosity: 10000,
     state: "solid",
     density: 100,
-    reactions: {
+        reactions: {
         "sodium_acetate": { elem1:"tocopheryl_acetate", elem2:"sodium" },
     }
 };
@@ -41,7 +41,7 @@ elements.tocopheryl_acetate = {
     temp: 30,
     tempHigh: 96,
     stateHigh: ["tocopheryl_gas"],
-    reactions: {
+        reactions: {
         "oil": { elem1:"baby_oil", elem2:"baby_oil" },
     }
 };
@@ -50,13 +50,13 @@ elements.baby_oil = {
     color: "#ffeec",
     behavior: behaviors.LIQUID,
     category: "liquids",
-    viscosity: 25,
+    viscosity: 10000,
     state: "liquid",
     density: 720,
     temp: 30,
     tempHigh: 96,
     stateHigh: ["tocopheryl_gas"],
-    reactions: {
+        reactions: {
         "uranium": { elem1: null, elem2:"diddium" },
     }
 };
@@ -68,7 +68,7 @@ elements.diddium = {
     temp: 30,
     tempHigh: 80,
     tempLow: 10,
-    reactions: {
+        reactions: {
         "baby_oil": { elem1:"diddium", elem2:"unstable_diddium" },
     }
 };
@@ -80,7 +80,7 @@ elements.unstable_diddium = {
     temp: 30,
     tempHigh: 80,
     tempLow: 10,
-    reactions: {
+        reactions: {
         "diddium": { elem1:"freakium", elem2:"baby_oil" },
     }
 };
