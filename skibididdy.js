@@ -70,15 +70,3 @@ elements.unstable_diddium = {
     }
 };
 
-elements.baby_oil = {
-    color: "#ffeec",
-    behavior: behaviors.LIQUID,
-    category: "liquids",
-    temp: 30,
-    tempHigh: 96,
-    stateHigh: ["tocopheryl_gas"],
-        reactions: {
-        "uranium": { elem1: null, elem2:"diddium" },
-    }
-};
-
