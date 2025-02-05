@@ -66,14 +66,26 @@ elements.baby_oil = {
 elements.diddium = {
     color: ["#210742", "#9e20d4"],
     behavior: behaviors.STURDYPOWDER,
-    category: "food",
+    category: "powders",
     temp: 30,
     tempHigh: 80,
     tempLow: 10,
     burn: 55,
-    isFood: true,
 	reactions: {
-        "diddium": { elem1:["diddium", "freakium"], elem2:["diddium", "baby_oil"] },
+        "diddium": { elem1:"diddium", elem2:"unstable_diddium" },
+    }
+};
+
+elements.unstable_diddium = {
+    color: ["#210742", "#9e20d4"],
+    behavior: behaviors.WALL,
+    category: "states",
+    temp: 30,
+    tempHigh: 80,
+    tempLow: 10,
+    burn: 55,
+	reactions: {
+        "unstable_diddium": { elem1:"freakium", elem2:"baby_oil" },
     }
 };
 
