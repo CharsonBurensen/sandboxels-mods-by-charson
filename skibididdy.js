@@ -112,7 +112,6 @@ elements.liquid_stupidine = {
     stateHigh: "stupidine_gas",
     tempLow: 25,
     stateLow: "stupidine",
-    breakInto: "skibidine",
 };
 
 elements.skibidine = {
