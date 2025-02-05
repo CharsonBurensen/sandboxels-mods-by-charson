@@ -13,12 +13,16 @@ elements.syrup = {
 };
 
 elements.akshajium = {
-    color: ["#ff0000", "#00ff00", "#0000ff"],
-    behavior: behaviors.LIQUID,
-    category: "liquids",
+    color: ["#a8160c", "##fdff94", "#7d5b46"],
+    behavior: behaviors.WALL,
+    category: "food",
     viscosity: 10000,
-    state: "liquid",
+    state: "solid",
     density: 100,
+    desc: "it's pizza",
+	reactions: {
+        "head": { elem1: null, elem2:"head" },
+    }
 };
 
 elements.brioche_steam = {
@@ -129,6 +133,9 @@ elements.briochify = {
         }
 	if (pixel.element == "steam") {
             pixel.element = "brioche_steam"
+        }
+	if (pixel.element == "kai_cenat") {
+            pixel.element = "brioche"
         }
     },
     category: "tools",
@@ -267,6 +274,9 @@ elements.kai_eraser = {
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
 elements.water.reactions.fancy_flour = { "elem1": null, "elem2":"fancy_dough" },
 elements.wood.reactions.nitrol_fuel = { "elem1":"fueled_wood", "elem2": null },
+elements.brioche.breakInto = "fancy_flour";
+elements.fyrium.breakInto = "fire";
+
 elements.fire.reactions.nitrogen = { "elem1": null, "elem2": "pyrane" },
 elements.ash.reactions.pyrane = { "elem1":"pyric_nitrite", "elem2": null },
 elements.oil.reactions.pyric_nitrite = { "elem1":"nitrol_fuel", "elem2": null },
