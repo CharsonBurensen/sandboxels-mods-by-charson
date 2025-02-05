@@ -124,3 +124,14 @@ elements.stupidine_gas = {
     stateLow: "liquid_stupidine",
 };
 
+elements.activated_stupidine = {
+    color: "#3d2f61",
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    temp: 20,
+        reactions: {
+        "activated_stupidine": { elem1:"explosion", elem2:"explosion" },
+    }
+};
+
