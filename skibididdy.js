@@ -12,12 +12,15 @@ elements.tocopherol = {
 
 elements.freakium = {
     color: "#ff4fed",
-    behavior: behaviors.DGAS,
+    behavior: behaviors.GAS,
     category: "gases",
     state: "gas",
     density: 720,
     temp: 80,
     tempLow: 30,
+    reactions: {
+        "head": { elem1:"baby_oil", elem2:"meat" },
+        "body": { elem1:"baby_oil", elem2:"meat" },
 };
 
 elements.tocopheryl_gas = {
@@ -66,7 +69,8 @@ elements.unstable_diddium = {
     tempHigh: 80,
     tempLow: 10,
         reactions: {
-        "diddium": { elem1:"freakium", elem2:"baby_oil" },
+        "diddium": { elem1:"freakium", elem2:"diddium" },
+        "unstable_diddium": { elem1:"diddium", elem2:"baby_oil" },
     }
 };
 
