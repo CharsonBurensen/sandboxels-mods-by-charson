@@ -45,3 +45,39 @@ elements.tocopheryl_acetate = {
         "oil": { elem1:"baby_oil", elem2:"baby_oil" },
     }
 };
+
+elements.diddium = {
+    color: ["#210742", "#9e20d4"],
+    behavior: behaviors.STURDYPOWDER,
+    category: "powders",
+    temp: 30,
+    tempHigh: 80,
+    tempLow: 10,
+        reactions: {
+        "baby_oil": { elem1:"diddium", elem2:"unstable_diddium" },
+    }
+};
+
+elements.unstable_diddium = {
+    color: ["#210742", "#9e20d4"],
+    behavior: behaviors.WALL,
+    category: "states",
+    temp: 30,
+    tempHigh: 80,
+    tempLow: 10,
+        reactions: {
+        "diddium": { elem1:"freakium", elem2:"baby_oil" },
+    }
+};
+
+elements.baby_oil = {
+    color: "#ffeecc",
+    behavior: behaviors.LIQUID,
+    category: "liquids",
+    temp: 30,
+    tempHigh: 96,
+    stateHigh: ["tocopheryl_gas"],
+        reactions: {
+        "uranium": { elem1: null, elem2:"diddium" },
+    }
+};
