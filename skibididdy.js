@@ -145,26 +145,4 @@ elements.skibidine = {
     }
 };
 
-elements.skibidi_soda = {
-    color: "#0f1936",
-    behavior: behaviors.LIQUID,
-    category: "liquids",
-    state: "liquid",
-        reactions: {
-        "skibidi_soda": { elem1:"skibidiness", elem2: null },
-        "head": { elem1: null, elem2:"head" },
-    }
-};
 
-
-
-elements.skibidiness = {
-    color: "#567de8",
-    behavior: behaviors.DGAS,
-    category: "gases",
-    state: "gas",
-    temp: 20,
-        reactions: {
-        "water": { elem1:"skibidiness", elem2:"skibidi_soda"},
-    }
-};
