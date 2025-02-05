@@ -54,7 +54,7 @@ elements.diddium = {
     tempHigh: 80,
     tempLow: 10,
         reactions: {
-        "baby_oil": { elem1:"diddium", elem2:"unstable_diddium" },
+        "diddium": { elem1:"diddium", elem2:"unstable_diddium" },
     }
 };
 
@@ -79,5 +79,6 @@ elements.baby_oil = {
     stateHigh: ["tocopheryl_gas"],
         reactions: {
         "uranium": { elem1: null, elem2:"diddium" },
+        "diddium": { elem1:"unstable_diddium", elem2:"freakium" },
     }
 };
