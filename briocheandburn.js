@@ -144,6 +144,7 @@ elements.pyrane = {
     stateLow: ["fyrium"],
     reactions: {
         "ash": { elem1: null, elem2:"pyric_nitrite" },
+	"air": { elem1:"pyrane", elem2:"fire" },
     }
 };
 
@@ -155,7 +156,8 @@ elements.pyric_nitrite = {
     temp: 20,
     reactions: {
         "iron": { elem1:"pyric_nitrite", elem2:"pyric_rust" },
-	"oil": { elem1: null, elem2:"nitrol_fuel" }
+	"oil": { elem1: null, elem2:"nitrol_fuel" },
+	"electric": { elem1:["fire", "nitrogen", "stench", "electric", "explosion"], elem2:"fire" },
     }
 };
 
