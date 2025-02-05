@@ -98,6 +98,8 @@ elements.stupidine = {
     stateHigh: "liquid_stupidine",
     tempLow: -237.15,
     stateLow: "activated_stupidine",
+        reactions: {
+        "stupidine": { elem1: "stupidine", elem2:"fragrance" },
 };
 
 elements.liquid_stupidine = {
@@ -110,6 +112,8 @@ elements.liquid_stupidine = {
     stateHigh: "stupidine_gas",
     tempLow: 25,
     stateLow: "stupidine",
+        reactions: {
+        "liquid_stupidine": { elem1: "liquid_stupidine", elem2:"slime" },
 };
 
 elements.stupidine_gas = {
@@ -119,9 +123,11 @@ elements.stupidine_gas = {
     state: "gas",
     temp: 500,
     tempHigh: 1000,
-    stateHigh: ["plasma", "explosion"],
+    stateHigh: ["nuke", "explosion"],
     tempLow: 200,
     stateLow: "liquid_stupidine",
+        reactions: {
+        "stupidine_gas": { elem1: "stupidine_gas", elem2:"stench" },
 };
 
 elements.activated_stupidine = {
@@ -141,16 +147,26 @@ elements.skibidi_soda = {
     category: "liquids",
     state: "liquid",
         reactions: {
-        "skibidi_soda": { elem1:"skibidiness", elem2: null },
+        "skibidi_soda": { elem1:"skibidi_soda", elem2:"skibidiness" },
         "head": { elem1: null, elem2:"head" },
     }
 };
 
+elements.skibidine = {
+    color: ["#51649c", "949c51"],
+    behavior: behaviors.LIQUID,
+    category: "liquids",
+    state: "liquid",
+        reactions: {
+        "carbon_dioxide": { elem1:"skibidi_soda", elem2:"skibidi_soda" },
+        "iron": { elem1: "magma", elem2:"stupidine" },
+    }
+};
 
 
 elements.skibidiness = {
     color: "#567de8",
-    behavior: behaviors.DGAS,
+    behavior: behaviors.GAS,
     category: "gases",
     state: "gas",
     temp: 20,
