@@ -19,7 +19,7 @@ elements.akshajium = {
     viscosity: 10000,
     state: "solid",
     density: 100,
-    desc: "it's pizza",
+    desc: "its pizza",
 	reactions: {
         "head": { elem1: null, elem2:"head" },
     }
