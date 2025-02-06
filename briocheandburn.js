@@ -226,6 +226,7 @@ elements.fueled_wood = {
     stateHigh: ["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"],
     reactions: {
         "fire": { elem1:["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"], elem2:["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"] },
+    }
 };
 
 elements.hydroid = {
