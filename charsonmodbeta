@@ -38,6 +38,7 @@ elements.brioche_steam = {
     density: 720,
     temp: 80,
     tempLow: 30,
+	desc: "how does this make any sense?",
     stateLow: ["brioche"],
     isFood: true,
 };
@@ -84,6 +85,7 @@ elements.aresium = {
     tempLow: -20,
     stateHigh: ["skibidi_aresium"],
     stateLow: ["magma", "electric"],
+	desc: "it's a transition metal named after mars",
     burn: 0,
     conduct: 1,
 };
