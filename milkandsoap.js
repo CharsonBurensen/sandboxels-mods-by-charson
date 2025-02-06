@@ -136,5 +136,6 @@ elements.purificanol = {
 	"molten_iron": { elem1: "foam", elem2: "purium" },
 	"molten_copper": { elem1: "foam", elem2: "purium" },
 	"rust": { elem1: "foam", elem2: "purium_dust" },
+	"water": { elem1: "foam", elem2: "bubble" },
     },
 };
