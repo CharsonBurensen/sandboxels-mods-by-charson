@@ -13,7 +13,7 @@ elements.maple_syrup = {
 };
 
 elements.radioactive_maple_seed = {
-    color: "[#52d156, #5d875f]",
+    color: ["#52d156", "#5d875f"],
     behavior: behaviors.POWDER,
     category: "life",
     viscosity: 100000,
@@ -71,7 +71,7 @@ elements.maple_milk = {
     behavior: behaviors.LIQUID,
     category: "food",
     viscosity: 100000,
-    state: "solid",
+    state: "liquid",
     desc: "a great drink",
     isFood: true,
 	reactions: {
