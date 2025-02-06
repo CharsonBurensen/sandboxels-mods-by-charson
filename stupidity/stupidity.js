@@ -12,5 +12,6 @@ elements.stupid = {
 	  reactions: {
         "water": { elem1:"blaster", elem2:"nuke" },
         "stupid": { elem1:"cloner", elem2:"nuke" },
+	"dirt": { elem1:"tornado", elem2:"stupid" },
     }
 };
