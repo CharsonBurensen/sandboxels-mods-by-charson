@@ -45,6 +45,7 @@ elements.almond = {
     tempLow: 10,
     tempHigh: 40,
     stateHigh: "nut_sauce",
+    breakInto: "nut_sauce",
     stateLow: "cloner",
     conduct: 1,
 	  reactions: {
@@ -70,5 +71,26 @@ elements.nut_sauce = {
     conduct: 1,
 	  reactions: {
         "head": { elem1: null, elem2:"head" },
+    }
+};
+
+elements.no = {
+    color: ["#ffffff", "#7a1d1d", "#000000"],
+    behavior: behaviors.POWDER,
+    category: "weapons",
+    viscosity: 10000,
+    state: "solid",
+    density: 100,
+    desc: "stupid",
+    temp: 20,
+    tempLow: 0,
+    tempHigh: 40,
+    stateLow: "ice",
+    stateHigh: "magma",
+    conduct: 1,
+	  reactions: {
+        "almond": { elem1:"hot_bomb", elem2:"cold_bomb" },
+	"nut_sauce": { elem1:"heat_ray", elem2:"freeze_ray" },
+	"head": { elem1: null, elem2:"head" },
     }
 };
