@@ -113,15 +113,36 @@ elements.purium_dust = {
 };
 
 elements.invalid = {
-    color: ["#cededd", "#95c7c4", "#ffffff"],
+    color: ["#ff00dc", "#010001"],
     behavior: behaviors.POWDER,
-    category: "soaps",
+    category: "machines",
     state: "solid",
-    tempHigh: 125,
+    tempHigh: 9999,
     desc: "INVALID DESCRIPTION",
-    stateHigh: "purity",
-    stain: 1,
+    stateHigh: "fallout",
+    tempLow: -40,
+    stateLow: "random",
     conduct: 1,
+    breakInto: "electric",
+    reactions: {
+        "electric": { elem1: "null", elem2:"null" },
+        "invalid": { elem1: "invalid", elem2:"malware" },
+    }
+};
+
+elements.null = {
+    color: ["#514a57", "#2c1040"],
+    behavior: behaviors.WALL,
+    category: "machines",
+    state: "solid",
+    desc: "null",
+    tempLow: -40,
+    breakInto: "random",
+    stateLow: "unknown",
+    conduct: 1,
+    reactions: {
+        "electric": { elem1: "null", elem2:"null" },
+    }
 };
 
 elements.purificanol = {
@@ -152,5 +173,6 @@ elements.purificanol = {
 	"rust": { elem1: "foam", elem2: "purium_dust" },
 	"water": { elem1: "foam", elem2: "bubble" },
 	"mudstone": { elem1: "foam", elem2: "porcelain" },
+    	"thermite": { elem1: "foam", elem2: "null" },
     },
 };
