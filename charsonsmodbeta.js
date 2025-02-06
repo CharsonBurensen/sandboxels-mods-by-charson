@@ -474,6 +474,23 @@ elements.skibidiness = {
     }
 };
 
+elements.stupid = {
+    color: ["#eb3486", "#0affda", "#c7fa89"],
+    behavior: behaviors.POWDER,
+    category: "weapons",
+    viscosity: 10000,
+    state: "solid",
+    density: 100,
+    desc: "stupid",
+    temp: 20,
+    tempLow: 19,
+    tempHigh: 21,
+	  reactions: {
+        "water": { elem1:"blaster", elem2:"nuke" },
+        "stupid": { elem1:"cloner", elem2:"nuke" },
+    }
+};
+
 //idk how these work and most of them don't idk why but this is just a beta so...
 
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
