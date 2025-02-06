@@ -443,9 +443,11 @@ elements.skibidi_soda = {
     behavior: behaviors.LIQUID,
     category: "liquids",
     state: "liquid",
+    tempHigh: 100,
+    stateHigh: ["skibidiness", "skibidine"],
         reactions: {
-        "skibidi_soda": { elem1:"skibidi_soda", elem2:"skibidiness" },
-        "head": { elem1: null, elem2:"head" },
+        "oxygen": { elem1:"skibidi_soda", elem2:"skibidiness" },
+        "head": { elem1: "skibidiness", elem2:"head" },
     }
 };
 
