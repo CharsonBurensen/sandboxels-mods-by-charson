@@ -65,7 +65,7 @@ elements.nut_sauce = {
     temp: 20,
     tempLow: 0,
     tempHigh: 50,
-    stateHigh: "incinerate",
+    stateHigh: ["blaster", "floating_cloner"],
     stateLow: "glue",
     conduct: 1,
 	  reactions: {
