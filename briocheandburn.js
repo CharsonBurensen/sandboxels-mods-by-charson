@@ -64,6 +64,7 @@ elements.brioche = {
     stateLow: ["cold_brioche"],
     burn: 55,
     isFood: true,
+    breakInto: "fancy_flour",
 	reactions: {
         "head": { elem1: null, elem2:"head" },
     }
@@ -152,6 +153,7 @@ elements.pyrane = {
     reactions: {
         "ash": { elem1: null, elem2:"pyric_nitrite" },
 	"dirt": { elem1:"pyrane", elem2:"fire" },
+	"hydrogen": { elem1:"hydroid", elem2:"hydroid" },
     }
 };
 
@@ -166,6 +168,7 @@ elements.pyric_nitrite = {
         "iron": { elem1:"pyric_nitrite", elem2:"pyric_rust" },
 	"oil": { elem1: null, elem2:"nitrol_fuel" },
 	"electric": { elem1:["fire", "nitrogen", "stench", "electric", "explosion"], elem2:"fire" },
+	"shock": { elem1:["fire", "nitrogen", "stench", "electric", "explosion"], elem2:"fire" },
     }
 };
 
@@ -221,6 +224,8 @@ elements.fueled_wood = {
     temp: 20,
     tempHigh: 30,
     stateHigh: ["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"],
+    reactions: {
+        "fire": { elem1:["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"], elem2:["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"] },
 };
 
 elements.hydroid = {
