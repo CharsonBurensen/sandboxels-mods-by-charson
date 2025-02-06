@@ -79,6 +79,39 @@ elements.maple_milk = {
     }
 };
 
+elements.purity = {
+    color: "#f0f7fc",
+    behavior: behaviors.WALL,
+    category: "soaps",
+    state: "solid",
+    tempHigh: 70,
+    stateHigh: "soap",
+    stain: 1,
+};
+
+elements.purium = {
+    color: "#cededd",
+    behavior: behaviors.WALL,
+    category: "soaps",
+    state: "solid",
+    tempHigh: 125,
+    stateHigh: "purificanol",
+    stain: 1,
+    conduct: 1,
+    breakInto: "purium_dust",
+};
+
+elements.purium_dust = {
+    color: ["#cededd", "#95c7c4", "#ffffff"],
+    behavior: behaviors.POWDER,
+    category: "soaps",
+    state: "solid",
+    tempHigh: 125,
+    stateHigh: "purity",
+    stain: 1,
+    conduct: 1,
+};
+
 elements.purificanol = {
     color: "#ffffff",
     behavior: behaviors.LIQUID,
@@ -94,10 +127,14 @@ elements.purificanol = {
         "ash": { elem1: "foam", elem2: "purity" },
         "rock": { elem1: "foam", elem2: "porcelain" },
         "clay": { elem1: "foam", elem2: "porcelain" },
-        "magma": { elem1: "foam", elem2: "purity" },
+        "magma": { elem1: "foam", elem2: "purium" },
 	"slag": { elem1: "foam", elem2: "purity" },
 	"basalt": { elem1: "foam", elem2: "purity" },
         "slime": { elem1: "foam", elem2: "purity" },
 	"dirty_water": { elem1: "foam", elem2: "water" },
+	"blood": { elem1: "foam", elem2: "water" },
+	"molten_iron": { elem1: "foam", elem2: "purium" },
+	"molten_copper": { elem1: "foam", elem2: "purium" },
+	"rust": { elem1: "foam", elem2: "purium_dust" },
     },
 };
