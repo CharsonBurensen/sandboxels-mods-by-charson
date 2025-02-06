@@ -112,15 +112,27 @@ elements.purium_dust = {
     conduct: 1,
 };
 
+elements.invalid = {
+    color: ["#cededd", "#95c7c4", "#ffffff"],
+    behavior: behaviors.POWDER,
+    category: "soaps",
+    state: "solid",
+    tempHigh: 125,
+    desc: "INVALID DESCRIPTION",
+    stateHigh: "purity",
+    stain: 1,
+    conduct: 1,
+};
+
 elements.purificanol = {
     color: "#ffffff",
     behavior: behaviors.LIQUID,
     category: "soaps",
-    viscosity: 1,
+    viscosity: 100,
     state: "liquid",
     desc: "soap 3.0",
     extinguish: true,
-    isFood: true,
+    density: 999999999,
 	reactions: {
         "dirt": { elem1: "foam", elem2: "purity" },
         "sand": { elem1: "foam", elem2: "purity" },
