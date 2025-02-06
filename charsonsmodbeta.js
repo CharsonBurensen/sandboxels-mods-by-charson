@@ -172,7 +172,7 @@ elements.pyric_nitrite = {
     state: "solid",
     temp: 20,
     conduct: 1,
-	desc: "not to be confused with iron pyrite or anything like that"
+	desc: "not to be confused with iron pyrite or anything like that",
     reactions: {
         "iron": { elem1:"pyric_nitrite", elem2:"pyric_rust" },
 		"oil": { elem1: null, elem2:"nitrol_fuel" },
@@ -200,7 +200,7 @@ elements.fyrium = {
     temp: 20,
     tempHigh: 137,
     stateHigh: ["molten_fyrium"],
-	breakInto: ["fire"],
+    breakInto: ["fire"],
 };
 
 elements.molten_fyrium = {
@@ -352,11 +352,11 @@ elements.diddium = {
     tempHigh: 80,
     tempLow: 10,
         reactions: {
-        "diddium": { elem1:"diddium", elem2:"unstable_diddium" },
+        "diddium": { elem1:"diddium", elem2:"stable_diddium" },
     }
 };
 
-elements.unstable_diddium = {
+elements.stable_diddium = {
     color: ["#210742", "#9e20d4"],
     behavior: behaviors.WALL,
     category: "states",
@@ -365,7 +365,7 @@ elements.unstable_diddium = {
     tempLow: 10,
         reactions: {
         "diddium": { elem1:"freakium", elem2:"diddium" },
-        "unstable_diddium": { elem1:"diddium", elem2:"baby_oil" },
+        "stable_diddium": { elem1:"diddium", elem2:"baby_oil" },
     }
 };
 
@@ -378,13 +378,13 @@ elements.baby_oil = {
     stateHigh: ["tocopheryl_gas"],
         reactions: {
         "uranium": { elem1: null, elem2:"diddium" },
-        "diddium": { elem1:"unstable_diddium", elem2:"freakium" },
+        "diddium": { elem1:"stable_diddium", elem2:"freakium" },
     }
 };
 
 elements.stupidine = {
     color: "#4e4b75",
-    behavior: behaviors.WALL,
+    behavior: behaviors.STURDYPOWDER,
     category: "solids",
     state: "solid",
     temp: 20,
@@ -408,7 +408,7 @@ elements.liquid_stupidine = {
     tempLow: 25,
     stateLow: "stupidine",
         reactions: {
-        "liquid_stupidine": { elem1: "liquid_stupidine", elem2:"slime" },
+        "liquid_stupidine": { elem1:"liquid_stupidine", elem2:"slime" },
     }
 };
 
@@ -423,7 +423,7 @@ elements.stupidine_gas = {
     tempLow: 200,
     stateLow: "liquid_stupidine",
         reactions: {
-        "stupidine_gas": { elem1: "stupidine_gas", elem2:"stench" },
+        "stupidine_gas": { elem1:"stupidine_gas", elem2:"stench" },
     }
 };
 
