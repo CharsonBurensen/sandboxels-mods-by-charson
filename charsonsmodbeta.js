@@ -406,7 +406,7 @@ elements.liquid_stupidine = {
     tempHigh: 500,
     stateHigh: "stupidine_gas",
     tempLow: 25,
-    stateLow: "stupidine",
+    stateLow: "skibidine",
         reactions: {
         "liquid_stupidine": { elem1:"liquid_stupidine", elem2:"slime" },
     }
