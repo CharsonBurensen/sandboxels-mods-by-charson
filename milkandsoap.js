@@ -41,7 +41,7 @@ elements.maple_nut = {
 
 elements.maple_plant = {
     color: "#735e3b",
-    behavior: behaviors.solid,
+    behavior: behaviors.STURDYPOWDER,
     category: "life",
     viscosity: 100000,
     state: "solid",
@@ -54,3 +54,27 @@ elements.maple_plant = {
     }
 };
 
+elements.maple_powder = {
+    color: "#9e6213",
+    behavior: behaviors.POWDER,
+    category: "food",
+    viscosity: 100000,
+    state: "solid",
+    isFood: true,
+	reactions: {
+        "milk": { elem1:"maple_syrup", elem2:"maple_milk" },
+    }
+};
+
+elements.maple_milk = {
+    color: "#f5e3cb",
+    behavior: behaviors.LIQUID,
+    category: "food",
+    viscosity: 100000,
+    state: "solid",
+    desc: "a great drink",
+    isFood: true,
+	reactions: {
+        "head": { elem1: null, elem2:"head" },
+    }
+};
