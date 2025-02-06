@@ -1,6 +1,6 @@
 //it would be cool to put this on the website :D
 //thanks r74n and sandboxels mod devs for the idea for making this and adding so much value to my gaming experience
-//if one needs a desc for the mod list on the website it'd be something around "charson's mods such as random foods and random elements asked for by random people, beta"
+//if one needs a desc for the mod list on the website it'd be something around "charson's mods compiled such as random foods and random elements asked for by random people, beta"
 //thanks!
 
 elements.syrup = {
@@ -155,12 +155,13 @@ elements.pyrane = {
     category: "gases",
     state: "gas",
     temp: 50,
+	desc: "this is a ripoff of nitrogen gas",
     tempLow: -20,
     stateLow: ["fyrium"],
     reactions: {
         "ash": { elem1: null, elem2:"pyric_nitrite" },
-	"dirt": { elem1:"pyrane", elem2:"fire" },
-	"hydrogen": { elem1:"hydroid", elem2:"hydroid" },
+	    "dirt": { elem1:"pyrane", elem2:"fire" },
+	    "hydrogen": { elem1:"hydroid", elem2:"hydroid" },
     }
 };
 
@@ -171,11 +172,12 @@ elements.pyric_nitrite = {
     state: "solid",
     temp: 20,
     conduct: 1,
+	desc: "not to be confused with iron pyrite or anything like that"
     reactions: {
         "iron": { elem1:"pyric_nitrite", elem2:"pyric_rust" },
-	"oil": { elem1: null, elem2:"nitrol_fuel" },
-	"electric": { elem1:["fire", "nitrogen", "stench", "electric", "explosion"], elem2:"fire" },
-	"shock": { elem1:["fire", "nitrogen", "stench", "electric", "explosion"], elem2:"fire" },
+		"oil": { elem1: null, elem2:"nitrol_fuel" },
+		"electric": { elem1:["fire", "nitrogen", "stench", "electric", "explosion"], elem2:"fire" },
+		"shock": { elem1:["fire", "nitrogen", "stench", "electric", "explosion"], elem2:"fire" },
     }
 };
 
@@ -196,15 +198,16 @@ elements.fyrium = {
     category: "solids",
     state: "solid",
     temp: 20,
-    tempHigh: 40,
+    tempHigh: 137,
     stateHigh: ["molten_fyrium"],
+	breakInto: ["fire"],
 };
 
 elements.molten_fyrium = {
     color: "#ffffff",
     behavior: behaviors.MOLTEN,
     category: "states",
-    temp: 40,
+    temp: 137,
     tempLow: -20,
     stateLow: ["fyrium"],
     reactions: {
@@ -244,15 +247,17 @@ elements.hydroid = {
     temp: 20,
     tempHigh: 100,
     density: 12,
+	conduct: 1,
+	desc: "this is NOT water",
     stateHigh: ["pyrane", "steam"],
     reactions: {
         "fire": { elem1: "hydroid", elem2:"explosion" },
-	"body": { elem1: "hydroid", elem2:"fyrium" },
+		"body": { elem1: "hydroid", elem2:"fyrium" },
         "head": { elem1: "hydroid", elem2:"pyrane" },
         "water": { elem1: "hydroid", elem2:"hydroid" },
         "syrup": { elem1: "hydroid", elem2:"hydroid" },
-	"magma": { elem1: "hydroid", elem2:"hydroid" },
-	"oil": { elem1: "hydroid", elem2:"hydroid" },
+		"magma": { elem1: "hydroid", elem2:"hydroid" },
+		"oil": { elem1: "hydroid", elem2:"hydroid" },
         "juice": { elem1: "hydroid", elem2:"hydroid" },
         "syrup": { elem1: "hydroid", elem2:"hydroid" },
     }
@@ -266,6 +271,7 @@ elements.kai_cenat = {
     state: "solid",
     desc: "wow",
     conduct: 1,
+	desc: "someone named spencer told me to add this",
 };
 
 elements.kai_cenat.behavior = [
@@ -284,22 +290,7 @@ elements.kai_eraser = {
     category: "tools",
 };
 
-elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
-elements.water.reactions.fancy_flour = { "elem1": null, "elem2":"fancy_dough" },
-elements.wood.reactions.nitrol_fuel = { "elem1":"fueled_wood", "elem2": null },
-	
-elements.brioche.breakInto = "fancy_flour";
-elements.fyrium.breakInto = "fire";
-
-elements.fire.reactions.nitrogen = { "elem1": null, "elem2": "pyrane" },
-elements.ash.reactions.pyrane = { "elem1":"pyric_nitrite", "elem2": null },
-elements.oil.reactions.pyric_nitrite = { "elem1":"nitrol_fuel", "elem2": null },
-elements.hydrogen.reactions.pyrane = { "elem1":"hydroid", "elem2": null },
-elements.fire.reactions.fueled_wood = { "elem1": "fire", "elem2": ["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"] };
-elements.water.reactions.molten_fyrium = { "elem1": null, "elem2":["fire", "explosion"] },
-
-elements.brioche.breakInto = "fancy_flour";
-elements.fyrium.breakInto = "fire";
+//ok this is the skibididdy mod part
 
 elements.tocopherol = {
     color: "#094237",
@@ -399,7 +390,7 @@ elements.stupidine = {
     temp: 20,
     tempHigh: 137,
     stateHigh: "liquid_stupidine",
-    tempLow: -237.15,
+    tempLow: -31,
     stateLow: "activated_stupidine",
         reactions: {
         "stupidine": { elem1: "stupidine", elem2:"fragrance" },
@@ -448,7 +439,7 @@ elements.activated_stupidine = {
 };
 
 elements.skibidi_soda = {
-    color: "#0f1936",
+    color: "#3279a8",
     behavior: behaviors.LIQUID,
     category: "liquids",
     state: "liquid",
@@ -480,3 +471,22 @@ elements.skibidiness = {
         "water": { elem1:"skibidiness", elem2:"skibidi_soda"},
     }
 };
+
+//idk how these work and most of them don't idk why but this is just a beta so...
+
+elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
+elements.water.reactions.fancy_flour = { "elem1": null, "elem2":"fancy_dough" },
+elements.wood.reactions.nitrol_fuel = { "elem1":"fueled_wood", "elem2": null },
+	
+elements.brioche.breakInto = "fancy_flour";
+elements.fyrium.breakInto = "fire";
+
+elements.fire.reactions.nitrogen = { "elem1": null, "elem2": "pyrane" },
+elements.ash.reactions.pyrane = { "elem1":"pyric_nitrite", "elem2": null },
+elements.oil.reactions.pyric_nitrite = { "elem1":"nitrol_fuel", "elem2": null },
+elements.hydrogen.reactions.pyrane = { "elem1":"hydroid", "elem2": null },
+elements.fire.reactions.fueled_wood = { "elem1": "fire", "elem2": ["rocket", "pyrane", "nitrol_fuel", "explosion", "stench"] };
+elements.water.reactions.molten_fyrium = { "elem1": null, "elem2":["fire", "explosion"] },
+
+elements.brioche.breakInto = "fancy_flour";
+elements.fyrium.breakInto = "fire";
