@@ -119,6 +119,7 @@ elements.purificanol = {
     viscosity: 1,
     state: "liquid",
     desc: "soap 3.0",
+    extinguish: true,
     isFood: true,
 	reactions: {
         "dirt": { elem1: "foam", elem2: "purity" },
@@ -134,8 +135,10 @@ elements.purificanol = {
 	"dirty_water": { elem1: "foam", elem2: "water" },
 	"blood": { elem1: "foam", elem2: "water" },
 	"molten_iron": { elem1: "foam", elem2: "purium" },
+	"molten_dirt": { elem1: "foam", elem2: "purium" },
 	"molten_copper": { elem1: "foam", elem2: "purium" },
 	"rust": { elem1: "foam", elem2: "purium_dust" },
 	"water": { elem1: "foam", elem2: "bubble" },
+	"mudstone": { elem1: "foam", elem2: "porcelain" },
     },
 };
