@@ -78,3 +78,26 @@ elements.maple_milk = {
         "head": { elem1: null, elem2:"head" },
     }
 };
+
+elements.purificanol = {
+    color: "#ffffff",
+    behavior: behaviors.LIQUID,
+    category: "soaps",
+    viscosity: 1,
+    state: "liquid",
+    desc: "soap 3.0",
+    isFood: true,
+	reactions: {
+        "dirt": { elem1: "foam", elem2: "purity" },
+        "sand": { elem1: "foam", elem2: "purity" },
+        "dust": { elem1: "foam", elem2: "purity" },
+        "ash": { elem1: "foam", elem2: "purity" },
+        "rock": { elem1: "foam", elem2: "porcelain" },
+        "clay": { elem1: "foam", elem2: "porcelain" },
+        "magma": { elem1: "foam", elem2: "purity" },
+	"slag": { elem1: "foam", elem2: "purity" },
+	"basalt": { elem1: "foam", elem2: "purity" },
+        "slime": { elem1: "foam", elem2: "purity" },
+	"dirty_water": { elem1: "foam", elem2: "water" },
+    },
+};
