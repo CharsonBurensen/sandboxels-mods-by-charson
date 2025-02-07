@@ -270,7 +270,7 @@ elements.rad_ant = {
   	reactions: {
         "dirt": { elem1:"rad_ant", elem2:"radiation" },
         "grass": { elem1:"rad_ant", elem2:"radioactive_maple_seed" },
-	"ant": { elem1:"rad_ant", elem: null },
-	"rock": { elem1:"rad_ant", elem:"uranium" },
+	"ant": { elem1:"rad_ant", elem2:"rad_ant" },
+	"rock": { elem1:"rad_ant", elem2:"uranium" },
     }
 };
