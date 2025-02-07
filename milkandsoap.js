@@ -262,7 +262,7 @@ elements.purificanol = {
 
 elements.rad_ant = {
     color: ["#6ceb36", "#50e012"],
-    behavior: behaviors.CRAWLER,
+    behavior: behaviors.LIQUID,
     category: "life",
     state: "solid",
     desc: "uh oh",
