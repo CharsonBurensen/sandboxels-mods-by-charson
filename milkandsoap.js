@@ -49,6 +49,7 @@ elements.maple_plant = {
     isFood: true,
     desc: "I dont think this is biologically accurate",
     breakInto: "dead_plant",
+    burn: 90,
 	reactions: {
         "dirt": { elem1:"maple_plant", elem2:"maple_nut" },
         "plant": { elem1:"maple_plant", elem2:"maple_plant" },
@@ -66,9 +67,44 @@ elements.maple_powder = {
     isFood: true,
 	reactions: {
         "milk": { elem1:"maple_syrup", elem2:"maple_milk" },
+	"clay": { elem1: null, elem2:["red_terracotta", "orange_terracotta", "yellow_terracotta", "green_terracotta, "teal_terracotta"] },
     }
 };
 
+elements.red_terracotta = {
+    color: "#c96363",
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+};
+
+elements.orange_terracotta = {
+    color: "#c98c63",
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+};
+
+elements.yellow_terracotta = {
+    color: "#c9ae63",
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+};
+
+elements.green_terracotta = {
+    color: "#63c96d",
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+};
+
+elements.teal_terracotta = {
+    color: "#63c994",
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+};
 elements.maple_milk = {
     color: "#f5e3cb",
     behavior: behaviors.LIQUID,
