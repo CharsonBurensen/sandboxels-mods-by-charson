@@ -388,3 +388,18 @@ elements.stupid_particle = {
         "stupid_particle": { elem1:"neutron", elem2:"nuke" },
     }
 };
+
+elements.boom_boom_particle = {
+    color: ["#00ff00", "#ff00dc", "#0000ff"],
+    behavior: behaviors.BOUNCY,
+    category: "weapons",
+    state: "gas",
+    density: 0,
+    desc: "andrew zhao",
+    temp: 20,
+    tempLow: 19,
+    tempHigh: 21,
+	  reactions: {
+        "boom_boom_particle": { elem1:"explosion", elem2:"pop" },
+    }
+};
