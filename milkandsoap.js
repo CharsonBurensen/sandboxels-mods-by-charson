@@ -77,7 +77,7 @@ elements.red_terracotta = {
     category: "solids",
     state: "solid",
     tempHigh: 500,
-    stateHigh: "molten_terracotta",
+    stateHigh: "heated_terracotta",
 };
 
 elements.orange_terracotta = {
@@ -86,7 +86,7 @@ elements.orange_terracotta = {
     category: "solids",
     state: "solid",
     tempHigh: 500,
-    stateHigh: "molten_terracotta",
+    stateHigh: "heated_terracotta",
 };
 
 elements.yellow_terracotta = {
@@ -95,7 +95,7 @@ elements.yellow_terracotta = {
     category: "solids",
     state: "solid",
     tempHigh: 500,
-    stateHigh: "molten_terracotta",
+    stateHigh: "heated_terracotta",
 };
 
 elements.green_terracotta = {
@@ -104,7 +104,7 @@ elements.green_terracotta = {
     category: "solids",
     state: "solid",
     tempHigh: 500,
-    stateHigh: "molten_terracotta",
+    stateHigh: "heated_terracotta",
 };
 
 elements.teal_terracotta = {
@@ -113,7 +113,7 @@ elements.teal_terracotta = {
     category: "solids",
     state: "solid",
     tempHigh: 500,
-    stateHigh: "molten_terracotta",
+    stateHigh: "heated_terracotta",
 };
 
 elements.blue_terracotta = {
@@ -122,7 +122,7 @@ elements.blue_terracotta = {
     category: "solids",
     state: "solid",
     tempHigh: 500,
-    stateHigh: "molten_terracotta",
+    stateHigh: "heated_terracotta",
 };
 
 elements.purple_terracotta = {
@@ -131,7 +131,7 @@ elements.purple_terracotta = {
     category: "solids",
     state: "solid",
     tempHigh: 500,
-    stateHigh: "molten_terracotta",
+    stateHigh: "heated_terracotta",
 };
 
 elements.heated_terracotta = {
