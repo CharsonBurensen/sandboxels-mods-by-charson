@@ -373,3 +373,18 @@ elements.rad_ant = {
 	"rock": { elem1:"rad_ant", elem2:"uranium" },
     }
 };
+
+elements.stupid_particle = {
+    color: ["#eb3486", "#0affda", "#c7fa89"],
+    behavior: behaviors.BOUNCY,
+    category: "weapons",
+    state: "solid",
+    density: 0,
+    desc: "stupid",
+    temp: 20,
+    tempLow: 19,
+    tempHigh: 21,
+	  reactions: {
+        "stupid": { elem1:"cloner", elem2:"nuke" },
+    }
+};
