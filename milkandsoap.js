@@ -41,16 +41,18 @@ elements.maple_nut = {
 };
 
 elements.maple_plant = {
-    color: "#946e3a",
+    color: "#735e3b",
     behavior: behaviors.STURDYPOWDER,
     category: "life",
     viscosity: 100000,
     state: "solid",
     isFood: true,
     desc: "I dont think this is biologically accurate",
+    breakInto: "dead_plant",
 	reactions: {
+        "dirt": { elem1:"maple_plant", elem2:"maple_nut" },
         "plant": { elem1:"maple_plant", elem2:"maple_plant" },
-        "dead_plant": { elem1:"maple_plant", elem2:"maple_nut" },
+	"dead_plant": { elem1:"maple_plant", elem2:"maple_plant" },
         "water": { elem1:"maple_plant", elem2:"maple_plant" },
     }
 };
