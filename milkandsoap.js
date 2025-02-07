@@ -67,7 +67,7 @@ elements.maple_powder = {
     isFood: true,
 	reactions: {
         "milk": { elem1:"maple_syrup", elem2:"maple_milk" },
-	"clay": { elem1: null, elem2:["red_terracotta", "orange_terracotta", "yellow_terracotta", "green_terracotta, "teal_terracotta"] },
+	"clay": { elem1: null, elem2:["red_terracotta", "orange_terracotta", "yellow_terracotta", "green_terracotta", "teal_terracotta"] },
     }
 };
 
