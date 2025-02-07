@@ -22,6 +22,7 @@ elements.radioactive_maple_seed = {
     desc: "how does this work",
   	reactions: {
         "dirt": { elem1:"maple_nut", elem2:"dirt" },
+        "grass": { elem1:"maple_nut", elem2:"dirt" },
     }
 };
 
@@ -40,7 +41,7 @@ elements.maple_nut = {
 };
 
 elements.maple_plant = {
-    color: "#735e3b",
+    color: "#946e3a",
     behavior: behaviors.STURDYPOWDER,
     category: "life",
     viscosity: 100000,
@@ -48,8 +49,8 @@ elements.maple_plant = {
     isFood: true,
     desc: "I dont think this is biologically accurate",
 	reactions: {
-        "dirt": { elem1:"maple_plant", elem2:"maple_nut" },
         "plant": { elem1:"maple_plant", elem2:"maple_plant" },
+        "dead_plant": { elem1:"maple_plant", elem2:"maple_nut" },
         "water": { elem1:"maple_plant", elem2:"maple_plant" },
     }
 };
@@ -154,6 +155,9 @@ elements.purificanol = {
     desc: "soap 3.0",
     extinguish: true,
     density: 999999999,
+    temp: 20,
+    tempLow: -273,
+    stateLow: "foam",
 	reactions: {
         "dirt": { elem1: "foam", elem2: "purity" },
         "sand": { elem1: "foam", elem2: "purity" },
@@ -173,6 +177,6 @@ elements.purificanol = {
 	"rust": { elem1: "foam", elem2: "purium_dust" },
 	"water": { elem1: "foam", elem2: "bubble" },
 	"mudstone": { elem1: "foam", elem2: "porcelain" },
-    	"thermite": { elem1: "foam", elem2: "null" },
+    "thermite": { elem1: "foam", elem2: "null" },
     },
 };
