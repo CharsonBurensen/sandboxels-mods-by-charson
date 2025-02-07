@@ -23,7 +23,7 @@ elements.radioactive_maple_seed = {
   	reactions: {
         "dirt": { elem1:"maple_nut", elem2:"dirt" },
         "grass": { elem1:"maple_nut", elem2:"dirt" },
-	"ant": { elem1:"rad_ant", elem:"rad_ant" }
+	"ant": { elem1: null, elem2:"rad_ant" }
     }
 };
 
@@ -256,6 +256,7 @@ elements.purificanol = {
 	"rust": { elem1: "foam", elem2: "purium_dust" },
 	"water": { elem1: "foam", elem2: "bubble" },
 	"mudstone": { elem1: "foam", elem2: "porcelain" },
+	"rad_ant": { elem1: "foam", elem2: "ant" },
     "thermite": { elem1: "foam", elem2: "null" },
     },
 };
