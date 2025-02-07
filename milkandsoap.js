@@ -76,6 +76,8 @@ elements.red_terracotta = {
     behavior: behaviors.WALL,
     category: "solids",
     state: "solid",
+    tempHigh: 500,
+    stateHigh: "molten_terracotta",
 };
 
 elements.orange_terracotta = {
@@ -83,6 +85,8 @@ elements.orange_terracotta = {
     behavior: behaviors.WALL,
     category: "solids",
     state: "solid",
+    tempHigh: 500,
+    stateHigh: "molten_terracotta",
 };
 
 elements.yellow_terracotta = {
@@ -90,6 +94,8 @@ elements.yellow_terracotta = {
     behavior: behaviors.WALL,
     category: "solids",
     state: "solid",
+    tempHigh: 500,
+    stateHigh: "molten_terracotta",
 };
 
 elements.green_terracotta = {
@@ -97,6 +103,8 @@ elements.green_terracotta = {
     behavior: behaviors.WALL,
     category: "solids",
     state: "solid",
+    tempHigh: 500,
+    stateHigh: "molten_terracotta",
 };
 
 elements.teal_terracotta = {
@@ -104,7 +112,38 @@ elements.teal_terracotta = {
     behavior: behaviors.WALL,
     category: "solids",
     state: "solid",
+    tempHigh: 500,
+    stateHigh: "molten_terracotta",
 };
+
+elements.blue_terracotta = {
+    color: "#63b6c9",
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    tempHigh: 500,
+    stateHigh: "molten_terracotta",
+};
+
+elements.purple_terracotta = {
+    color: "#6f63c9",
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    tempHigh: 500,
+    stateHigh: "molten_terracotta",
+};
+
+elements.molten_terracotta = {
+    color: "#db773d",
+    behavior: behaviors.MOLTEN,
+    category: "states",
+    state: "solid",
+    temp: 500,
+    tempHigh: 30,
+    stateLow: ["clay", "purity"],
+};
+
 elements.maple_milk = {
     color: "#f5e3cb",
     behavior: behaviors.LIQUID,
