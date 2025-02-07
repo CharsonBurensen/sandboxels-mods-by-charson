@@ -136,11 +136,12 @@ elements.purple_terracotta = {
 
 elements.heated_terracotta = {
     color: "#db773d",
-    behavior: behaviors.MOLTEN,
+    behavior: behaviors.STURDYPOWDER,
     category: "states",
     state: "solid",
     temp: 500,
     tempHigh: 1000,
+    tempLow: 20,
     stateLow: ["clay", "purity"],
 };
 
