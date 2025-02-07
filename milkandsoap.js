@@ -267,6 +267,8 @@ elements.rad_ant = {
     category: "life",
     state: "solid",
     desc: "uh oh",
+    tempHigh: 100,
+    stateHigh: ["dead_bug", "radiation"],
   	reactions: {
         "dirt": { elem1:"rad_ant", elem2:"radiation" },
         "grass": { elem1:"rad_ant", elem2:"radioactive_maple_seed" },
