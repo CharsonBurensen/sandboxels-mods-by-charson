@@ -385,6 +385,6 @@ elements.stupid_particle = {
     tempLow: 19,
     tempHigh: 21,
 	  reactions: {
-        "stupid": { elem1:"cloner", elem2:"nuke" },
+        "stupid_particle": { elem1:"neutron", elem2:"nuke" },
     }
 };
