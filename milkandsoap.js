@@ -23,6 +23,7 @@ elements.radioactive_maple_seed = {
   	reactions: {
         "dirt": { elem1:"maple_nut", elem2:"dirt" },
         "grass": { elem1:"maple_nut", elem2:"dirt" },
+	"ant": { elem1:"rad_ant", elem:"rad_ant" }
     }
 };
 
@@ -257,4 +258,18 @@ elements.purificanol = {
 	"mudstone": { elem1: "foam", elem2: "porcelain" },
     "thermite": { elem1: "foam", elem2: "null" },
     },
+};
+
+elements.rad_ant = {
+    color: ["#6ceb36", "#50e012"],
+    behavior: behaviors.CRAWLER,
+    category: "life",
+    state: "solid",
+    desc: "uh oh",
+  	reactions: {
+        "dirt": { elem1:"rad_ant", elem2:"radiation" },
+        "grass": { elem1:"rad_ant", elem2:"radioactive_maple_seed" },
+	"ant": { elem1:"rad_ant", elem:"rad_ant" },
+	"rock": { elem1:"rad_ant", elem:"uranium" },
+    }
 };
