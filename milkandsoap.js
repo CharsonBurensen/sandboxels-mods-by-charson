@@ -1,4 +1,4 @@
-elements.maple_syrup = {
+eelements.maple_syrup = {
     color: "#a13d08",
     behavior: behaviors.LIQUID,
     category: "liquids",
@@ -264,7 +264,7 @@ elements.rad_ant = {
     color: ["#6ceb36", "#50e012"],
     behavior: behaviors.LIQUID,
     category: "life",
-    state: "solid",
+    state: "liquid",
     desc: "uh oh",
   	reactions: {
         "dirt": { elem1:"rad_ant", elem2:"radiation" },
