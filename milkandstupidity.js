@@ -16,8 +16,8 @@ elements.stupid = {
     }
 };
 
-elements.monkey = {
-    color: ["#eb3486", "#0affda", "#c7fa89"],
+elements.di_stupid = {
+    color: ["#0b3486", "#faffda", "#07fa89"],
     behavior: behaviors.POWDER,
     category: "weapons",
     viscosity: 10000,
@@ -28,7 +28,7 @@ elements.monkey = {
     tempLow: 19,
     tempHigh: 21,
 	  reactions: {
-        "monkey": { elem1:"monkey", elem2:"tsunami" },
+        "di_stupid": { elem1:"di_stupid", elem2:"tsunami" },
         "stupid": { elem1:"party_popper", elem2:"cloner" },
 	"water": { elem1:"earthquake", elem2:"acid" },
     }
@@ -74,7 +74,7 @@ elements.nut_sauce = {
     }
 };
 
-elements.no = {
+elements.tri_stupid = {
     color: ["#ffffff", "#7a1d1d", "#000000"],
     behavior: behaviors.POWDER,
     category: "weapons",
@@ -272,7 +272,7 @@ elements.purium = {
     category: "soaps",
     state: "solid",
     tempHigh: 125,
-    stateHigh: "purificanol",
+    stateHigh: "purificatri_stupidl",
     stain: 1,
     conduct: 1,
     breakInto: "purium_dust",
@@ -315,14 +315,14 @@ elements.null = {
     desc: "null",
     tempLow: -40,
     breakInto: "random",
-    stateLow: "unknown",
+    stateLow: "unktri_stupidwn",
     conduct: 1,
     reactions: {
         "electric": { elem1: "null", elem2:"null" },
     }
 };
 
-elements.purificanol = {
+elements.purificatri_stupidl = {
     color: "#ffffff",
     behavior: behaviors.LIQUID,
     category: "soaps",
@@ -427,14 +427,29 @@ elements.boom_boom_particle = {
 
 elements.julianite = {
     color: ["#505050", "#265227"],
-    behavior: behaviors.STURDYPOWDER,
+    behavior: behaviors.RADPOWDER,
     category: "powders",
     state: "liquid",
-    desc: "uh oh",
     tempHigh: 100,
     stateHigh: "plasma",
+    tempLow: -25,
   	reactions: {
-        "julianite": { elem2:"electric" },
+        "julianite": { elem2:"hyperjulianite" },
 	"rock": { elem2:"julianite" },
+    }
+};
+
+elements.hyperjulianite = {
+    color: ["#6A6A6A", "#522651"],
+    behavior: behaviors.LIQUID,
+    category: "powders",
+    state: "solid",
+    desc: "uh oh",
+    tempHigh: 1000,
+    tempLow: -40,
+    stateHigh: "snake",
+  	reactions: {
+        "hyperjulianite": { elem2:"julianite" },
+	"rock": { elem2:"plasma" },
     }
 };
