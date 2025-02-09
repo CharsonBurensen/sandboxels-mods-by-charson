@@ -374,6 +374,27 @@ elements.rad_ant = {
     }
 };
 
+elements.buttermilk = {
+    color: "#f4f5c1",
+    behavior: behaviors.LIQUID,
+    category: "food",
+    state: "liquid",
+    desc: "uh oh",
+    tempHigh: 100,
+    stateHigh: "steam",
+  	reactions: {
+        "head": { elem1: null, elem2:"head" },
+        "water": { elem1: null, elem2:"milk" },
+	"rock": { elem1: null, elem2:"butter" },
+	"magma": { elem1: null, elem2:"melted_butter" },
+    }
+};
+
+if (!elements.butter.reactions) { // Include this block once
+    elements.butter.reactions = {} // This creates the property if it doesn't exist
+}
+elements.butter.reactions.milk = { "elem1":null, "elem2":"buttermilk" }
+
 elements.stupid_particle = {
     color: ["#eb3486", "#0affda", "#c7fa89"],
     behavior: behaviors.BOUNCY,
@@ -401,5 +422,19 @@ elements.boom_boom_particle = {
     tempHigh: 21,
 	  reactions: {
         "boom_boom_particle": { elem1:"explosion", elem2:"pop" },
+    }
+};
+
+elements.julianite = {
+    color: ["#505050", "#265227"],
+    behavior: behaviors.STURDYPOWDER,
+    category: "powders",
+    state: "liquid",
+    desc: "uh oh",
+    tempHigh: 100,
+    stateHigh: "plasma",
+  	reactions: {
+        "julianite": { elem2:"electric" },
+	"rock": { elem2:"julianite" },
     }
 };
