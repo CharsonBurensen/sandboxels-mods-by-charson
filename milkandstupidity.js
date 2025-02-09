@@ -430,11 +430,11 @@ elements.julianite = {
     behavior: behaviors.RADPOWDER,
     category: "powders",
     state: "liquid",
-    tempHigh: 100,
+    tempHigh: 999999,
     stateHigh: "plasma",
     tempLow: -25,
   	reactions: {
-        "julianite": { elem2:"hyperjulianite" },
+        "lightning": { elem1:"hyperjulianite" },
 	"rock": { elem2:"julianite" },
     }
 };
@@ -449,7 +449,7 @@ elements.hyperjulianite = {
     tempLow: -40,
     stateHigh: "snake",
   	reactions: {
-        "hyperjulianite": { elem2:"julianite" },
+        "static": { elem2:"julianite" },
 	"rock": { elem2:"plasma" },
     }
 };
