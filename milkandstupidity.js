@@ -428,7 +428,7 @@ elements.boom_boom_particle = {
 elements.julianite = {
     color: ["#505050", "#265227"],
     behavior: behaviors.RADPOWDER,
-    category: "powders",
+    category: "special",
     state: "liquid",
     tempHigh: 999999,
     stateHigh: "plasma",
@@ -441,13 +441,13 @@ elements.julianite = {
 
 elements.hyperjulianite = {
     color: ["#6A6A6A", "#522651"],
-    behavior: behaviors.LIQUID,
-    category: "powders",
+    behavior: behaviors.SLIDE,
+    category: "states",
     state: "solid",
     desc: "uh oh",
     tempHigh: 1000,
     tempLow: -40,
-    stateHigh: "snake",
+    stateLow: "snake",
   	reactions: {
         "static": { elem2:"julianite" },
 	"rock": { elem2:"plasma" },
