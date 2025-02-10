@@ -538,9 +538,28 @@ elements.banana_milk = {
     }
 };
 
+elements.thermon = {
+    color: "#EB14AC",
+    behavior: behaviors.BOUNCY,
+    category: "weapon",
+    desc: "The thermon is a subatomic particle with a negative one elementary electric charge as well as immense heat.",
+    state: "gas",
+    charge: 1,
+    superconductAt: 1,
+    burning: true,
+    temp: 99999999999,
+    fireColor: "#1CD8E3",
+    conduct: 1,
+    reactions: {
+        "neutron": { elem1: "n_explosion" },
+	"proton": { elem1: "dirty_bomb" },
+	"electric": { elem1: "h_bomb" },
+    }
+};
+
 
 elements.tetra_stupid.behavior = [
-    ["XX","CH:banana","XX"],
+    ["CH:tetra_stupid","CH:banana","CH:tetra_stupid"],
     ["CH:banana","XX","CH:banana"],
     ["M2","M1 AND CH:banana","M2"]
 ];
