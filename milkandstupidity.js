@@ -343,6 +343,7 @@ elements.purificanol = {
         "clay": { elem1: "foam", elem2: "porcelain" },
         "magma": { elem1: "foam", elem2: "purium" },
 	"slag": { elem1: "foam", elem2: "purity" },
+	"molten_slag": { elem1: "foam", elem2: "purium_dust" },
 	"basalt": { elem1: "foam", elem2: "purity" },
         "slime": { elem1: "foam", elem2: "purity" },
 	"dirty_water": { elem1: "foam", elem2: "water" },
@@ -541,13 +542,62 @@ elements.banana_milk = {
 elements.thermon = {
     color: "#EB14AC",
     behavior: behaviors.BOUNCY,
-    category: "weapon",
-    desc: "The thermon is a subatomic particle with a negative one elementary electric charge as well as immense heat.",
+    category: "weapons",
+    desc: "The thermon is a subatomic particle with a negative one elementary electric charge as well as heat.",
     state: "gas",
     charge: 1,
     superconductAt: 1,
     burning: true,
-    temp: 99999999999,
+    temp: 999,
+    fireColor: "#1CD8E3",
+    conduct: 1,
+};
+
+elements.superthermon = {
+    color: "#B010EF",
+    behavior: behaviors.BOUNCY,
+    category: "weapons",
+    desc: "The superthermon is a subatomic particle with a negative one elementary electric charge as well as high heat.",
+    state: "gas",
+    charge: 1,
+    superconductAt: 1,
+    burning: true,
+    temp: 99999,
+    fireColor: "#1CD8E3",
+    conduct: 1,
+    reactions: {
+        "neutron": { elem1: "n_explosion" },
+    }
+};
+
+elements.hyperthermon = {
+    color: ["#5554AB", "#FF9D00"],
+    behavior: behaviors.BOUNCY,
+    category: "weapons",
+    desc: "The hyperthermon is a subatomic particle with a negative one elementary electric charge as well as immense heat.",
+    state: "gas",
+    charge: 1,
+    superconductAt: 1,
+    burning: true,
+    temp: 9999999,
+    fireColor: "#1CD8E3",
+    conduct: 1,
+    reactions: {
+        "neutron": { elem1: "n_explosion" },
+	"electric": { elem1: "h_bomb" },
+    }
+};
+
+elements.unstable_thermon = {
+    color: ["#FFFFFF"],
+    behavior: behaviors.BOUNCY,
+    category: "weapons",
+    desc: "ERROR",
+    state: "gas",
+    charge: 1,
+    superconductAt: 1,
+    burning: true,
+    temp: 9999999999999999999999999999999999999,
     fireColor: "#1CD8E3",
     conduct: 1,
     reactions: {
