@@ -645,11 +645,11 @@ elements.supercryon = {
     }
 };
 
-elements.hyperthermon = {
+elements.hypercryon = {
     color: ["#5554AB", "#FF9D00"],
     behavior: behaviors.BOUNCY,
     category: "weapons",
-    desc: "The hyperthermon is a subatomic particle with a negative one elementary electric charge as well as immense lack of heat.",
+    desc: "The hypercryon is a subatomic particle with a negative one elementary electric charge as well as immense lack of heat.",
     state: "gas",
     charge: 1,
     superconductAt: -273.5,
@@ -663,7 +663,7 @@ elements.hyperthermon = {
     }
 };
 
-elements.unstable_thermon = {
+elements.unstable_cryon = {
     color: ["#FFFFFF"],
     behavior: behaviors.BOUNCY,
     category: "weapons",
