@@ -552,7 +552,7 @@ elements.thermon = {
     fireColor: "#1CD8E3",
     conduct: 1,
     reactions: {
-        "thermon": { elem1: "superthermon" },
+        "thermon": { elem1: "superthermon", elem2: "neutron" },
     }
 };
 
@@ -570,7 +570,7 @@ elements.superthermon = {
     conduct: 1,
     reactions: {
         "neutron": { elem1: "n_explosion" },
-	"thermon": { elem1: "hyperthermon" },
+	"thermon": { elem1: "hyperthermon", elem2: "neutron" },
     }
 };
 
@@ -589,7 +589,7 @@ elements.hyperthermon = {
     reactions: {
         "neutron": { elem1: "n_explosion" },
 	"electric": { elem1: "h_bomb" },
-	"thermon": { elem1: "unstable_thermon" },
+	"thermon": { elem1: "unstable_thermon", elem2: "neutron" },
     }
 };
 
@@ -609,7 +609,7 @@ elements.unstable_thermon = {
         "neutron": { elem1: "n_explosion" },
 	"proton": { elem1: "dirty_bomb" },
 	"electric": { elem1: "h_bomb" },
-	"thermon": { elem1: "supernova" },
+	"thermon": { elem1: "supernova", elem2: "neutron" },
     }
 };
 
@@ -633,7 +633,7 @@ elements.cryon = {
     fireColor: "#1CD8E3",
     conduct: 1,
     reactions: {
-        "cryon": { elem1: "supercryon" },
+        "cryon": { elem1: "supercryon", elem2: "neutron" },
     }
 };
 
@@ -651,7 +651,7 @@ elements.supercryon = {
     conduct: 1,
     reactions: {
         "neutron": { elem1: "n_explosion" },
-	"cryon": { elem1: "hypercryon" },
+	"cryon": { elem1: "hypercryon", elem2: "neutron" },
     }
 };
 
@@ -670,7 +670,7 @@ elements.hypercryon = {
     reactions: {
         "neutron": { elem1: "n_explosion" },
 	"electric": { elem1: "h_bomb" },
-	"cryon": { elem1: "unstable_cryon" },
+	"cryon": { elem1: "unstable_cryon", elem2: "neutron" },
     }
 };
 
@@ -690,7 +690,7 @@ elements.unstable_cryon = {
         "neutron": { elem1: "n_explosion" },
 	"proton": { elem1: "dirty_bomb" },
 	"electric": { elem1: "h_bomb" },
-	"cryon": { elem1: "supernova" },
+	"cryon": { elem1: "supernova", elem2: "neutron" },
     }
 };
 
