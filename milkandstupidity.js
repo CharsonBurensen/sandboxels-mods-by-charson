@@ -486,3 +486,33 @@ elements.narayananium.behavior = [
     ["XX","XX","XX"],
     ["XX","M1 AND EX:10>party_popper","XX"],   
 ];
+
+elements.tetra_stupid = {
+    color: ["#4AB58A", "#B54A75"],
+    behavior: behaviors.SLIDE,
+    category: "weapons",
+    state: "solid",
+    desc: "made from melting minions",
+    conduct: 1,
+};
+
+elements.banana = {
+    color: ["#F4FD3F", "#C3F30C", "#FBE904"],
+    behavior: behaviors.STURDYPOWDER,
+    category: "food",
+    state: "solid",
+    desc: "minion reference",
+    burn: 90,
+    fireColor: "#ED126A",
+    burnInto: "fragrance",
+    conduct: 1,
+    reactions: {
+        "head": { elem1: null },
+    }
+};
+
+elements.tetra_stupid.behavior = [
+    ["XX","CH:banana","XX"],
+    ["CH:banana","XX","CH:banana"],
+    ["M2","M1 AND CH:banana","M2"]
+];
