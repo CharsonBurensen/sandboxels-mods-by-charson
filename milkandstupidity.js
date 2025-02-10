@@ -506,10 +506,36 @@ elements.banana = {
     fireColor: "#ED126A",
     burnInto: "fragrance",
     conduct: 1,
+    breakInto: "banana_milk",
+    breakIntoColor: "#d8b284",
+    reactions: {
+        "head": { elem1: null },
+	"milk": { elem1: null, elem2: "banana_milk" },
+    }
+};
+
+elements.banana_milk = {
+    color: "#fdfdce",
+    behavior: behaviors.LIQUID,
+    category: "food",
+    state: "liquid",
+    density: 10000,
+    charge: 1,
+    superconductAt: 100,
+    burn: 100,
+    viscosity: 29,
+    tempLow: -7,
+    stateLowName: "frozen_banana_milkshake",
+    tempHigh: 239,
+    stateHigh: "steam",
+    fireColor: "#DD00FF",
+    burnInto: "dioxin",
+    conduct: 1,
     reactions: {
         "head": { elem1: null },
     }
 };
+
 
 elements.tetra_stupid.behavior = [
     ["XX","CH:banana","XX"],
