@@ -694,6 +694,32 @@ elements.unstable_cryon = {
     }
 };
 
+elements.purificanol_sponge = {
+    color: ["#FFFFFF"],
+    category: "energy",
+    desc: "ERROR",
+    state: "gas",
+    charge: 1,
+    superconductAt: -273.5,
+    temp: -999999999999999999999999999,
+    burn: 100,
+    fireColor: "#1CD8E3",
+    conduct: 1,
+    reactions: {
+        "neutron": { elem1: "n_explosion" },
+	"proton": { elem1: "dirty_bomb" },
+	"electric": { elem1: "h_bomb" },
+	"cryon": { elem1: "supernova", elem2: "neutron" },
+    }
+};
+
+elements.soap_sponge = [
+    ["XX","DL:soap,purificanol","XX"],
+    ["DL:soap,purificanol","XX","DL:soap,purificanol"],
+    ["XX","DL:soap,purificanol","XX"]
+];
+
+
 runAfterLoad(function() {
     // Your code here
     console.log("Please set Abs Zero to -99999999999999999999999999 for cryons to work, thanks");
