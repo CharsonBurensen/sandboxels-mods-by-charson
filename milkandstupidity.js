@@ -272,7 +272,7 @@ elements.purium = {
     category: "soaps",
     state: "solid",
     tempHigh: 125,
-    stateHigh: "purificatri_stupidl",
+    stateHigh: "purificanol",
     stain: 1,
     conduct: 1,
     breakInto: "purium_dust",
@@ -322,7 +322,7 @@ elements.null = {
     }
 };
 
-elements.purificatri_stupidl = {
+elements.purificanol = {
     color: "#ffffff",
     behavior: behaviors.LIQUID,
     category: "soaps",
