@@ -456,3 +456,33 @@ elements.hyperjulianite = {
 	"rock": { elem2:"plasma" },
     }
 };
+
+elements.sankarium = {
+    color: ["#b5140e", "#494b52", "#d2d9d2"],
+    behavior: behaviors.BUBBLE,
+    category: "special",
+    state: "solid",
+    tempHigh: 100,
+    burn: 90,
+    fireColor: "#0c92f7",
+    burnInto: "c-4",
+    stateHigh: "narayananium",
+  	reactions: {
+        "dirt": { elem1:"stupid" },
+    }
+};
+
+elements.narayananium = {
+    color: ["#0EAFB5", "#525049", "#D9D2D9"],
+    behavior: behaviors.POWDER,
+    category: "special",
+    state: "solid",
+    burn: 90,
+    fireColor: "#22DDA2",
+};
+
+elements.narayananium.behavior = [
+   ["XX","XX","XX"],
+    ["XX","XX","XX"],
+    ["XX","M1 AND EX:10>party_popper","XX"],   
+];
