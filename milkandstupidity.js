@@ -434,7 +434,10 @@ elements.julianite = {
     stateHigh: "plasma",
     tempLow: -25,
   	reactions: {
-        "lightning": { elem1:"hyperjulianite" },
+        "electric": { elem1:"hyperjulianite" },
+	"plasma": { elem1:"hyperjulianite" },
+	"smoke": { elem1:"hyperjulianite" },
+	"lightning": { elem1:"hyperjulianite" },
 	"rock": { elem2:"julianite" },
     }
 };
