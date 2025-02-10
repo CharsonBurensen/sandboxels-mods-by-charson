@@ -615,7 +615,7 @@ elements.tetra_stupid.behavior = [
 ];
 
 elements.cryon = {
-    color: "#EB14AC",
+    color: "#1FD1E0",
     behavior: behaviors.BOUNCY,
     category: "energy",
     desc: "The cryon is a subatomic particle with a negative one elementary electric charge as well as negative heat.",
@@ -629,7 +629,7 @@ elements.cryon = {
 };
 
 elements.supercryon = {
-    color: "#B010EF",
+    color: "#99B1C0",
     behavior: behaviors.BOUNCY,
     category: "energy",
     desc: "The supercryon is a subatomic particle with a negative one elementary electric charge as well as extremely low heat.",
@@ -646,9 +646,9 @@ elements.supercryon = {
 };
 
 elements.hypercryon = {
-    color: ["#5554AB", "#FF9D00"],
+    color: ["#0062FF", "#6424DB"],
     behavior: behaviors.BOUNCY,
-    category: "weapons",
+    category: "energy",
     desc: "The hypercryon is a subatomic particle with a negative one elementary electric charge as well as immense lack of heat.",
     state: "gas",
     charge: 1,
@@ -666,7 +666,7 @@ elements.hypercryon = {
 elements.unstable_cryon = {
     color: ["#FFFFFF"],
     behavior: behaviors.BOUNCY,
-    category: "weapons",
+    category: "energy",
     desc: "ERROR",
     state: "gas",
     charge: 1,
@@ -681,3 +681,7 @@ elements.unstable_cryon = {
 	"electric": { elem1: "h_bomb" },
     }
 };
+
+runAfterLoad(function() {
+    // Your code here
+    console.log("Please set Abs Zero to -99999999999999999999999999 for cryons to work, thanks");
