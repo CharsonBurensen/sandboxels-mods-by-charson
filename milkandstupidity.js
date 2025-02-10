@@ -707,6 +707,24 @@ elements.soap_sponge.behavior = [
     ["XX","DL:soap,purificanol","XX"]
 ];
 
+elements.violetium.behaviour = [
+    ["XX","XX","XX"],
+    ["XX","XX","XX"],
+    ["XX","M1 AND EX:10>purple_gold","XX"],    
+]
+
+elements.violetium = {
+    color: ["#494bb3", "#7049b3", "#7049b3"],
+    behavior: behaviors.BOUNCY,
+    category: "solids",
+    state: "solid",
+    charge: 1,
+    superconductAt: -273.5,
+    temp: 30,
+    burn: 100,
+    fireColor: "#6e34eb",
+    conduct: 1,
+};
 
 runAfterLoad(function() {
     // Your code here
