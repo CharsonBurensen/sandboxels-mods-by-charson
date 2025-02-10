@@ -542,7 +542,7 @@ elements.banana_milk = {
 elements.thermon = {
     color: "#EB14AC",
     behavior: behaviors.BOUNCY,
-    category: "weapons",
+    category: "energy",
     desc: "The thermon is a subatomic particle with a negative one elementary electric charge as well as heat.",
     state: "gas",
     charge: 1,
@@ -556,7 +556,7 @@ elements.thermon = {
 elements.superthermon = {
     color: "#B010EF",
     behavior: behaviors.BOUNCY,
-    category: "weapons",
+    category: "energy",
     desc: "The superthermon is a subatomic particle with a negative one elementary electric charge as well as high heat.",
     state: "gas",
     charge: 1,
@@ -573,7 +573,7 @@ elements.superthermon = {
 elements.hyperthermon = {
     color: ["#5554AB", "#FF9D00"],
     behavior: behaviors.BOUNCY,
-    category: "weapons",
+    category: "energy",
     desc: "The hyperthermon is a subatomic particle with a negative one elementary electric charge as well as immense heat.",
     state: "gas",
     charge: 1,
@@ -591,7 +591,7 @@ elements.hyperthermon = {
 elements.unstable_thermon = {
     color: ["#FFFFFF"],
     behavior: behaviors.BOUNCY,
-    category: "weapons",
+    category: "energy",
     desc: "ERROR",
     state: "gas",
     charge: 1,
@@ -613,3 +613,71 @@ elements.tetra_stupid.behavior = [
     ["CH:banana","XX","CH:banana"],
     ["M2","M1 AND CH:banana","M2"]
 ];
+
+elements.cryon = {
+    color: "#EB14AC",
+    behavior: behaviors.BOUNCY,
+    category: "energy",
+    desc: "The cryon is a subatomic particle with a negative one elementary electric charge as well as negative heat.",
+    state: "gas",
+    charge: 1,
+    superconductAt: -273.5,
+    temp: -99,
+    burn: 100,
+    fireColor: "#1CD8E3",
+    conduct: 1,
+};
+
+elements.supercryon = {
+    color: "#B010EF",
+    behavior: behaviors.BOUNCY,
+    category: "energy",
+    desc: "The supercryon is a subatomic particle with a negative one elementary electric charge as well as extremely low heat.",
+    state: "gas",
+    charge: 1,
+    superconductAt: -273.5,
+    temp: -273.5,
+    burn: 100,
+    fireColor: "#1CD8E3",
+    conduct: 1,
+    reactions: {
+        "neutron": { elem1: "n_explosion" },
+    }
+};
+
+elements.hyperthermon = {
+    color: ["#5554AB", "#FF9D00"],
+    behavior: behaviors.BOUNCY,
+    category: "weapons",
+    desc: "The hyperthermon is a subatomic particle with a negative one elementary electric charge as well as immense lack of heat.",
+    state: "gas",
+    charge: 1,
+    superconductAt: -273.5,
+    temp: -999999,
+    burn: 100,
+    fireColor: "#1CD8E3",
+    conduct: 1,
+    reactions: {
+        "neutron": { elem1: "n_explosion" },
+	"electric": { elem1: "h_bomb" },
+    }
+};
+
+elements.unstable_thermon = {
+    color: ["#FFFFFF"],
+    behavior: behaviors.BOUNCY,
+    category: "weapons",
+    desc: "ERROR",
+    state: "gas",
+    charge: 1,
+    superconductAt: -273.5,
+    temp: -999999999999999999999999999,
+    burn: 100,
+    fireColor: "#1CD8E3",
+    conduct: 1,
+    reactions: {
+        "neutron": { elem1: "n_explosion" },
+	"proton": { elem1: "dirty_bomb" },
+	"electric": { elem1: "h_bomb" },
+    }
+};
