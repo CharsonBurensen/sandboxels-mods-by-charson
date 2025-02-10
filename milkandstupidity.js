@@ -331,7 +331,7 @@ elements.purificanol = {
     desc: "soap 3.0",
     extinguish: true,
     density: 999999999,
-    temp: 20,
+    temp: 1,
     tempLow: -273,
     stateLow: "foam",
 	reactions: {
@@ -352,6 +352,8 @@ elements.purificanol = {
 	"molten_copper": { elem1: "foam", elem2: "purium" },
 	"rust": { elem1: "foam", elem2: "purium_dust" },
 	"water": { elem1: "foam", elem2: "bubble" },
+	"ice": { elem1: "foam", elem2: "bubble" },
+	"steam": { elem1: "foam", elem2: "bubble" },
 	"mudstone": { elem1: "foam", elem2: "porcelain" },
 	"rad_ant": { elem1: "foam", elem2: "ant" },
     "thermite": { elem1: "foam", elem2: "null" },
