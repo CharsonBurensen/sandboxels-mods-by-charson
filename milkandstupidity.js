@@ -746,7 +746,7 @@ elements.pyrus_minimus = {
 
 elements.stablium = {
     color: ["#516c87", "#de1998"],
-    behavior: behaviors.WALL,
+    behavior: behaviors.POWDER,
     category: "special",
     state: "solid",
     breakInto: ["positron", "electrum"],
@@ -757,7 +757,7 @@ elements.stablium = {
     fireColor: "#ff5b14",
     conduct: 1,
      reactions: {
-        "electron": { elem2: ["thermon", "cryon"] },
+        "proton": { elem2: ["thermon", "cryon"] },
     }
 };
 
