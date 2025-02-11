@@ -710,7 +710,6 @@ elements.anti_soap = {
 
 elements.violetium = {
     color: ["#494bb3", "#7049b3", "#7049b3"],
-    behavior: behaviors.STURDYPOWDER,
     category: "powders",
     state: "solid",
     temp: 30,
@@ -719,10 +718,11 @@ elements.violetium = {
     conduct: 1,
 };
 
-elements.violetium.behaviour = [
+
+elements.violetium.behavior = [
+   ["XX","XX","XX"],
     ["XX","XX","XX"],
-    ["XX","XX","XX"],
-    ["XX","M1 AND EX:10>purple_gold","XX"],    
+    ["XX","M1 AND EX:10>purple_gold","XX"],   
 ];
 
 runAfterLoad(function() {
