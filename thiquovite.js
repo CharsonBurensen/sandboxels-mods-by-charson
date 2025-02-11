@@ -14,11 +14,12 @@ elements.thiquovite = {
 };
 
 elements.screen = {
-    color: "#e3f9ff",
+    color: "#505e4c",
     behavior: behaviors.WALL,
     behaviorOn: behaviors.BOUNCY,
     category: "special",
     state: "solid",
     density: 100,
+    conduct: 1,
     breakInto: ["glass_shard", "electric"],
 };
