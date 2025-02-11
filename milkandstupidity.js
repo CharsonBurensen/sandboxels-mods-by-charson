@@ -706,24 +706,32 @@ elements.anti_soap = {
     }
 };
 
-
-
 elements.violetium = {
     color: ["#494bb3", "#7049b3", "#7049b3"],
     category: "powders",
     state: "solid",
-    temp: 30,
+    temp: 40,
     burn: 100,
     fireColor: "#6e34eb",
     conduct: 1,
 };
 
-
-elements.violetium.behavior = [
-   ["XX","XX","XX"],
-    ["XX","XX","XX"],
-    ["XX","M1 AND EX:10>purple_gold","XX"],   
-];
+elements.pyrus_minimus = {
+    color: ["#eb6e34", "#ffd014", "#ff143c"],
+    behavior: behaviors.FLY,
+    category: "life",
+    state: "solid",
+    egg: "magma",
+    foodNeed: 3,
+    breakInto: ["fire", "cooked_meat", "slime"],
+    glow: true,
+    temp: 20,
+    burn: 100,
+    burning: true,
+    singleColor: true,
+    fireColor: "#ff5b14",
+    conduct: 1,
+};
 
 runAfterLoad(function() {
     // Your code here
