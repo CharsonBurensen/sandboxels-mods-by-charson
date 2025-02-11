@@ -569,7 +569,7 @@ elements.superthermon = {
     fireColor: "#1CD8E3",
     conduct: 1,
     reactions: {
-        "neutron": { elem1: "n_explosion" },
+        "neutron": { elem1: "explosion" },
 	"thermon": { elem1: "hyperthermon", elem2: "neutron" },
     }
 };
@@ -587,7 +587,7 @@ elements.hyperthermon = {
     fireColor: "#1CD8E3",
     conduct: 1,
     reactions: {
-        "neutron": { elem1: "n_explosion" },
+        "neutron": { elem1: "explosion" },
 	"electric": { elem1: "h_bomb" },
 	"thermon": { elem1: "unstable_thermon", elem2: "neutron" },
     }
@@ -606,7 +606,7 @@ elements.unstable_thermon = {
     fireColor: "#1CD8E3",
     conduct: 1,
     reactions: {
-        "neutron": { elem1: "n_explosion" },
+        "neutron": { elem1: "explosion" },
 	"proton": { elem1: "dirty_bomb" },
 	"electric": { elem1: "h_bomb" },
 	"thermon": { elem1: "supernova", elem2: "neutron" },
@@ -650,7 +650,7 @@ elements.supercryon = {
     fireColor: "#1CD8E3",
     conduct: 1,
     reactions: {
-        "neutron": { elem1: "n_explosion" },
+        "neutron": { elem1: "explosion" },
 	"cryon": { elem1: "hypercryon", elem2: "neutron" },
     }
 };
@@ -668,7 +668,7 @@ elements.hypercryon = {
     fireColor: "#1CD8E3",
     conduct: 1,
     reactions: {
-        "neutron": { elem1: "n_explosion" },
+        "neutron": { elem1: "explosion" },
 	"electric": { elem1: "h_bomb" },
 	"cryon": { elem1: "unstable_cryon", elem2: "neutron" },
     }
@@ -687,7 +687,7 @@ elements.unstable_cryon = {
     fireColor: "#1CD8E3",
     conduct: 1,
     reactions: {
-        "neutron": { elem1: "n_explosion" },
+        "neutron": { elem1: "explosion" },
 	"proton": { elem1: "dirty_bomb" },
 	"electric": { elem1: "h_bomb" },
 	"cryon": { elem1: "supernova", elem2: "neutron" },
@@ -745,21 +745,22 @@ elements.pyrus_minimus = {
 };
 
 elements.stablium = {
-    color: ["#516c87", "#de1998"],
+    color: ["#516c87", "#de1998", "#c4e043"],
     behavior: behaviors.POWDER,
     category: "special",
     state: "solid",
+    alpha: 0.73,
     breakInto: ["positron", "electrum"],
     glow: true,
     temp: 20,
     burn: 55,
     singleColor: true,
-    fireColor: "#ff5b14",
+    fireColor: ["#f71e0a", "#f7940a", "#eff70a", "#0af722", "#0a69f7"],
     conduct: 1,
-    forceAutoGen: true,
+    tempHigh: 275,
      reactions: {
-        "proton": { elem2: ["thermon", "cryon"] },
-    }
+        "proton": { elem1: "ash", elem2: ["thermon", "cryon"] },
+    } 
 };
 
 
