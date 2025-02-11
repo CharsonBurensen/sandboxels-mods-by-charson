@@ -724,12 +724,18 @@ elements.pyrus_minimus = {
     egg: "magma",
     foodNeed: 3,
     breakInto: ["fire", "cooked_meat", "slime"],
-    glow: false,
+    glow: true,
     temp: 300,
-    burning: true,
     singleColor: true,
     fireColor: "#ff5b14",
     conduct: 1,
+     reactions: {
+        "cooked_meat": { elem2: null },
+	"dead_plant": { elem2: null },
+	"juice": { elem2: null },
+	"chocolate": { elem2: null },
+	"basalt": { elem2: null },
+    }
 };
 
 runAfterLoad(function() {
