@@ -16,7 +16,6 @@ elements.thiquovite = {
 elements.screen = {
     color: "#505e4c",
     behavior: behaviors.WALL,
-    behaviorOn: behaviors.BOUNCY,
     category: "special",
     state: "solid",
     density: 100,
