@@ -694,18 +694,17 @@ elements.unstable_cryon = {
     }
 };
 
-elements.soap_sponge = {
-    color: ["#FFFFFF"],
+elements.anti_soap = {
+    color: ["#0000FF"],
+    behavior: behaviors.FOAM,
     category: "solids",
     state: "solid",
     burn: 100,
+    reactions: {
+        "soap": { elem2: null },
+	"purificanol": { elem2: null },
+    }
 };
-
-elements.soap_sponge.behavior = [
-    ["XX","DL:soap,purificanol","XX"],
-    ["DL:soap,purificanol","XX","DL:soap,purificanol"],
-    ["XX","DL:soap,purificanol","XX"]
-];
 
 elements.violetium.behaviour = [
     ["XX","XX","XX"],
@@ -715,11 +714,9 @@ elements.violetium.behaviour = [
 
 elements.violetium = {
     color: ["#494bb3", "#7049b3", "#7049b3"],
-    behavior: behaviors.BOUNCY,
-    category: "solids",
+    behavior: behaviors.STURDYPOWDER,
+    category: "powders",
     state: "solid",
-    charge: 1,
-    superconductAt: -273.5,
     temp: 30,
     burn: 100,
     fireColor: "#6e34eb",
