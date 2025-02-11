@@ -706,11 +706,7 @@ elements.anti_soap = {
     }
 };
 
-elements.violetium.behaviour = [
-    ["XX","XX","XX"],
-    ["XX","XX","XX"],
-    ["XX","M1 AND EX:10>purple_gold","XX"],    
-]
+
 
 elements.violetium = {
     color: ["#494bb3", "#7049b3", "#7049b3"],
@@ -722,6 +718,12 @@ elements.violetium = {
     fireColor: "#6e34eb",
     conduct: 1,
 };
+
+elements.violetium.behaviour = [
+    ["XX","XX","XX"],
+    ["XX","XX","XX"],
+    ["XX","M1 AND EX:10>purple_gold","XX"],    
+];
 
 runAfterLoad(function() {
     // Your code here
