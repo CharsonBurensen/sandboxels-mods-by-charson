@@ -744,6 +744,24 @@ elements.pyrus_minimus = {
     }
 };
 
+elements.stablium = {
+    color: ["#516c87", "#de1998"],
+    behavior: behaviors.WALL,
+    category: "special",
+    state: "solid",
+    breakInto: ["positron", "electrum"],
+    glow: true,
+    temp: 20,
+    burn: 55,
+    singleColor: true,
+    fireColor: "#ff5b14",
+    conduct: 1,
+     reactions: {
+        "electron": { elem2: ["thermon", "cryon"] },
+    }
+};
+
+
 runAfterLoad(function() {
     // Your code here
     console.log("Please set Abs Zero to -99999999999999999999999999 for cryons to work, thanks");
