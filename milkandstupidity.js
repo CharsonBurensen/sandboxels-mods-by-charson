@@ -716,6 +716,12 @@ elements.violetium = {
     conduct: 1,
 };
 
+elements.violetium.behavior = [
+   ["XX","XX","XX"],
+    ["XX","XX","XX"],
+    ["XX","M1 AND EX:10>purple_gold","XX"],   
+];
+
 elements.pyrus_minimus = {
     color: ["#eb6e34", "#ffd014", "#ff143c"],
     behavior: behaviors.FLY,
