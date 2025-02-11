@@ -315,7 +315,7 @@ elements.null = {
     desc: "null",
     tempLow: -40,
     breakInto: "random",
-    stateLow: "unktri_stupidwn",
+    stateLow: "unknown",
     conduct: 1,
     reactions: {
         "electric": { elem1: "null", elem2:"null" },
