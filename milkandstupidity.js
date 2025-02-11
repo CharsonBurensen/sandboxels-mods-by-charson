@@ -756,6 +756,7 @@ elements.stablium = {
     singleColor: true,
     fireColor: "#ff5b14",
     conduct: 1,
+    forceAutoGen: true,
      reactions: {
         "proton": { elem2: ["thermon", "cryon"] },
     }
