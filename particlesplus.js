@@ -1,3 +1,6 @@
+if (!enabledMods.includes("mods/particlesplus.js")) { enabledMods.unshift("mods/particlesplus.js"); localStorage.setItem("enabledMods", JSON.stringify(enabledMods)); alert("Please set Abs Zero to -99999999999999999999999999 for cryons to work, thanks") }
+else {
+
 elements.stupid = {
     color: ["#eb3486", "#0affda", "#c7fa89"],
     behavior: behaviors.POWDER,
@@ -845,8 +848,3 @@ elements.green_skull = {
 	"head": { elem2: "green_skull" },
     } 
 };
-
-
-runAfterLoad(function() {
-    console.log("Please set Abs Zero to -99999999999999999999999999 for cryons to work, thanks");
-});
