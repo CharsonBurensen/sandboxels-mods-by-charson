@@ -763,8 +763,58 @@ elements.stablium = {
     } 
 };
 
+elements.arsenic = {
+    color: ["#874809", "#97ad05"],
+    behavior: behaviors.POWDER,
+    category: "powders",
+    state: "solid",
+    temp: 20,
+    burn: 55,
+    burnInto: "poison",
+    fireColor: "#a1ccc7",
+    tempHigh: 275,
+     reactions: {
+        "copper": { elem1: "scheele_green", elem2: "scheele_green" },
+    } 
+};
+
+elements.scheele_green = {
+    color: ["#2B7D45", "#87CA7C"],
+    behavior: behaviors.RADPOWDER,
+    category: "powders",
+    state: "solid",
+    alpha: 0.99,
+    temp: 20,
+    breakInto: "poison",
+    burn: 55,
+    burnInto: "poison",
+    fireColor: "#2cff29",
+    tempHigh: 275,
+    stateHigh: "molten_copper",
+     reactions: {
+        "terracotta": { elem1: null, elem2: "green_terracotta" },
+	"head": { elem1: "poison", elem2: "green_skull" },
+    } 
+};
+
+elements.green_skull = {
+    color: ["#67bf65", "#527d51"],
+    behavior: behaviors.RADPOWDER,
+    category: "powders",
+    state: "solid",
+    temp: 20,
+    breakInto: ["bone_meal", "fallout"],
+    burn: 55,
+    burnInto: "rad_shard",
+    fireColor: "#573311",
+    tempHigh: 275,
+    stateHigh: "rad_steam",
+     reactions: {
+	"head": { elem2: "green_skull" },
+    } 
+};
+
 
 runAfterLoad(function() {
-    // Your code here
     console.log("Please set Abs Zero to -99999999999999999999999999 for cryons to work, thanks");
 });
