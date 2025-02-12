@@ -18,7 +18,6 @@ elements.screen = {
     behavior: behaviors.WALL,
     category: "special",
     state: "solid",
-    density: 100,
     conduct: 1,
     breakInto: ["glass_shard", "electric"],
 };
@@ -32,3 +31,4 @@ elements.ring = {
     conduct: 1,
     breakInto: ["silver", "diamond"],
 };
+
