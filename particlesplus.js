@@ -12,6 +12,7 @@ elements.stupid = {
 	  reactions: {
         "water": { elem1:"blaster", elem2:"nuke" },
         "stupid": { elem1:"cloner", elem2:"nuke" },
+	"electric": { elem1:"di_stupid", elem2:"tri_stupid" },
 	"dirt": { elem1:"tornado", elem2:"stupid" },
     }
 };
@@ -23,6 +24,7 @@ elements.di_stupid = {
     viscosity: 10000,
     state: "solid",
     density: 100,
+    hidden: true,
     desc: "stupid",
     temp: 20,
     tempLow: 19,
@@ -37,7 +39,7 @@ elements.di_stupid = {
 elements.almond = {
     color: ["#855b34", "#9c836b", "#f5e7da"],
     behavior: behaviors.POWDER,
-    category: "weapons",
+    category: "food",
     state: "solid",
     density: 100,
     desc: "stupid",
@@ -66,6 +68,7 @@ elements.nut_sauce = {
     temp: 20,
     tempLow: 0,
     tempHigh: 50,
+    hidden: true,
     stateHigh: ["blaster", "floating_cloner"],
     stateLow: "glue",
     conduct: 1,
@@ -84,6 +87,7 @@ elements.tri_stupid = {
     desc: "stupid",
     temp: 20,
     tempLow: 0,
+    hidden: true,
     tempHigh: 40,
     stateLow: "ice",
     stateHigh: "magma",
@@ -131,6 +135,7 @@ elements.maple_nut = {
     viscosity: 100000,
     state: "solid",
     isFood: true,
+    hidden: true,
     desc: "I dont think this is biologically accurate",
     breakInto: ["maple_syrup", "maple_powder"],
   	reactions: {
@@ -145,6 +150,7 @@ elements.maple_plant = {
     viscosity: 100000,
     state: "solid",
     isFood: true,
+    hidden: true,
     desc: "I dont think this is biologically accurate",
     breakInto: "dead_plant",
     burn: 90,
@@ -162,10 +168,11 @@ elements.maple_powder = {
     category: "food",
     viscosity: 100000,
     state: "solid",
+    hidden: true,
     isFood: true,
 	reactions: {
         "milk": { elem1:"maple_syrup", elem2:"maple_milk" },
-	"clay": { elem1: null, elem2:["red_terracotta", "orange_terracotta", "yellow_terracotta", "green_terracotta", "teal_terracotta"] },
+	"clay": { elem1: null, elem2:["red_terracotta", "terracotta", "yellow_terracotta", "green_terracotta", "teal_terracotta"] },
     }
 };
 
@@ -175,10 +182,11 @@ elements.red_terracotta = {
     category: "solids",
     state: "solid",
     tempHigh: 500,
+    hidden: true,
     stateHigh: "heated_terracotta",
 };
 
-elements.orange_terracotta = {
+elements.terracotta = {
     color: "#c98c63",
     behavior: behaviors.WALL,
     category: "solids",
@@ -192,6 +200,7 @@ elements.yellow_terracotta = {
     behavior: behaviors.WALL,
     category: "solids",
     state: "solid",
+    hidden: true,
     tempHigh: 500,
     stateHigh: "heated_terracotta",
 };
@@ -201,6 +210,7 @@ elements.green_terracotta = {
     behavior: behaviors.WALL,
     category: "solids",
     state: "solid",
+    hidden: true,
     tempHigh: 500,
     stateHigh: "heated_terracotta",
 };
@@ -211,6 +221,7 @@ elements.teal_terracotta = {
     category: "solids",
     state: "solid",
     tempHigh: 500,
+    hidden: true,
     stateHigh: "heated_terracotta",
 };
 
@@ -219,6 +230,7 @@ elements.blue_terracotta = {
     behavior: behaviors.WALL,
     category: "solids",
     state: "solid",
+    hidden: true,
     tempHigh: 500,
     stateHigh: "heated_terracotta",
 };
@@ -229,6 +241,7 @@ elements.purple_terracotta = {
     category: "solids",
     state: "solid",
     tempHigh: 500,
+    hidden: true,
     stateHigh: "heated_terracotta",
 };
 
@@ -239,8 +252,9 @@ elements.heated_terracotta = {
     state: "solid",
     temp: 500,
     tempHigh: 1000,
+    hidden: true,
     tempLow: 20,
-    stateLow: ["clay", "purity"],
+    stateLow: ["teracotta", "purity"],
 };
 
 elements.maple_milk = {
@@ -250,6 +264,7 @@ elements.maple_milk = {
     viscosity: 100000,
     state: "liquid",
     desc: "a great drink",
+    hidden: true,
     isFood: true,
 	reactions: {
         "head": { elem1: null, elem2:"head" },
@@ -262,6 +277,7 @@ elements.purity = {
     category: "soaps",
     state: "solid",
     tempHigh: 70,
+	hidden: true,
     stateHigh: "soap",
     stain: 1,
 };
@@ -282,6 +298,7 @@ elements.purium_dust = {
     color: ["#cededd", "#95c7c4", "#ffffff"],
     behavior: behaviors.POWDER,
     category: "soaps",
+	hidden: true,
     state: "solid",
     tempHigh: 125,
     stateHigh: "purity",
@@ -317,6 +334,7 @@ elements.null = {
     breakInto: "random",
     stateLow: "unknown",
     conduct: 1,
+	hidden: true,
     reactions: {
         "electric": { elem1: "null", elem2:"null" },
     }
@@ -366,6 +384,7 @@ elements.rad_ant = {
     behavior: behaviors.LIQUID,
     category: "life",
     state: "solid",
+	hidden: true,
     desc: "uh oh",
     tempHigh: 100,
     stateHigh: ["dead_bug", "radiation"],
@@ -383,6 +402,7 @@ elements.buttermilk = {
     category: "food",
     state: "liquid",
     desc: "uh oh",
+	hidden: true,
     tempHigh: 100,
     stateHigh: "steam",
   	reactions: {
@@ -451,6 +471,7 @@ elements.hyperjulianite = {
     category: "states",
     state: "solid",
     desc: "uh oh",
+	hidden: true,
     tempHigh: 1000,
     tempLow: -40,
     stateLow: "snake",
@@ -480,6 +501,7 @@ elements.narayananium = {
     behavior: behaviors.POWDER,
     category: "special",
     state: "solid",
+	hidden: true,
     burn: 90,
     fireColor: "#22DDA2",
 };
@@ -495,7 +517,7 @@ elements.tetra_stupid = {
     behavior: behaviors.SLIDE,
     category: "weapons",
     state: "solid",
-    desc: "made from melting minions",
+	hidden: true,
     conduct: 1,
 };
 
@@ -528,6 +550,7 @@ elements.banana_milk = {
     burn: 100,
     viscosity: 29,
     tempLow: -7,
+	hidden: true,
     stateLowName: "frozen_banana_milkshake",
     tempHigh: 239,
     stateHigh: "steam",
@@ -559,6 +582,7 @@ elements.thermon = {
 elements.superthermon = {
     color: "#B010EF",
     behavior: behaviors.BOUNCY,
+	hidden: true,
     category: "energy",
     desc: "The superthermon is a subatomic particle with a negative one elementary electric charge as well as high heat.",
     state: "gas",
@@ -578,6 +602,7 @@ elements.hyperthermon = {
     color: ["#5554AB", "#FF9D00"],
     behavior: behaviors.BOUNCY,
     category: "energy",
+	hidden: true,
     desc: "The hyperthermon is a subatomic particle with a negative one elementary electric charge as well as immense heat.",
     state: "gas",
     charge: 1,
@@ -598,6 +623,7 @@ elements.unstable_thermon = {
     behavior: behaviors.BOUNCY,
     category: "energy",
     desc: "ERROR",
+	hidden: true,
     state: "gas",
     charge: 1,
     superconductAt: 1,
@@ -643,9 +669,11 @@ elements.supercryon = {
     category: "energy",
     desc: "The supercryon is a subatomic particle with a negative one elementary electric charge as well as extremely low heat.",
     state: "gas",
+	hidden: true,
     charge: 1,
     superconductAt: -273.5,
     temp: -273.5,
+	hidden: true,
     burn: 100,
     fireColor: "#1CD8E3",
     conduct: 1,
@@ -663,6 +691,7 @@ elements.hypercryon = {
     state: "gas",
     charge: 1,
     superconductAt: -273.5,
+	hidden: true,
     temp: -999999,
     burn: 100,
     fireColor: "#1CD8E3",
@@ -682,6 +711,7 @@ elements.unstable_cryon = {
     state: "gas",
     charge: 1,
     superconductAt: -273.5,
+	hidden: true,
     temp: -999999999999999999999999999,
     burn: 100,
     fireColor: "#1CD8E3",
@@ -790,6 +820,7 @@ elements.scheele_green = {
     burnInto: "poison",
     fireColor: "#2cff29",
     tempHigh: 275,
+	hidden: true,
     stateHigh: "molten_copper",
      reactions: {
         "terracotta": { elem1: null, elem2: "green_terracotta" },
@@ -806,6 +837,7 @@ elements.green_skull = {
     breakInto: ["bone_meal", "fallout"],
     burn: 55,
     burnInto: "rad_shard",
+	hidden: true,
     fireColor: "#573311",
     tempHigh: 275,
     stateHigh: "rad_steam",
