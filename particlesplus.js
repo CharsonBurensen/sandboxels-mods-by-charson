@@ -357,6 +357,7 @@ elements.purificanol = {
     stateLow: "foam",
 	reactions: {
         "dirt": { elem1: "foam", elem2: "purity" },
+	"antimatter": { elem1: "anti_soap", elem2: "contaminol" },
         "sand": { elem1: "foam", elem2: "purity" },
         "dust": { elem1: "foam", elem2: "purity" },
         "ash": { elem1: "foam", elem2: "purity" },
@@ -847,4 +848,43 @@ elements.green_skull = {
      reactions: {
 	"head": { elem2: "green_skull" },
     } 
+};
+
+elements.contaminol = {
+    color: "#005F00",
+    behavior: behaviors.LIQUID,
+    category: "soaps",
+    viscosity: 100,
+    state: "liquid",
+    desc: "soap -3.0",
+    extinguish: true,
+    density: 999999999,
+    temp: 1,
+    tempLow: -273,
+    stateLow: "foam",
+	reactions: {
+        "dirt": { elem1: "foam", elem2: "impurity" },
+	"purity": { elem1: "foam", elem2: "impurity" },
+        "sand": { elem1: "foam", elem2: "tinder" },
+        "dust": { elem1: "foam", elem2: "magnesium" },
+        "ash": { elem1: "foam", elem2: "magnesium" },
+        "rock": { elem1: "foam", elem2: "mudstone" },
+        "clay": { elem1: "foam", elem2: "slag" },
+        "magma": { elem1: "foam", elem2: "molten_uranium" },
+	"purium_dust": { elem1: "foam", elem2: "rust" },
+	"basalt": { elem1: "foam", elem2: "thermite" },
+        "slime": { elem1: "foam", elem2: "magma" },
+	"dirty_water": { elem1: "foam", elem2: "slime" },
+	"water": { elem1: "foam", elem2: "oil" },
+	"iron": { elem1: "foam", elem2: "impurium" },
+	"molten_dirt": { elem1: "foam", elem2: "impurium" },
+	"copper": { elem1: "foam", elem2: "rust" },
+	"gold_coin": { elem1: "foam", elem2: "rust" },
+	"acid": { elem1: "foam", elem2: "impuric_acid" },
+	"ice": { elem1: "foam", elem2: "blood_ice" },
+	"steam": { elem1: "foam", elem2: "rad_steam" },
+	"porcelain": { elem1: "foam", elem2: "smoke" },
+	"ant": { elem1: "foam", elem2: "rad_ant" },
+        "electric": { elem1: "foam", elem2: "malware" },
+    },
 };
