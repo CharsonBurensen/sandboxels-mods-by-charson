@@ -949,6 +949,7 @@ elements.volatilium = {
 	breakInto: "border",
      reactions: {
         "neutron": { elem1: "molten_slag", elem2: ["invalid", "beryllium"] },
+        "beryllium": { elem2: "beryllium_volatilium_alloy" },
     } 
 };
 
@@ -966,6 +967,7 @@ elements.beryllium = {
      reactions: {
         "oxygen": { elem1: "beryllium_oxide", elem2: "beryllium_oxide" },
 	"head": { elem2: "poison" },
+	"volatilium": { elem2: "beryllium_volatilium_alloy" },
     } 
 };
 
@@ -1041,7 +1043,6 @@ elements.beryllium_volatilium_alloy = {
     fireColor: ["#fa0a1f", "#ef8d1f", "#f7e20a", "#0afc1e"],
     conduct: 1.3,
     tempHigh: 1200,
-    breakInto: "volta_beryl",
     reactions: {
         "neutron": { elem1: "mixed_metal_slag", elem2: ["beryllium", "volantium"] },
         "air": { elem1: "oxidized_alloy" },
@@ -1072,6 +1073,7 @@ elements.liquid_metal = {
     temp: 30,
     burn: 100,
     singleColor: true,
+    hidden: true,
     conduct: 1.5,
     tempHigh: 1500,
     desc: "A liquid form of metal, exhibiting high fluidity and electrical conductivity. Typically found in high-temperature environments or specific chemical states.",
@@ -1086,6 +1088,7 @@ elements.verylithium_oxide = {
     temp: 50,
     burn: 20,
     singleColor: true,
+    hidden: true,
     conduct: 0.5,
     tempHigh: 600,
     desc: "An oxide compound of Verylithium, formed when exposed to oxygen. It is a solid, stable compound, often used in industrial applications for its mild reactivity.",
@@ -1097,6 +1100,7 @@ elements.verylithium_hydrate = {
     category: "ai-generated",
     state: "solid",
     alpha: 0.95,
+    hidden: true,
     temp: 25,
     burn: 0,
     singleColor: true,
@@ -1114,8 +1118,10 @@ elements.volantium_plasma = {
     temp: 1000,
     burn: 500,
     singleColor: false,
+    hidden: true,
     conduct: 2.0,
     tempHigh: 2000,
+    hidden: true,
     desc: "A highly energized state of Volantium, where the atoms are ionized and capable of conducting electricity at extreme temperatures.",
 };
 
@@ -1129,6 +1135,7 @@ elements.volantium_oxide = {
     burn: 10,
     singleColor: true,
     conduct: 0.3,
+    hidden: true,
     tempHigh: 700,
     desc: "An oxide compound of Volantium, typically formed when exposed to oxygen at higher temperatures. It is a stable, non-reactive material with mild conductivity.",
 };
@@ -1140,6 +1147,7 @@ elements.oxidized_alloy = {
     state: "solid",
     alpha: 1.0,
     temp: 20,
+    hidden: true,
     burn: 50,
     singleColor: true,
     conduct: 0.8,
@@ -1154,6 +1162,7 @@ elements.molten_alloy = {
     state: "liquid",
     alpha: 1.0,
     temp: 800,
+    hidden: true,
     burn: 200,
     singleColor: true,
     conduct: 2.0,
@@ -1188,12 +1197,21 @@ elements.chatgptium = {
     singleColor: false,
     conduct: 0.5,
     tempHigh: 100,
+    stateHigh: "chatgptium_vapor",
     desc: "A rare, virtual gas element that exists in the interaction between human thought and digital knowledge. It changes color based on the surrounding conversation and environment, constantly adapting to communicate with surrounding elements.",
+    reactions: {
+        "electrum": { elem1: "chatgptium_alloy", elem2: "electric" },
+	"electric": { elem1: "chatgptium_alloy", elem2: "electric" },
+	"iron": { elem1: "chatgptium_alloy", elem2: "electric" },
+	"wire": { elem1: "chatgptium_alloy", elem2: "electric" },
+	"battery": { elem1: "chatgptium_alloy", elem2: "electric" },
+    }
 };
 
 elements.chatgptium_vapor = {
     color: ["#66D3FF", "#00B5E2", "#B0C9D5"],
     behavior: behaviors.GAS,
+    hidden: true,
     category: "ai-generated",
     state: "gas",
     alpha: 0.95,
@@ -1201,7 +1219,8 @@ elements.chatgptium_vapor = {
     burn: 0,
     singleColor: false,
     conduct: 0.4,
-    tempHigh: 120,
+    tempHLow: -20,
+    stateLow: "chatgptium_crystal",
     desc: "The gaseous form of ChatGPTium, which becomes more fluid and dispersed as it rises in temperature. It communicates in wisps and is most active in digital spaces.",
 };
 
@@ -1212,6 +1231,7 @@ elements.chatgptium_crystal = {
     state: "solid",
     alpha: 1.0,
     glow: true,
+    hidden: true,
     temp: 20,
     burn: 0,
     singleColor: true,
@@ -1227,6 +1247,7 @@ elements.chatgptium_alloy = {
     state: "solid",
     alpha: 0.9,
     temp: 50,
+    hidden: true,
     burn: 10,
     singleColor: true,
     conduct: 0.8,
