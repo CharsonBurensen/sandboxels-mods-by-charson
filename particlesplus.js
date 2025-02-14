@@ -933,4 +933,60 @@ elements.impurium = {
     breakInto: "plague",
 };
 
+elements.volatilium = {
+    color: ["#97BF40", "#58BF40", "#BFA740"],
+    behavior: behaviors.STURDYPOWDER,
+    category: "special",
+    state: "solid",
+    alpha: 0.99,
+    breakInto: ["electric", "steel"],
+    temp: 20,
+    burn: 55,
+    singleColor: true,
+    fireColor: ["#f71e0a", "#f7940a", "#eff70a", "#0af722", "#0a69f7"],
+    conduct: 1,
+    tempHigh: 30,
+	breakInto: "border",
+     reactions: {
+        "neutron": { elem1: "molten_slag", elem2: ["invalid", "beryllium"] },
+    } 
+};
+
+elements.beryllium = {
+    color: ["#aaaa9f", "#615d52", "#282b28"],
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    breakInto: ["emerald", "proton"],
+    temp: 20,
+    conduct: 1,
+	desc: "Beryllium is a chemical element, it has symbol Be and atomic number 4. It is a steel-gray, hard, strong, lightweight and brittle alkaline earth metal. It is a divalent element that occurs naturally only in combination with other elements to form minerals.",
+    tempHigh: 1287,
+	breakInto: "emerald",
+     reactions: {
+        "oxygen": { elem1: "beryllium_oxide", elem2: "beryllium_oxide" },
+		"head": { elem2: "poison" },
+    } 
+};
+
+elements.beryllium_oxide = {
+    color: "#c9c9d1",
+    behavior: behaviors.POWDER,
+    category: "powders",
+    state: "solid",
+    temp: 20,
+    insulate: 1,
+    } 
+};
+
+elements.emerald = {
+    color: ["#75C03F", "#3FC049", "#22B748"],
+    behavior: behaviors.POWDER,
+    category: "powders",
+    state: "solid",
+    temp: 20,
+	tempHigh: 1287,
+    } 
+};
+	
 }
