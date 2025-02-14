@@ -1195,7 +1195,7 @@ elements.mixed_metal_slag = {
     desc: "The by-product of metal refinement, a waste material that forms during the extraction of metals from ores. It is a sticky and non-conductive substance.",
 };
 	
-}
+
 
 elements.chatgptium = {
     color: ["#0091D5", "#1A72B8", "#66A3FF"],
