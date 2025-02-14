@@ -731,8 +731,9 @@ elements.unstable_cryon = {
 elements.anti_soap = {
     color: ["#0000FF"],
     behavior: behaviors.FOAM,
-    category: "solids",
+    category: "soaps",
     state: "solid",
+    hidden: true,
     burn: 100,
     reactions: {
         "soap": { elem2: null },
@@ -852,11 +853,10 @@ elements.green_skull = {
 
 elements.contaminol = {
     color: "#005F00",
-    behavior: behaviors.LIQUID,
+    behavior: behaviors.RADLIQUID,
     category: "soaps",
     viscosity: 100,
     state: "liquid",
-    desc: "soap -3.0",
     extinguish: true,
     density: 999999999,
     temp: 1,
@@ -888,3 +888,29 @@ elements.contaminol = {
         "electric": { elem1: "foam", elem2: "malware" },
     },
 };
+
+elements.impurity = {
+    color: "#4B0663",
+    behavior: behaviors.WALL,
+    category: "soaps",
+    state: "solid",
+    tempHigh: 70,
+	hidden: true,
+    stateHigh: "acid",
+    stateLowColor: "#EB14E0",
+    stain: 1,
+};
+
+elements.impurium = {
+    color: "#CECFDE",
+    behavior: behaviors.WALL,
+    category: "soaps",
+    state: "solid",
+    tempHigh: 125,
+    stateHigh: "contaminol",
+    stain: 1,
+    conduct: 1,
+    breakInto: "plague",
+};
+
+
