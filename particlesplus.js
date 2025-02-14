@@ -880,7 +880,6 @@ elements.contaminol = {
 	"molten_dirt": { elem1: "foam", elem2: "impurium" },
 	"copper": { elem1: "foam", elem2: "rust" },
 	"gold_coin": { elem1: "foam", elem2: "rust" },
-	"acid": { elem1: "foam", elem2: "impuric_acid" },
 	"ice": { elem1: "foam", elem2: "blood_ice" },
 	"steam": { elem1: "foam", elem2: "rad_steam" },
 	"porcelain": { elem1: "foam", elem2: "smoke" },
@@ -914,3 +913,5 @@ elements.impurium = {
     conduct: 1,
     breakInto: "plague",
 };
+
+}
