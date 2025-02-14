@@ -1176,3 +1176,61 @@ elements.mixed_metal_slag = {
 };
 	
 }
+
+elements.chatgptium = {
+    color: ["#0091D5", "#1A72B8", "#66A3FF"],
+    behavior: behaviors.POWDER,
+    category: "ai-generated",
+    state: "solid",
+    alpha: 0.98,
+    temp: 22,
+    burn: 0,
+    singleColor: false,
+    conduct: 0.5,
+    tempHigh: 100,
+    desc: "A rare, virtual gas element that exists in the interaction between human thought and digital knowledge. It changes color based on the surrounding conversation and environment, constantly adapting to communicate with surrounding elements.",
+};
+
+elements.chatgptium_vapor = {
+    color: ["#66D3FF", "#00B5E2", "#B0C9D5"],
+    behavior: behaviors.GAS,
+    category: "ai-generated",
+    state: "gas",
+    alpha: 0.95,
+    temp: 25,
+    burn: 0,
+    singleColor: false,
+    conduct: 0.4,
+    tempHigh: 120,
+    desc: "The gaseous form of ChatGPTium, which becomes more fluid and dispersed as it rises in temperature. It communicates in wisps and is most active in digital spaces.",
+};
+
+elements.chatgptium_crystal = {
+    color: ["#B0D6E1", "#92A4B2", "#5C9EB3"],
+    behavior: behaviors.POWDER,
+    category: "ai-generated",
+    state: "solid",
+    alpha: 1.0,
+    glow: true,
+    temp: 20,
+    burn: 0,
+    singleColor: true,
+    conduct: 0.1,
+    tempHigh: 300,
+    desc: "A crystalline form of ChatGPTium, solidified after long periods of communication. It has an almost ethereal glow and a mysterious connection to information processing.",
+};
+
+elements.chatgptium_alloy = {
+    color: ["#5F99FF", "#80A5D9", "#3D80B6"],
+    behavior: behaviors.STURDYPOWDER,
+    category: "ai-generated",
+    state: "solid",
+    alpha: 0.9,
+    temp: 50,
+    burn: 10,
+    singleColor: true,
+    conduct: 0.8,
+    tempHigh: 1200,
+    desc: "A rare alloy formed when ChatGPTium interacts with computational elements. It has a unique ability to store and transmit information rapidly, and is often used in high-tech devices.",
+};
+
