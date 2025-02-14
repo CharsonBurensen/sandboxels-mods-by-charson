@@ -884,9 +884,10 @@ elements.contaminol = {
 	"ice": { elem1: "foam", elem2: "blood_ice" },
 	"steam": { elem1: "foam", elem2: "rad_steam" },
 	"porcelain": { elem1: "foam", elem2: "smoke" },
+	"radiation": { elem1: "purificanol", elem2: "explosion" },
 	"ant": { elem1: "foam", elem2: "rad_ant" },
         "electric": { elem1: "foam", elem2: "malware" },
-    },
+    }
 };
 
 elements.impurity = {
@@ -895,7 +896,7 @@ elements.impurity = {
     category: "soaps",
     state: "solid",
     tempHigh: 70,
-	hidden: true,
+    hidden: true,
     stateHigh: "acid",
     stateLowColor: "#EB14E0",
     stain: 1,
@@ -909,8 +910,7 @@ elements.impurium = {
     tempHigh: 125,
     stateHigh: "contaminol",
     stain: 1,
+    hidden: true,
     conduct: 1,
     breakInto: "plague",
 };
-
-
