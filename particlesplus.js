@@ -986,5 +986,193 @@ elements.emerald = {
     temp: 20,
     tempHigh: 1287,
 };
+
+elements.verylithium = {
+    color: ["#A3B19C", "#3A5D4E", "#9A9E7C"],
+    behavior: behaviors.FRAGILE,
+    category: "ai-generated",
+    state: "solid",
+    alpha: 0.95,
+    breakInto: ["crystal", "liquid_metal"],
+    temp: 25,
+    burn: 70,
+    singleColor: true,
+    fireColor: ["#f70a3b", "#a47f1e", "#f7d02f", "#0af75c", "#0a3aef"],
+    conduct: 0.9,
+    tempHigh: 1000,
+    breakInto: "crystal",
+    reactions: {
+        "neutron": { elem1: "verylithium_oxide", elem2: ["molten_metal", "beryllium"] },
+        "water": { elem1: "verylithium_hydrate" },
+        "head": { elem2: "electric" }
+    }
+};
+
+elements.volantium = {
+    color: ["#97C040", "#43BF60", "#5C7A35"],
+    behavior: behaviors.TENSE,
+    category: "ai-generated",
+    state: "solid",
+    alpha: 0.99,
+    breakInto: ["electric", "steel"],
+    temp: 15,
+    burn: 45,
+    singleColor: false,
+    fireColor: ["#d91f2f", "#efad00", "#42f70a", "#2188d9", "#31a72e"],
+    conduct: 1.2,
+    tempHigh: 35,
+    breakInto: "voltain",
+    reactions: {
+        "neutron": { elem1: "volantium_plasma", elem2: ["beryllium", "molten_slag"] },
+        "oxygen": { elem1: "volantium_oxide" }
+    }
+};
+
+elements.beryllium_volatilium_alloy = {
+    color: ["#7f8c45", "#4f5c7d", "#9f8b5a"],
+    behavior: behaviors.HARD,
+    category: "ai-generated",
+    state: "solid",
+    alpha: 0.85,
+    breakInto: ["beryllium", "volantium"],
+    temp: 40,
+    burn: 60,
+    singleColor: true,
+    fireColor: ["#fa0a1f", "#ef8d1f", "#f7e20a", "#0afc1e"],
+    conduct: 1.3,
+    tempHigh: 1200,
+    breakInto: "volta_beryl",
+    reactions: {
+        "neutron": { elem1: "mixed_metal_slag", elem2: ["beryllium", "volantium"] },
+        "air": { elem1: "oxidized_alloy" },
+        "fire": { elem1: "molten_alloy" }
+    }
+};
+
+elements.crystal = {
+    color: ["#A2D8C8", "#6B9E8F", "#4F7F8F"],
+    behavior: behaviors.SHRINKING,
+    category: "ai-generated",
+    state: "solid",
+    alpha: 1.0,
+    temp: 5,
+    burn: 0,
+    singleColor: true,
+    conduct: 0,
+    tempHigh: 500,
+    desc: "A highly organized structure, often formed in nature under precise conditions. Crystals are brittle and beautiful, frequently seen as precious gemstones.",
+};
+
+elements.liquid_metal = {
+    color: ["#D1B7A1", "#9F8C7A", "#5C3A29"],
+    behavior: behaviors.POOLING,
+    category: "ai-generated",
+    state: "liquid",
+    alpha: 1.0,
+    temp: 30,
+    burn: 100,
+    singleColor: true,
+    conduct: 1.5,
+    tempHigh: 1500,
+    desc: "A liquid form of metal, exhibiting high fluidity and electrical conductivity. Typically found in high-temperature environments or specific chemical states.",
+};
+
+elements.verylithium_oxide = {
+    color: ["#A8C0A2", "#91B19E", "#5A6D52"],
+    behavior: behaviors.SOLIDIFYING,
+    category: "ai-generated",
+    state: "solid",
+    alpha: 1.0,
+    temp: 50,
+    burn: 20,
+    singleColor: true,
+    conduct: 0.5,
+    tempHigh: 600,
+    desc: "An oxide compound of Verylithium, formed when exposed to oxygen. It is a solid, stable compound, often used in industrial applications for its mild reactivity.",
+};
+
+elements.verylithium_hydrate = {
+    color: ["#A7D0C3", "#8DB6B2", "#4C7B6A"],
+    behavior: behaviors.HYDRATING,
+    category: "ai-generated",
+    state: "solid",
+    alpha: 0.95,
+    temp: 25,
+    burn: 0,
+    singleColor: true,
+    conduct: 0.2,
+    tempHigh: 400,
+    desc: "A hydrated form of Verylithium, where water molecules are integrated into its structure. It is a stable and non-reactive compound when kept in controlled conditions.",
+};
+
+elements.volantium_plasma = {
+    color: ["#7E6CC0", "#8F6CB9", "#4A5FA1"],
+    behavior: behaviors.EXPLOSIVE,
+    category: "ai-generated",
+    state: "plasma",
+    alpha: 1.0,
+    temp: 1000,
+    burn: 500,
+    singleColor: false,
+    conduct: 2.0,
+    tempHigh: 2000,
+    desc: "A highly energized state of Volantium, where the atoms are ionized and capable of conducting electricity at extreme temperatures.",
+};
+
+elements.volantium_oxide = {
+    color: ["#9C9E4A", "#B1B23C", "#B8B548"],
+    behavior: behaviors.SOLIDIFYING,
+    category: "ai-generated",
+    state: "solid",
+    alpha: 1.0,
+    temp: 40,
+    burn: 10,
+    singleColor: true,
+    conduct: 0.3,
+    tempHigh: 700,
+    desc: "An oxide compound of Volantium, typically formed when exposed to oxygen at higher temperatures. It is a stable, non-reactive material with mild conductivity.",
+};
+
+elements.oxidized_alloy = {
+    color: ["#7D6F5B", "#A69A88", "#9C9E88"],
+    behavior: behaviors.DURABLE,
+    category: "ai-generated",
+    state: "solid",
+    alpha: 1.0,
+    temp: 20,
+    burn: 50,
+    singleColor: true,
+    conduct: 0.8,
+    tempHigh: 1200,
+    desc: "An alloy that has undergone oxidation, resulting in a more stable but less conductive form. It is commonly used in environments where resistance to corrosion is crucial.",
+};
+
+elements.molten_alloy = {
+    color: ["#C4A4A1", "#B85C5A", "#B0A898"],
+    behavior: behaviors.POOLING,
+    category: "ai-generated",
+    state: "liquid",
+    alpha: 1.0,
+    temp: 800,
+    burn: 200,
+    singleColor: true,
+    conduct: 2.0,
+    tempHigh: 1800,
+    desc: "A molten state of alloy created at high temperatures. It has excellent fluidity and conductivity, often used in high-performance industrial applications.",
+};
+
+elements.mixed_metal_slag = {
+    color: ["#6E5A4E", "#7E6757", "#9C7F70"],
+    behavior: behaviors.GOOEY,
+    category: "ai-generated",
+    state: "solid",
+    alpha: 1.0,
+    temp: 100,
+    burn: 0,
+    singleColor: true,
+    conduct: 0,
+    tempHigh: 800,
+    desc: "The by-product of metal refinement, a waste material that forms during the extraction of metals from ores. It is a sticky and non-conductive substance.",
+};
 	
 }
