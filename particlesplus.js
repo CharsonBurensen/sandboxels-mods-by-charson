@@ -883,7 +883,7 @@ elements.contaminol = {
 	"ice": { elem1: "foam", elem2: "blood_ice" },
 	"steam": { elem1: "foam", elem2: "rad_steam" },
 	"porcelain": { elem1: "foam", elem2: "smoke" },
-	"radiation": { elem1: "purificanol", elem2: "explosion" },
+	"laser": { elem1: "purificanol", elem2: "explosion" },
 	"ant": { elem1: "foam", elem2: "rad_ant" },
         "electric": { elem1: "foam", elem2: "malware" },
     }
