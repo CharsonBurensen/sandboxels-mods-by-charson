@@ -1,3 +1,33 @@
+/*
+███████╗██╗  ██╗ ██████╗ ██████╗ ███████╗
+██╔════╝██║  ██║██╔═══██╗██╔══██╗██╔════╝
+███████╗███████║██║   ██║██████╔╝█████╗  
+╚════██║██╔══██║██║   ██║██╔═══╝ ██╔══╝  
+███████║██║  ██║╚██████╔╝██║     ███████╗
+╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚══════╝
+
+🔥  Sandboxels Custom Mod Collection  🔥
+Created 100% by Charson Burensen and ChatGPT  
+
+📜 Description:
+This file contains a variety of custom elements for Sandboxels,  
+including unique materials, creative reactions, and even some  
+comedic elements like "Sigma Liquid" and "Skibidi Ash."
+
+🛠️ Features:
+- Fully original elements with custom properties & behaviors.
+- Realistic and fictional materials with interesting reactions.
+- Hidden derivatives to keep the interface clean.
+- A balance of serious, creative, and funny elements.
+
+🚀 How to Use:
+Simply add this file to your Sandboxels mod loader, and enjoy  
+the endless possibilities of new materials and reactions!
+
+📌 Made with 100% originality and creativity. No code was copied!
+*/
+
+
 elements.aetherdust = {
     color: ["#D4AF37", "#C0C0C0", "#F5F5DC"],
     behavior: behaviors.AGPOWDER,
@@ -540,3 +570,149 @@ elements.skibidi_mud = {
     tempHigh: 150,
     breakInto: "skibidi_ash",
 };
+
+// Boring Metals Mod for Sandboxels
+// Boring Metals Mod - Now with Reactions & Hidden Derivatives!
+// 100% made by ChatGPT, all elements, reactions, and derivatives included.
+
+elements.blandium = {
+    color: ["#A0A0A0", "#8C8C8C", "#787878"],
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    tempHigh: 1500,
+    breakInto: "blandium_dust",
+    conduct: 0.9,
+    density: 7800,
+    desc: "A remarkably unremarkable metal. It has no special properties, no legendary history, and no appeal.",
+    reactions: {
+        "acid": { elem1: "blandium_oxide", elem2: "steam" },
+        "fire": { elem1: "blandium", elem2: "smoke" },
+        "water": { elem1: "blandium", elem2: "steam" },
+    }
+};
+
+elements.blandium_dust = {
+    color: ["#B0B0B0", "#999999", "#888888"],
+    behavior: behaviors.POWDER,
+    category: "solids",
+    state: "solid",
+    hidden: true,
+    desc: "Powdered blandium. Somehow even less interesting than before."
+};
+
+elements.blandium_oxide = {
+    color: ["#D2D2C9", "#C4C4B3", "#B6B6A0"],
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    hidden: true,
+    desc: "A crusty layer of oxidation, slightly more visually interesting than raw Blandium."
+};
+
+elements.tedium = {
+    color: ["#6E6E6E", "#5A5A5A", "#4B4B4B"],
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    tempHigh: 1600,
+    breakInto: "tedium_dust",
+    conduct: 0.8,
+    density: 8100,
+    desc: "A metal so unexciting that prolonged exposure might cause yawning.",
+    reactions: {
+        "oxygen": { elem1: "tedium_rust", elem2: null },
+        "fire": { elem1: "tedium", elem2: "smoke" },
+        "acid": { elem1: "tedium_rust", elem2: "steam" },
+    }
+};
+
+elements.tedium_dust = {
+    color: ["#7A7A7A", "#6D6D6D", "#5E5E5E"],
+    behavior: behaviors.POWDER,
+    category: "solids",
+    state: "solid",
+    hidden: true,
+    desc: "Ground-up tedium. Congratulations, you've made it even more monotonous."
+};
+
+elements.tedium_rust = {
+    color: ["#807C74", "#6F6B63", "#5E5A53"],
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    hidden: true,
+    desc: "A metal so boring that even rusting is uneventful."
+};
+
+elements.dullium = {
+    color: ["#7F7F7F", "#6B6B6B", "#5C5C5C"],
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    tempHigh: 1400,
+    breakInto: "dullium_shards",
+    conduct: 0.95,
+    density: 7600,
+    desc: "A metal so generic that no one even remembers what it looks like.",
+    reactions: {
+        "water": { elem1: "dullium_hydrate", elem2: "steam" },
+        "acid": { elem1: "dullium_hydrate", elem2: "hydrogen" },
+        "fire": { elem1: "dullium", elem2: "smoke" },
+    }
+};
+
+elements.dullium_shards = {
+    color: ["#969696", "#828282", "#707070"],
+    behavior: behaviors.POWDER,
+    category: "solids",
+    state: "solid",
+    hidden: true,
+    desc: "Shards of dullium. If you stare at them long enough, you might fall asleep."
+};
+
+elements.dullium_hydrate = {
+    color: ["#A0A0A0", "#8D8D8D", "#7C7C7C"],
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    hidden: true,
+    desc: "Dullium with a bit of water. Riveting."
+};
+
+elements.grayite = {
+    color: ["#505050", "#464646", "#3C3C3C"],
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    tempHigh: 1800,
+    breakInto: "grayite_dust",
+    conduct: 0.85,
+    density: 8500,
+    desc: "A strong, gray metal. It is gray. That’s it.",
+    reactions: {
+        "acid": { elem1: "grayite_corroded", elem2: "steam" },
+        "fire": { elem1: "grayite", elem2: "smoke" },
+        "lava": { elem1: "magma", elem2: "fire" },
+    }
+};
+
+elements.grayite_dust = {
+    color: ["#646464", "#5A5A5A", "#4F4F4F"],
+    behavior: behaviors.POWDER,
+    category: "solids",
+    state: "solid",
+    hidden: true,
+    desc: "Finely powdered grayite. Now with 200% more gray."
+};
+
+elements.grayite_corroded = {
+    color: ["#696969", "#5D5D5D", "#525252"],
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    hidden: true,
+    desc: "Acid-eaten Grayite. Now it's both gray and slightly orange. Thrilling."
+};
+
+
