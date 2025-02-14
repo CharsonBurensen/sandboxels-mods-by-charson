@@ -965,7 +965,7 @@ elements.beryllium = {
 	breakInto: "emerald",
      reactions: {
         "oxygen": { elem1: "beryllium_oxide", elem2: "beryllium_oxide" },
-		"head": { elem2: "poison" },
+	"head": { elem2: "poison" },
     } 
 };
 
@@ -976,7 +976,6 @@ elements.beryllium_oxide = {
     state: "solid",
     temp: 20,
     insulate: 1,
-    } 
 };
 
 elements.emerald = {
@@ -985,8 +984,7 @@ elements.emerald = {
     category: "powders",
     state: "solid",
     temp: 20,
-	tempHigh: 1287,
-    } 
+    tempHigh: 1287,
 };
 	
 }
