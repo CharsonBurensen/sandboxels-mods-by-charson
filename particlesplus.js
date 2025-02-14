@@ -989,7 +989,7 @@ elements.emerald = {
 
 elements.verylithium = {
     color: ["#A3B19C", "#3A5D4E", "#9A9E7C"],
-    behavior: behaviors.FRAGILE,
+    behavior: behaviors.WALL,
     category: "ai-generated",
     state: "solid",
     alpha: 0.95,
@@ -1010,7 +1010,7 @@ elements.verylithium = {
 
 elements.volantium = {
     color: ["#97C040", "#43BF60", "#5C7A35"],
-    behavior: behaviors.TENSE,
+    behavior: behaviors.WALL,
     category: "ai-generated",
     state: "solid",
     alpha: 0.99,
@@ -1030,7 +1030,7 @@ elements.volantium = {
 
 elements.beryllium_volatilium_alloy = {
     color: ["#7f8c45", "#4f5c7d", "#9f8b5a"],
-    behavior: behaviors.HARD,
+    behavior: behaviors.WALL,
     category: "ai-generated",
     state: "solid",
     alpha: 0.85,
@@ -1051,7 +1051,7 @@ elements.beryllium_volatilium_alloy = {
 
 elements.crystal = {
     color: ["#A2D8C8", "#6B9E8F", "#4F7F8F"],
-    behavior: behaviors.SHRINKING,
+    behavior: behaviors.POWDER,
     category: "ai-generated",
     state: "solid",
     alpha: 1.0,
@@ -1065,7 +1065,7 @@ elements.crystal = {
 
 elements.liquid_metal = {
     color: ["#D1B7A1", "#9F8C7A", "#5C3A29"],
-    behavior: behaviors.POOLING,
+    behavior: behaviors.LIQUID,
     category: "ai-generated",
     state: "liquid",
     alpha: 1.0,
@@ -1079,7 +1079,7 @@ elements.liquid_metal = {
 
 elements.verylithium_oxide = {
     color: ["#A8C0A2", "#91B19E", "#5A6D52"],
-    behavior: behaviors.SOLIDIFYING,
+    behavior: behaviors.STURDYPOWDER,
     category: "ai-generated",
     state: "solid",
     alpha: 1.0,
@@ -1093,7 +1093,7 @@ elements.verylithium_oxide = {
 
 elements.verylithium_hydrate = {
     color: ["#A7D0C3", "#8DB6B2", "#4C7B6A"],
-    behavior: behaviors.HYDRATING,
+    behavior: behaviors.STURDYPOWDER,
     category: "ai-generated",
     state: "solid",
     alpha: 0.95,
@@ -1107,7 +1107,7 @@ elements.verylithium_hydrate = {
 
 elements.volantium_plasma = {
     color: ["#7E6CC0", "#8F6CB9", "#4A5FA1"],
-    behavior: behaviors.EXPLOSIVE,
+    behavior: behaviors.RADPOWDER,
     category: "ai-generated",
     state: "plasma",
     alpha: 1.0,
@@ -1121,7 +1121,7 @@ elements.volantium_plasma = {
 
 elements.volantium_oxide = {
     color: ["#9C9E4A", "#B1B23C", "#B8B548"],
-    behavior: behaviors.SOLIDIFYING,
+    behavior: behaviors.POWDER,
     category: "ai-generated",
     state: "solid",
     alpha: 1.0,
@@ -1135,7 +1135,7 @@ elements.volantium_oxide = {
 
 elements.oxidized_alloy = {
     color: ["#7D6F5B", "#A69A88", "#9C9E88"],
-    behavior: behaviors.DURABLE,
+    behavior: behaviors.WALL,
     category: "ai-generated",
     state: "solid",
     alpha: 1.0,
@@ -1149,7 +1149,7 @@ elements.oxidized_alloy = {
 
 elements.molten_alloy = {
     color: ["#C4A4A1", "#B85C5A", "#B0A898"],
-    behavior: behaviors.POOLING,
+    behavior: behaviors.MOLTEN,
     category: "ai-generated",
     state: "liquid",
     alpha: 1.0,
@@ -1163,7 +1163,7 @@ elements.molten_alloy = {
 
 elements.mixed_metal_slag = {
     color: ["#6E5A4E", "#7E6757", "#9C7F70"],
-    behavior: behaviors.GOOEY,
+    behavior: behaviors.POWDER,
     category: "ai-generated",
     state: "solid",
     alpha: 1.0,
