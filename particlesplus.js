@@ -379,6 +379,10 @@ elements.purificanol = {
 	"steam": { elem1: "foam", elem2: "bubble" },
 	"mudstone": { elem1: "foam", elem2: "porcelain" },
 	"rad_ant": { elem1: "foam", elem2: "ant" },
+	"dead_plant": { elem1: "foam", elem2: "plant" },
+	"meat": { elem1: "foam", elem2: "cooked_meat" },
+	"rotten_meat": { elem1: "foam", elem2: "cured_meat" },
+	"cancer": { elem1: "foam", elem2: "dna" },
     "thermite": { elem1: "foam", elem2: "null" },
     },
 };
@@ -474,7 +478,6 @@ elements.hyperjulianite = {
     behavior: behaviors.SLIDE,
     category: "states",
     state: "solid",
-    desc: "uh oh",
 	hidden: true,
     tempHigh: 1000,
     tempLow: -40,
@@ -482,6 +485,9 @@ elements.hyperjulianite = {
   	reactions: {
         "static": { elem2:"julianite" },
 	"rock": { elem2:"plasma" },
+	"water": { elem2:"electric" },
+	"dirt": { elem2:"battery" },
+	"plant": { elem2:"snake" },
     }
 };
 
@@ -573,6 +579,7 @@ elements.thermon = {
     desc: "The thermon is a subatomic particle with a negative one elementary electric charge as well as heat.",
     state: "gas",
     charge: 1,
+    maxSize: 1,
     superconductAt: 1,
     burning: true,
     temp: 999,
@@ -591,6 +598,7 @@ elements.superthermon = {
     desc: "The superthermon is a subatomic particle with a negative one elementary electric charge as well as high heat.",
     state: "gas",
     charge: 1,
+    maxSize: 1,
     superconductAt: 1,
     burning: true,
     temp: 99999,
@@ -609,7 +617,8 @@ elements.hyperthermon = {
 	hidden: true,
     desc: "The hyperthermon is a subatomic particle with a negative one elementary electric charge as well as immense heat.",
     state: "gas",
-    charge: 1,
+    charge: 1,	
+    maxSize: 1,
     superconductAt: 1,
     burning: true,
     temp: 9999999,
@@ -628,6 +637,7 @@ elements.unstable_thermon = {
     category: "energy",
     desc: "ERROR",
 	hidden: true,
+    maxSize: 1,
     state: "gas",
     charge: 1,
     superconductAt: 1,
@@ -658,6 +668,7 @@ elements.cryon = {
     state: "gas",
     charge: 1,
     superconductAt: -273.5,
+    maxSize: 1,
     temp: -99,
     burn: 100,
     fireColor: "#1CD8E3",
@@ -675,6 +686,7 @@ elements.supercryon = {
     state: "gas",
 	hidden: true,
     charge: 1,
+    maxSize: 1,
     superconductAt: -273.5,
     temp: -273.5,
 	hidden: true,
@@ -698,6 +710,7 @@ elements.hypercryon = {
 	hidden: true,
     temp: -999999,
     burn: 100,
+    maxSize: 1,
     fireColor: "#1CD8E3",
     conduct: 1,
     reactions: {
@@ -711,6 +724,7 @@ elements.unstable_cryon = {
     color: ["#FFFFFF"],
     behavior: behaviors.BOUNCY,
     category: "energy",
+    maxSize: 1,
     desc: "ERROR",
     state: "gas",
     charge: 1,
@@ -883,9 +897,14 @@ elements.contaminol = {
 	"ice": { elem1: "foam", elem2: "blood_ice" },
 	"steam": { elem1: "foam", elem2: "rad_steam" },
 	"porcelain": { elem1: "foam", elem2: "smoke" },
+	"plant": { elem1: "foam", elem2: "dead_plant" },
 	"laser": { elem1: "purificanol", elem2: "explosion" },
 	"ant": { elem1: "foam", elem2: "rad_ant" },
         "electric": { elem1: "foam", elem2: "malware" },
+	"meat": { elem1: "foam", elem2: "rotten_meat" },
+	"cooked_meat": { elem1: "foam", elem2: "rotten_meat" },
+	"cured_meat": { elem1: "foam", elem2: "rotten_meat" },
+	"dna": { elem1: "foam", elem2: "cancer" },
     }
 };
 
@@ -897,7 +916,7 @@ elements.impurity = {
     tempHigh: 70,
     hidden: true,
     stateHigh: "acid",
-    stateLowColor: "#EB14E0",
+    stateHighColor: "#EB14E0",
     stain: 1,
 };
 
