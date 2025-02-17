@@ -484,6 +484,7 @@ elements.purificanol = {
     stateLow: "foam",
 	reactions: {
         "dirt": { elem1: "foam", elem2: "purity" },
+	"chalk_powder": { elem1: "foam", elem2: "foam" },
 	"fallout": { elem1: "anti_soap", elem2: "contaminol" },
         "sand": { elem1: "foam", elem2: "purity" },
         "dust": { elem1: "foam", elem2: "purity" },
@@ -507,6 +508,9 @@ elements.purificanol = {
 	"mudstone": { elem1: "foam", elem2: "porcelain" },
 	"rad_ant": { elem1: "foam", elem2: "ant" },
 	"dead_plant": { elem1: "foam", elem2: "plant" },
+	"frozen_plant": { elem1: "foam", elem2: "plant" },
+	"smoke": { elem1: "foam", elem2: "bless" },
+	"fire": { elem1: "foam", elem2: "bless" },
 	"meat": { elem1: "foam", elem2: "cooked_meat" },
 	"rotten_meat": { elem1: "foam", elem2: "cured_meat" },
 	"cancer": { elem1: "foam", elem2: "dna" },
