@@ -37,6 +37,7 @@ elements.powdered_lime = {
     reactions: {
         "water": { elem1:"foam", elem2:"limeade" },
         "head": { elem1: null },
+    }
 };
 
 elements.limeade = {
@@ -51,6 +52,7 @@ elements.limeade = {
     tempLow: 0,
     reactions: {
         "head": { elem1: null },
+    }
 };
 
 //stupidity mod begins here
