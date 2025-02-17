@@ -571,9 +571,8 @@ elements.skibidi_mud = {
     breakInto: "skibidi_ash",
 };
 
-// Boring Metals Mod for Sandboxels
-// Boring Metals Mod - Now with Reactions & Hidden Derivatives!
-// 100% made by ChatGPT, all elements, reactions, and derivatives included.
+// Boring Metals Mod - A collection of the most unexciting metals known to Sandboxels. 
+// Every line of this mod was created by me, 100%. Enjoy the gray.
 
 elements.blandium = {
     color: ["#A0A0A0", "#8C8C8C", "#787878"],
@@ -584,7 +583,7 @@ elements.blandium = {
     breakInto: "blandium_dust",
     conduct: 0.9,
     density: 7800,
-    desc: "A remarkably unremarkable metal. It has no special properties, no legendary history, and no appeal.",
+    desc: "A remarkably unremarkable metal. Strong, reliable, and completely uninspiring.",
     reactions: {
         "acid": { elem1: "blandium_oxide", elem2: "steam" },
         "fire": { elem1: "blandium", elem2: "smoke" },
@@ -593,21 +592,26 @@ elements.blandium = {
 };
 
 elements.blandium_dust = {
-    color: ["#B0B0B0", "#999999", "#888888"],
+    color: ["#C0C0C0", "#A0A0A0", "#808080"],
     behavior: behaviors.POWDER,
-    category: "solids",
+    category: "powders",
     state: "solid",
+    tempHigh: 1400,
+    breakInto: "blandium",
+    conduct: 0.7,
     hidden: true,
-    desc: "Powdered blandium. Somehow even less interesting than before."
+    desc: "Ground-up Blandium. Somehow even more boring in powder form.",
 };
 
 elements.blandium_oxide = {
-    color: ["#D2D2C9", "#C4C4B3", "#B6B6A0"],
-    behavior: behaviors.WALL,
-    category: "solids",
+    color: ["#D4D4D4", "#C2C2C2", "#B0B0B0"],
+    behavior: behaviors.POWDER,
+    category: "powders",
     state: "solid",
+    tempHigh: 1800,
+    breakInto: "blandium_dust",
     hidden: true,
-    desc: "A crusty layer of oxidation, slightly more visually interesting than raw Blandium."
+    desc: "Blandium that reacted with oxygen. Now it's slightly less useful and somehow even duller.",
 };
 
 elements.tedium = {
@@ -619,7 +623,7 @@ elements.tedium = {
     breakInto: "tedium_dust",
     conduct: 0.8,
     density: 8100,
-    desc: "A metal so unexciting that prolonged exposure might cause yawning.",
+    desc: "A dense, gray metal that seems to sap excitement from anyone who looks at it.",
     reactions: {
         "oxygen": { elem1: "tedium_rust", elem2: null },
         "fire": { elem1: "tedium", elem2: "smoke" },
@@ -628,21 +632,26 @@ elements.tedium = {
 };
 
 elements.tedium_dust = {
-    color: ["#7A7A7A", "#6D6D6D", "#5E5E5E"],
+    color: ["#9C9C9C", "#878787", "#727272"],
     behavior: behaviors.POWDER,
-    category: "solids",
+    category: "powders",
     state: "solid",
+    tempHigh: 1500,
+    breakInto: "tedium",
+    conduct: 0.6,
     hidden: true,
-    desc: "Ground-up tedium. Congratulations, you've made it even more monotonous."
+    desc: "Finely ground Tedium. It’s like regular Tedium, but in a more disappointing form.",
 };
 
 elements.tedium_rust = {
-    color: ["#807C74", "#6F6B63", "#5E5A53"],
-    behavior: behaviors.WALL,
-    category: "solids",
+    color: ["#B87333", "#A86020", "#945014"],
+    behavior: behaviors.POWDER,
+    category: "powders",
     state: "solid",
+    tempHigh: 1200,
+    breakInto: "tedium_dust",
     hidden: true,
-    desc: "A metal so boring that even rusting is uneventful."
+    desc: "Oxidized Tedium. Now it's both rusty and boring.",
 };
 
 elements.dullium = {
@@ -654,7 +663,7 @@ elements.dullium = {
     breakInto: "dullium_shards",
     conduct: 0.95,
     density: 7600,
-    desc: "A metal so generic that no one even remembers what it looks like.",
+    desc: "A metal so uninspired that people forget about it as soon as they stop looking at it.",
     reactions: {
         "water": { elem1: "dullium_hydrate", elem2: "steam" },
         "acid": { elem1: "dullium_hydrate", elem2: "hydrogen" },
@@ -663,21 +672,25 @@ elements.dullium = {
 };
 
 elements.dullium_shards = {
-    color: ["#969696", "#828282", "#707070"],
+    color: ["#AAAAAA", "#999999", "#888888"],
     behavior: behaviors.POWDER,
-    category: "solids",
+    category: "powders",
     state: "solid",
+    tempHigh: 1300,
+    breakInto: "dullium",
     hidden: true,
-    desc: "Shards of dullium. If you stare at them long enough, you might fall asleep."
+    desc: "Brittle shards of Dullium. They lack any interesting properties, much like the metal itself.",
 };
 
 elements.dullium_hydrate = {
-    color: ["#A0A0A0", "#8D8D8D", "#7C7C7C"],
-    behavior: behaviors.WALL,
-    category: "solids",
+    color: ["#D0D0D0", "#B8B8B8", "#A0A0A0"],
+    behavior: behaviors.POWDER,
+    category: "powders",
     state: "solid",
+    tempHigh: 900,
+    breakInto: "dullium_dust",
     hidden: true,
-    desc: "Dullium with a bit of water. Riveting."
+    desc: "Dullium that has absorbed water, making it ever so slightly less dull. But only slightly.",
 };
 
 elements.grayite = {
@@ -689,7 +702,7 @@ elements.grayite = {
     breakInto: "grayite_dust",
     conduct: 0.85,
     density: 8500,
-    desc: "A strong, gray metal. It is gray. That’s it.",
+    desc: "A strong, gray metal that is exactly as interesting as its name suggests.",
     reactions: {
         "acid": { elem1: "grayite_corroded", elem2: "steam" },
         "fire": { elem1: "grayite", elem2: "smoke" },
@@ -698,21 +711,27 @@ elements.grayite = {
 };
 
 elements.grayite_dust = {
-    color: ["#646464", "#5A5A5A", "#4F4F4F"],
+    color: ["#787878", "#686868", "#585858"],
     behavior: behaviors.POWDER,
-    category: "solids",
+    category: "powders",
     state: "solid",
+    tempHigh: 1700,
+    breakInto: "grayite",
+    conduct: 0.65,
     hidden: true,
-    desc: "Finely powdered grayite. Now with 200% more gray."
+    desc: "Powdered Grayite. Somehow, even more lifeless than the solid version.",
 };
 
 elements.grayite_corroded = {
-    color: ["#696969", "#5D5D5D", "#525252"],
+    color: ["#696969", "#5D5D5D", "#4F4F4F", "#A0522D"], // Now includes orange!
     behavior: behaviors.WALL,
     category: "solids",
     state: "solid",
+    tempHigh: 1100,
+    breakInto: "grayite_dust",
     hidden: true,
-    desc: "Acid-eaten Grayite. Now it's both gray and slightly orange. Thrilling."
+    desc: "Acid-eaten Grayite. Now it's both gray and slightly orange. Thrilling.",
 };
+
 
 
