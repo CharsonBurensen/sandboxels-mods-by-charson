@@ -248,19 +248,23 @@ elements.red_terracotta = {
 };
 
 elements.terracotta = {
-    color: "#c98c63",
+    color: ["#c98c63", "#B97140"],
+    hardness: 0.4,
+    singleColor: true,
     behavior: behaviors.WALL,
     category: "solids",
     state: "solid",
     tempHigh: 500,
     stateHigh: "heated_terracotta",
+    breakInto: "brick_rubble",
+    breakIntoColor: "#A5775A",
     reactions: {
 	"pyric_nitrite": { elem1:"red_terracotta", elem2: null },
 	"sulfur": { elem1:"yellow_terracotta", elem2: null },
 	"gold_coin": { elem1:"golden_terracotta", elem2: null },
 	"scheele_green": { elem1:"green_terracotta", elem2: null },
 	"rad_shard": { elem1:"teal_terracotta", elem2: null },
-	"skibidi_soda": { elem1:"blue_terracotta", elem2: null, 
+	"skibidi_soda": { elem1:"blue_terracotta", elem2: null }, 
 	"violetium": { elem1:"purple_terracotta", elem2: null },
     }
 };
