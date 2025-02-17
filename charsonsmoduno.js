@@ -1503,13 +1503,6 @@ elements.fancy_flour = {
     stateHigh: ["fragrance", "smoke"],
 };
 
-//thanks to the creator of stickyslime.js for this code
-elements.syrup.behavior = [
-    "XX|ST|XX",
-    "ST AND M2|XX|ST AND M2",
-    "XX|ST AND M1|XX",
-];
-
 elements.briochify = {
     color: ["#c2770e", "#ff0000", "#00ff00", "#0000ff", "#ffdec4"],
     tool: function(pixel) {
@@ -1633,6 +1626,7 @@ elements.hydroid = {
     state: "liquid",
     temp: 20,
     tempHigh: 100,
+    tempLow: -20,
     density: 12,
 	conduct: 1,
 	desc: "this is NOT water",
@@ -1642,11 +1636,11 @@ elements.hydroid = {
 		"body": { elem1: "hydroid", elem2:"fyrium" },
         "head": { elem1: "hydroid", elem2:"pyrane" },
         "water": { elem1: "hydroid", elem2:"hydroid" },
-        "syrup": { elem1: "hydroid", elem2:"hydroid" },
+        "maple_syrup": { elem1: "hydroid", elem2:"hydroid" },
 		"magma": { elem1: "hydroid", elem2:"hydroid" },
 		"oil": { elem1: "hydroid", elem2:"hydroid" },
         "juice": { elem1: "hydroid", elem2:"hydroid" },
-        "syrup": { elem1: "hydroid", elem2:"hydroid" },
+        "ice": { elem1: "hydroid", elem2:"hydroid" },
     }
 };
 
