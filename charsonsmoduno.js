@@ -31,6 +31,11 @@ elements.radiation.reactions.dead_plant = { elem2: "radioactive_maple_seed" }
 elements.radiation.reactions.ant = { elem2: "rad_ant" }
 elements.radiation.reactions.sugar = { elem2: "powdered_lime" }
 
+if (!elements.melted_cheese.reactions) { // Include this block once
+    elements.melted_cheese.reactions = {} // This creates the property if it doesn't exist
+}
+elements.melted_cheese.reactions.sauce = { elem2: "akshajium" }
+
 if (!elements.sodium.reactions) { // Include this block once
     elements.sodium.reactions = {} // This creates the property if it doesn't exist
 }
@@ -54,6 +59,7 @@ elements.chalk = {
     stain: 0.5,
     stainSelf: true,
     canContain: true,
+    related: ["art", "calcium"],
     customColor: true,
     hidden: true,
     category: "solids",
@@ -112,6 +118,7 @@ elements.stupid = {
     category: "weapons",
     viscosity: 10000,
     state: "solid",
+    related: ["di_stupid", "tri_stupid"],
     density: 100,
     desc: "stupid",
     temp: 20,
@@ -1407,7 +1414,9 @@ elements.akshajium = {
     viscosity: 10000,
     state: "solid",
     density: 100,
-    desc: "its pizza",
+    desc: "pizza",
+    related: ["sankarium", "narayananium"],
+    breakInto: ["crumb", "sauce", "melted_cheese", "cooked_meat"],
 	reactions: {
         "head": { elem1: null, chance: 0.36 },
     }
