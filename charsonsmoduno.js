@@ -1649,6 +1649,7 @@ elements.baby_oil = {
 
 elements.stupidine = {
     color: "#4e4b75",
+    desc: "Very Special",
     behavior: behaviors.STURDYPOWDER,
     category: "solids",
     state: "solid",
@@ -1659,6 +1660,7 @@ elements.stupidine = {
     stateLow: "activated_stupidine",
         reactions: {
         "stupidine": { elem1: "stupidine", elem2:"fragrance" },
+	"iron": { elem1: "ash", elem2:"stupid" },
     }
 };
 
@@ -1673,7 +1675,7 @@ elements.liquid_stupidine = {
     tempLow: 25,
     stateLow: "skibidine",
         reactions: {
-        "liquid_stupidine": { elem1:"liquid_stupidine", elem2:"slime" },
+        null: { elem2:"slime" },
     }
 };
 
@@ -1694,7 +1696,7 @@ elements.stupidine_gas = {
 
 elements.activated_stupidine = {
     color: "#3d2f61",
-    behavior: behaviors.WALL,
+    behavior: behaviors.STURDYPOWDER,
     category: "solids",
     state: "solid",
     temp: 20,
@@ -1736,23 +1738,6 @@ elements.skibidiness = {
     temp: 20,
         reactions: {
         "water": { elem1:"skibidiness", elem2:"skibidi_soda"},
-    }
-};
-
-elements.stupid = {
-    color: ["#eb3486", "#0affda", "#c7fa89"],
-    behavior: behaviors.POWDER,
-    category: "weapons",
-    viscosity: 10000,
-    state: "solid",
-    density: 100,
-    desc: "stupid",
-    temp: 20,
-    tempLow: 19,
-    tempHigh: 21,
-	  reactions: {
-        "water": { elem1:"blaster", elem2:"nuke" },
-        "stupid": { elem1:"cloner", elem2:"nuke" },
     }
 };
 
