@@ -1249,96 +1249,319 @@ elements.dissolved_auridite = {
     desc: "Auridite dissolved in acid, forming a golden-hued solution."
 };
 
-elements.incendiac = {
-    color: "#808080",
-    category: "life",
-    properties: {
-        dead: false,
-        dir: 1,
-        panic: 0,
-    },
-    tick: function(pixel) {
-        if (isEmpty(pixel.x, pixel.y+1)) {
-            createPixel("incendiac_body", pixel.x, pixel.y+1);
-            pixel.element = "incendiac_head";
-            createPixel("incendiac_hair", pixel.x, pixel.y-1);
-        }
-        else if (isEmpty(pixel.x, pixel.y-1)) {
-            createPixel("incendiac_head", pixel.x, pixel.y-1);
-            pixelMap[pixel.x][pixel.y-1].color = pixel.color;
-            pixel.element = "incendiac_body";
-            pixel.color = pixelColorPick(pixel);
-        }
-        else {
-            deletePixel(pixel.x, pixel.y);
-        }
-    },
-};
-
-// Body Element
-elements.incendiac_body = {
-    color: "#808080",
-    category: "life",
-    hidden: true,
-    density: 1500,
+elements.boron = {
+    color: "#ffb366",
+    behavior: behaviors.WALL,
+    category: "metalloids",
     state: "solid",
-    properties: {
-        dead: false,
-        dir: 1,
-        panic: 0,
-    },
-    tick: function(pixel) {
-        var head = pixelMap[pixel.x][pixel.y-1];
-        if (head && head.element === "incendiac_head") {
-            if (Math.random() < 0.1) {
-                var move = [pixel.dir, 0];
-                if (isEmpty(pixel.x + move[0], pixel.y)) {
-                    movePixel(pixel, pixel.x + move[0], pixel.y);
-                    movePixel(head, head.x + move[0], head.y);
-                }
-            }
-        }
-    },
-};
-
-// Head Element
-elements.incendiac_head = {
-    color: "#D3D3D3",
-    category: "life",
-    hidden: true,
-    density: 1080,
-    state: "solid",
-    properties: {
-        dead: false
-    },
-    tick: function(pixel) {
-        var body = pixelMap[pixel.x][pixel.y+1];
-        if (body && body.element === "incendiac_body") {
-            pixel.dir = body.dir;
-        }
-        if (isEmpty(pixel.x, pixel.y+1)) {
-            tryMove(pixel, pixel.x, pixel.y+1);
-        }
+    density: 2340,
+    reactions: {
+        "oxygen": { elem1: "boron_oxide" },
+        "molten_metal": { elem1: "boron_steel" },
+        "water": { elem1: "boric_acid" }
     }
 };
 
-// Hair Element
-elements.incendiac_hair = {
-    color: "#FF6600",
-    category: "life",
-    hidden: true,
-    density: 500,
+elements.silicon = {
+    color: "#c0c0c0",
+    behavior: behaviors.WALL,
+    category: "metalloids",
     state: "solid",
-    properties: {
-        attached: true
-    },
-    tick: function(pixel) {
-        var head = pixelMap[pixel.x][pixel.y+1];
-        if (!head || head.element !== "incendiac_head") {
-            deletePixel(pixel.x, pixel.y);
-        }
+    density: 2330,
+    reactions: {
+        "oxygen": { elem1: "quartz" },
+        "charcoal": { elem1: "silicon_carbide", temp: 2000 }
     }
 };
+
+elements.germanium = {
+    color: "#dcdcdc",
+    behavior: behaviors.WALL,
+    category: "metalloids",
+    state: "solid",
+    density: 5323,
+    reactions: {
+        "oxygen": { elem1: "germanium_oxide", "chance": 0.05 },
+        "hydrogen": { elem1: "germanium_hydride" }
+    }
+};
+
+elements.arsenic = {
+    color: "#9c8468",
+    behavior: behaviors.POWDER,
+    category: "metalloids",
+    state: "solid",
+    density: 5727,
+    reactions: {
+        "oxygen": { elem1: "arsenic_trioxide" },
+        "sulfur": { elem1: "arsenic_sulfide" }
+    }
+};
+
+elements.antimony = {
+    color: "#a9a9a9",
+    behavior: behaviors.WALL,
+    category: "metalloids",
+    state: "solid",
+    density: 6697,
+    reactions: {
+        "oxygen": { elem1: "antimony_oxide" },
+        "molten_lead": { elem1: "lead_antimony_alloy" }
+    }
+};
+
+elements.tellurium = {
+    color: "#d3c0a0",
+    behavior: behaviors.WALL,
+    category: "metalloids",
+    state: "solid",
+    density: 6240,
+    reactions: {
+        "oxygen": { elem1: "tellurium_dioxide" },
+        "gold": { elem1: "gold_telluride" }
+    }
+};
+
+elements.polonium = {
+    color: "#c8b4a2",
+    behavior: behaviors.RADPOWDER,
+    category: "metalloids",
+    state: "solid",
+    density: 9198,
+    reactions: {
+        "oxygen": { elem1: "polonium_dioxide" },
+        "time": { elem1: "lead", "chance": 0.01 }
+    }
+};
+
+elements.tantalium = {
+    color: "#4b4b4b",
+    behavior: behaviors.WALL,
+    category: "fictional_metalloids",
+    state: "solid",
+    density: 16500,
+    reactions: {
+        "iron": { elem1: "galvanized_steel" }
+    }
+};
+
+elements.solarium = {
+    color: "#ffd700",
+    behavior: behaviors.SUPERFLUID,
+    category: "fictional_metalloids",
+    state: "solid",
+    density: 3000,
+    reactions: {
+        "gold": { elem1: "solar_gold", "temp": 1000 }
+    }
+};
+
+elements.xenorium = {
+    color: "#32cd32",
+    behavior: behaviors.RADMOLTEN,
+    category: "fictional_metalloids",
+    state: "solid",
+    density: 14000,
+    reactions: {
+        "water": { elem1: "explosion" },
+        "plasma": { elem1: "lead", "chance": 0.05 }
+    }
+};
+
+elements.oblivium = {
+    color: "#2b0057",
+    behavior: behaviors.DELETE,
+    category: "fictional_metalloids",
+    state: "solid",
+    density: 7000,
+    reactions: {
+        "electricity": { elem1: "explosion" },
+    }
+};
+
+elements.necronium = {
+    color: "#1e1e1e",
+    behavior: behaviors.KILLPIXEL2,
+    category: "fictional_metalloids",
+    state: "solid",
+    density: 9000,
+    reactions: {
+        "organic": { "elem1": "decayed_mass" },
+        "metal": { "elem1": "weakened_metal" }
+    }
+};
+
+elements.boric_acid = {
+    color: "#ffffff",
+    behavior: behaviors.POWDER,
+    category: "compounds",
+    state: "solid",
+    density: 1440
+};
+
+elements.germanium_hydride = {
+    color: "#e6e6e6",
+    behavior: behaviors.GAS,
+    category: "compounds",
+    state: "gas",
+    density: 3.2
+};
+
+elements.weakened_metal = {
+    color: "#737373",
+    behavior: behaviors.WALL,
+    category: "alloys",
+    state: "solid",
+    density: 7000
+};
+
+
+elements.boron_oxide = {
+    color: "#f5f5dc",
+    behavior: behaviors.POWDER,
+    category: "compounds",
+    tempHigh: 2076,
+    stateHigh: "molten_boron_oxide",
+    reactions: {
+        "water": { elem1: "boric_acid" },
+    },
+}
+
+elements.boron_steel = {
+    color: "#8b8b8b",
+    behavior: behaviors.SOLID,
+    category: "alloys",
+    density: 7800,
+    hardness: 9,
+    tempHigh: 1500,
+}
+
+elements.silicon_oxide = {
+    color: "#d9d9d9",
+    behavior: behaviors.POWDER,
+    category: "compounds",
+    tempHigh: 1710,
+    stateHigh: "molten_silicon_oxide",
+    reactions: {
+        "carbon": { elem1: "silicon_carbide" },
+    },
+}
+
+elements.silicon_carbide = {
+    color: "#4a4a4a",
+    behavior: behaviors.SOLID,
+    category: "compounds",
+    hardness: 9.5,
+    tempHigh: 2830,
+}
+
+elements.germanium_oxide = {
+    color: "#e6e6e6",
+    behavior: behaviors.POWDER,
+    category: "compounds",
+    tempHigh: 1116,
+    stateHigh: "molten_germanium_oxide",
+    reactions: {
+        "hydrogen": { elem1: "germanium_hydride" },
+    },
+}
+
+elements.germanium_hydride = {
+    color: "#d4d4d4",
+    behavior: behaviors.GAS,
+    category: "gases",
+    tempHigh: 350,
+    stateHigh: "germanium",
+}
+
+elements.arsenic_trioxide = {
+    color: "#ffffff",
+    behavior: behaviors.POWDER,
+    category: "compounds",
+    tempHigh: 193,
+    stateHigh: "arsenic_trioxide_vapor",
+}
+
+elements.arsenic_trioxide_vapor = {
+    color: "#cccccc",
+    behavior: behaviors.GAS,
+    category: "gases",
+    tempLow: 193,
+    stateLow: "arsenic_trioxide",
+}
+
+elements.antimony_oxide = {
+    color: "#faf0e6",
+    behavior: behaviors.POWDER,
+    category: "compounds",
+    tempHigh: 656,
+    stateHigh: "molten_antimony_oxide",
+}
+
+elements.tellurium_dioxide = {
+    color: "#dbdbdb",
+    behavior: behaviors.POWDER,
+    category: "compounds",
+    tempHigh: 732,
+    stateHigh: "molten_tellurium_dioxide",
+}
+
+elements.mettalumite = {
+    color: "#c0c0c0",
+    behavior: behaviors.SOLID,
+    category: "fictional_metalloids",
+    tempHigh: 2500,
+    stateHigh: "molten_mettalumite",
+}
+
+elements.molten_mettalumite = {
+    color: "#ff8c00",
+    behavior: behaviors.LIQUID,
+    category: "fictional_metalloids",
+    tempLow: 2500,
+    stateLow: "mettalumite",
+}
+
+elements.fictium_oxide = {
+    color: "#f4a460",
+    behavior: behaviors.POWDER,
+    category: "fictional_compounds",
+    tempHigh: 1800,
+    stateHigh: "molten_fictium_oxide",
+}
+
+elements.sandiox = {
+    color: "#ffa07a",
+    behavior: behaviors.POWDER,
+    category: "fictional_compounds",
+    tempHigh: 1600,
+    stateHigh: "molten_sandiox",
+}
+
+elements.molten_sandiox = {
+    color: "#ff4500",
+    behavior: behaviors.LIQUID,
+    category: "fictional_compounds",
+    tempLow: 1600,
+    stateLow: "sandiox",
+}
+
+elements.silvanite = {
+    color: "#228b22",
+    behavior: behaviors.SOLID,
+    category: "fictional_metalloids",
+    tempHigh: 2900,
+    stateHigh: "molten_silvanite",
+}
+
+elements.molten_silvanite = {
+    color: "#ff8c00",
+    behavior: behaviors.LIQUID,
+    category: "fictional_metalloids",
+    tempLow: 2900,
+    stateLow: "silvanite",
+}
+
 
 
 
