@@ -318,7 +318,11 @@ elements.purium_dust = {
 
 elements.invalid = {
     color: ["#ff00dc", "#010001"],
-    behavior: behaviors.POWDER,
+    behavior: [
+            ["XX","CR:malware","XX"],
+            ["XX","XX","XX"],
+            ["M2","M1","M2"]
+        ],
     category: "machines",
     state: "solid",
     tempHigh: 9999,
@@ -330,7 +334,6 @@ elements.invalid = {
     breakInto: "electric",
     reactions: {
         "electric": { elem1: "null", elem2:"null" },
-        "invalid": { elem1: "invalid", elem2:"malware" },
     }
 };
 
@@ -364,7 +367,7 @@ elements.purificanol = {
     stateLow: "foam",
 	reactions: {
         "dirt": { elem1: "foam", elem2: "purity" },
-	"antimatter": { elem1: "anti_soap", elem2: "contaminol" },
+	"fallout": { elem1: "anti_soap", elem2: "contaminol" },
         "sand": { elem1: "foam", elem2: "purity" },
         "dust": { elem1: "foam", elem2: "purity" },
         "ash": { elem1: "foam", elem2: "purity" },
@@ -1649,7 +1652,6 @@ elements.baby_oil = {
 
 elements.stupidine = {
     color: "#4e4b75",
-    desc: "Very Special",
     behavior: behaviors.STURDYPOWDER,
     category: "solids",
     state: "solid",
@@ -1659,14 +1661,18 @@ elements.stupidine = {
     tempLow: -31,
     stateLow: "activated_stupidine",
         reactions: {
-        "stupidine": { elem1: "stupidine", elem2:"fragrance" },
-	"iron": { elem1: "ash", elem2:"stupid" },
+        "stupidine": { elem2:"fragrance", chance:0.1 },
+	"iron": { elem2:"stupid", chance:0.01 },
     }
 };
 
 elements.liquid_stupidine = {
     color: ["#5328c9", "4089e3"],
-    behavior: behaviors.AGLIQUID,
+    behavior: [
+	    ["M1","M1","M1"],
+            ["XX","XX","XX"],
+            ["XX","CR:slime","XX"]
+],
     category: "liquids",
     state: "liquid",
     temp: 140,
@@ -1674,8 +1680,7 @@ elements.liquid_stupidine = {
     stateHigh: "stupidine_gas",
     tempLow: 25,
     stateLow: "skibidine",
-        reactions: {
-        null: { elem2:"slime" },
+    breakInto: "skibidine",
     }
 };
 
@@ -1690,7 +1695,7 @@ elements.stupidine_gas = {
     tempLow: 200,
     stateLow: "liquid_stupidine",
         reactions: {
-        "stupidine_gas": { elem1:"stupidine_gas", elem2:"stench" },
+        "stupidine_gas": { elem1:"stench", chance:0.1 },
     }
 };
 
@@ -1732,7 +1737,7 @@ elements.skibidine = {
 
 elements.skibidiness = {
     color: "#567de8",
-    behavior: behaviors.GAS,
+    behavior: behaviors.DGAS,
     category: "gases",
     state: "gas",
     temp: 20,
