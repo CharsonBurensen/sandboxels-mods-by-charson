@@ -1250,105 +1250,94 @@ elements.dissolved_auridite = {
 };
 
 elements.incendiac = {
-    color: ["#808080"],
+    color: "#808080",
     category: "life",
     properties: {
         dead: false,
         dir: 1,
         panic: 0,
-        target: null,
     },
     tick: function(pixel) {
-        if (pixelTicks % 60 === 0) {
-            let foundTarget = false;
-            for (let dx = -20; dx <= 20; dx++) {
-                let checkX = pixel.x + dx;
-                if (checkX < 0 || checkX >= width) continue;
-                for (let dy = -5; dy <= 5; dy++) {
-                    let checkY = pixel.y + dy;
-                    if (checkY < 0 || checkY >= height) continue;
-                    let checkPixel = pixelMap[checkX][checkY];
-                    if (!checkPixel) continue;
-                    
-                    let favorable = ["food", "wood", "tree_branch", "plant", "bamboo", "gold_coin", "firefly", "frog"];
-                    let unfavorable = ["acid", "fire", "magma", "plasma", "cold_fire", "electric", "laser", "infection", "cancer", "rat", "bee", "blood", "weapons", "superheater", "freezer", "tesla_coil", "virus", "gray_goo", "antimatter", "void"];
-                    
-                    if (favorable.includes(checkPixel.element)) {
-                        pixel.target = { x: checkX, y: checkY };
-                        foundTarget = true;
-                        break;
-                    }
-                    if (unfavorable.includes(checkPixel.element)) {
-                        pixel.target = { x: pixel.x - dx, y: pixel.y };
-                        pixel.panic = Math.min(1, pixel.panic + 0.2);
-                        foundTarget = true;
-                        break;
-                    }
-                }
-                if (foundTarget) break;
-            }
-            if (!foundTarget) pixel.target = null;
+        if (isEmpty(pixel.x, pixel.y+1)) {
+            createPixel("incendiac_body", pixel.x, pixel.y+1);
+            pixel.element = "incendiac_head";
+            createPixel("incendiac_hair", pixel.x, pixel.y-1);
         }
-
-        if (pixel.target) {
-            pixel.dir = pixel.target.x > pixel.x ? 1 : -1;
+        else if (isEmpty(pixel.x, pixel.y-1)) {
+            createPixel("incendiac_head", pixel.x, pixel.y-1);
+            pixelMap[pixel.x][pixel.y-1].color = pixel.color;
+            pixel.element = "incendiac_body";
+            pixel.color = pixelColorPick(pixel);
         }
-
-        if (Math.random() < 0.1 + pixel.panic * 0.2) {
-            let moveX = pixel.x + pixel.dir;
-            let moveY = pixel.y;
-            if (isEmpty(moveX, moveY)) {
-                movePixel(pixel, moveX, moveY);
-            }
+        else {
+            deletePixel(pixel.x, pixel.y);
         }
-        pixel.panic = Math.max(0, pixel.panic - 0.01);
     },
 };
 
+// Body Element
 elements.incendiac_body = {
-    color: ["#808080"],
+    color: "#808080",
     category: "life",
     hidden: true,
     density: 1500,
     state: "solid",
-    tempHigh: 10000,
-    burn: false,
-    properties: { dead: false, dir: 1, panic: 0 },
+    properties: {
+        dead: false,
+        dir: 1,
+        panic: 0,
+    },
     tick: function(pixel) {
-        doHeat(pixel);
-        doElectricity(pixel);
+        var head = pixelMap[pixel.x][pixel.y-1];
+        if (head && head.element === "incendiac_head") {
+            if (Math.random() < 0.1) {
+                var move = [pixel.dir, 0];
+                if (isEmpty(pixel.x + move[0], pixel.y)) {
+                    movePixel(pixel, pixel.x + move[0], pixel.y);
+                    movePixel(head, head.x + move[0], head.y);
+                }
+            }
+        }
     },
 };
 
+// Head Element
 elements.incendiac_head = {
-    color: ["#d3d3d3"],
+    color: "#D3D3D3",
     category: "life",
     hidden: true,
     density: 1080,
     state: "solid",
-    tempHigh: 10000,
-    burn: false,
-    properties: { dead: false },
-    tick: function(pixel) {
-        doHeat(pixel);
-        doElectricity(pixel);
+    properties: {
+        dead: false
     },
+    tick: function(pixel) {
+        var body = pixelMap[pixel.x][pixel.y+1];
+        if (body && body.element === "incendiac_body") {
+            pixel.dir = body.dir;
+        }
+        if (isEmpty(pixel.x, pixel.y+1)) {
+            tryMove(pixel, pixel.x, pixel.y+1);
+        }
+    }
 };
 
+// Hair Element
 elements.incendiac_hair = {
-    color: ["#ff6600"],
+    color: "#FF6600",
     category: "life",
     hidden: true,
     density: 500,
     state: "solid",
-    tempHigh: 10000,
-    burn: false,
-    properties: { attached: true },
-    tick: function(pixel) {
-        if (isEmpty(pixel.x, pixel.y - 1)) {
-            createPixel("incendiac_hair", pixel.x, pixel.y - 1);
-        }
+    properties: {
+        attached: true
     },
+    tick: function(pixel) {
+        var head = pixelMap[pixel.x][pixel.y+1];
+        if (!head || head.element !== "incendiac_head") {
+            deletePixel(pixel.x, pixel.y);
+        }
+    }
 };
 
 
