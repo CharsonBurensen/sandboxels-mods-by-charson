@@ -24,6 +24,12 @@ if (!elements.calcium.reactions) { // Include this block once
 }
 elements.calcium.reactions.chlorine = { elem1: "calcium_chloride" }
 
+if (!elements.radiation.reactions) { // Include this block once
+    elements.radiation.reactions = {} // This creates the property if it doesn't exist
+}
+elements.radiation.reactions.dead_plant = { elem1: "radioactive_maple_seed" }
+elements.radiation.reactions.ant = { elem1: "rad_ant" }
+
 if (!elements.sodium.reactions) { // Include this block once
     elements.sodium.reactions = {} // This creates the property if it doesn't exist
 }
@@ -218,9 +224,10 @@ elements.maple_syrup = {
 
 elements.radioactive_maple_seed = {
     color: ["#52d156", "#5d875f"],
-    behavior: behaviors.POWDER,
+    behavior: behaviors.RADPOWDER,
     category: "life",
     viscosity: 100000,
+    hidden: true,
     state: "solid",
     isFood: true,
     desc: "how does this work",
