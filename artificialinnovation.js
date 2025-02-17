@@ -1058,5 +1058,183 @@ colorVapors.forEach(color => {
     };
 });
 
+//Human Update
+elements.human = {
+    color: ["#f5eac6","#d4c594","#a89160","#7a5733","#523018","#361e0e"],
+    category: "life",
+    properties: {
+        dead: false,
+        dir: 1,
+        panic: 0,
+        instinct: "neutral", // "neutral", "curious", "afraid", "aggressive"
+    },
+    tick: function(pixel) {
+        if (isEmpty(pixel.x, pixel.y+1)) {
+            createPixel("body", pixel.x, pixel.y+1);
+            pixel.element = "head";
+        }
+        else if (isEmpty(pixel.x, pixel.y-1)) {
+            createPixel("head", pixel.x, pixel.y-1);
+            pixelMap[pixel.x][pixel.y-1].color = pixel.color;
+            pixel.element = "body";
+            pixel.color = pixelColorPick(pixel);
+        }
+        else {
+            deletePixel(pixel.x, pixel.y);
+        }
+    },
+};
+
+// New "Instinct" System: Looks around and reacts accordingly.
+const favorableThings = ["food", "tree_branch", "gold_coin", "frog"];
+const threats = ["fire", "magma", "acid", "bee", "rat", "laser", "infection"];
+
+function checkInstinct(pixel) {
+    let foundThreat = false;
+    let foundFood = false;
+    
+    for (let dx = -10; dx <= 10; dx++) {
+        for (let dy = -10; dy <= 10; dy++) {
+            let target = pixelMap[pixel.x + dx]?.[pixel.y + dy];
+            if (!target) continue;
+
+            if (favorableThings.includes(target.element)) foundFood = true;
+            if (threats.includes(target.element)) foundThreat = true;
+        }
+    }
+
+    if (foundThreat) {
+        pixel.instinct = "afraid";
+        pixel.panic += 0.1;
+    } else if (foundFood) {
+        pixel.instinct = "curious";
+    } else {
+        pixel.instinct = "neutral";
+    }
+}
+
+// New Body Logic
+elements.body = {
+    color: ["#049699","#638A61"],
+    category: "life",
+    hidden: true,
+    density: 1500,
+    state: "solid",
+    conduct: 25,
+    tempHigh: 250,
+    stateHigh: "cooked_meat",
+    tempLow: -30,
+    stateLow: "frozen_meat",
+    burn: 10,
+    burnTime: 250,
+    burnInto: "cooked_meat",
+    reactions: {
+        "radiation": { "elem1":["ash","meat","rotten_meat"], "chance":0.4 },
+    },
+    properties: {
+        dead: false,
+        dir: 1,
+        panic: 0,
+        instinct: "neutral",
+    },
+    tick: function(pixel) {
+        if (tryMove(pixel, pixel.x, pixel.y+1)) {
+            if (!isEmpty(pixel.x, pixel.y-2, true)) {
+                let headpixel = pixelMap[pixel.x][pixel.y-2];
+                if (headpixel.element == "head") {
+                    movePixel(headpixel, pixel.x, pixel.y-1);
+                }
+            }
+        }
+
+        doHeat(pixel);
+        doBurning(pixel);
+        doElectricity(pixel);
+        checkInstinct(pixel);
+
+        if (pixel.dead) {
+            if (pixelTicks - pixel.dead > 200) {
+                pixel.element = "rotten_meat";
+                pixel.color = pixelColorPick(pixel);
+            }
+            return;
+        }
+
+        let head = pixelMap[pixel.x][pixel.y-1];
+        if (head?.element !== "head") return;
+
+        if (Math.random() < 0.1) {
+            let moveX = pixel.dir;
+            let moveY = (pixel.instinct === "afraid") ? 1 : -1;
+
+            if (pixel.instinct === "curious") {
+                moveY = -1;
+            }
+
+            if (tryMove(pixel, pixel.x + moveX, pixel.y + moveY)) {
+                movePixel(head, head.x + moveX, head.y + moveY);
+            }
+        }
+
+        if (Math.random() < 0.15) {
+            pixel.dir *= -1;
+        }
+    },
+};
+
+// Improved Head Logic
+elements.head = {
+    color: ["#f5eac6","#d4c594","#a89160","#7a6433","#524018"],
+    category: "life",
+    hidden: true,
+    density: 1080,
+    state: "solid",
+    conduct: 25,
+    tempHigh: 250,
+    stateHigh: "cooked_meat",
+    tempLow: -30,
+    stateLow: "frozen_meat",
+    burn: 10,
+    burnTime: 250,
+    burnInto: "cooked_meat",
+    properties: {
+        dead: false
+    },
+    tick: function(pixel) {
+        doHeat(pixel);
+        doBurning(pixel);
+        doElectricity(pixel);
+
+        if (pixel.dead && pixelTicks - pixel.dead > 200) {
+            pixel.element = "rotten_meat";
+            pixel.color = pixelColorPick(pixel);
+            return;
+        }
+
+        let body = pixelMap[pixel.x][pixel.y+1];
+        if (!body || body.element !== "body") {
+            if (Math.random() < 0.1) {
+                createPixel("blood", pixel.x, pixel.y+1);
+                if (Math.random() < 0.15) {
+                    pixel.dead = pixelTicks;
+                }
+            }
+        } else if (body.dead) {
+            pixel.dead = body.dead;
+        }
+    }
+};
+
+// New Reactions
+elements.human.reactions = {
+    "fire": { "elem1": "cooked_meat", "elem2": "fire" },
+    "rust": { "elem1": "rotten_meat", "chance": 0.7 },
+    "ice": { "elem1": "frozen_meat", "chance": 0.5 },
+};
+
+elements.blood.reactions = {
+    "dirt": { "elem1": null, "elem2": "mud" },
+    "sand": { "elem1": null, "elem2": "wet_sand" },
+};
 
 
