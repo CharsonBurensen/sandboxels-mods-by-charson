@@ -858,199 +858,195 @@ elements.foggy_shadow = {
 };
 
 // Primary Colors
-elements.rougium = {
+elements.rougine = {
     color: "#FF0000",
     behavior: behaviors.LIQUID,
     category: "colors",
     state: "liquid",
     tempHigh: 100,
-    stateHigh: "rougium_vapor",
+    stateHigh: "rougine_vapor",
+    stain: 1,
     desc: "A molten, fiery substance that embodies pure red energy.",
     reactions: {
-        "solarium": { elem1: "aurorium" },
-        "azurium": { elem1: "violethium" },
-        "verdium": { elem1: "umberium" },
-        "cyanion": { elem1: "gray_mixture" },
+        "solarine": { elem1: "auron", elem2: "auron" },
+        "azurion": { elem1: "violium", elem2: "violium" },
+        "veridite": { elem1: "umberon", elem2: "umberon" },
+        "cyanine": { elem1: "grayon", elem2: "grayon" },
     }
 };
 
-elements.azurium = {
+elements.azurion = {
     color: "#0000FF",
     behavior: behaviors.LIQUID,
     category: "colors",
     state: "liquid",
     tempHigh: 100,
-    stateHigh: "azurium_vapor",
+    stateHigh: "azurion_vapor",
+    stain: 1,
     desc: "A deep, mysterious fluid that shimmers with boundless depth.",
     reactions: {
-        "rougium": { elem1: "violethium" },
-        "solarium": { elem1: "verdium" },
-        "aurorium": { elem1: "umberium" },
-        "rosylium": { elem1: "gray_mixture" },
+        "rougine": { elem1: "violium", elem2: "violium" },
+        "solarine": { elem1: "veridite", elem2: "veridite" },
+        "auron": { elem1: "umberon", elem2: "umberon" },
+        "rosium": { elem1: "grayon", elem2: "grayon" },
     }
 };
 
-elements.solarium = {
+elements.solarine = {
     color: "#FFFF00",
     behavior: behaviors.LIQUID,
     category: "colors",
     state: "liquid",
     tempHigh: 100,
-    stateHigh: "solarium_vapor",
+    stateHigh: "solarine_vapor",
+    stain: 1,
     desc: "A golden liquid that radiates warmth and life.",
     reactions: {
-        "rougium": { elem1: "aurorium" },
-        "azurium": { elem1: "verdium" },
-        "violethium": { elem1: "umberium" },
-        "cyanion": { elem1: "gray_mixture" },
+        "rougine": { elem1: "auron", elem2: "auron" },
+        "azurion": { elem1: "veridite", elem2: "veridite" },
+        "violium": { elem1: "umberon", elem2: "umberon" },
+        "cyanine": { elem1: "grayon", elem2: "grayon" },
     }
 };
 
 // Secondary Colors
-elements.aurorium = {
+elements.auron = {
     color: "#FF8000",
     behavior: behaviors.LIQUID,
     category: "colors",
     state: "liquid",
     tempHigh: 100,
-    stateHigh: "aurorium_vapor",
+    stateHigh: "auron_vapor",
+    stain: 1,
     desc: "A glowing amber substance that flickers like flames.",
     reactions: {
-        "solarium": { elem1: "solarium" },
-        "rougium": { elem1: "rougium" },
-        "verdium": { elem1: "limeon" },
-        "azurium": { elem1: "umberium" },
-        "cyanion": { elem1: "gray_mixture" },
+        "veridite": { elem1: "luminon", elem2: "luminon" },
+        "azurion": { elem1: "umberon", elem2: "umberon" },
+        "cyanine": { elem1: "grayon", elem2: "grayon" },
     }
 };
 
-elements.violethium = {
+elements.violium = {
     color: "#8000FF",
     behavior: behaviors.LIQUID,
     category: "colors",
     state: "liquid",
     tempHigh: 100,
-    stateHigh: "violethium_vapor",
+    stateHigh: "violium_vapor",
+    stain: 1,
     desc: "A rare, mystical liquid that pulses with an ethereal glow.",
     reactions: {
-        "azurium": { elem1: "azurium" },
-        "rougium": { elem1: "rougium" },
-        "rosylium": { elem1: "hot_pinkium" },
-        "solarium": { elem1: "umberium" },
-        "verdium": { elem1: "gray_mixture" },
+        "rosium": { elem1: "roseon", elem2: "roseon" },
+        "solarine": { elem1: "umberon", elem2: "umberon" },
+        "veridite": { elem1: "grayon", elem2: "grayon" },
     }
 };
 
-elements.verdium = {
+elements.veridite = {
     color: "#00FF00",
     behavior: behaviors.LIQUID,
     category: "colors",
     state: "liquid",
     tempHigh: 100,
-    stateHigh: "verdium_vapor",
+    stateHigh: "veridite_vapor",
+    stain: 1,
     desc: "A rich green liquid, brimming with the essence of nature.",
     reactions: {
-        "solarium": { elem1: "limeon" },
-        "azurium": { elem1: "cyanion" },
-        "aurorium": { elem1: "limeon" },
-        "violethium": { elem1: "gray_mixture" },
+        "solarine": { elem1: "luminon", elem2: "luminon" },
+        "azurion": { elem1: "cyanine", elem2: "cyanine" },
+        "auron": { elem1: "luminon", elem2: "luminon" },
+        "violium": { elem1: "grayon", elem2: "grayon" },
     }
 };
 
 // Tertiary Colors
-elements.limeon = {
+elements.luminon = {
     color: "#BFFF00",
     behavior: behaviors.LIQUID,
     category: "colors",
     state: "liquid",
     tempHigh: 100,
-    stateHigh: "limeon_vapor",
+    stateHigh: "luminon_vapor",
+    stain: 1,
     desc: "A bright, zesty green liquid full of electric energy.",
     reactions: {
-        "solarium": { elem1: "solarium" },
-        "verdium": { elem1: "verdium" },
-        "cyanion": { elem1: "aquacine" },
-        "violethium": { elem1: "gray_mixture" },
+        "cyanine": { elem1: "aquion", elem2: "aquion" },
+        "violium": { elem1: "grayon", elem2: "grayon" },
     }
 };
 
-elements.cyanion = {
+elements.cyanine = {
     color: "#00FFFF",
     behavior: behaviors.LIQUID,
     category: "colors",
     state: "liquid",
     tempHigh: 100,
-    stateHigh: "cyanion_vapor",
+    stateHigh: "cyanine_vapor",
+    stain: 1,
     desc: "A fluid of pure clarity, reflecting light in shimmering waves.",
     reactions: {
-        "azurium": { elem1: "azurium" },
-        "verdium": { elem1: "verdium" },
-        "limeon": { elem1: "aquacine" },
-        "rougium": { elem1: "gray_mixture" },
+        "veridite": { elem1: "veridite", elem2: "veridite" },
+        "luminon": { elem1: "aquion", elem2: "aquion" },
+        "rougine": { elem1: "grayon", elem2: "grayon" },
     }
 };
 
-elements.rosylium = {
+elements.rosium = {
     color: "#FF00FF",
     behavior: behaviors.LIQUID,
     category: "colors",
     state: "liquid",
     tempHigh: 100,
-    stateHigh: "rosylium_vapor",
+    stateHigh: "rosium_vapor",
+    stain: 1,
     desc: "A striking magenta liquid with a passionate intensity.",
     reactions: {
-        "violethium": { elem1: "violethium" },
-        "rougium": { elem1: "rougium" },
-        "hot_pinkium": { elem1: "hot_pinkium" },
-        "azurium": { elem1: "gray_mixture" },
+        "violium": { elem1: "roseon", elem2: "roseon" },
+        "rougine": { elem1: "rougine", elem2: "rougine" },
+        "hotpinkon": { elem1: "hotpinkon", elem2: "hotpinkon" },
+        "azurion": { elem1: "grayon", elem2: "grayon" },
     }
 };
 
-elements.hot_pinkium = {
+elements.hotpinkon = {
     color: "#FF69B4",
     behavior: behaviors.LIQUID,
     category: "colors",
     state: "liquid",
     tempHigh: 100,
-    stateHigh: "hot_pinkium_vapor",
+    stateHigh: "hotpinkon_vapor",
+    stain: 1,
     desc: "A vibrant pink substance, playful yet powerful.",
     reactions: {
-        "rosylium": { elem1: "hot_pinkium" },
-        "violethium": { elem1: "hot_pinkium" },
-        "rougium": { elem1: "rougium" },
-        "azurium": { elem1: "gray_mixture" },
+        "rosium": { elem1: "hotpinkon", elem2: "hotpinkon" },
+        "violium": { elem1: "hotpinkon", elem2: "hotpinkon" },
     }
 };
 
-elements.umberium = {
+elements.umberon = {
     color: "#8B4513",
     behavior: behaviors.LIQUID,
     category: "colors",
     state: "liquid",
     tempHigh: 100,
-    stateHigh: "umberium_vapor",
+    stateHigh: "umberon_vapor",
+    stain: 1,
     desc: "A dark, earthy brown fluid with deep, rich undertones.",
-    reactions: {
-        "solarium": { elem1: "aurorium" },
-        "azurium": { elem1: "violethium" },
-        "verdium": { elem1: "limeon" },
-        "rougium": { elem1: "aurorium" },
-    }
 };
 
-// Neutral Blend
-elements.gray_mixture = {
+elements.grayon = {
     color: "#808080",
     behavior: behaviors.LIQUID,
     category: "colors",
     state: "liquid",
     tempHigh: 100,
-    stateHigh: "gray_mixture_vapor",
+    stateHigh: "grayon_vapor",
+    stain: 1,
     desc: "A dull, neutral liquid formed from mixing too many colors.",
 };
 
 // Vapors
-const colorVapors = ["rougium", "azurium", "solarium", "aurorium", "violethium", "verdium", "limeon", "cyanion", "rosylium", "hot_pinkium", "umberium", "gray_mixture"];
+const colorVapors = ["rougine", "azurion", "solarine", "auron", "violium", "veridite", "luminon", "cyanine", "rosium", "hotpinkon", "umberon", "grayon"];
 colorVapors.forEach(color => {
     elements[`${color}_vapor`] = {
         color: elements[color].color,
@@ -1061,5 +1057,6 @@ colorVapors.forEach(color => {
         stateLow: color,
     };
 });
+
 
 
