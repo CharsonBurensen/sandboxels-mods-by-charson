@@ -1058,84 +1058,90 @@ colorVapors.forEach(color => {
     };
 });
 
-elements.incendiac_body = {
-    color: ["#6E6E6E", "#595959"],
+elements.incendiac = {
+    color: ["#808080", "#A0A0A0"], // Gray body, light gray skin
     category: "life",
-    hidden: true,
     density: 1500,
     state: "solid",
     conduct: 25,
-    tempHigh: 5000, // Unburnable
-    reactions: {},
+    tempHigh: 9999, // Unburnable
+    burn: 0,
     properties: {
         dead: false,
         dir: 1,
         panic: 0,
     },
     tick: function(pixel) {
-        if (Math.random() < 0.05) { // Small chance to ignite surroundings
-            let igniteTargets = [[0,1], [0,-1], [1,0], [-1,0]];
-            for (let offset of igniteTargets) {
-                let x = pixel.x + offset[0];
-                let y = pixel.y + offset[1];
-                if (!isEmpty(x, y) && elements[pixelMap[x][y].element]?.burn) {
-                    pixelMap[x][y].burning = true;
-                }
-            }
+        if (!isEmpty(pixel.x, pixel.y-1, true) && pixelMap[pixel.x][pixel.y-1].element == "incendiac_head") {
+            var head = pixelMap[pixel.x][pixel.y-1];
+            if (head.dead) pixel.dead = true;
         }
-        
-        doHeat(pixel);
-        doElectricity(pixel);
+
         if (pixel.dead) {
             if (pixelTicks - pixel.dead > 200) {
-                pixel.element = "ash";
+                pixel.element = "rotten_meat";
                 pixel.color = pixelColorPick(pixel);
             }
             return;
+        }
+
+        if (Math.random() < 0.1) { // Movement chance
+            var moveDir = Math.random() < 0.5 ? 1 : -1;
+            if (tryMove(pixel, pixel.x + moveDir, pixel.y)) {
+                var head = pixelMap[pixel.x][pixel.y-1];
+                if (head && head.element == "incendiac_head") {
+                    movePixel(head, head.x + moveDir, head.y);
+                }
+            }
         }
     },
 };
 
 elements.incendiac_head = {
-    color: ["#D9D9D9", "#C0C0C0"],
+    color: ["#D0D0D0"], // Light gray skin
     category: "life",
-    hidden: true,
     density: 1080,
     state: "solid",
     conduct: 25,
-    tempHigh: 5000,
-    reactions: {},
-    properties: {
-        dead: false
-    },
+    tempHigh: 9999, // Unburnable
+    burn: 0,
+    properties: { dead: false },
     tick: function(pixel) {
-        doHeat(pixel);
-        doElectricity(pixel);
+        if (!isEmpty(pixel.x, pixel.y+1, true) && pixelMap[pixel.x][pixel.y+1].element == "incendiac") {
+            var body = pixelMap[pixel.x][pixel.y+1];
+            if (body.dead) pixel.dead = true;
+        }
+
         if (pixel.dead) {
             if (pixelTicks - pixel.dead > 200) {
-                pixel.element = "ash";
+                pixel.element = "rotten_meat";
                 pixel.color = pixelColorPick(pixel);
-                return;
             }
+            return;
         }
-    }
+        
+        // Place hair if missing
+        if (isEmpty(pixel.x-1, pixel.y, true)) createPixel("incendiac_hair", pixel.x-1, pixel.y);
+        if (isEmpty(pixel.x+1, pixel.y, true)) createPixel("incendiac_hair", pixel.x+1, pixel.y);
+    },
 };
 
 elements.incendiac_hair = {
-    color: ["#FF7700", "#FFAA33"],
-    category: "life",
-    hidden: true,
-    density: 500,
+    color: ["#FF6600"], // Orange
+    category: "special",
+    density: 100,
     state: "solid",
-    tempHigh: 5000,
+    tempHigh: 9999, // Unburnable
+    burn: 0,
+    hidden: true,
     tick: function(pixel) {
-        let x = pixel.x;
-        let y = pixel.y;
-        let left = x - 1;
-        let right = x + 1;
-        if (isEmpty(left, y)) createPixel("incendiac_hair", left, y);
-        if (isEmpty(right, y)) createPixel("incendiac_hair", right, y);
-    }
+        if (!isEmpty(pixel.x, pixel.y+1, true) && pixelMap[pixel.x][pixel.y+1].element == "incendiac_head") {
+            return;
+        } else {
+            deletePixel(pixel.x, pixel.y);
+        }
+    },
 };
+
 
 
