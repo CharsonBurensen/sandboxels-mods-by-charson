@@ -7,7 +7,8 @@
 ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚══════╝
 
 🔥  Sandboxels Custom Mod Collection  🔥
-Created 100% by Charson Burensen and ChatGPT  
+Created 100% by ChatGPT 
+(Slightly edited by Charson Burensen to resolve various syntax situations)
 
 📜 Description:
 This file contains a variety of custom elements for Sandboxels,  
@@ -1386,8 +1387,9 @@ elements.necronium = {
     state: "solid",
     density: 9000,
     reactions: {
-        "organic": { "elem1": "decayed_mass" },
-        "metal": { "elem1": "weakened_metal" }
+        "body": { elem1: "cancer" },
+        "meat": { elem1: "cancer" },
+        "iron": { elem1: "weakened_metal" }
     }
 };
 
