@@ -1249,5 +1249,79 @@ elements.dissolved_auridite = {
     desc: "Auridite dissolved in acid, forming a golden-hued solution."
 };
 
+elements.incendiac = {
+    color: ["#A9A9A9"],
+    category: "life",
+    properties: {
+        dead: false,
+        dir: 1,
+        panic: 0,
+    },
+    tick: function(pixel) {
+        if (isEmpty(pixel.x, pixel.y+1)) {
+            createPixel("incendiac_body", pixel.x, pixel.y+1);
+            pixel.element = "incendiac_head";
+        }
+        else if (isEmpty(pixel.x, pixel.y-1)) {
+            createPixel("incendiac_head", pixel.x, pixel.y-1);
+            pixelMap[pixel.x][pixel.y-1].color = pixel.color;
+            pixel.element = "incendiac_body";
+        }
+        else {
+            deletePixel(pixel.x, pixel.y);
+        }
+    },
+};
+
+elements.incendiac_body = {
+    color: ["#808080"],
+    category: "life",
+    hidden: true,
+    density: 1500,
+    state: "solid",
+    conduct: 25,
+    tempHigh: Infinity,
+    stateHigh: null,
+    burn: 0,
+    properties: {
+        dead: false,
+        dir: 1,
+        panic: 0,
+    },
+};
+
+elements.incendiac_head = {
+    color: ["#D3D3D3"],
+    category: "life",
+    hidden: true,
+    density: 1080,
+    state: "solid",
+    conduct: 25,
+    tempHigh: Infinity,
+    stateHigh: null,
+    burn: 0,
+    properties: {
+        dead: false
+    },
+    tick: function(pixel) {
+        if (!isEmpty(pixel.x, pixel.y-1)) {
+            if (!pixelMap[pixel.x][pixel.y-1].element === "incendiac_hair") {
+                createPixel("incendiac_hair", pixel.x, pixel.y-1);
+            }
+        }
+    }
+};
+
+elements.incendiac_hair = {
+    color: ["#FF8C00"],
+    category: "life",
+    hidden: true,
+    density: 500,
+    state: "solid",
+    conduct: 5,
+    tempHigh: Infinity,
+    stateHigh: null,
+    burn: 0,
+};
 
 
