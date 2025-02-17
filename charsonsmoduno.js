@@ -85,7 +85,7 @@ elements.powdered_lime = {
     state: "solid",
     reactions: {
         "water": { elem1:"foam", elem2:"limeade" },
-        "head": { elem1: null },
+        "head": { elem1: null, chance: 0.9 },
     }
 };
 
@@ -100,7 +100,7 @@ elements.limeade = {
     stateHigh: "foam",
     tempLow: 0,
     reactions: {
-        "head": { elem1: null },
+        "head": { elem1: null, chance: 0.7 },
     }
 };
 
@@ -159,7 +159,7 @@ elements.almond = {
     stateLow: "cloner",
     conduct: 1,
 	  reactions: {
-        "head": { elem1: null },
+        "head": { elem1: null, chance: 0.55 },
         "juice": { elem1:"party_popper", elem2:"party_popper" },
 	"water": { elem1:"nut_sauce", elem2:"almond_water" },
     }
@@ -172,16 +172,17 @@ elements.nut_sauce = {
     viscosity: 10000,
     state: "liquid",
     density: 100,
-    desc: "stupid",
+    desc: "Highly flammable.",
     temp: 20,
     tempLow: 0,
     tempHigh: 50,
     hidden: true,
     stateHigh: ["blaster", "floating_cloner"],
+    stateHighColor: "#EF5810",
     stateLow: "glue",
     conduct: 1,
 	  reactions: {
-        "head": { elem1: null },
+        "head": { elem1: null, chance: 0.9 },
     }
 };
 
@@ -203,7 +204,6 @@ elements.tri_stupid = {
 	  reactions: {
         "almond": { elem1:"hot_bomb", elem2:"cold_bomb" },
 	"nut_sauce": { elem1:"heat_ray", elem2:"freeze_ray" },
-	"head": { elem1: null },
     }
 };
 
@@ -219,7 +219,7 @@ elements.maple_syrup = {
     isFood: true,
     desc: "english for sirop derable",
 	  reactions: {
-        "head": { elem1: null },
+        "head": { elem1: null, chance: 0.4 },
     }
 };
 
@@ -402,7 +402,7 @@ elements.maple_milk = {
     hidden: true,
     isFood: true,
 	reactions: {
-        "head": { elem1: null },
+        "head": { elem1: null, chance: 0.9 },
     }
 };
 
@@ -548,12 +548,12 @@ elements.buttermilk = {
     behavior: behaviors.LIQUID,
     category: "food",
     state: "liquid",
-    desc: "uh oh",
+    desc: "Yum!",
 	hidden: true,
     tempHigh: 100,
     stateHigh: "steam",
   	reactions: {
-        "head": { elem1: null },
+        "head": { elem1: null, chance: 0.9 },
         "water": { elem1: null, elem2:"milk" },
 	"rock": { elem1: null, elem2:"butter" },
 	"magma": { elem1: null, elem2:"melted_butter" },
@@ -683,7 +683,7 @@ elements.banana = {
     breakInto: "banana_milk",
     breakIntoColor: "#d8b284",
     reactions: {
-        "head": { elem1: null },
+        "head": { elem1: null, chance: 0.35 },
 	"milk": { elem1: null, elem2: "banana_milk" },
     }
 };
@@ -707,7 +707,7 @@ elements.banana_milk = {
     burnInto: "dioxin",
     conduct: 1,
     reactions: {
-        "head": { elem1: null },
+        "head": { elem1: null, chance: 0.9 },
     }
 };
 
@@ -984,7 +984,7 @@ elements.scheele_green = {
     stateHigh: "molten_copper",
      reactions: {
         "terracotta": { elem1: null, elem2: "green_terracotta" },
-	"head": { elem1: "poison", elem2: "green_skull" },
+	"head": { elem1: "poison", elem2: "green_skull", chance: 0.3 },
     } 
 };
 
@@ -1002,7 +1002,7 @@ elements.green_skull = {
     tempHigh: 275,
     stateHigh: "rad_steam",
      reactions: {
-	"head": { elem2: "green_skull" },
+	"head": { elem2: "green_skull", chance: 0.1 },
     } 
 };
 
@@ -1107,7 +1107,7 @@ elements.beryllium = {
 	breakInto: "emerald",
      reactions: {
         "oxygen": { elem1: "beryllium_oxide", elem2: "beryllium_oxide" },
-	"head": { elem2: "poison" },
+	"head": { elem2: "poison", chance: 0.05 },
 	"volatilium": { elem2: "beryllium_volatilium_alloy" },
     } 
 };
@@ -1400,20 +1400,6 @@ elements.chatgptium_alloy = {
 
 //ai generated elements end here, charsonsmodbeta begins here
 
-elements.syrup = {
-    color: "#a13d08",
-    behavior: behaviors.LIQUID,
-    category: "liquids",
-    viscosity: 100000,
-    state: "liquid",
-    density: 720,
-    isFood: true,
-    desc: "maple syrup",
-	reactions: {
-        "head": { elem1: null },
-    }
-};
-
 elements.akshajium = {
     color: ["#a8160c", "#fdff94", "#d47d20"],
     behavior: behaviors.POWDER,
@@ -1423,7 +1409,7 @@ elements.akshajium = {
     density: 100,
     desc: "its pizza",
 	reactions: {
-        "head": { elem1: null },
+        "head": { elem1: null, chance: 0.36 },
     }
 };
 
@@ -1452,7 +1438,7 @@ elements.fancy_dough = {
     stateHigh: ["steam", "brioche_steam"],
     desc: "it can be evaporated",
 	reactions: {
-        "head": { elem1: null },
+        "head": { elem1: null, chance: 0.1 },
     }
 };
 
@@ -1469,7 +1455,7 @@ elements.brioche = {
     isFood: true,
     breakInto: "fancy_flour",
 	reactions: {
-        "head": { elem1: null },
+        "head": { elem1: null, chance: 0.7 },
     }
 };
 
@@ -1714,8 +1700,8 @@ elements.freakium = {
     temp: 80,
     tempLow: 30,
         reactions: {
-        "head": { elem1:"baby_oil", elem2:"meat" },
-        "body": { elem1:"baby_oil", elem2:"meat" },
+        "head": { elem1:"baby_oil", elem2:"meat", chance: 0.1 },
+        "body": { elem1:"baby_oil", elem2:"meat", chance: 0.3 },
     }
 };
 
