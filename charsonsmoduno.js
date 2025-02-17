@@ -6,25 +6,57 @@
 
 //n2s - for food, change all instances of ', elem2:"head"' into nothing.
 
+elements.calcium_chloride = {
+    color: "ffffff",
+    behavior: behaviors.STURDYPOWDER,
+    category: "powders",
+    hidden: true,
+    breakInto: ["calcium", "chlorine"],
+    state: "solid",
+    tempHigh: 772,
+    reactions: {
+        "sodium_carbonate": { elem1:"foam", elem2:"chalk" },
+    }
+};
+
+elements.sodium_carbonate = {
+    color: "ffffff",
+    behavior: behaviors.POWDER,
+    category: "powders",
+    hidden: true,
+    breakInto: ["sodium", "carbon_dioxide"],
+    state: "solid",
+    tempHigh: 851,
+    reactions: {
+        "calcium_chloride": { elem1:"foam", elem2:"chalk" },
+    }
+};
+
 elements.chalk = {
-    color: ["#eb3486", "#0affda", "#c7fa89"],
-    stain: 1,
+    color: ["#D8275D", "#E0527D", "#AF508C", "#BF73A3"],
+    stain: 0.5,
     stainSelf: true,
     canContain: true,
     customColor: true,
-    category: "special",
+    hidden: true,
+    category: "solids",
     breakInto: "chalk_powder",
     state: "solid",
+    tempHigh: 5900,
+    stateHigh: "ash",
 };
 
 elements.chalk_powder = {
-    color: ["#eb3486", "#0affda", "#c7fa89"],
-    stain: 1,
+    color: ["#D8275D", "#E0527D", "#AF508C", "#BF73A3"],
+    stain: 0.3,
     behavior: behaviors.POWDER,
     stainSelf: true,
+    hidden: true,
     customColor: true,
-    category: "special",
+    category: "powders",
     state: "solid",
+    tempHigh: 5900,
+    stateHigh: "ash",
 };
 
 elements.powdered_lime = {
