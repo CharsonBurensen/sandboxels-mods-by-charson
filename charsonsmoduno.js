@@ -182,7 +182,7 @@ elements.maple_powder = {
     isFood: true,
 	reactions: {
         "milk": { elem1:"maple_syrup", elem2:"maple_milk" },
-	"clay": { elem1: null, elem2:["red_terracotta", "terracotta", "yellow_terracotta", "green_terracotta", "teal_terracotta"] },
+	"clay": { elem1: null, elem2:"terracotta" },
     }
 };
 
@@ -203,6 +203,13 @@ elements.terracotta = {
     state: "solid",
     tempHigh: 500,
     stateHigh: "heated_terracotta",
+    reactions: {
+	"pyric_nitrite": { elem1:"red_terracotta", elem2: null },
+	"sulfur": { elem1:"yellow_terracotta", elem2: null },
+	"gold_coin": { elem1:"golden_terracotta", elem2: null },
+	"scheele_green": { elem1:"green_terracotta", elem2: null },
+	"gold_coin": { elem1:"golden_terracotta", elem2: null },
+    }
 };
 
 elements.yellow_terracotta = {
@@ -213,6 +220,17 @@ elements.yellow_terracotta = {
     hidden: true,
     tempHigh: 500,
     stateHigh: "heated_terracotta",
+};
+
+elements.golden_terracotta = {
+    color: ["#EEC211", "#DBC624", "#E8D417", "#E7DD66"],
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    hidden: true,
+    tempHigh: 500,
+    breakInto: ["gold", "terracotta"],
+    stateHigh: ["heated_terracotta", "molten_gold", "slag"],
 };
 
 elements.green_terracotta = {
@@ -1669,9 +1687,9 @@ elements.stupidine = {
 elements.liquid_stupidine = {
     color: ["#5328c9", "4089e3"],
     behavior: [
-	    ["M1","M1","M1"],
+	    ["M2","M1","M2"],
             ["XX","XX","XX"],
-            ["XX","CR:slime","XX"]
+            ["XX","CR:slime%1","XX"]
 ],
     category: "liquids",
     state: "liquid",
