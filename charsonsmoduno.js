@@ -27,8 +27,9 @@ elements.calcium.reactions.chlorine = { elem1: "calcium_chloride" }
 if (!elements.radiation.reactions) { // Include this block once
     elements.radiation.reactions = {} // This creates the property if it doesn't exist
 }
-elements.radiation.reactions.dead_plant = { elem1: "radioactive_maple_seed" }
-elements.radiation.reactions.ant = { elem1: "rad_ant" }
+elements.radiation.reactions.dead_plant = { elem2: "radioactive_maple_seed" }
+elements.radiation.reactions.ant = { elem2: "rad_ant" }
+elements.radiation.reactions.sugar = { elem2: "powdered_lime" }
 
 if (!elements.sodium.reactions) { // Include this block once
     elements.sodium.reactions = {} // This creates the property if it doesn't exist
@@ -77,7 +78,8 @@ elements.chalk_powder = {
 
 elements.powdered_lime = {
     color: ["#96F10E", "#BEF00F"],
-    stain: 1,
+    stain: 0.2,
+    hidden: true,
     behavior: behaviors.POWDER,
     stainSelf: true,
     category: "food",
@@ -90,8 +92,9 @@ elements.powdered_lime = {
 
 elements.limeade = {
     color: ["#96F10E", "#BEF00F"],
-    stain: 1,
-    behavior: behaviors.RADLIQUID,
+    alpha: 0.75,
+    stain: 0.1,
+    behavior: behaviors.LIQUID,
     stainSelf: true,
     category: "food",
     state: "solid",
