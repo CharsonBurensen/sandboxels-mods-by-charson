@@ -7,7 +7,7 @@
 //n2s - for food, change all instances of ', elem2:"head"' into nothing.
 
 elements.calcium_chloride = {
-    color: "ffffff",
+    color: "#ffffff",
     behavior: behaviors.STURDYPOWDER,
     category: "powders",
     hidden: true,
@@ -30,7 +30,7 @@ if (!elements.sodium.reactions) { // Include this block once
 elements.sodium.reactions.carbon_dioxide = { elem1: "sodium_carbonate" }
 
 elements.sodium_carbonate = {
-    color: "ffffff",
+    color: "#ffffff",
     behavior: behaviors.POWDER,
     category: "powders",
     hidden: true,
