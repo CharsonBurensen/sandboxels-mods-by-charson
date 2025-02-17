@@ -81,7 +81,6 @@ elements.powdered_lime = {
     stain: 0.2,
     hidden: true,
     behavior: behaviors.POWDER,
-    stainSelf: true,
     category: "food",
     state: "solid",
     reactions: {
@@ -95,7 +94,6 @@ elements.limeade = {
     alpha: 0.75,
     stain: 0.1,
     behavior: behaviors.LIQUID,
-    stainSelf: true,
     category: "food",
     state: "solid",
     tempHigh: 105,
