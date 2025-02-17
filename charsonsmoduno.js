@@ -208,7 +208,9 @@ elements.terracotta = {
 	"sulfur": { elem1:"yellow_terracotta", elem2: null },
 	"gold_coin": { elem1:"golden_terracotta", elem2: null },
 	"scheele_green": { elem1:"green_terracotta", elem2: null },
-	"gold_coin": { elem1:"golden_terracotta", elem2: null },
+	"rad_shard": { elem1:"teal_terracotta", elem2: null },
+	"skibidi_soda": { elem1:"blue_terracotta", elem2: null, 
+	"violetium": { elem1:"purple_terracotta", elem2: null },
     }
 };
 
