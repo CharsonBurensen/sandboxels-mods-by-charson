@@ -1058,115 +1058,196 @@ colorVapors.forEach(color => {
     };
 });
 
-//Incendiac Mod
-
-elements.incendiac = {
-    color: ["#A9A9A9", "#808080"], // Gray body
-    category: "life",
-    properties: {
-        dead: false,
-        dir: 1,
-        panic: 0,
-    },
-    tick: function(pixel) {
-        if (isEmpty(pixel.x, pixel.y+1)) {
-            createPixel("incendiac_body", pixel.x, pixel.y+1);
-            pixel.element = "incendiac_head";
-            createHair(pixel);
-        }
-        else if (isEmpty(pixel.x, pixel.y-1)) {
-            createPixel("incendiac_head", pixel.x, pixel.y-1);
-            pixelMap[pixel.x][pixel.y-1].color = pixel.color;
-            pixel.element = "incendiac_body";
-            pixel.color = pixelColorPick(pixel);
-        }
-        else {
-            deletePixel(pixel.x, pixel.y);
-        }
-    },
-};
-
-// Body Code
-elements.incendiac_body = {
-    color: ["#A9A9A9", "#808080"],
-    category: "life",
-    hidden: true,
-    density: 1500,
+elements.ferexxium = {
+    color: ["#8B5A2B", "#6E3B1F", "#A67848"],
+    behavior: behaviors.WALL,
+    category: "solids",
     state: "solid",
-    conduct: 25,
-    tempHigh: 99999, // Doesn't burn
-    properties: {
-        dead: false,
-        dir: 1,
-        panic: 0,
-    },
-    tick: function(pixel) {
-        if (tryMove(pixel, pixel.x, pixel.y+1)) {
-            let head = pixelMap[pixel.x][pixel.y-2];
-            if (head && head.element === "incendiac_head") {
-                if (isEmpty(pixel.x, pixel.y-1)) {
-                    movePixel(head, pixel.x, pixel.y-1);
-                } else {
-                    swapPixels(head, pixelMap[pixel.x][pixel.y-1]);
-                }
-            }
-        }
-        igniteSurroundings(pixel);
+    alpha: 0.98,
+    temp: 50,
+    burn: 30,
+    singleColor: true,
+    conduct: 1.1,
+    tempHigh: 1200,
+    stateHigh: "molten_ferexxium",
+    reactions: {
+        "oxygen": { elem1: "ferexxium_oxide" },
+        "water": { elem1: "rusted_ferexxium" },
+        "carbon": { elem1: "ferexxium_carbonate" }
     }
 };
 
-// Head Code
-elements.incendiac_head = {
-    color: ["#D3D3D3", "#C0C0C0"], // Light gray skin
-    category: "life",
-    hidden: true,
-    density: 1080,
+elements.ferexxium_carbonate = {
+    color: ["#A49F93", "#8C877A", "#726D63"],
+    behavior: behaviors.POWDER,
+    category: "powders",
     state: "solid",
-    conduct: 25,
-    tempHigh: 9999, // Doesn't burn
-    properties: {
-        dead: false
-    },
-    tick: function(pixel) {
-        let body = pixelMap[pixel.x][pixel.y+1];
-        if (!body || body.element !== "incendiac_body") {
-            tryMove(pixel, pixel.x, pixel.y+1);
-        }
-        createHair(pixel);
-    }
+    alpha: 1.0,
+    temp: 60,
+    burn: 0,
+    singleColor: true,
+    conduct: 0.2,
+    desc: "A carbonate compound of Ferexxium, fragile and non-conductive."
 };
 
-// Hair Code (Attached to head)
-elements.incendiac_hair = {
-    color: "#FF6600", // Orange hair
-    category: "life",
-    hidden: true,
+elements.auridite = {
+    color: ["#FFD700", "#E6C200", "#B89A00"],
+    behavior: behaviors.WALL,
+    category: "solids",
     state: "solid",
-    tick: function(pixel) {
-        let head = pixelMap[pixel.x, pixel.y+1];
-        if (!head || head.element !== "incendiac_head") {
-            deletePixel(pixel.x, pixel.y);
-        }
+    alpha: 0.99,
+    temp: 20,
+    burn: 0,
+    singleColor: true,
+    conduct: 1.5,
+    tempHigh: 1064,
+    stateHigh: "molten_auridite",
+    reactions: {
+        "mercury": { elem1: "auridite_amalgam" },
+        "acid": { elem1: "dissolved_auridite" }
     }
 };
 
-function createHair(pixel) {
-    if (isEmpty(pixel.x-1, pixel.y)) createPixel("incendiac_hair", pixel.x-1, pixel.y);
-    if (isEmpty(pixel.x+1, pixel.y)) createPixel("incendiac_hair", pixel.x+1, pixel.y);
-}
-
-function igniteSurroundings(pixel) {
-    let offsets = [ [-1,0], [1,0], [0,-1], [0,1] ];
-    for (let offset of offsets) {
-        let target = pixelMap[pixel.x+offset[0]][pixel.y+offset[1]];
-        if (target && Math.random() < 0.05) {
-            if (!elements[target.element].tempHigh || elements[target.element].tempHigh < 250) {
-                changePixel(target, "fire");
-            }
-        }
+elements.voltaxium = {
+    color: ["#5C7A99", "#3D5A80", "#8AA6C1"],
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    alpha: 0.97,
+    temp: 10,
+    burn: 20,
+    singleColor: false,
+    conduct: 2.0,
+    tempHigh: 800,
+    stateHigh: "molten_voltaxium",
+    reactions: {
+        "electric": { elem1: "charged_voltaxium" },
+        "water": { elem1: "ionized_voltaxium" }
     }
-}
+};
 
+elements.ionized_voltaxium = {
+    color: ["#A1CAF1", "#7DA7D9", "#5B7EBE"],
+    behavior: behaviors.POWDER,
+    category: "powders",
+    state: "solid",
+    alpha: 1.0,
+    temp: 15,
+    burn: 10,
+    singleColor: false,
+    conduct: 2.8,
+    desc: "Water-exposed Voltaxium, slightly conductive and unstable."
+};
+
+elements.molten_ferexxium = {
+    color: ["#D2691E", "#A0522D", "#8B4513"],
+    behavior: behaviors.LIQUID,
+    category: "liquids",
+    state: "liquid",
+    alpha: 1.0,
+    temp: 1200,
+    burn: 50,
+    singleColor: true,
+    conduct: 1.3,
+    tempLow: 1199,
+    stateLow: "ferexxium"
+};
+
+elements.molten_auridite = {
+    color: ["#FFD123", "#E6AC00", "#B8860B"],
+    behavior: behaviors.LIQUID,
+    category: "liquids",
+    state: "liquid",
+    alpha: 1.0,
+    temp: 1064,
+    burn: 0,
+    singleColor: true,
+    conduct: 1.6,
+    tempLow: 1063,
+    stateLow: "auridite"
+};
+
+elements.molten_voltaxium = {
+    color: ["#729FCF", "#487BA0", "#205080"],
+    behavior: behaviors.LIQUID,
+    category: "liquids",
+    state: "liquid",
+    alpha: 1.0,
+    temp: 800,
+    burn: 30,
+    singleColor: false,
+    conduct: 2.5,
+    tempLow: 799,
+    stateLow: "voltaxium"
+};
+
+elements.ferexxium_oxide = {
+    color: ["#B7410E", "#8A3324", "#6E2C1F"],
+    behavior: behaviors.POWDER,
+    category: "powders",
+    state: "solid",
+    alpha: 1.0,
+    temp: 60,
+    burn: 10,
+    singleColor: true,
+    conduct: 0.5,
+    tempHigh: 1400,
+    stateHigh: "molten_ferexxium_oxide"
+};
+
+elements.rusted_ferexxium = {
+    color: ["#9A382D", "#C04D42", "#D35E55"],
+    behavior: behaviors.POWDER,
+    category: "powders",
+    state: "solid",
+    alpha: 1.0,
+    temp: 25,
+    burn: 0,
+    singleColor: true,
+    conduct: 0.3,
+    desc: "Corroded Ferexxium from exposure to water. Weakened and brittle."
+};
+
+elements.auridite_amalgam = {
+    color: ["#E6C200", "#B89A00", "#FFD123"],
+    behavior: behaviors.STURDYPOWDER,
+    category: "solids",
+    state: "solid",
+    alpha: 1.0,
+    temp: 25,
+    burn: 0,
+    singleColor: true,
+    conduct: 1.0,
+    tempHigh: 800,
+    stateHigh: "molten_auridite_amalgam",
+    desc: "A mercury-infused Auridite alloy, softer and more conductive."
+};
+
+elements.charged_voltaxium = {
+    color: ["#00BFFF", "#009ACD", "#00688B"],
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    alpha: 0.98,
+    temp: 10,
+    burn: 20,
+    singleColor: false,
+    conduct: 3.0,
+    desc: "Highly energized Voltaxium, crackling with power."
+};
+
+elements.dissolved_auridite = {
+    color: ["#FFD700", "#E6C200", "#B89A00"],
+    behavior: behaviors.LIQUID,
+    category: "liquids",
+    state: "liquid",
+    alpha: 0.9,
+    temp: 25,
+    burn: 0,
+    singleColor: true,
+    conduct: 1.2,
+    desc: "Auridite dissolved in acid, forming a golden-hued solution."
+};
 
 
 
