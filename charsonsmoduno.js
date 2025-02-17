@@ -19,6 +19,16 @@ elements.calcium_chloride = {
     }
 };
 
+if (!elements.calcium.reactions) { // Include this block once
+    elements.calcium.reactions = {} // This creates the property if it doesn't exist
+}
+elements.calcium.reactions.chlorine = { elem1: "calcium_chloride" }
+
+if (!elements.sodium.reactions) { // Include this block once
+    elements.sodium.reactions = {} // This creates the property if it doesn't exist
+}
+elements.sodium.reactions.carbon_dioxide = { elem1: "sodium_carbonate" }
+
 elements.sodium_carbonate = {
     color: "ffffff",
     behavior: behaviors.POWDER,
