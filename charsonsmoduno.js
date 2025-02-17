@@ -4,6 +4,55 @@
 
 //needs absolute zero to be set to -99999999999999999999999999999
 
+//n2s - for food, change all instances of ', elem2:"head"' into nothing.
+
+elements.chalk = {
+    color: ["#eb3486", "#0affda", "#c7fa89"],
+    stain: 1,
+    stainSelf: true,
+    canContain: true,
+    customColor: true,
+    category: "special",
+    breakInto: "chalk_powder",
+    state: "solid",
+};
+
+elements.chalk_powder = {
+    color: ["#eb3486", "#0affda", "#c7fa89"],
+    stain: 1,
+    behavior: behaviors.POWDER,
+    stainSelf: true,
+    customColor: true,
+    category: "special",
+    state: "solid",
+};
+
+elements.powdered_lime = {
+    color: ["#96F10E", "#BEF00F"],
+    stain: 1,
+    behavior: behaviors.POWDER,
+    stainSelf: true,
+    category: "food",
+    state: "solid",
+    reactions: {
+        "water": { elem1:"foam", elem2:"limeade" },
+        "head": { elem1: null },
+};
+
+elements.limeade = {
+    color: ["#96F10E", "#BEF00F"],
+    stain: 1,
+    behavior: behaviors.RADLIQUID,
+    stainSelf: true,
+    category: "food",
+    state: "solid",
+    tempHigh: 105,
+    stateHigh: "foam",
+    tempLow: 0,
+    reactions: {
+        "head": { elem1: null },
+};
+
 //stupidity mod begins here
 
 elements.stupid = {
@@ -59,7 +108,7 @@ elements.almond = {
     stateLow: "cloner",
     conduct: 1,
 	  reactions: {
-        "head": { elem1: null, elem2:"head" },
+        "head": { elem1: null },
         "juice": { elem1:"party_popper", elem2:"party_popper" },
 	"water": { elem1:"nut_sauce", elem2:"almond_water" },
     }
@@ -81,7 +130,7 @@ elements.nut_sauce = {
     stateLow: "glue",
     conduct: 1,
 	  reactions: {
-        "head": { elem1: null, elem2:"head" },
+        "head": { elem1: null },
     }
 };
 
@@ -103,7 +152,7 @@ elements.tri_stupid = {
 	  reactions: {
         "almond": { elem1:"hot_bomb", elem2:"cold_bomb" },
 	"nut_sauce": { elem1:"heat_ray", elem2:"freeze_ray" },
-	"head": { elem1: null, elem2:"head" },
+	"head": { elem1: null },
     }
 };
 
@@ -119,7 +168,7 @@ elements.maple_syrup = {
     isFood: true,
     desc: "english for sirop derable",
 	  reactions: {
-        "head": { elem1: null, elem2:"head" },
+        "head": { elem1: null },
     }
 };
 
@@ -297,7 +346,7 @@ elements.maple_milk = {
     hidden: true,
     isFood: true,
 	reactions: {
-        "head": { elem1: null, elem2:"head" },
+        "head": { elem1: null },
     }
 };
 
@@ -444,7 +493,7 @@ elements.buttermilk = {
     tempHigh: 100,
     stateHigh: "steam",
   	reactions: {
-        "head": { elem1: null, elem2:"head" },
+        "head": { elem1: null },
         "water": { elem1: null, elem2:"milk" },
 	"rock": { elem1: null, elem2:"butter" },
 	"magma": { elem1: null, elem2:"melted_butter" },
@@ -1301,7 +1350,7 @@ elements.syrup = {
     isFood: true,
     desc: "maple syrup",
 	reactions: {
-        "head": { elem1: null, elem2:"head" },
+        "head": { elem1: null },
     }
 };
 
@@ -1314,7 +1363,7 @@ elements.akshajium = {
     density: 100,
     desc: "its pizza",
 	reactions: {
-        "head": { elem1: null, elem2:"head" },
+        "head": { elem1: null },
     }
 };
 
@@ -1343,7 +1392,7 @@ elements.fancy_dough = {
     stateHigh: ["steam", "brioche_steam"],
     desc: "it can be evaporated",
 	reactions: {
-        "head": { elem1: null, elem2:"head" },
+        "head": { elem1: null },
     }
 };
 
@@ -1360,7 +1409,7 @@ elements.brioche = {
     isFood: true,
     breakInto: "fancy_flour",
 	reactions: {
-        "head": { elem1: null, elem2:"head" },
+        "head": { elem1: null },
     }
 };
 
@@ -1456,6 +1505,11 @@ elements.pyrane = {
 elements.pyric_nitrite = {
     color: "#b3270e",
     behavior: behaviors.POWDER,
+    behaviorOn: [
+    "XX|XX|XX",
+    "XX|EX:10>fire,nitrogen,stench,electric|XX",
+    "XX|XX|XX",
+],
     category: "powders",
     state: "solid",
     temp: 20,
@@ -1465,7 +1519,6 @@ elements.pyric_nitrite = {
         "iron": { elem1:"pyric_nitrite", elem2:"pyric_rust" },
 		"oil": { elem1: null, elem2:"nitrol_fuel" },
 		"electric": { elem1:["fire", "nitrogen", "stench", "electric", "explosion"], elem2:"fire" },
-		"shock": { elem1:["fire", "nitrogen", "stench", "electric", "explosion"], elem2:"fire" },
     }
 };
 
@@ -1499,7 +1552,7 @@ elements.molten_fyrium = {
     tempLow: -20,
     stateLow: ["fyrium"],
     reactions: {
-        "water": { elem1:"fire", elem2:"water" }
+        "water": { elem1:"explosion", elem2: null }
     }
 };
 
@@ -1720,13 +1773,14 @@ elements.stupidine_gas = {
 
 elements.activated_stupidine = {
     color: "#3d2f61",
-    behavior: behaviors.STURDYPOWDER,
+    behavior: [
+    "XX|XX|XX",
+    "XX|CH:hot_bomb|XX",
+    "XX|XX|XX",
+],
     category: "solids",
     state: "solid",
     temp: 20,
-        reactions: {
-        "stupidine": { elem1:"explosion", elem2:"explosion" },
-    }
 };
 
 elements.skibidi_soda = {
@@ -1738,7 +1792,7 @@ elements.skibidi_soda = {
     stateHigh: ["skibidiness", "skibidine"],
         reactions: {
         "oxygen": { elem1:"skibidi_soda", elem2:"skibidiness" },
-        "head": { elem1: "skibidiness", elem2:"head" },
+        "head": { elem1: "skibidiness" },
     }
 };
 
