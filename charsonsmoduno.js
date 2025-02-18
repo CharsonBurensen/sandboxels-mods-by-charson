@@ -1842,7 +1842,7 @@ elements.tocopheryl_acetate = {
 elements.diddium = {
     color: ["#210742", "#9e20d4"],
     behavior: [
-    "XX|CR:freakium%25|XX",
+    "XX|CR:freakium|XX",
     "XX|XX|XX",
     "XX|M1|XX",
 ],
