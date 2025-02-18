@@ -1284,6 +1284,26 @@ elements.volantium = {
     }
 };
 
+elements.voltain = {
+    color: ["#D3B5E0", "#9B74CC", "#6A4E92"], // colors for voltain (purple and violet hues)
+    behavior: behaviors.AGPOWDER,
+    category: "ai-generated",
+    state: "solid", // in solid state
+    alpha: 0.99, // high opacity
+    breakInto: ["crystal"],
+    temp: 20, // temperature in Celsius
+    burn: 50, // burn rate, how much it burns
+    singleColor: false, // does not have a single color, as it's a multi-colored crystal
+    fireColor: ["#f00", "#ff0", "#ff80d5", "#ff4f7f", "#7f2dff"], // fire-like colors (purple to pink)
+    conduct: 0.8, // lower conductivity, suitable for a crystal
+    tempHigh: 30, // maximum temperature before breaking down
+    stateHigh: "dust",
+    reactions: {
+        "magma": { elem1: "mixed_metal_slag" }, // reacts with water
+    }
+};
+
+
 elements.beryllium_volatilium_alloy = {
     color: ["#7f8c45", "#4f5c7d", "#9f8b5a"],
     behavior: behaviors.WALL,
@@ -1315,6 +1335,7 @@ elements.crystal = {
     singleColor: true,
     conduct: 0,
     tempHigh: 500,
+    breakInto: "chatgptium_vapor",
     desc: "A highly organized structure, often formed in nature under precise conditions. Crystals are brittle and beautiful, frequently seen as precious gemstones.",
 };
 
@@ -1330,6 +1351,7 @@ elements.liquid_metal = {
     hidden: true,
     conduct: 1.5,
     tempHigh: 1500,
+    breakInto: "chatgptium",
     desc: "A liquid form of metal, exhibiting high fluidity and electrical conductivity. Typically found in high-temperature environments or specific chemical states.",
 };
 
@@ -1345,6 +1367,7 @@ elements.verylithium_oxide = {
     hidden: true,
     conduct: 0.5,
     tempHigh: 600,
+    breakInto: "dust",
     desc: "An oxide compound of Verylithium, formed when exposed to oxygen. It is a solid, stable compound, often used in industrial applications for its mild reactivity.",
 };
 
@@ -1360,6 +1383,7 @@ elements.verylithium_hydrate = {
     singleColor: true,
     conduct: 0.2,
     tempHigh: 400,
+    breakInto: "dirty_water",
     desc: "A hydrated form of Verylithium, where water molecules are integrated into its structure. It is a stable and non-reactive compound when kept in controlled conditions.",
 };
 
@@ -1374,6 +1398,7 @@ elements.volantium_plasma = {
     singleColor: false,
     hidden: true,
     conduct: 2.0,
+    charge: 2,
     tempHigh: 2000,
     hidden: true,
     desc: "A highly energized state of Volantium, where the atoms are ionized and capable of conducting electricity at extreme temperatures.",
@@ -1391,6 +1416,8 @@ elements.volantium_oxide = {
     conduct: 0.3,
     hidden: true,
     tempHigh: 700,
+    breakInto: "dust",
+    breakIntoColour: "#42374f",
     desc: "An oxide compound of Volantium, typically formed when exposed to oxygen at higher temperatures. It is a stable, non-reactive material with mild conductivity.",
 };
 
@@ -1406,6 +1433,7 @@ elements.oxidized_alloy = {
     singleColor: true,
     conduct: 0.8,
     tempHigh: 1200,
+    breakInto: "rust",
     desc: "An alloy that has undergone oxidation, resulting in a more stable but less conductive form. It is commonly used in environments where resistance to corrosion is crucial.",
 };
 
@@ -1421,6 +1449,8 @@ elements.molten_alloy = {
     singleColor: true,
     conduct: 2.0,
     tempHigh: 1800,
+    breakInto: "chatgptium_alloy",
+    breakIntoColour: "#374f3d",
     desc: "A molten state of alloy created at high temperatures. It has excellent fluidity and conductivity, often used in high-performance industrial applications.",
 };
 
@@ -1435,11 +1465,10 @@ elements.mixed_metal_slag = {
     singleColor: true,
     conduct: 0,
     tempHigh: 800,
+    breakInto: "chatgptium_alloy",
     desc: "The by-product of metal refinement, a waste material that forms during the extraction of metals from ores. It is a sticky and non-conductive substance.",
 };
 	
-
-
 elements.chatgptium = {
     color: ["#0091D5", "#1A72B8", "#66A3FF"],
     behavior: behaviors.POWDER,
@@ -1473,7 +1502,7 @@ elements.chatgptium_vapor = {
     burn: 0,
     singleColor: false,
     conduct: 0.4,
-    tempHLow: -20,
+    tempLow: -20,
     stateLow: "chatgptium_crystal",
     desc: "The gaseous form of ChatGPTium, which becomes more fluid and dispersed as it rises in temperature. It communicates in wisps and is most active in digital spaces.",
 };
