@@ -89,6 +89,18 @@ elements.alumina = {
     }
 };
 
+elements.hyper_aluminium = {
+    color: ["#61829e", "#61829e", "#61829e", "#61829e", "#5872a7"],
+    behavior: behaviors.WALL,
+    category: "solids",
+    hidden: true,
+    state: "solid",
+    tempHigh: 9999999,
+    conduct: 1,
+    charge: 3,
+    stateHigh: "molten_aluminium",
+};
+
 elements.silicate = {
     color: ["#A6B5B8", "#A7A8A0", "#665953", "#BDDAE8"],
     behavior: behaviors.POWDER,
