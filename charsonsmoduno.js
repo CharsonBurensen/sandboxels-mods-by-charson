@@ -24,6 +24,11 @@ if (!elements.calcium.reactions) { // Include this block once
 }
 elements.calcium.reactions.chlorine = { elem1: "calcium_chloride" }
 
+if (!elements.nitrogen.reactions) { // Include this block once
+    elements.nitrogen.reactions = {} // This creates the property if it doesn't exist
+}
+elements.nitrogen.reactions.fire = { elem1: "pyrane" }
+
 if (!elements.radiation.reactions) { // Include this block once
     elements.radiation.reactions = {} // This creates the property if it doesn't exist
 }
@@ -921,14 +926,20 @@ elements.violetium.behavior = [
 
 elements.pyrus_minimus = {
     color: ["#eb6e34", "#ffd014", "#ff143c"],
+    desc: "The rare Pyrus Minimus is a flying...animal? It preys on bird and worms.",
+    behaviorOn: [
+    "XX|XX|XX",
+    "XX|EX:25>firework|XX",
+    "XX|XX|XX",
+],
     behavior: behaviors.FLY,
     category: "life",
     state: "solid",
-    egg: "magma",
     foodNeed: 3,
     breakInto: ["fire", "cooked_meat", "slime"],
     glow: true,
     temp: 300,
+    baby: "pyrus_minimus",
     singleColor: true,
     fireColor: "#ff5b14",
     conduct: 1,
@@ -938,6 +949,8 @@ elements.pyrus_minimus = {
 	"juice": { elem2: null },
 	"chocolate": { elem2: null },
 	"basalt": { elem2: null },
+	"bird": { elem2: ["feather", "blood"] },
+	"worm": { elem2: null },
     }
 };
 
@@ -1537,10 +1550,10 @@ elements.briochify = {
 elements.pyrane = {
     color: "#fc7c19",
     behavior: behaviors.GAS,
+    hidden: true,
     category: "gases",
     state: "gas",
     temp: 50,
-	desc: "this is a ripoff of nitrogen gas",
     tempLow: -20,
     stateLow: ["fyrium"],
     reactions: {
