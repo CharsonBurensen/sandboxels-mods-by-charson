@@ -159,8 +159,8 @@ elements.powdered_lime = {
 };
 
 elements.limeade = {
-    color: ["#96F10E", "#BEF00F"],
-    alpha: 0.75,
+    color: ["#96F10E", "#BEF00F", "#96F10E"],
+    alpha: 0.9,
     stain: 0.1,
     behavior: behaviors.LIQUID,
     category: "food",
@@ -287,6 +287,7 @@ elements.maple_syrup = {
     state: "liquid",
     density: 720,
     isFood: true,
+    stain: 0.01,
     desc: "english for sirop derable",
 	  reactions: {
         "head": { elem1: null, chance: 0.4 },
@@ -987,7 +988,7 @@ elements.pyrus_minimus = {
     desc: "The rare Pyrus Minimus is a flying...animal? It preys on bird and worms.",
     behaviorOn: [
     "XX|XX|XX",
-    "XX|EX:25>firework|XX",
+    "XX|EX:5>firework|XX",
     "XX|XX|XX",
 ],
     behavior: behaviors.FLY,
@@ -1015,6 +1016,11 @@ elements.pyrus_minimus = {
 elements.stablium = {
     color: ["#516c87", "#de1998", "#c4e043"],
     behavior: behaviors.POWDER,
+    behaviorOn: [
+    "XX|XX|XX",
+    "XX|EX:25>fw_ember,electric,flash,pop,proton|XX",
+    "XX|XX|XX",
+],
     category: "special",
     state: "solid",
     alpha: 0.73,
@@ -1173,7 +1179,7 @@ elements.volatilium = {
 };
 
 elements.beryllium = {
-    color: ["#aaaa9f", "#615d52", "#282b28"],
+    color: ["#XXXX9f", "#615d52", "#282b28"],
     behavior: behaviors.WALL,
     category: "solids",
     state: "solid",
@@ -1540,14 +1546,18 @@ elements.brioche = {
 };
 
 elements.aresium = {
-    color: "#1017ad",
-    behavior: behaviors.WALL,
+    color: ["#1017ad", "#2E5AD1"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|XX|XX"
+],
     category: "solids",
     temp: 19,
     tempHigh: 100,
     tempLow: -20,
     stateHigh: ["skibidi_aresium"],
-    stateLow: ["magma", "electric"],
+    stateLow: ["magma", "electric", "explosion", "cold_fire"],
 	desc: "it's a transition metal named after mars",
     burn: 0,
     conduct: 1,
@@ -1555,7 +1565,11 @@ elements.aresium = {
 
 elements.skibidi_aresium = {
     color: "#ad1051",
-    behavior: behaviors.MOLTEN,
+    behavior: [
+    "XX|XX|XX",
+    "M1 AND EX:10>brick_rubble,radiation|XX|M1 AND EX:10>brick_rubble,radiation",
+    "XX|XX|XX"
+],
     category: "states",
     temp: 100,
     tempHigh: 153,
@@ -1681,6 +1695,7 @@ elements.nitrol_fuel = {
     category: "liquids",
     state: "liquid",
     temp: 20,
+    stain: 0.5,
     reactions: {
         "wood": { elem1: null, elem2:"fueled_wood" },
     }
