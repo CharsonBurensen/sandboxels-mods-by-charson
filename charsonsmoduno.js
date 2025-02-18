@@ -1839,9 +1839,12 @@ elements.freakium = {
     density: 720,
     temp: 80,
     tempLow: 30,
+    tempHigh: 345,
+    stateHigh: "meat",
         reactions: {
         "head": { elem1:"baby_oil", elem2:"meat", chance: 0.1 },
         "body": { elem1:"baby_oil", elem2:"meat", chance: 0.3 },
+	"freakium": { elem1:"baby_oil", chance: 0.005 },
     }
 };
 
