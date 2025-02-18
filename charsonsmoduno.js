@@ -1877,8 +1877,8 @@ elements.tocopheryl_acetate = {
 elements.diddium = {
     color: ["#210742", "#9e20d4"],
     behavior: [
-    "XX|CR:freakium%5|XX",
-    "XX|XX|XX",
+    "HT:5|CR:freakium%1|HT:5",
+    "CR:baby_oil%5|XX|CR:baby_oil%5",
     "XX|M1|XX",
 ],
     category: "powders",
@@ -1896,6 +1896,7 @@ elements.stable_diddium = {
     category: "states",
     temp: 30,
     tempHigh: 80,
+    hidden: true,
     tempLow: 10,
         reactions: {
         "diddium": { elem1:"freakium", elem2:"diddium" },
