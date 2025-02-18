@@ -1198,7 +1198,7 @@ elements.volatilium = {
 };
 
 elements.beryllium = {
-    color: ["#XXXX9f", "#615d52", "#282b28"],
+    color: ["#AAAA9f", "#615d52", "#282b28"],
     behavior: behaviors.WALL,
     category: "solids",
     state: "solid",
