@@ -24,10 +24,10 @@ if (!elements.calcium.reactions) { // Include this block once
 }
 elements.calcium.reactions.chlorine = { elem1: "calcium_chloride" }
 
-if (!elements.aluminium.reactions) { // Include this block once
-    elements.aluminium.reactions = {} // This creates the property if it doesn't exist
+if (!elements.aluminum.reactions) { // Include this block once
+    elements.aluminum.reactions = {} // This creates the property if it doesn't exist
 }
-elements.aluminium.reactions.oxygen = { elem1: "alumina" }
+elements.aluminum.reactions.oxygen = { elem1: "alumina" }
 
 if (!elements.nitrogen.reactions) { // Include this block once
     elements.nitrogen.reactions = {} // This creates the property if it doesn't exist
@@ -83,13 +83,13 @@ elements.alumina = {
     hidden: true,
     state: "solid",
     tempHigh: 500,
-    stateHigh: "hyper_aluminium",
+    stateHigh: "hyper_aluminum",
     reactions: {
         "silicate": { elem1:"kaolin", elem2:"kaolin" },
     }
 };
 
-elements.hyper_aluminium = {
+elements.hyper_aluminum = {
     color: ["#61829e", "#61829e", "#61829e", "#61829e", "#5872a7"],
     behavior: behaviors.WALL,
     category: "solids",
@@ -98,7 +98,7 @@ elements.hyper_aluminium = {
     tempHigh: 9999999,
     conduct: 1,
     charge: 3,
-    stateHigh: "molten_aluminium",
+    stateHigh: "molten_aluminum",
 };
 
 elements.silicate = {
