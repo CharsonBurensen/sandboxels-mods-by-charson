@@ -24,6 +24,11 @@ if (!elements.calcium.reactions) { // Include this block once
 }
 elements.calcium.reactions.chlorine = { elem1: "calcium_chloride" }
 
+if (!elements.aluminium.reactions) { // Include this block once
+    elements.aluminium.reactions = {} // This creates the property if it doesn't exist
+}
+elements.aluminium.reactions.oxygen = { elem1: "alumina" }
+
 if (!elements.nitrogen.reactions) { // Include this block once
     elements.nitrogen.reactions = {} // This creates the property if it doesn't exist
 }
@@ -56,6 +61,59 @@ elements.sodium_carbonate = {
     tempHigh: 851,
     reactions: {
         "calcium_chloride": { elem1:"foam", elem2:"chalk" },
+    }
+};
+
+elements.silicon = {
+    color: ["#9EBFE2", "#686F89", "#9BA4AB", "#373D4D"],
+    behavior: behaviors.STURDYPOWDER,
+    desc: "Silicon is a chemical element, it has symbol Si and atomic number 14. It is a hard, brittle crystalline solid with a blue-grey metallic lustre, and is a tetravalent metalloid and semiconductor. It is a member of group 14 in the periodic table: carbon is above it, and germanium, tin, lead, and flerovium are below it.",
+    category: "solids",
+    state: "solid",
+    tempHigh: 1414,
+    reactions: {
+        "oxygen": { elem1:"silicate", elem2:"pop" },
+    }
+};
+
+elements.alumina = {
+    color: ["#989ECE", "#DADAFF", "#E6E1FF"],
+    behavior: behaviors.POWDER,
+    category: "powders",
+    hidden: true,
+    state: "solid",
+    tempHigh: 500,
+    stateHigh: "hyper_aluminium",
+    reactions: {
+        "silicate": { elem1:"kaolin", elem2:"kaolin" },
+    }
+};
+
+elements.silicate = {
+    color: ["#A6B5B8", "#A7A8A0", "#665953", "#BDDAE8"],
+    behavior: behaviors.POWDER,
+    category: "powders",
+    hidden: true,
+    state: "solid",
+    tempHigh: 500,
+    stateHigh: "molten_silicon",
+    reactions: {
+        "alumina": { elem1:"kaolin", elem2:"kaolin" },
+    }
+};
+
+elements.kaolin = {
+    color: ["#A6B5B8", "#A7A8A0", "#665953", "#BDDAE8"],
+    behavior: behaviors.POWDER,
+    category: "powders",
+    hidden: true,
+    state: "solid",
+    tempHigh: 500,
+    stateHigh: "porcelain",
+    reactions: {
+        "fired_clay": { elem1:"porcelain", elem2:"porcelain" },
+	"blood": { elem2: null },
+	"dirt": { elem1: "clay", elem2:"clay_soil" },
     }
 };
 
