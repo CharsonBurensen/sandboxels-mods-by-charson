@@ -40,6 +40,7 @@ if (!elements.radiation.reactions) { // Include this block once
 elements.radiation.reactions.dead_plant = { elem2: "radioactive_maple_seed" }
 elements.radiation.reactions.ant = { elem2: "rad_ant" }
 elements.radiation.reactions.sugar = { elem2: "powdered_lime" }
+elements.radiation.reactions.soap = { elem2: "purificanol" }
 
 if (!elements.melted_cheese.reactions) { // Include this block once
     elements.melted_cheese.reactions = {} // This creates the property if it doesn't exist
@@ -512,6 +513,7 @@ elements.purium = {
     behavior: behaviors.WALL,
     category: "soaps",
     state: "solid",
+    hidden: true,
     tempHigh: 125,
     stateHigh: "purificanol",
     stain: 1,
@@ -526,7 +528,7 @@ elements.purium_dust = {
 	hidden: true,
     state: "solid",
     tempHigh: 125,
-    stateHigh: "purity",
+    stateHigh: ["purity", "soap"],
     stain: 1,
     conduct: 1,
 };
@@ -576,6 +578,12 @@ elements.purificanol = {
     state: "liquid",
     desc: "soap 3.0",
     extinguish: true,
+    stain: 0.1,
+    behaviorOn: [
+    ["XX","CO:5","XX"],
+    ["CO:5","XX","CO:5"],
+    ["CO:5 AND M1","CO:5 AND M1","CO:5 AND M1"]
+],
     density: 999999999,
     temp: 1,
     tempLow: -273,
