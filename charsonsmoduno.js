@@ -340,7 +340,7 @@ elements.maple_nut = {
     desc: "I dont think this is biologically accurate",
     breakInto: ["maple_syrup", "maple_powder"],
   	reactions: {
-        "dirt": { elem1:"maple_plant", elem2:"maple_plant" },
+        "dirt": { elem1:"maple_plant", elem2:"maple_nut", chance: 0.001 },
     }
 };
 
@@ -356,10 +356,10 @@ elements.maple_plant = {
     breakInto: "dead_plant",
     burn: 90,
 	reactions: {
-        "dirt": { elem1:"maple_plant", elem2:"maple_nut" },
-        "plant": { elem1:"maple_plant", elem2:"maple_plant" },
-	"dead_plant": { elem1:"maple_plant", elem2:"maple_plant" },
-        "water": { elem1:"maple_plant", elem2:"maple_plant" },
+        "dirt": { elem1:"maple_plant", elem2:"maple_nut", chance: 0.001 },
+        "plant": { elem1:"maple_plant", elem2:"maple_plant", chance: 0.1 },
+	"dead_plant": { elem1:"maple_plant", elem2:"maple_plant", chance: 0.3 },
+        "water": { elem1:"maple_plant", elem2:"maple_plant", chance: 0.0001 },
     }
 };
 
@@ -372,7 +372,7 @@ elements.maple_powder = {
     hidden: true,
     isFood: true,
 	reactions: {
-        "milk": { elem1:"maple_syrup", elem2:"maple_milk" },
+        "milk": { elem1:"foam", elem2:"maple_milk" },
 	"clay": { elem1: null, elem2:"terracotta" },
     }
 };
@@ -1591,7 +1591,7 @@ elements.skibidi_aresium = {
 ],
     category: "states",
     temp: 100,
-    tempHigh: 153,
+    tempHigh: 300,
     stateHigh: ["tnt", "molten_iron", "copper", "explosion"],
     burn: 0,
     conduct: 1,
@@ -1842,7 +1842,7 @@ elements.tocopheryl_acetate = {
 elements.diddium = {
     color: ["#210742", "#9e20d4"],
     behavior: [
-    "XX|CR:freakium|XX",
+    "XX|CR:freakium%5|XX",
     "XX|XX|XX",
     "XX|M1|XX",
 ],
