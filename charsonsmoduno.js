@@ -41,6 +41,7 @@ elements.radiation.reactions.dead_plant = { elem2: "radioactive_maple_seed" }
 elements.radiation.reactions.ant = { elem2: "rad_ant" }
 elements.radiation.reactions.sugar = { elem2: "powdered_lime" }
 elements.radiation.reactions.soap = { elem2: "purificanol" }
+elements.radiation.reactions.diamond = { elem2: "emerald" }
 
 if (!elements.melted_cheese.reactions) { // Include this block once
     elements.melted_cheese.reactions = {} // This creates the property if it doesn't exist
@@ -590,7 +591,11 @@ elements.purificanol = {
     stateLow: "foam",
 	reactions: {
         "dirt": { elem1: "foam", elem2: "purity" },
+	"dead_bug": { elem1: "foam", elem2: "ant" },
+	"uranium": { elem1: "foam", elem2: "lead" },
 	"chalk_powder": { elem1: "foam", elem2: "foam" },
+	"poison": { elem1: "foam", elem2: "antidote" },
+	"infection": { elem1: "bless", elem2: ["vaccine", "antibody"] },
 	"fallout": { elem1: "anti_soap", elem2: "contaminol" },
         "sand": { elem1: "foam", elem2: "purity" },
         "dust": { elem1: "foam", elem2: "purity" },
@@ -1233,11 +1238,12 @@ elements.beryllium_oxide = {
 };
 
 elements.emerald = {
-    color: ["#75C03F", "#3FC049", "#22B748"],
+    color: ["#2edb93", "#75C03F", "#3FC049", "#42c78f", "#22B748"],
     behavior: behaviors.POWDER,
     category: "powders",
     state: "solid",
     temp: 20,
+    alpha: 0.8,
     tempHigh: 1287,
 };
 
