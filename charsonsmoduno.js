@@ -1659,27 +1659,16 @@ elements.fancy_flour = {
     stateHigh: ["fragrance", "smoke"],
 };
 
-elements.briochify = {
-    color: ["#c2770e", "#ff0000", "#00ff00", "#0000ff", "#ffdec4"],
-    tool: function(pixel) {
-        if (pixel.element == "bread") {
-            pixel.element = "brioche"
-        }
-	if (pixel.element == "flour") {
-            pixel.element = "fancy_flour"
-        }
-	if (pixel.element == "dough") {
-            pixel.element = "fancy_dough"
-        }
-	if (pixel.element == "steam") {
-            pixel.element = "brioche_steam"
-        }
-	if (pixel.element == "kai_cenat") {
-            pixel.element = "brioche"
-        }
-    },
+elements.irradiate = {
+    color: ["#2edb93", "#00ff00"],
     category: "tools",
+    behavior:  [
+    "XX|XX|XX",
+    "XX|CH:radiation|XX",
+    "XX|XX|XX",
+],
 };
+    
 
 elements.pyrane = {
     color: "#fc7c19",
