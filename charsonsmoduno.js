@@ -99,6 +99,7 @@ elements.hyper_aluminum = {
     conduct: 1,
     charge: 3,
     stateHigh: "molten_aluminum",
+    hardness: 0.95,
 };
 
 elements.silicate = {
@@ -201,10 +202,10 @@ elements.stupid = {
     tempLow: 19,
     tempHigh: 21,
 	  reactions: {
-        "water": { elem1:"blaster", elem2:"nuke" },
-        "stupid": { elem1:"cloner", elem2:"nuke" },
+        "water": { elem1:"blaster", elem2:"nuke", chance: 0.001 },
+        "stupid": { elem1:"cloner", elem2:"nuke", chance: 0.5 },
 	"electric": { elem1:"di_stupid", elem2:"tri_stupid" },
-	"dirt": { elem1:"tornado", elem2:"stupid" },
+	"dirt": { elem1:"tornado", elem2:"stupid", chance: 0.5 },
     }
 };
 
@@ -221,7 +222,7 @@ elements.di_stupid = {
     tempLow: 19,
     tempHigh: 21,
 	  reactions: {
-        "di_stupid": { elem1:"di_stupid", elem2:"tsunami" },
+        "di_stupid": { elem1:"di_stupid", elem2:"tsunami", chance: 0.001 },
         "stupid": { elem1:"party_popper", elem2:"cloner" },
 	"water": { elem1:"earthquake", elem2:"acid" },
     }
@@ -310,6 +311,11 @@ elements.maple_syrup = {
 elements.radioactive_maple_seed = {
     color: ["#52d156", "#5d875f"],
     behavior: behaviors.RADPOWDER,
+    behaviorOn: [
+    "XX|XX|XX",
+    "XX|EX:2>popcorn|XX",
+    "XX|XX|XX",
+],
     category: "life",
     viscosity: 100000,
     hidden: true,
@@ -660,7 +666,7 @@ elements.stupid_particle = {
     tempLow: 19,
     tempHigh: 21,
 	  reactions: {
-        "stupid_particle": { elem1:"neutron", elem2:"nuke" },
+        "stupid_particle": { elem1:"neutron", elem2:"nuke", chance: 0.5},
     }
 };
 
@@ -675,7 +681,7 @@ elements.boom_boom_particle = {
     tempLow: 19,
     tempHigh: 21,
 	  reactions: {
-        "boom_boom_particle": { elem1:"explosion", elem2:"pop" },
+        "boom_boom_particle": { elem1:"explosion", elem2:"pop", chance: 0.7 },
     }
 };
 
@@ -1795,7 +1801,7 @@ elements.tocopherol = {
 
 elements.freakium = {
     color: "#ff4fed",
-    behavior: behaviors.DGAS,
+    behavior: behaviors.UL_UR_OPTIMIZED,
     category: "gases",
     state: "gas",
     density: 720,
@@ -1835,7 +1841,11 @@ elements.tocopheryl_acetate = {
 
 elements.diddium = {
     color: ["#210742", "#9e20d4"],
-    behavior: behaviors.STURDYPOWDER,
+    behavior: [
+    "XX|CR:freakium%25|XX",
+    "XX|XX|XX",
+    "XX|M1|XX",
+],
     category: "powders",
     temp: 30,
     tempHigh: 80,
