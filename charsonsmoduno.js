@@ -1837,6 +1837,8 @@ elements.freakium = {
     category: "gases",
     state: "gas",
     density: 720,
+    alpha: 0.7,
+    hidden: true,
     temp: 80,
     tempLow: 30,
     tempHigh: 345,
@@ -1855,6 +1857,7 @@ elements.tocopheryl_gas = {
     state: "gas",
     density: 720,
     temp: 80,
+    hidden: true,
     tempLow: 0,
     stateLow: ["tocopherol"],
 };
@@ -1910,6 +1913,7 @@ elements.baby_oil = {
     category: "liquids",
     temp: 30,
     tempHigh: 96,
+    alpha: 0.7,
     stateHigh: ["tocopheryl_gas"],
         reactions: {
         "uranium": { elem1: null, elem2:"diddium" },
@@ -1934,7 +1938,7 @@ elements.stupidine = {
 };
 
 elements.liquid_stupidine = {
-    color: ["#5328c9", "4089e3"],
+    color: ["#5328c9", "#4089e3"],
     behavior: [
 	    ["M2","M1","M2"],
             ["XX","XX","XX"],
@@ -1956,6 +1960,7 @@ elements.stupidine_gas = {
     category: "gases",
     state: "gas",
     temp: 500,
+    hidden: true,
     tempHigh: 1000,
     stateHigh: ["nuke", "explosion"],
     tempLow: 200,
@@ -1991,7 +1996,7 @@ elements.skibidi_soda = {
 };
 
 elements.skibidine = {
-    color: ["#51649c", "949c51"],
+    color: ["#51649c", "#949c51"],
     behavior: behaviors.LIQUID,
     category: "liquids",
     state: "liquid",
