@@ -105,9 +105,14 @@ elements.hyper_aluminum = {
     state: "solid",
     tempHigh: 9999999,
     conduct: 1,
+    desc: "Hyper Aluminium is a cutting-edge, ultra-lightweight metal alloy that blends advanced strength with superior conductivity, designed for futuristic applications. With a sleek, metallic sheen, this material boasts enhanced durability, resistance to extreme temperatures, and a remarkable ability to withstand corrosion. Its unique molecular structure makes it perfect for aerospace engineering, high-performance vehicles, and next-generation tech gadgets. Hyper Aluminium is the pinnacle of modern materials science—stronger, lighter, and more efficient than ever before, setting the stage for a new era of innovation.",
     charge: 3,
     stateHigh: "molten_aluminum",
     hardness: 0.95,
+    reactions: {
+        "steel": { elem2:"galvanized_steel" },
+	"rock_wall": { elem2:"wall" },
+    }
 };
 
 elements.silicate = {
@@ -151,6 +156,20 @@ elements.kaolin = {
         "fired_clay": { elem1:"porcelain", elem2:"porcelain" },
 	"blood": { elem2: null },
 	"dirt": { elem1: "clay", elem2:"clay_soil" },
+    }
+};
+
+elements.kaolinite = {
+    color: ["#3b3b3b", "#575757" "#fcfcfc"],
+    behavior: behaviors.STURDYPOWDER,
+    category: "solids",
+    hidden: true,
+    state: "solid",
+    tempHigh: 500,
+    stateHigh: "molten_slag",
+    breakInto: ["rock", "kaolin"],
+    reactions: {
+	"water": { elem1: "silicate", elem2:"dirty_water" },
     }
 };
 
