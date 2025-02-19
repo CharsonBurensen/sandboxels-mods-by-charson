@@ -1,4 +1,4 @@
-//thanks r74n and sandboxels mod devs for the idea for making this and adding so much value to my gaming experience
+e//thanks r74n and sandboxels mod devs for the idea for making this and adding so much value to my gaming experience
 //if one needs a desc for the mod list on the website it'd be something around "charson's mods compiled such as random foods and random elements asked for by random people, beta"
 //thanks!
 
@@ -175,7 +175,7 @@ elements.powdered_lime = {
     state: "solid",
     reactions: {
         "water": { elem1:"foam", elem2:"limeade" },
-        "head": { elem1: null, chance: 0.9 },
+        "head": { elem1: null, chance: 0.9, func: behaviors.FEEDPIXEL },
     }
 };
 
@@ -190,7 +190,7 @@ elements.limeade = {
     stateHigh: "foam",
     tempLow: 0,
     reactions: {
-        "head": { elem1: null, chance: 0.7 },
+        "head": { elem1: null, chance: 0.7, func: behaviors.FEEDPIXEL },
     }
 };
 
@@ -250,7 +250,7 @@ elements.almond = {
     stateLow: "cloner",
     conduct: 1,
 	  reactions: {
-        "head": { elem1: null, chance: 0.55 },
+        "head": { elem1: null, chance: 0.55, func: behaviors.FEEDPIXEL },
         "juice": { elem1:"party_popper", elem2:"party_popper" },
 	"water": { elem1:"nut_sauce", elem2:"almond_water" },
     }
@@ -273,7 +273,7 @@ elements.nut_sauce = {
     stateLow: "glue",
     conduct: 1,
 	  reactions: {
-        "head": { elem1: null, chance: 0.9 },
+        "head": { elem1: null, chance: 0.9, func: behaviors.FEEDPIXEL },
     }
 };
 
@@ -311,7 +311,7 @@ elements.maple_syrup = {
     stain: 0.01,
     desc: "english for sirop derable",
 	  reactions: {
-        "head": { elem1: null, chance: 0.4 },
+        "head": { elem1: null, chance: 0.4, func: behaviors.FEEDPIXEL },
     }
 };
 
@@ -499,7 +499,7 @@ elements.maple_milk = {
     hidden: true,
     isFood: true,
 	reactions: {
-        "head": { elem1: null, chance: 0.9 },
+        "head": { elem1: null, chance: 0.9, func: behaviors.FEEDPIXEL },
     }
 };
 
@@ -661,7 +661,7 @@ elements.buttermilk = {
     tempHigh: 100,
     stateHigh: "steam",
   	reactions: {
-        "head": { elem1: null, chance: 0.9 },
+        "head": { elem1: null, chance: 0.9, func: behaviors.FEEDPIXEL },
         "water": { elem1: null, elem2:"milk" },
 	"rock": { elem1: null, elem2:"butter" },
 	"magma": { elem1: null, elem2:"melted_butter" },
@@ -791,7 +791,7 @@ elements.banana = {
     breakInto: "banana_milk",
     breakIntoColor: "#d8b284",
     reactions: {
-        "head": { elem1: null, chance: 0.35 },
+        "head": { elem1: null, chance: 0.35, func: behaviors.FEEDPIXEL },
 	"milk": { elem1: null, elem2: "banana_milk" },
     }
 };
@@ -815,7 +815,7 @@ elements.banana_milk = {
     burnInto: "dioxin",
     conduct: 1,
     reactions: {
-        "head": { elem1: null, chance: 0.9 },
+        "head": { elem1: null, chance: 0.9, func: behaviors.FEEDPIXEL },
     }
 };
 
@@ -1562,7 +1562,7 @@ elements.akshajium = {
     related: ["sankarium", "narayananium"],
     breakInto: ["crumb", "sauce", "melted_cheese", "cooked_meat"],
 	reactions: {
-        "head": { elem1: null, chance: 0.36 },
+        "head": { elem1: null, chance: 0.36, func: behaviors.FEEDPIXEL },
     }
 };
 
@@ -1591,7 +1591,7 @@ elements.fancy_dough = {
     stateHigh: ["steam", "brioche_steam"],
     desc: "it can be evaporated",
 	reactions: {
-        "head": { elem1: null, chance: 0.1 },
+        "head": { elem1: null, chance: 0.1, func: behaviors.FEEDPIXEL },
     }
 };
 
@@ -1608,7 +1608,7 @@ elements.brioche = {
     isFood: true,
     breakInto: "fancy_flour",
 	reactions: {
-        "head": { elem1: null, chance: 0.7 },
+        "head": { elem1: null, chance: 0.7, func: behaviors.FEEDPIXEL },
     }
 };
 
@@ -1994,7 +1994,7 @@ elements.skibidi_soda = {
     stateHigh: ["skibidiness", "skibidine"],
         reactions: {
         "oxygen": { elem1:"skibidi_soda", elem2:"skibidiness" },
-        "head": { elem1: "skibidiness" },
+        "head": { elem1: "skibidiness", func: behaviors.FEEDPIXEL },
     }
 };
 
