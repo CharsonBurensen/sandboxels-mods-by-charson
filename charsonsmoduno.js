@@ -47,6 +47,7 @@ elements.radiation.reactions.ant = { elem2: "rad_ant" }
 elements.radiation.reactions.sugar = { elem2: "powdered_lime" }
 elements.radiation.reactions.soap = { elem2: "purificanol" }
 elements.radiation.reactions.diamond = { elem2: "emerald" }
+elements.radiation.reactions.bird = { elem2: "pyrus_minimus" }
 
 if (!elements.melted_cheese.reactions) { // Include this block once
     elements.melted_cheese.reactions = {} // This creates the property if it doesn't exist
@@ -133,7 +134,7 @@ elements.silica = {
     tempHigh: 5000,
     stateHigh: "molten_ash",
     reactions: {
-        "head": { elem1: null, elem2:"rotten_meat" }, //silicosis reference.
+        "head": { elem1: null, func: behaviors.KILLPIXEL2 }, //silicosis reference.
     }
 };
 
@@ -1046,7 +1047,7 @@ elements.pyrus_minimus = {
     behavior: behaviors.FLY,
     category: "life",
     state: "solid",
-    foodNeed: 3,
+    foodNeed: 7,
     breakInto: ["fire", "cooked_meat", "slime"],
     glow: true,
     temp: 300,
@@ -1120,7 +1121,7 @@ elements.scheele_green = {
     stateHigh: "molten_copper",
      reactions: {
         "terracotta": { elem1: null, elem2: "green_terracotta" },
-	"head": { elem1: "poison", elem2: "green_skull", chance: 0.3 },
+	"head": { elem1: "poison", elem2: "green_skull", chance: 0.3, func: behaviors.KILLPIXEL2 },
     } 
 };
 
@@ -1138,7 +1139,7 @@ elements.green_skull = {
     tempHigh: 275,
     stateHigh: "rad_steam",
      reactions: {
-	"head": { elem2: "green_skull", chance: 0.1 },
+	"head": { elem2: "green_skull", chance: 0.1, func: behaviors.KILLPIXEL2 },
     } 
 };
 
@@ -1243,7 +1244,7 @@ elements.beryllium = {
 	breakInto: "emerald",
      reactions: {
         "oxygen": { elem1: "beryllium_oxide", elem2: "beryllium_oxide" },
-	"head": { elem2: "poison", chance: 0.05 },
+	"head": { elem1: "poison", chance: 0.05, func: behaviors.KILLPIXEL2 },
 	"volatilium": { elem2: "beryllium_volatilium_alloy" },
     } 
 };
@@ -1286,7 +1287,7 @@ elements.verylithium = {
     reactions: {
         "neutron": { elem1: "verylithium_oxide", elem2: ["molten_metal", "beryllium"] },
         "water": { elem1: "verylithium_hydrate" },
-        "head": { elem2: "electric" }
+        "head": { elem1: "electric", func: behaviors.KILLPIXEL2 }
     }
 };
 
@@ -1800,7 +1801,7 @@ elements.hydroid = {
     reactions: {
         "fire": { elem1: "hydroid", elem2:"explosion" },
 		"body": { elem1: "hydroid", elem2:"fyrium" },
-        "head": { elem1: "hydroid", elem2:"pyrane" },
+        "head": { elem1: "hydroid", elem2:"pyrane", func: behaviors.KILLPIXEL2 },
         "water": { elem1: "hydroid", elem2:"hydroid" },
         "maple_syrup": { elem1: "hydroid", elem2:"hydroid" },
 		"magma": { elem1: "hydroid", elem2:"hydroid" },
@@ -2047,11 +2048,12 @@ elements.right_missile = {
     breakInto: "metal_scrap",
     fireColor: "#e342a5",
     conduct: 1,
+    charge: 3,
 };
 
 elements.right_missile.behavior = [
    ["XX","XX","XX"],
-    ["XX","XX","M1 AND EX:20>hot_bomb"],
+    ["XX","XX","M1 AND EX:20>explosion"],
     ["XX","XX","XX"],   
 ];
 
@@ -2066,11 +2068,12 @@ elements.left_missile = {
     breakInto: "metal_scrap",
     fireColor: "#e342a5",
     conduct: 1,
+    charge: 3,
 };
 
 elements.left_missile.behavior = [
    ["XX","XX","XX"],
-    ["M1 AND EX:20>hot_bomb","XX","XX"],
+    ["M1 AND EX:20>explosion","XX","XX"],
     ["XX","XX","XX"],   
 ];
 
