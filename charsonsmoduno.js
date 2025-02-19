@@ -1,4 +1,4 @@
-e//thanks r74n and sandboxels mod devs for the idea for making this and adding so much value to my gaming experience
+//thanks r74n and sandboxels mod devs for the idea for making this and adding so much value to my gaming experience
 //if one needs a desc for the mod list on the website it'd be something around "charson's mods compiled such as random foods and random elements asked for by random people, beta"
 //thanks!
 
@@ -114,7 +114,7 @@ elements.silicate = {
     behavior: behaviors.POWDER,
     category: "powders",
     hidden: true,
-    breakInto: "dust",
+    breakInto: "silica",
     state: "solid",
     tempHigh: 500,
     stateHigh: "molten_silicon",
@@ -123,8 +123,23 @@ elements.silicate = {
     }
 };
 
+elements.silica = {
+    color: ["#ACAA9B", "#CAC7B6", "#979A93"],
+    behavior: behaviors.LIGHTWEIGHT,
+    behaviorOn: behaviors.BOUNCY,
+    category: "powders",
+    hidden: true,
+    state: "solid",
+    tempHigh: 5000,
+    stateHigh: "molten_ash",
+    reactions: {
+        "head": { elem1: null, elem2:"rotten_meat" }, //silicosis reference.
+    }
+};
+
+
 elements.kaolin = {
-    color: ["#A6B5B8", "#A7A8A0", "#ede7e4", "#BDDAE8"],
+    color: ["#d3e2e6", "#e1e9eb", "#ede7e4", "#fcfcfc"],
     behavior: behaviors.POWDER,
     category: "land",
     hidden: true,
@@ -1022,7 +1037,7 @@ elements.violetium.behavior = [
 
 elements.pyrus_minimus = {
     color: ["#eb6e34", "#ffd014", "#ff143c"],
-    desc: "The rare Pyrus Minimus is a flying...animal? It preys on bird and worms.",
+    desc: "The rare Pyrus Minimus is a flying...animal? It preys on birds and worms.",
     behaviorOn: [
     "XX|XX|XX",
     "XX|EX:5>firework|XX",
@@ -1040,13 +1055,13 @@ elements.pyrus_minimus = {
     fireColor: "#ff5b14",
     conduct: 1,
      reactions: {
-        "cooked_meat": { elem2: null },
-	"dead_plant": { elem2: null },
-	"juice": { elem2: null },
-	"chocolate": { elem2: null },
-	"basalt": { elem2: null },
-	"bird": { elem2: ["feather", "blood"] },
-	"worm": { elem2: null },
+        "cooked_meat": { elem2: null, func: behaviors.FEEDPIXEL },
+	"dead_plant": { elem2: null, func: behaviors.FEEDPIXEL },
+	"juice": { elem2: null, func: behaviors.FEEDPIXEL },
+	"chocolate": { elem2: null, func: behaviors.FEEDPIXEL },
+	"basalt": { elem2: null, func: behaviors.FEEDPIXEL },
+	"bird": { elem2: ["feather", "blood"], func: behaviors.FEEDPIXEL },
+	"worm": { elem2: null, func: behaviors.FEEDPIXEL },
     }
 };
 
@@ -2021,7 +2036,45 @@ elements.skibidiness = {
     }
 };
 
-//idk how these work and most of them don't idk why but this is just a beta so...
+elements.right_missile = {
+    color: ["#8a9499", "#9e9e9e", "#d1d1d1"],
+    category: "weapons",
+    state: "solid",
+    temp: 40,
+    burning: true,
+    tempHigh: 2000,
+    stateHigh: "molten_metal_scrap",
+    breakInto: "metal_scrap",
+    fireColor: "#e342a5",
+    conduct: 1,
+};
+
+elements.right_missile.behavior = [
+   ["XX","XX","XX"],
+    ["XX","XX","M1 AND EX:20>hot_bomb"],
+    ["XX","XX","XX"],   
+];
+
+elements.left_missile = {
+    color: ["#8a9499", "#9e9e9e", "#d1d1d1"],
+    category: "weapons",
+    state: "solid",
+    temp: 40,
+    burning: true,
+    tempHigh: 2000,
+    stateHigh: "molten_metal_scrap",
+    breakInto: "metal_scrap",
+    fireColor: "#e342a5",
+    conduct: 1,
+};
+
+elements.left_missile.behavior = [
+   ["XX","XX","XX"],
+    ["M1 AND EX:20>hot_bomb","XX","XX"],
+    ["XX","XX","XX"],   
+];
+
+//ignore these
 
 elements.melted_butter.reactions.bread = { "elem1": null, "elem2":"brioche" },
 elements.water.reactions.fancy_flour = { "elem1": null, "elem2":"fancy_dough" },
