@@ -57,7 +57,7 @@ elements.pen = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:ink%2|XX",
+    "XX|CR:ink|XX",
 ],
     category: "machines",
     state: "solid",
@@ -71,7 +71,7 @@ elements.red_pen = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:red_ink%2|XX",
+    "XX|CR:red_ink|XX",
 ],
     category: "machines",
     state: "solid",
@@ -85,7 +85,7 @@ elements.blue_pen = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:blue_ink%2|XX",
+    "XX|CR:blue_ink|XX",
 ],
     category: "machines",
     state: "solid",
