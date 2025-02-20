@@ -67,11 +67,11 @@ elements.pen = {
 };
 
 elements.red_pen = {
-    color: "#454545",
+    color: "#801f1f",
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:red_ink%2|XX",
+    "XX|CR:red_ink%1|XX",
 ],
     category: "machines",
     state: "solid",
@@ -81,11 +81,11 @@ elements.red_pen = {
 };
 
 elements.blue_pen = {
-    color: "#801f1f",
+    color: "#19235e",
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:blue_ink%2|XX",
+    "XX|CR:blue_ink%1|XX",
 ],
     category: "machines",
     state: "solid",
@@ -144,12 +144,65 @@ elements.king = {
 elements.king_head = {
     color: ["#998148", "#7a6431", "#bf993f", "#d1b269"],
     behavior: [
-    "CR:brick|CR:gold_coin|CR:brick",
+    "CR:brick|CR:gold_coin AND CH:king_head>foam|CR:brick",
     "CR:gold|XX|CR:gold",
     "XX|M1|XX",
 ],
     category: "life",
     state: "solid",
     density: 100,
+    breakInto: ["meat", "bone_meal"],
+};
+
+elements.tiger = {
+    color: ["#c4711d", "#d16813", "#ff7300"],
+    behavior: [
+    "M1%10|XX|M1%10",
+    "M1%20|XX|M1%20",
+    "M1|CH:water>foam AND M1|M1",
+],
+    foodNeed: 12,
+    egg: "newborn",
+    baby: "baby_tiger",
+    category: "life",
+    state: "solid",
+    breakInto: ["meat", "bone_meal"],
+    reactions: {
+        "rat": { elem2:"blood", func: behaviors.KILLPIXEL2 },
+	"head": { elem2:"bone", func: behaviors.KILLPIXEL2 },
+	"body": { elem2:"bone", func: behaviors.FEEDPIXEL },
+	"bird": { elem2:"feather", func: behaviors.FEEDPIXEL },
+	"ant": { elem2: null, func: behaviors.KILLPIXEL2 },
+	"spider": { elem2: null, func: behaviors.KILLPIXEL2 },
+	"fish": { elem2: null, func: behaviors.FEEDPIXEL },
+        "plant": { elem2: "dead_plant" },
+	"grass": { elem2: "dead_plant" },
+    }
+};
+
+elements.baby_tiger = {
+    color: ["#c4711d", "#d16813", "#ff7300"],
+    behavior: [
+    "M1%30|XX|M1%30",
+    "M1%10|CH:tiger%0.2|M1%10",
+    "M1|CH:water>foam AND M1|M1",
+],
+    category: "life",
+    state: "solid",
+    breakInto: ["meat", "bone_meal"],
+    reactions: {
+        "rat": { elem1: "tiger", chance: 0.3, elem2:"blood", func: behaviors.KILLPIXEL2 },
+	"ant": { elem2: null, func: behaviors.KILLPIXEL2 },
+	"spider": { elem2: null, func: behaviors.KILLPIXEL2 },
+	"fish": { elem1: "tiger", chance: 0.3, elem2: null, func: behaviors.KILLPIXEL2 },
+	"grass": { elem2: "dead_plant" },
+    }
+};
+
+elements.newborn = {
+    color: ["#c4711d", "#d16813", "#ff7300"],
+    behavior: behaviors.STURDYPOWDER,
+    category: "life",
+    state: "solid",
     breakInto: ["meat", "bone_meal"],
 };
