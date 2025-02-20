@@ -165,13 +165,17 @@ elements.tiger = {
     egg: "newborn",
     baby: "baby_tiger",
     category: "life",
+    burn: 95,
+    burnInto: "cooked_meat",
+    tempHigh: 160,
+    stateHigh: ["cooked_meat", "ash"],
     state: "solid",
     breakInto: ["meat", "bone_meal"],
     reactions: {
-        "rat": { elem2:"blood", func: behaviors.KILLPIXEL2 },
-	"head": { elem2:"bone", func: behaviors.KILLPIXEL2 },
-	"body": { elem2:"bone", func: behaviors.FEEDPIXEL },
-	"bird": { elem2:"feather", func: behaviors.FEEDPIXEL },
+        "rat": { elem2: null, chance: 0.2, func: behaviors.KILLPIXEL2 },
+	"head": { elem2:"bone", chance: 0.01, func: behaviors.KILLPIXEL2 },
+	"body": { elem2:"bone", chance: 0.01, func: behaviors.FEEDPIXEL },
+	"bird": { elem2:"feather", chance: 0.3, func: behaviors.FEEDPIXEL },
 	"ant": { elem2: null, func: behaviors.KILLPIXEL2 },
 	"spider": { elem2: null, func: behaviors.KILLPIXEL2 },
 	"fish": { elem2: null, func: behaviors.FEEDPIXEL },
@@ -181,7 +185,7 @@ elements.tiger = {
 };
 
 elements.baby_tiger = {
-    color: ["#c4711d", "#d16813", "#ff7300"],
+    color: ["#b88f74", "#e39764"],
     behavior: [
     "M1%30|XX|M1%30",
     "M1%10|CH:tiger%0.2|M1%10",
@@ -190,19 +194,31 @@ elements.baby_tiger = {
     category: "life",
     state: "solid",
     breakInto: ["meat", "bone_meal"],
+    burn: 95,
+    burnInto: "cooked_meat",
+    tempHigh: 160,
+    stateHigh: ["cooked_meat", "ash"],
     reactions: {
         "rat": { elem1: "tiger", chance: 0.3, elem2:"blood", func: behaviors.KILLPIXEL2 },
-	"ant": { elem2: null, func: behaviors.KILLPIXEL2 },
-	"spider": { elem2: null, func: behaviors.KILLPIXEL2 },
+	"ant": { elem2: null, chance: 0.3, func: behaviors.KILLPIXEL2 },
+	"spider": { elem2: null, chance: 0.3, func: behaviors.KILLPIXEL2 },
 	"fish": { elem1: "tiger", chance: 0.3, elem2: null, func: behaviors.KILLPIXEL2 },
 	"grass": { elem2: "dead_plant" },
     }
 };
 
 elements.newborn = {
-    color: ["#c4711d", "#d16813", "#ff7300"],
-    behavior: behaviors.STURDYPOWDER,
+    color: ["#f5c4d3", "#dbae7f"],
+    behavior: [
+    "XX|XX|XX",
+    "M1%0.1|CH:baby_tiger%0.2|M1%0.1",
+    "XX|M1|XX",
+],
     category: "life",
     state: "solid",
     breakInto: ["meat", "bone_meal"],
+    burn: 95,
+    burnInto: "cooked_meat",
+    tempHigh: 160,
+    stateHigh: ["cooked_meat", "ash"],
 };
