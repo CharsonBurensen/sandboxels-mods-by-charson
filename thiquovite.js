@@ -51,13 +51,12 @@ elements.diamond_block = {
     tempHigh: 540,    
     stateHigh: "diamond",
 };
-
 elements.pen = {
     color: "#454545",
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:ink%2|XX",
+    "XX|CR:pen,pen_tip%5|XX",
 ],
     category: "machines",
     state: "solid",
@@ -71,6 +70,48 @@ elements.red_pen = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
+    "XX|CR:red_pen,red_pen_tip%5|XX",
+],
+    category: "machines",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["ink", "metal_scrap"],
+};
+
+elements.blue_pen = {
+    color: "#19235e",
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|CR:blue_pen,blue_pen_tip%5|XX",
+],
+    category: "machines",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["ink", "metal_scrap"],
+};
+
+elements.pen_tip = {
+    color: "#b3b4bd",
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|CR:ink%2|XX",
+],
+    category: "machines",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["ink", "metal_scrap"],
+};
+
+elements.red_pen_tip = {
+    color: "#eb4444",
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
     "XX|CR:red_ink%1|XX",
 ],
     category: "machines",
@@ -80,8 +121,8 @@ elements.red_pen = {
     breakInto: ["red_ink", "metal_scrap"],
 };
 
-elements.blue_pen = {
-    color: "#19235e",
+elements.blue_pen_tip = {
+    color: "#737ee6",
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
