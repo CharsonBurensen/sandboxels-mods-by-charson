@@ -81,7 +81,7 @@ elements.red_pen = {
 };
 
 elements.blue_pen = {
-    color: "#454545",
+    color: "#801f1f",
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
@@ -95,7 +95,7 @@ elements.blue_pen = {
 };
 
 elements.blue_ink = {
-    color: "#aaaadd",
+    color: "#1421db",
     behavior: behaviors.LIQUID,
     category: "liquids",
     state: "liquid",
@@ -105,10 +105,14 @@ elements.blue_ink = {
     burnInto: "dioxin",
     tempHigh: 350,
     stateHigh: "dioxin",
+    reactions: {
+        "alcohol": { elem2:"acid" },
+	"head": { elem2:"bone", func: behaviors.KILLPIXEL2 },
+    }
 };
 
 elements.red_ink = {
-    color: "#ddaaaa",
+    color: "#db1414",
     behavior: behaviors.LIQUID,
     category: "liquids",
     state: "liquid",
@@ -118,4 +122,34 @@ elements.red_ink = {
     burnInto: "dioxin",
     tempHigh: 350,
     stateHigh: "dioxin",
+    reactions: {
+        "alcohol": { elem2:"acid" },
+	"head": { elem2:"bone", func: behaviors.KILLPIXEL2 },
+    }
+};
+
+elements.king = {
+    color: ["#7d2074", "#63207d", "#9e2626"],
+    behavior: [
+    "XX|CR:king_head|XX",
+    "CR:body|XX|CR:body",
+    "XX|XX|XX",
+],
+    category: "life",
+    state: "solid",
+    density: 100,
+    breakInto: ["meat", "bone_meal"],
+};
+
+elements.king_head = {
+    color: ["#998148", "#7a6431", "#bf993f", "#d1b269"],
+    behavior: [
+    "XX|CR:gold_coin|XX",
+    "CR:head|XX|CR:head",
+    "XX|XX|XX",
+],
+    category: "life",
+    state: "solid",
+    density: 100,
+    breakInto: ["meat", "bone_meal"],
 };
