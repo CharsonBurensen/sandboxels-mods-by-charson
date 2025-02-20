@@ -49,7 +49,7 @@ elements.diamond_block = {
     density: 100,
     breakInto: ["diamond"],
     tempHigh: 540,    
-    stateHigh: "diamond,
+    stateHigh: "diamond",
 };
 
 elements.pen = {
@@ -57,7 +57,7 @@ elements.pen = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:ink|XX",
+    "XX|CR:ink%2|XX",
 ],
     category: "machines",
     state: "solid",
@@ -71,7 +71,7 @@ elements.red_pen = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:red_ink|XX",
+    "XX|CR:red_ink%2|XX",
 ],
     category: "machines",
     state: "solid",
@@ -85,7 +85,7 @@ elements.blue_pen = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:blue_ink|XX",
+    "XX|CR:blue_ink%2|XX",
 ],
     category: "machines",
     state: "solid",
