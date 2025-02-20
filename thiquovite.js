@@ -132,8 +132,8 @@ elements.king = {
     color: ["#7d2074", "#63207d", "#9e2626"],
     behavior: [
     "XX|CR:king_head|XX",
-    "CR:body|XX|CR:body",
-    "XX|XX|XX",
+    "CR:wall|XX|CR:wall",
+    "XX|M1|XX",
 ],
     category: "life",
     state: "solid",
@@ -144,9 +144,9 @@ elements.king = {
 elements.king_head = {
     color: ["#998148", "#7a6431", "#bf993f", "#d1b269"],
     behavior: [
-    "XX|CR:gold_coin|XX",
-    "CR:head|XX|CR:head",
-    "XX|XX|XX",
+    "CR:brick|CR:gold_coin|CR:brick",
+    "CR:gold|XX|CR:gold",
+    "XX|M1|XX",
 ],
     category: "life",
     state: "solid",
