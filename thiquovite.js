@@ -277,12 +277,12 @@ elements.newborn = {
     }
 };
 
-elements.radspider = {
+elements.rad_spider = {
     color: ["#6f21ff", "#ae21ff", "#d621ff"],
     behavior: [
-    "M1%5 AND CR:web%1|XX|M1%5 AND CR:web%1",
+    "M1%5 AND CR:rad_web%1|XX|M1%5 AND CR:rad_web%1",
     "CR:radiation%2|XX|CR:radiation%2",
-    "M1%5 AND CR:web%1|M1 AND CR:web|M1%5 AND CR:web%1",
+    "M1%5 AND CR:rad_web%1|M1 AND CR:rad_web|M1%5 AND CR:rad_web%1",
 ],
     category: "life",
     state: "solid",
@@ -292,10 +292,39 @@ elements.radspider = {
     tempHigh: 160,
     stateHigh: ["radiation", "ash"],
     reactions: {
-	"spider": { elem2: "radspider", chance: 0.1 },
-	"dna": { elem1: "radspider", chance: 0.01 },
-	"cell": { elem1: "radspider", chance: 0.01 },
-	"radiation": { elem1: "radspider", chance: 0.01 },
+	"spider": { elem2: "rad_spider", chance: 0.1 },
+	"dna": { elem2: "rad_spider", chance: 0.01 },
+	"cell": { elem2: "rad_spider", chance: 0.01 },
+	"radiation": { elem2: "rad_spider", chance: 0.01 },
 	"rotten_meat": { elem1: "rotten_meat", chance: 0.01 },
+    }
+};
+
+if (!elements.radiation.reactions) { // Include this block once
+    elements.radiation.reactions = {} // This creates the property if it doesn't exist
+}
+elements.radiation.reactions.web = { elem2: "rad_web" }
+elements.radiation.reactions.spider = { elem2: "rad_spider" }
+
+elements.rad_web = {
+    color: ["#7de387", "#b4d1b7", "#8f9c90"],
+    behavior: [
+    "CR:rad_web%1|CR:radiation|CR:rad_web%1",
+    "CR:radiation%2|CH:radiation%0.1|CR:radiation%2",
+    "CR:rad_web%1|CR:rad_web%1|CR:rad_web%1",
+],
+    category: "life",
+    hidden: true,
+    state: "solid",
+    breakInto: ["dust", "rad_shard"],
+    burn: 80,
+    burnInto: "radiation",
+    tempHigh: 160,
+    stateHigh: ["radiation", "ash"],
+    reactions: {
+	"spider": { elem2: "rad_spider", chance: 0.1 },
+	"dna": { elem2: "rad_spider", chance: 0.01 },
+	"cell": { elem2: "rad_spider", chance: 0.01 },
+	"radiation": { elem1: "rad_spider", chance: 0.01 },
     }
 };
