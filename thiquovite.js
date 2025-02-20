@@ -131,7 +131,7 @@ elements.red_ink = {
 elements.king = {
     color: ["#7d2074", "#63207d", "#9e2626"],
     behavior: [
-    "XX|CR:king_head|XX",
+    "XX|CR:king_head AND CH:thiquovite>king_head|XX",
     "CR:wall|XX|CR:wall",
     "XX|M1|XX",
 ],
