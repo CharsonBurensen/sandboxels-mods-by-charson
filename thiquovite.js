@@ -56,13 +56,13 @@ elements.pen = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:pen,pen_tip%5|XX",
+    "XX|CR:pen,pen_tip|XX",
 ],
     category: "machines",
     state: "solid",
     density: 100,
     conduct: 1,
-    breakInto: ["ink", "metal_scrap"],
+    breakInto: ["ink", "plastic"],
 };
 
 elements.red_pen = {
@@ -70,13 +70,13 @@ elements.red_pen = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:red_pen,red_pen_tip%5|XX",
+    "XX|CR:red_pen,red_pen_tip|XX",
 ],
     category: "machines",
     state: "solid",
     density: 100,
     conduct: 1,
-    breakInto: ["ink", "metal_scrap"],
+    breakInto: ["red_ink", "plastic"],
 };
 
 elements.blue_pen = {
@@ -84,13 +84,13 @@ elements.blue_pen = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:blue_pen,blue_pen_tip%5|XX",
+    "XX|CR:blue_pen,blue_pen_tip|XX",
 ],
     category: "machines",
     state: "solid",
     density: 100,
     conduct: 1,
-    breakInto: ["ink", "metal_scrap"],
+    breakInto: ["blue_ink", "plastic"],
 };
 
 elements.pen_tip = {
