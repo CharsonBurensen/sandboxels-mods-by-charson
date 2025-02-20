@@ -1,4 +1,4 @@
-elements.thiquovite = {
+eelements.thiquovite = {
     color: "#e3f9ff",
     behavior: behaviors.POWDER,
     category: "special",
@@ -181,6 +181,11 @@ elements.tiger = {
 	"fish": { elem2: null, func: behaviors.FEEDPIXEL },
         "plant": { elem2: "dead_plant" },
 	"grass": { elem2: "dead_plant" },
+	"radiation": { elem1: "rotten_meat", chance: 0.1 },
+	"bone": { elem1: "blood", chance: 0.3 },
+	"blood": { elem2: null, chance: 0.3 },
+	"infection": { elem1: "rotten_meat", chance: 0.01 },
+	"rotten_meat": { elem1: "rotten_meat", chance: 0.01 },
     }
 };
 
@@ -204,6 +209,9 @@ elements.baby_tiger = {
 	"spider": { elem2: null, chance: 0.3, func: behaviors.KILLPIXEL2 },
 	"fish": { elem1: "tiger", chance: 0.3, elem2: null, func: behaviors.KILLPIXEL2 },
 	"grass": { elem2: "dead_plant" },
+	"radiation": { elem1: "rotten_meat", chance: 0.1 },
+	"infection": { elem1: "rotten_meat", chance: 0.01 },
+	"rotten_meat": { elem1: "rotten_meat", chance: 0.01 },
     }
 };
 
@@ -221,4 +229,32 @@ elements.newborn = {
     burnInto: "cooked_meat",
     tempHigh: 160,
     stateHigh: ["cooked_meat", "ash"],
+    reactions: {
+	"radiation": { elem1: "rotten_meat", chance: 0.1 },
+	"infection": { elem1: "infection", chance: 0.01 },
+	"rotten_meat": { elem1: "rotten_meat", chance: 0.01 },
+    }
+};
+
+elements.radspider = {
+    color: ["#6f21ff", "#ae21ff", "#d621ff"],
+    behavior: [
+    "M1%5 AND CR:web|M2|M1%5 AND CR:web",
+    "CR:radiation%2|XX|CR:radiation%2",
+    "M1%5 AND CR:web|M1 AND CR:web|M1%5 AND CR:web",
+],
+    category: "life",
+    state: "solid",
+    breakInto: ["dead_bug", "hot_bomb"],
+    burn: 1,
+    burnInto: "radiation",
+    tempHigh: 160,
+    stateHigh: ["radiation", "ash"],
+    reactions: {
+	"spider": { elem2: "radspider", chance: 0.1 },
+	"dna": { elem1: "radspider", chance: 0.01 },
+	"cell": { elem1: "radspider", chance: 0.01 },
+	"radiation": { elem1: "radspider", chance: 0.01 },
+	"rotten_meat": { elem1: "rotten_meat", chance: 0.01 },
+    }
 };
