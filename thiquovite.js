@@ -52,7 +52,7 @@ elements.pen = {
 };
 
 elements.blue_ink = {
-    color: "#454545",
+    color: "#aaaadd",
     behavior: behaviors.LIQUID,
     category: "liquids",
     state: "liquid",
@@ -61,10 +61,10 @@ elements.blue_ink = {
 };
 
 elements.red_ink = {
-    color: "#454545",
+    color: "#ddaaaa",
     behavior: behaviors.LIQUID,
     category: "liquids",
     state: "liquid",
     stain: 0.3,
-    breakInto: ["ink", "copper_sulfate"],
+    breakInto: ["ink", "brick_rubble"],
 };
