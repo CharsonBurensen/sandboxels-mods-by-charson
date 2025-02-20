@@ -1,4 +1,4 @@
-eelements.thiquovite = {
+elements.thiquovite = {
     color: "#e3f9ff",
     behavior: behaviors.POWDER,
     category: "special",
