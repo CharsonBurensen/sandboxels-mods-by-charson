@@ -281,22 +281,25 @@ elements.rad_spider = {
     color: ["#6f21ff", "#ae21ff", "#d621ff"],
     behavior: [
     "M1%5 AND CR:rad_web%1|XX|M1%5 AND CR:rad_web%1",
-    "CR:radiation%2|CO:2|CR:radiation%2",
+    "CR:radiation%2 AND M1%10|CO:2|CR:radiation%2 AND M1%10",
     "M1%5 AND CR:rad_web%1|M1 AND CR:rad_web|M1%5 AND CR:rad_web%1",
 ],
     category: "life",
     state: "solid",
     breakInto: ["dead_bug", "hot_bomb"],
     burn: 1,
+    foodNeed: 10,
+    egg: "rad_spider",
     burnInto: "radiation",
     tempHigh: 5000,
     stateHigh: ["radiation", "ash"],
     reactions: {
-	"spider": { elem2: "rad_spider", chance: 0.1 },
+	"spider": { elem2: "rad_spider", chance: 0.3 },
 	"dna": { elem2: "rad_spider", chance: 0.01 },
 	"cell": { elem2: "rad_spider", chance: 0.01 },
-	"radiation": { elem2: "rad_spider", chance: 0.01 },
+	"radiation": { elem2: "rad_spider", chance: 0.001 },
 	"rotten_meat": { elem1: "rotten_meat", chance: 0.01 },
+	"ant": { elem2: null, chance: 0.3, func: behaviors.FEEDPIXEL },
     }
 };
 
@@ -309,9 +312,9 @@ elements.radiation.reactions.spider = { elem2: "rad_spider" }
 elements.rad_web = {
     color: ["#7de387", "#b4d1b7", "#8f9c90"],
     behavior: [
-    "CR:rad_web%1|CR:radiation%0.1|CR:rad_web%1",
+    "CR:rad_web%0.01|CR:radiation%0.1|CR:rad_web%0.01",
     "CR:radiation%0.1|CH:radiation%0.1|CR:radiation%0.1",
-    "CR:rad_web%1|CR:rad_web%1|CR:rad_web%1",
+    "CR:rad_web%0.01|CR:rad_web%1|CR:rad_web%0.01",
 ],
     category: "life",
     hidden: true,
@@ -319,12 +322,12 @@ elements.rad_web = {
     breakInto: ["dust", "rad_shard"],
     burn: 80,
     burnInto: "radiation",
-    tempHigh: 5000,
+    tempHigh: 100,
     stateHigh: ["radiation", "ash"],
     reactions: {
 	"spider": { elem2: "rad_spider", chance: 0.1 },
 	"dna": { elem2: "rad_spider", chance: 0.01 },
 	"cell": { elem2: "rad_spider", chance: 0.01 },
-	"radiation": { elem1: "rad_spider", chance: 0.01 },
+	"radiation": { elem1: "rad_spider", chance: 0.001 },
     }
 };
