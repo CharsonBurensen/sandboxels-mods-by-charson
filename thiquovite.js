@@ -239,9 +239,9 @@ elements.newborn = {
 elements.radspider = {
     color: ["#6f21ff", "#ae21ff", "#d621ff"],
     behavior: [
-    "M1%5 AND CR:web|XX|M1%5 AND CR:web",
+    "M1%5 AND CR:web%1|XX|M1%5 AND CR:web%1",
     "CR:radiation%2|XX|CR:radiation%2",
-    "M1%5 AND CR:web|M1 AND CR:web|M1%5 AND CR:web",
+    "M1%5 AND CR:web%1|M1 AND CR:web|M1%5 AND CR:web%1",
 ],
     category: "life",
     state: "solid",
