@@ -17,9 +17,9 @@ elements.screen = {
     color: ["#505e4c", "#4b6943"],
     behavior: behaviors.WALL,
     behaviorOn: [
-    "SW:screen|XX|SW:screen",
     "XX|XX|XX",
     "SW:screen|XX|SW:screen",
+    "XX|CR:light|XX",
 ],
     category: "machines",
     state: "solid",
@@ -29,7 +29,11 @@ elements.screen = {
 
 elements.ring = {
     color: "#9ab3b1",
-    behavior: behaviors.WALL,
+    behavior: [
+    "XX|XX|CR:diamond_block",
+    "XX|XX|XX",
+    "XX|XX|XX",
+],
     category: "special",
     state: "solid",
     density: 100,
@@ -37,18 +41,57 @@ elements.ring = {
     breakInto: ["silver", "diamond"],
 };
 
+elements.diamond_block = {
+    color: ["#28d8de", "#03f4fc"],
+    behavior: behaviors.WALL,
+    category: "solids",
+    state: "solid",
+    density: 100,
+    breakInto: ["diamond"],
+    tempHigh: 540,    
+    stateHigh: "diamond,
+};
+
 elements.pen = {
     color: "#454545",
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:ink,blue_ink,red_ink|XX",
+    "XX|CR:ink%2|XX",
 ],
     category: "machines",
     state: "solid",
     density: 100,
     conduct: 1,
     breakInto: ["ink", "metal_scrap"],
+};
+
+elements.red_pen = {
+    color: "#454545",
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|CR:red_ink%2|XX",
+],
+    category: "machines",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["red_ink", "metal_scrap"],
+};
+
+elements.blue_pen = {
+    color: "#454545",
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|CR:blue_ink%2|XX",
+],
+    category: "machines",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["blue_ink", "metal_scrap"],
 };
 
 elements.blue_ink = {
@@ -58,6 +101,9 @@ elements.blue_ink = {
     state: "liquid",
     stain: 0.3,
     breakInto: ["ink", "copper_sulfate"],
+    burnInto: "dioxin",
+    tempHigh: 350,
+    stateHigh: "dioxin",
 };
 
 elements.red_ink = {
@@ -67,4 +113,7 @@ elements.red_ink = {
     state: "liquid",
     stain: 0.3,
     breakInto: ["ink", "brick_rubble"],
+    burnInto: "dioxin",
+    tempHigh: 350,
+    stateHigh: "dioxin",
 };
