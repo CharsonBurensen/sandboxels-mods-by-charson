@@ -339,7 +339,7 @@ elements.vw = {
     color: ["#7D7D7D"],
     behavior: [
     "XX|CR:vw|XX",
-    "XX|XX|XX",
+    "XX|CH:wall|XX",
     "XX|CR:vw|XX",
 ],
     category: "machines",
@@ -353,7 +353,7 @@ elements.hw = {
     color: ["#7D7D7D"],
     behavior: [
     "XX|XX|XX",
-    "CR:hw|XX|CR:hw",
+    "CR:hw|CH:wall|CR:hw",
     "XX|XX|XX",
 ],
     category: "machines",
@@ -387,6 +387,79 @@ elements.tlbr = {
     category: "machines",
     state: "solid",
 };
+
+elements.evw = {
+    name: "E-Vertical Wall",
+    desc: "Makes an electric wall that goes up and down, like this line: |",
+    hard: 1,
+    color: ["#6c8da6"],
+    behavior: [
+    "XX|CR:evw|XX",
+    "XX|CH:ew|XX",
+    "XX|CR:evw|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.ehw = {
+    name: "E-Horizontal Wall",
+    desc: "Makes an electric wall that goes left and right, like this line: -",
+    hard: 1,
+    color: ["#6c8da6"],
+    behavior: [
+    "XX|XX|XX",
+    "CR:ehw|CH:ew|CR:ehw",
+    "XX|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.ew = {
+    name: "E-Wall", //cooler e-wall.
+    desc: "Electric wall, blue variant",
+    hard: 1,
+    charge: 2,
+    conduct: 1,
+    color: ["#6c8da6"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|SH|XX",
+    "XX|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.ebltr = {
+    name: "E-BL-TR Wall",
+    desc: "Creates an electric slope from bottom left to top right, like this slash: /",
+    hard: 1,
+    color: ["#6c8da6"],
+    behavior: [
+    "XX|XX|CR:ebltr",
+    "XX|CH:ew|XX",
+    "CR:ebltr|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.etlbr = {
+    name: "E-TL-BR Wall",
+    desc: "Creates a electric slope from top left to bottom right, like this slash: \\",
+    hard: 1,
+    color: ["#6c8da6"],
+    behavior: [
+    "CR:etlbr|XX|XX",
+    "XX|CH:ew|XX",
+    "XX|XX|CR:etlbr",
+],
+    category: "machines",
+    state: "solid",
+};
+
 
 elements.whmisium_a = {
     color: ["#f5c4d3", "#dbae7f"],
