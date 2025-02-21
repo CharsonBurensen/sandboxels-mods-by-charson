@@ -460,6 +460,78 @@ elements.etlbr = {
     state: "solid",
 };
 
+elements.bw = {
+    name: "Breakable Wall",
+    desc: "Breakable wall.",
+    hard: 0.5,
+    color: ["#b04f4a"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|XX|XX",
+],
+    tempHigh: 1540,
+    stateHigh: "molten_brick",
+    category: "solids",
+    state: "solid",
+    breakInto: "brick_rubble",
+};
+
+elements.bvw = {
+    name: "Breakable Vertical Wall",
+    desc: "Makes a breakable wall that goes up and down, like this line: |",
+    hard: 0.5,
+    color: ["#b04f4a"],
+    behavior: [
+    "XX|CR:bvw|XX",
+    "XX|CH:bw|XX",
+    "XX|CR:bvw|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.bhw = {
+    name: "Breakable Horizontal Wall",
+    desc: "Makes a breakable wall that goes left and right, like this line: -",
+    hard: 0.5,
+    color: ["#b04f4a"],
+    behavior: [
+    "XX|XX|XX",
+    "CR:bhw|CH:bw|CR:bhw",
+    "XX|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.bbltr = {
+    name: "Breakable BL-TR Wall",
+    desc: "Creates a breakable slope from bottom left to top right, like this slash: /",
+    hard: 0.5,
+    color: ["#b04f4a"],
+    behavior: [
+    "XX|XX|CR:bbltr",
+    "XX|CH:bw|XX",
+    "CR:bbltr|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.btlbr = {
+    name: "Breakable TL-BR Wall",
+    desc: "Creates a breakable slope from top left to bottom right, like this slash: \\",
+    hard: 0.5,
+    color: ["#b04f4a"],
+    behavior: [
+    "CR:btlbr|XX|XX",
+    "XX|CH:bw|XX",
+    "XX|XX|CR:btlbr",
+],
+    category: "machines",
+    state: "solid",
+};
 
 elements.whmisium_a = {
     color: ["#f5c4d3", "#dbae7f"],
