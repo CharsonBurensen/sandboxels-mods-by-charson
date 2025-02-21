@@ -30,9 +30,9 @@ elements.screen = {
 elements.ring = {
     color: "#9ab3b1",
     behavior: [
-    "CR:rl|CR:ru|CR:rr",
+    "XX|CR:ru|XX",
     "CR:rl|DL|CR:rr",
-    "CR:rl|CR:rd|CR:rr",
+    "XX|CR:rd|XX",
 ],
     category: "special",
     state: "solid",
