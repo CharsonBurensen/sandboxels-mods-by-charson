@@ -936,7 +936,7 @@ elements.plane = {
 ],
     behaviorOn: [
     "XX|XX|M1",
-    "XX|XX|M1 AND EX:15>molten_metal_scrap",
+    "XX|SH|M1 AND EX:15>molten_metal_scrap",
     "XX|XX|XX",
 ],
     category: "machines",
