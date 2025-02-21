@@ -335,10 +335,11 @@ elements.rad_web = {
 elements.vw = {
     name: "Vertical Wall",
     desc: "Makes a wall that goes up and down, like this line: |",
+    hard: 1,
     color: ["#7D7D7D"],
     behavior: [
     "XX|CR:vert_wall|XX",
-    "XX|XX|XX",
+    "XX|CH:wall|XX",
     "XX|CR:vert_wall|XX",
 ],
     category: "machines",
@@ -348,10 +349,11 @@ elements.vw = {
 elements.hw = {
     name: "Horizontal Wall",
     desc: "Makes a wall that goes left and right, like this line: -",
+    hard: 1,
     color: ["#7D7D7D"],
     behavior: [
     "XX|XX|XX",
-    "CR:horiz_wall|XX|CR:horiz_wall",
+    "CR:horiz_wall|CH:wall|CR:horiz_wall",
     "XX|XX|XX",
 ],
     category: "machines",
@@ -361,10 +363,11 @@ elements.hw = {
 elements.bltr = {
     name: "BL-TR Wall",
     desc: "Creates a slope from bottom left to top right, like this slash: /",
+    hard: 1,
     color: ["#7D7D7D"],
     behavior: [
     "XX|XX|CR:bltr",
-    "XX|XX|XX",
+    "XX|CH:wall|XX",
     "CR:bltr|XX|XX",
 ],
     category: "machines",
@@ -374,10 +377,11 @@ elements.bltr = {
 elements.tlbr = {
     name: "TL-BR Wall",
     desc: "Creates a slope from top left to bottom right, like this slash: \\",
+    hard: 1,
     color: ["#7D7D7D"],
     behavior: [
     "CR:tlbr|XX|XX",
-    "XX|XX|XX",
+    "XX|CH:wall|XX",
     "XX|XX|CR:tlbr",
 ],
     category: "machines",
