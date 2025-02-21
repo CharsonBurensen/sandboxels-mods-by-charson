@@ -760,7 +760,7 @@ elements.whmisium_a = {
 };
 
 elements.whmisium_b = {
-    color: ["#f5c4d3", "#dbae7f"],
+    color: ["#694b2a", "#69562a", "#69412a"],
     behavior: [
     "XX|XX|XX",
     "XX|CH:hot_bomb%0.01|XX",
@@ -778,7 +778,7 @@ elements.whmisium_b = {
 };
 
 elements.whmisium_c = {
-    color: ["#f5c4d3", "#dbae7f"],
+    color: ["#ffd20a", "#ff8d0a"],
     behavior: [
     "XX|CR:nitrogen%1|XX",
     "XX|XX|XX",
@@ -800,7 +800,7 @@ elements.whmisium_c = {
 };
 
 elements.whmisium_d1 = {
-    color: ["#f5c4d3", "#dbae7f"],
+    color: ["#2b7d10", "#43802f"],
     behavior: [
     "XX|CR:poison_gas%1|XX",
     "XX|XX|XX",
@@ -818,7 +818,7 @@ elements.whmisium_d1 = {
 };
 
 elements.whmisium_d2 = {
-    color: ["#f5c4d3", "#dbae7f"],
+    color: ["#a7ff8a", "#62ff2e"],
     behavior: [
     "XX|CR:poison_gas%5|XX",
     "CR:radiation%0.1|XX|CR:radiation%0.1",
@@ -836,7 +836,7 @@ elements.whmisium_d2 = {
 };
 
 elements.whmisium_d3 = {
-    color: ["#f5c4d3", "#dbae7f"],
+    color: ["#6e1d44", "#6e441d", "#943931", "#ff3d2b"],
     behavior: [
     "XX|CR:poison_gas%10|XX",
     "CR:radiation%1 AND M1%5|XX|CR:radiation%1 AND M1%5",
@@ -848,25 +848,40 @@ elements.whmisium_d3 = {
 };
 
 elements.whmisium_e = {
-    color: ["#f5c4d3", "#dbae7f"],
+    color: ["#ff738c", "#ff739a", "#ff73b7"],
     behavior: [
-    "XX|XX|XX",
-    "XX|XX|XX",
-    "XX|XX|XX",
+    "XX|CR:rad_steam%1|XX",
+    "M1 AND CH:rad_steam|XX|M1 AND CH:rad_steam",
+    "M1|M1|M1",
 ],
     desc: "Class E - Corrosive Material - Causes severe eye and skin Irritation upon contact. Can cause severe tissue damage with prolonged exposure. May be harmful to the respiratory system if inhaled.",
     category: "special",
     state: "liquid",
+    reactions: {
+	"head": { elem1: ["explosion", "poison_gas"], elem2: "cancer", chance: 0.5, func: behaviors.KILLPIXEL2 },
+	"body": { elem1: ["explosion", "poison_gas"], elem2: "cancer", chance: 0.5, func: behaviors.KILLPIXEL2 },
+    }
 };
 
 elements.whmisium_f = {
-    color: ["#f5c4d3", "#dbae7f"],
+    color: ["#7D7D7D", "#7D7D7D", "#7D7D7D", "#f4005e", "#00f4b3", "#7600f4"],
     behavior: [
-    "XX|XX|XX",
-    "XX|XX|XX",
-    "XX|XX|XX",
+    "XX|HT:1|XX",
+    "XX|EX:25>explosion,fire,methane,radiation%0.01|XX",
+    "HT:1|M1|HT:1",
 ],
     desc: "Class F - Dangerously Reactive Material - May react violently causing explosion, fire or release of toxic gases when exposed to light, heat, vibration or extreme heat, vibration temperatures.",
     category: "special",
     state: "solid",
+    temp: 20,
+    tempHigh: 23,
+    stateHigh: ["explosion", "fire", "methane", "radiation"],
+    reactions: {
+	"fire": { elem1: ["explosion", "fire", "methane", "radiation"] },
+	"electric": { elem1: ["explosion", "fire", "methane", "radiation"] },
+	"light": { elem1: ["explosion", "fire", "methane", "radiation"] },
+	"head": { elem1: ["explosion", "fire", "methane", "radiation"], func: behaviors.KILLPIXEL2 },
+	"body": { elem1: ["explosion", "fire", "methane", "radiation"], func: behaviors.KILLPIXEL2 },
+    }
 };
+
