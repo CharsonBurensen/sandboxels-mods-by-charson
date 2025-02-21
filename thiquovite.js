@@ -332,7 +332,9 @@ elements.rad_web = {
     }
 };
 
-elements.vert_wall = {
+elements.vw = {
+    name: "Vertical Wall",
+    desc: "Makes a wall that goes up and down, like this line: |",
     color: ["#7D7D7D"],
     behavior: [
     "XX|CR:vert_wall|XX",
@@ -343,7 +345,9 @@ elements.vert_wall = {
     state: "solid",
 };
 
-elements.horiz_wall = {
+elements.hw = {
+    name: "Horizontal Wall",
+    desc: "Makes a wall that goes left and right, like this line: -",
     color: ["#7D7D7D"],
     behavior: [
     "XX|XX|XX",
@@ -356,7 +360,7 @@ elements.horiz_wall = {
 
 elements.bltr = {
     name: "BL-TR Wall",
-    desc: "creates a slope from bottom left to top right, like this slash: /",
+    desc: "Creates a slope from bottom left to top right, like this slash: /",
     color: ["#7D7D7D"],
     behavior: [
     "XX|XX|CR:bltr",
@@ -369,7 +373,7 @@ elements.bltr = {
 
 elements.tlbr = {
     name: "TL-BR Wall",
-    desc: "creates a slope from top left to bottom right, like this slash: \\",
+    desc: "Creates a slope from top left to bottom right, like this slash: \\",
     color: ["#7D7D7D"],
     behavior: [
     "CR:tlbr|XX|XX",
