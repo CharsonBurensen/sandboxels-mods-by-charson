@@ -540,7 +540,7 @@ elements.uvw = {
     color: ["#66e36a"],
     behavior: [
     "XX|CR:vw|XX",
-    "XX|CH:wall|XX",
+    "XX|XX|XX",
     "XX|CR:vw|XX",
 ],
     category: "machines",
@@ -554,7 +554,7 @@ elements.uhw = {
     color: ["#66e36a"],
     behavior: [
     "XX|XX|XX",
-    "CR:hw|CH:wall|CR:hw",
+    "CR:hw|XX|CR:hw",
     "XX|XX|XX",
 ],
     category: "machines",
@@ -568,7 +568,7 @@ elements.ubltr = {
     color: ["#66e36a"],
     behavior: [
     "XX|XX|CR:bltr",
-    "XX|CH:wall|XX",
+    "XX|XX|XX",
     "CR:bltr|XX|XX",
 ],
     category: "machines",
@@ -582,7 +582,7 @@ elements.utlbr = {
     color: ["#66e36a"],
     behavior: [
     "CR:tlbr|XX|XX",
-    "XX|CH:wall|XX",
+    "XX|XX|XX",
     "XX|XX|CR:tlbr",
 ],
     category: "machines",
@@ -596,7 +596,7 @@ elements.uevw = {
     color: ["#6be8be"],
     behavior: [
     "XX|CR:evw|XX",
-    "XX|CH:ew|XX",
+    "XX|SH|XX",
     "XX|CR:evw|XX",
 ],
     category: "machines",
@@ -610,7 +610,7 @@ elements.uehw = {
     color: ["#6be8be"],
     behavior: [
     "XX|XX|XX",
-    "CR:ehw|CH:ew|CR:ehw",
+    "CR:ehw|SH|CR:ehw",
     "XX|XX|XX",
 ],
     category: "machines",
@@ -640,7 +640,7 @@ elements.uebltr = {
     color: ["#6be8be"],
     behavior: [
     "XX|XX|CR:ebltr",
-    "XX|CH:ew|XX",
+    "XX|SH|XX",
     "CR:ebltr|XX|XX",
 ],
     category: "machines",
@@ -654,7 +654,7 @@ elements.uetlbr = {
     color: ["#6be8be"],
     behavior: [
     "CR:etlbr|XX|XX",
-    "XX|CH:ew|XX",
+    "XX|SH|XX",
     "XX|XX|CR:etlbr",
 ],
     category: "machines",
