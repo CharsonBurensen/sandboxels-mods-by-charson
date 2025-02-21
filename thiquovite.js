@@ -30,9 +30,9 @@ elements.screen = {
 elements.ring = {
     color: "#9ab3b1",
     behavior: [
-    "CR:corner|CR:ru|CR:corner",
+    "CR:rl|CR:ru|CR:rr",
     "CR:rl|DL|CR:rr",
-    "CR:corner|CR:rd|CR:corner",
+    "CR:rl|CR:rd|CR:rr",
 ],
     category: "special",
     state: "solid",
@@ -42,6 +42,7 @@ elements.ring = {
 };
 
 elements.rr = {
+    hidden: true,
     name: "Ring",
     color: "#9ab3b1",
     behavior: [
@@ -57,6 +58,7 @@ elements.rr = {
 };
 
 elements.rl = {
+    hidden: true,
     name: "Ring",
     color: "#9ab3b1",
     behavior: [
@@ -72,6 +74,7 @@ elements.rl = {
 };
 
 elements.ru = {
+    hidden: true,
     name: "Ring",
     color: "#9ab3b1",
     behavior: [
@@ -87,6 +90,7 @@ elements.ru = {
 };
 
 elements.rd = {
+    hidden: true,
     name: "Ring",
     color: "#9ab3b1",
     behavior: [
@@ -102,6 +106,7 @@ elements.rd = {
 };
 
 elements.corner = {
+    hidden: true,
     name: "Ring",
     color: "#9ab3b1",
     behavior: [
