@@ -935,9 +935,9 @@ elements.plane = {
     "XX|M1|XX",
 ],
     behaviorOn: [
-    "XX|XX|M1",
-    "XX|SH|M1 AND EX:15>molten_metal_scrap",
-    "XX|XX|XX",
+    "SH|SH|M1 AND SH",
+    "SH|SH|M1 AND EX:15>molten_metal_scrap AND SH",
+    "SH|SH|SH",
 ],
     category: "machines",
     state: "solid",
