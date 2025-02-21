@@ -333,7 +333,7 @@ elements.rad_web = {
 };
 
 elements.vert_wall = {
-    color: ["#f5c4d3", "#dbae7f"],
+    color: ["#7D7D7D"],
     behavior: [
     "XX|CR:vert_wall|XX",
     "XX|XX|XX",
@@ -344,11 +344,37 @@ elements.vert_wall = {
 };
 
 elements.horiz_wall = {
-    color: ["#f5c4d3", "#dbae7f"],
+    color: ["#7D7D7D"],
     behavior: [
     "XX|XX|XX",
     "CR:horiz_wall|XX|CR:horiz_wall",
     "XX|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.bltr = {
+    name: "BL-TR Wall",
+    desc: "creates a slope from bottom left to top right, like this slash: /",
+    color: ["#7D7D7D"],
+    behavior: [
+    "XX|XX|CR:bltr",
+    "XX|XX|XX",
+    "CR:bltr|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.tlbr = {
+    name: "TL-BR Wall",
+    desc: "creates a slope from top left to bottom right, like this slash: \\",
+    color: ["#7D7D7D"],
+    behavior: [
+    "CR:tlbr|XX|XX",
+    "XX|XX|XX",
+    "XX|XX|CR:tlbr",
 ],
     category: "machines",
     state: "solid",
