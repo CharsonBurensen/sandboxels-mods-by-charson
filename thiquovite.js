@@ -47,7 +47,7 @@ elements.rr = {
     color: "#9ab3b1",
     behavior: [
     "XX|CR:diamond_block|CR:diamond_block",
-    "XX|XX|CR:diamond_block",
+    "XX|CH:silver|CR:diamond_block",
     "XX|CR:diamond_block|CR:diamond_block",
 ],
     category: "special",
@@ -63,7 +63,7 @@ elements.rl = {
     color: "#9ab3b1",
     behavior: [
     "CR:diamond_block|CR:diamond_block|XX",
-    "CR:diamond_block|XX|XX",
+    "CR:diamond_block|CH:silver|XX",
     "CR:diamond_block|CR:diamond_block|XX",
 ],
     category: "special",
@@ -79,7 +79,7 @@ elements.ru = {
     color: "#9ab3b1",
     behavior: [
     "CR:diamond_block|CR:diamond_block|CR:diamond_block",
-    "CR:diamond_block|XX|CR:diamond_block",
+    "CR:diamond_block|CH:silver|CR:diamond_block",
     "XX|XX|XX",
 ],
     category: "special",
@@ -95,7 +95,7 @@ elements.rd = {
     color: "#9ab3b1",
     behavior: [
     "XX|XX|XX",
-    "CR:diamond_block|XX|CR:diamond_block",
+    "CR:diamond_block|CH:silver|CR:diamond_block",
     "CR:diamond_block|CR:diamond_block|CR:diamond_block",
 ],
     category: "special",
@@ -806,9 +806,9 @@ elements.whmisium_d1 = {
     category: "special",
     state: "solid",
     reactions: {
-	"head": { elem2: ["explosion", "fire"], chance: 0.5 },
-	"wood": { elem2: "explosion", chance: 0.5 },
-	"oil": { elem2: "explosion", chance: 0.5 },
+	"head": { elem2: ["explosion", "poison_gas"], chance: 0.5, func: behaviors.KILLPIXEL2 },
+	"body": { elem2: ["explosion", "poison_gas"], chance: 0.5, func: behaviors.KILLPIXEL2 },
+	"fire": { elem1: "poison_gas", chance: 0.5 },
 	"oxygen": { elem2: "explosion", chance: 0.5 },
     }
 };
@@ -816,21 +816,27 @@ elements.whmisium_d1 = {
 elements.whmisium_d2 = {
     color: ["#f5c4d3", "#dbae7f"],
     behavior: [
-    "XX|XX|XX",
-    "XX|XX|XX",
-    "XX|XX|XX",
+    "XX|CR:poison_gas%5|XX",
+    "CR:radiation%0.1|XX|CR:radiation%0.1",
+    "XX|M1|XX",
 ],
     desc: "Class D, Division 2 - Poisonous and Infectious Material: Other Toxic Effects - May cause irritation. Repeated exposure may cause cancer, birth defects or other permanent damage to health.",
     category: "special",
     state: "solid",
+    reactions: {
+	"head": { elem1: ["explosion", "poison_gas"], elem2: "cancer", chance: 0.5, func: behaviors.KILLPIXEL2 },
+	"body": { elem1: ["explosion", "poison_gas"], elem2: "cancer", chance: 0.5, func: behaviors.KILLPIXEL2 },
+	"fire": { elem1: "poison_gas", chance: 0.5 },
+	"oxygen": { elem1: "cancer", elem2: "explosion", chance: 0.5 },
+    }
 };
 
 elements.whmisium_d3 = {
     color: ["#f5c4d3", "#dbae7f"],
     behavior: [
-    "XX|XX|XX",
-    "XX|XX|XX",
-    "XX|XX|XX",
+    "XX|CR:poison_gas%10|XX",
+    "CR:radiation%1 AND M1%5|XX|CR:radiation%1 AND M1%5",
+    "M1|M1|M1",
 ],
     desc: "Class D, Division 3 - Poisonous and Infectious Material: Bio-hazardous Infectious Materials - May cause disease or serious illness. Drastic exposures may result in death.",
     category: "special",
