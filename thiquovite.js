@@ -30,8 +30,53 @@ elements.screen = {
 elements.ring = {
     color: "#9ab3b1",
     behavior: [
+    "CR:corner|CR:ru|CR:corner",
+    "CR:rl|DL|CR:rr",
+    "CR:corner|CR:rd|CR:corner",
+],
+    category: "special",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["silver", "diamond"],
+};
+
+elements.rr = {
+    name: "Ring",
+    color: "#9ab3b1",
+    behavior: [
+    "XX|CR:diamond_block|CR:diamond_block",
     "XX|XX|CR:diamond_block",
-    "XX|XX|XX",
+    "XX|CR:diamond_block|CR:diamond_block",
+],
+    category: "special",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["silver", "diamond"],
+};
+
+elements.rl = {
+    name: "Ring",
+    color: "#9ab3b1",
+    behavior: [
+    "CR:diamond_block|CR:diamond_block|XX",
+    "CR:diamond_block|XX|XX",
+    "CR:diamond_block|CR:diamond_block|XX",
+],
+    category: "special",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["silver", "diamond"],
+};
+
+elements.ru = {
+    name: "Ring",
+    color: "#9ab3b1",
+    behavior: [
+    "CR:diamond_block|CR:diamond_block|CR:diamond_block",
+    "CR:diamond_block|XX|CR:diamond_block",
     "XX|XX|XX",
 ],
     category: "special",
@@ -39,6 +84,36 @@ elements.ring = {
     density: 100,
     conduct: 1,
     breakInto: ["silver", "diamond"],
+};
+
+elements.rd = {
+    name: "Ring",
+    color: "#9ab3b1",
+    behavior: [
+    "XX|XX|XX",
+    "CR:diamond_block|XX|CR:diamond_block",
+    "CR:diamond_block|CR:diamond_block|CR:diamond_block",
+],
+    category: "special",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["silver", "diamond"],
+};
+
+elements.corner = {
+    name: "Ring",
+    color: "#9ab3b1",
+    behavior: [
+    "CR:ruins|CR:diamond_block|CR:ruins",
+    "CR:ruins|XX|CR:ruins",
+    "CR:ruins|CR:ruins|CR:ruins",
+],
+    category: "special",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["dust"],
 };
 
 elements.diamond_block = {
@@ -594,6 +669,7 @@ elements.uevw = {
     desc: "Makes an electric wall that goes up and down, like this line: |",
     hard: 1,
     color: ["#6be8be"],
+    conduct: 1,
     behavior: [
     "XX|CR:uevw|XX",
     "XX|SH|XX",
@@ -608,6 +684,7 @@ elements.uehw = {
     desc: "Makes an electric wall that goes left and right, like this line: -",
     hard: 1,
     color: ["#6be8be"],
+    conduct: 1,
     behavior: [
     "XX|XX|XX",
     "CR:uehw|SH|CR:uehw",
@@ -638,6 +715,7 @@ elements.uebltr = {
     desc: "Creates an electric slope from bottom left to top right, like this slash: /",
     hard: 1,
     color: ["#6be8be"],
+    conduct: 1,
     behavior: [
     "XX|XX|CR:uebltr",
     "XX|SH|XX",
@@ -652,6 +730,7 @@ elements.uetlbr = {
     desc: "Creates a electric slope from top left to bottom right, like this slash: \\",
     hard: 1,
     color: ["#6be8be"],
+    conduct: 1,
     behavior: [
     "CR:uetlbr|XX|XX",
     "XX|SH|XX",
