@@ -533,12 +533,140 @@ elements.btlbr = {
     state: "solid",
 };
 
+elements.uvw = {
+    name: "Unstoppable Vertical Wall",
+    desc: "Makes a wall that goes up and down, like this line: |",
+    hard: 1,
+    color: ["#66e36a"],
+    behavior: [
+    "XX|CR:vw|XX",
+    "XX|CH:wall|XX",
+    "XX|CR:vw|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.uhw = {
+    name: "Unstoppable Horizontal Wall",
+    desc: "Makes a wall that goes left and right, like this line: -",
+    hard: 1,
+    color: ["#66e36a"],
+    behavior: [
+    "XX|XX|XX",
+    "CR:hw|CH:wall|CR:hw",
+    "XX|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.ubltr = {
+    name: "Unstoppable BL-TR Wall",
+    desc: "Creates a slope from bottom left to top right, like this slash: /",
+    hard: 1,
+    color: ["#66e36a"],
+    behavior: [
+    "XX|XX|CR:bltr",
+    "XX|CH:wall|XX",
+    "CR:bltr|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.utlbr = {
+    name: "Unstoppable TL-BR Wall",
+    desc: "Creates a slope from top left to bottom right, like this slash: \\",
+    hard: 1,
+    color: ["#66e36a"],
+    behavior: [
+    "CR:tlbr|XX|XX",
+    "XX|CH:wall|XX",
+    "XX|XX|CR:tlbr",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.uevw = {
+    name: "Unstoppable E-Vertical Wall",
+    desc: "Makes an electric wall that goes up and down, like this line: |",
+    hard: 1,
+    color: ["#6be8be"],
+    behavior: [
+    "XX|CR:evw|XX",
+    "XX|CH:ew|XX",
+    "XX|CR:evw|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.uehw = {
+    name: "Unstoppable E-Horizontal Wall",
+    desc: "Makes an electric wall that goes left and right, like this line: -",
+    hard: 1,
+    color: ["#6be8be"],
+    behavior: [
+    "XX|XX|XX",
+    "CR:ehw|CH:ew|CR:ehw",
+    "XX|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.uew = {
+    name: "E-Wall",
+    desc: "Electric wall, teal edition",
+    hard: 1,
+    charge: 2,
+    conduct: 1,
+    color: ["#6be8be"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|SH|XX",
+    "XX|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.uebltr = {
+    name: "Unstoppable E-BL-TR Wall",
+    desc: "Creates an electric slope from bottom left to top right, like this slash: /",
+    hard: 1,
+    color: ["#6be8be"],
+    behavior: [
+    "XX|XX|CR:ebltr",
+    "XX|CH:ew|XX",
+    "CR:ebltr|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.uetlbr = {
+    name: "Unstoppable E-TL-BR Wall",
+    desc: "Creates a electric slope from top left to bottom right, like this slash: \\",
+    hard: 1,
+    color: ["#6be8be"],
+    behavior: [
+    "CR:etlbr|XX|XX",
+    "XX|CH:ew|XX",
+    "XX|XX|CR:etlbr",
+],
+    category: "machines",
+    state: "solid",
+};
+
 elements.whmisium_a = {
     color: ["#869aa3"],
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "M1|M1 AND EX:10>gas,fire|M1",
+    "XX|M1 AND EX:10>methane,fire|XX",
 ],
     desc: "Class A - Compressed Gas - Contents under high pressure. - Cylinder may explode or burst when heated, dropped or damaged.",
     category: "special",
@@ -551,8 +679,8 @@ elements.whmisium_b = {
     color: ["#f5c4d3", "#dbae7f"],
     behavior: [
     "XX|XX|XX",
-    "XX|CH:hot_bomb%0.1|XX",
-    "XX|XX|XX",
+    "XX|CH:hot_bomb%0.01|XX",
+    "M1|M1|M1",
 ],
     desc: "Class B - Flammable and Combustible Material - May catch fire when exposed to heat, spark or flame. May burst into flames.",
     category: "special",
@@ -560,33 +688,45 @@ elements.whmisium_b = {
     tempHigh: 40,
     stateHigh: "explosion",
     reactions: {
-	"fire": { elem2: "explosion", chance: 0.5 },
-	"electric": { elem2: "explosion", chance: 0.5 },
+	"fire": { elem1: "explosion", chance: 0.5 },
+	"electric": { elem1: "explosion", chance: 0.5 },
     }
 };
 
 elements.whmisium_c = {
     color: ["#f5c4d3", "#dbae7f"],
     behavior: [
+    "XX|CR:nitrogen%1|XX",
     "XX|XX|XX",
-    "XX|XX|XX",
-    "XX|XX|XX",
+    "XX|M1|XX",
 ],
     desc: "Class C - Oxidizing Material - May cause fire or explosion when in contact with wood, fuels or other combustible material.",
     category: "special",
     state: "solid",
+     reactions: {
+	"whimisium_b": { elem1: ["explosion", "fire"], chance: 0.5 },
+	"wood": { elem2: "explosion", chance: 0.5 },
+	"oil": { elem1: "explosion", chance: 0.5 },
+	"oxygen": { elem1: "explosion", chance: 0.5 },
+    }
 };
 
 elements.whmisium_d1 = {
     color: ["#f5c4d3", "#dbae7f"],
     behavior: [
+    "XX|CR:poison_gas%1|XX",
     "XX|XX|XX",
-    "XX|XX|XX",
-    "XX|XX|XX",
+    "XX|M1|XX",
 ],
     desc: "Class D, Division 1 - Poisonous and Infectious Material: Immediate and Serious Toxic Effects - A single exposure may be fatal or cause serious or permanent damage to health.",
     category: "special",
     state: "solid",
+    reactions: {
+	"head": { elem2: ["explosion", "fire"], chance: 0.5 },
+	"wood": { elem2: "explosion", chance: 0.5 },
+	"oil": { elem2: "explosion", chance: 0.5 },
+	"oxygen": { elem2: "explosion", chance: 0.5 },
+    }
 };
 
 elements.whmisium_d2 = {
