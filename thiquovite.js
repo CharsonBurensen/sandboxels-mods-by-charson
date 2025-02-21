@@ -353,3 +353,99 @@ elements.horiz_wall = {
     category: "machines",
     state: "solid",
 };
+
+elements.whmisium_a = {
+    color: ["#f5c4d3", "#dbae7f"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|XX|XX",
+],
+    desc: "Class A - Compressed Gas - Contents under high pressure. - Cylinder may explode or burst when heated, dropped or damaged.",
+    category: "special",
+    state: "gas",
+};
+
+elements.whmisium_b = {
+    color: ["#f5c4d3", "#dbae7f"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|XX|XX",
+],
+    desc: "Class B - Flammable and Combustible Material - May catch fire when exposed to heat, spark or flame. May burst into flames.",
+    category: "special",
+    state: "liquid",
+};
+
+elements.whmisium_c = {
+    color: ["#f5c4d3", "#dbae7f"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|XX|XX",
+],
+    desc: "Class C - Oxidizing Material - May cause fire or explosion when in contact with wood, fuels or other combustible material.",
+    category: "special",
+    state: "solid",
+};
+
+elements.whmisium_d1 = {
+    color: ["#f5c4d3", "#dbae7f"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|XX|XX",
+],
+    desc: "Class D, Division 1 - Poisonous and Infectious Material: Immediate and Serious Toxic Effects - A single exposure may be fatal or cause serious or permanent damage to health.",
+    category: "special",
+    state: "solid",
+};
+
+elements.whmisium_d2 = {
+    color: ["#f5c4d3", "#dbae7f"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|XX|XX",
+],
+    desc: "Class D, Division 2 - Poisonous and Infectious Material: Other Toxic Effects - May cause irritation. Repeated exposure may cause cancer, birth defects or other permanent damage to health.",
+    category: "special",
+    state: "solid",
+};
+
+elements.whmisium_d3 = {
+    color: ["#f5c4d3", "#dbae7f"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|XX|XX",
+],
+    desc: "Class D, Division 3 - Poisonous and Infectious Material: Bio-hazardous Infectious Materials - May cause disease or serious illness. Drastic exposures may result in death.",
+    category: "special",
+    state: "liquid",
+};
+
+elements.whmisium_e = {
+    color: ["#f5c4d3", "#dbae7f"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|XX|XX",
+],
+    desc: "Class E - Corrosive Material - Causes severe eye and skin Irritation upon contact. Can cause severe tissue damage with prolonged exposure. May be harmful to the respiratory system if inhaled.",
+    category: "special",
+    state: "liquid",
+};
+
+elements.whmisium_f = {
+    color: ["#f5c4d3", "#dbae7f"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|XX|XX",
+],
+    desc: "Class F - Dangerously Reactive Material - May react violently causing explosion, fire or release of toxic gases when exposed to light, heat, vibration or extreme heat, vibration temperatures.",
+    category: "special",
+    state: "solid",
+};
