@@ -331,3 +331,25 @@ elements.rad_web = {
 	"radiation": { elem1: "rad_spider", chance: 0.001 },
     }
 };
+
+elements.vert_wall = {
+    color: ["#f5c4d3", "#dbae7f"],
+    behavior: [
+    "XX|CR:vert_wall|XX",
+    "XX|XX|XX",
+    "XX|CR:vert_wall|XX",
+],
+    category: "machines",
+    state: "solid",
+};
+
+elements.horiz_wall = {
+    color: ["#f5c4d3", "#dbae7f"],
+    behavior: [
+    "XX|XX|XX",
+    "CR:horiz_wall|XX|CR:horiz_wall",
+    "XX|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+};
