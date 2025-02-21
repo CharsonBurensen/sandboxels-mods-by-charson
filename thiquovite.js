@@ -786,10 +786,14 @@ elements.whmisium_c = {
 ],
     desc: "Class C - Oxidizing Material - May cause fire or explosion when in contact with wood, fuels or other combustible material.",
     category: "special",
+    tempHigh: 40,
+    stateHigh: "explosion",
     state: "solid",
      reactions: {
 	"whimisium_b": { elem1: ["explosion", "fire"], chance: 0.5 },
 	"wood": { elem2: "explosion", chance: 0.5 },
+	"charcoal": { elem2: "explosion", chance: 0.5 },
+	"ash": { elem2: "explosion", chance: 0.5 },
 	"oil": { elem1: "explosion", chance: 0.5 },
 	"oxygen": { elem1: "explosion", chance: 0.5 },
     }
