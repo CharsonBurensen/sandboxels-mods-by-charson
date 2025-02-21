@@ -338,9 +338,9 @@ elements.vw = {
     hard: 1,
     color: ["#7D7D7D"],
     behavior: [
-    "XX|CR:vert_wall|XX",
-    "XX|CH:wall|XX",
-    "XX|CR:vert_wall|XX",
+    "XX|CR:vw|XX",
+    "XX|XX|XX",
+    "XX|CR:vw|XX",
 ],
     category: "machines",
     state: "solid",
@@ -353,7 +353,7 @@ elements.hw = {
     color: ["#7D7D7D"],
     behavior: [
     "XX|XX|XX",
-    "CR:horiz_wall|CH:wall|CR:horiz_wall",
+    "CR:hw|XX|CR:hw",
     "XX|XX|XX",
 ],
     category: "machines",
