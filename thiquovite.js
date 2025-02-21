@@ -29,6 +29,7 @@ elements.screen = {
 
 elements.ring = {
     color: "#9ab3b1",
+    maxSize: 1,
     behavior: [
     "XX|CR:ru|XX",
     "CR:rl|DL|CR:rr",
@@ -885,3 +886,32 @@ elements.whmisium_f = {
     }
 };
 
+elements.thermium = {
+    color: ["#f4005e"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|HT:10|XX",
+    "XX|M1|XX",
+],
+    desc: "Hot.",
+    category: "machine",
+    state: "solid",
+    temp: 20,
+    tempLow: -20,
+    stateLow: "cryonine",
+};
+
+elements.cryonine = {
+    color: ["#5e00ff"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|CO:10|XX",
+    "XX|M1|XX",
+],
+    desc: "Cold.",
+    category: "machine",
+    state: "solid",
+    temp: -20,
+    tempHigh: 20,
+    stateHigh: "thermium",
+};
