@@ -9,6 +9,11 @@ elements.thiquovite = {
 	  reactions: {
         "screen": { elem2:"ring" },
         "ring": { elem2:"pen" },
+	"rr": { elem2:"pen" },
+	"rl": { elem2:"pen" },
+	"ru": { elem2:"pen" },
+	"rd": { elem2:"pen" },
+	"diamond_block": { elem2:"pen" },
         "pen": { elem2:"king" },
     }
 };
