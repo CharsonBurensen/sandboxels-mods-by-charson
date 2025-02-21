@@ -464,7 +464,7 @@ elements.bw = {
     name: "Breakable Wall",
     desc: "Breakable wall.",
     hard: 0.5,
-    color: ["#b04f4a"],
+    color: ["#CB4141"],
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
@@ -481,7 +481,7 @@ elements.bvw = {
     name: "Breakable Vertical Wall",
     desc: "Makes a breakable wall that goes up and down, like this line: |",
     hard: 0.5,
-    color: ["#b04f4a"],
+    color: ["#CB4141"],
     behavior: [
     "XX|CR:bvw|XX",
     "XX|CH:bw|XX",
@@ -495,7 +495,7 @@ elements.bhw = {
     name: "Breakable Horizontal Wall",
     desc: "Makes a breakable wall that goes left and right, like this line: -",
     hard: 0.5,
-    color: ["#b04f4a"],
+    color: ["#CB4141"],
     behavior: [
     "XX|XX|XX",
     "CR:bhw|CH:bw|CR:bhw",
@@ -509,7 +509,7 @@ elements.bbltr = {
     name: "Breakable BL-TR Wall",
     desc: "Creates a breakable slope from bottom left to top right, like this slash: /",
     hard: 0.5,
-    color: ["#b04f4a"],
+    color: ["#CB4141"],
     behavior: [
     "XX|XX|CR:bbltr",
     "XX|CH:bw|XX",
@@ -523,7 +523,7 @@ elements.btlbr = {
     name: "Breakable TL-BR Wall",
     desc: "Creates a breakable slope from top left to bottom right, like this slash: \\",
     hard: 0.5,
-    color: ["#b04f4a"],
+    color: ["#CB4141"],
     behavior: [
     "CR:btlbr|XX|XX",
     "XX|CH:bw|XX",
@@ -534,27 +534,35 @@ elements.btlbr = {
 };
 
 elements.whmisium_a = {
-    color: ["#f5c4d3", "#dbae7f"],
+    color: ["#869aa3"],
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|XX|XX",
+    "M1|M1 AND EX:10>gas,fire|M1",
 ],
     desc: "Class A - Compressed Gas - Contents under high pressure. - Cylinder may explode or burst when heated, dropped or damaged.",
     category: "special",
-    state: "gas",
+    state: "solid",
+    tempHigh: 50,
+    stateHigh: "explosion",
 };
 
 elements.whmisium_b = {
     color: ["#f5c4d3", "#dbae7f"],
     behavior: [
     "XX|XX|XX",
-    "XX|XX|XX",
+    "XX|CH:hot_bomb%0.1|XX",
     "XX|XX|XX",
 ],
     desc: "Class B - Flammable and Combustible Material - May catch fire when exposed to heat, spark or flame. May burst into flames.",
     category: "special",
     state: "liquid",
+    tempHigh: 40,
+    stateHigh: "explosion",
+    reactions: {
+	"fire": { elem2: "explosion", chance: 0.5 },
+	"electric": { elem2: "explosion", chance: 0.5 },
+    }
 };
 
 elements.whmisium_c = {
