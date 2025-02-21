@@ -867,7 +867,7 @@ elements.whmisium_f = {
     color: ["#7D7D7D", "#7D7D7D", "#7D7D7D", "#f4005e", "#00f4b3", "#7600f4"],
     behavior: [
     "XX|HT:1|XX",
-    "XX|EX:25>explosion,fire,methane,radiation%0.01|XX",
+    "XX|EX:50>explosion,fire,methane,radiation%0.01|XX",
     "HT:1|M1|HT:1",
 ],
     desc: "Class F - Dangerously Reactive Material - May react violently causing explosion, fire or release of toxic gases when exposed to light, heat, vibration or extreme heat, vibration temperatures.",
