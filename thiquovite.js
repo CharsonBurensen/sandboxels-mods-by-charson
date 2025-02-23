@@ -384,7 +384,7 @@ elements.rad_spider = {
     foodNeed: 10,
     egg: "rad_spider",
     burnInto: "radiation",
-    tempHigh: 5000,
+    tempHigh: 3000,
     stateHigh: ["radiation", "ash"],
     reactions: {
 	"spider": { elem2: "rad_spider", chance: 0.3 },
@@ -393,6 +393,37 @@ elements.rad_spider = {
 	"radiation": { elem2: "rad_spider", chance: 0.001 },
 	"rotten_meat": { elem1: "rotten_meat", chance: 0.01 },
 	"ant": { elem2: null, chance: 0.3, func: behaviors.FEEDPIXEL },
+	"fly": { elem2: null, chance: 0.3, func: behaviors.FEEDPIXEL },
+	"chocolate": { elem1: "hyper_spider", elem2: null, chance: 0.3, func: behaviors.FEEDPIXEL },
+    }
+};
+
+elements.hyper_spider = {
+    color: ["#6f21ff", "#ae21ff", "#d621ff"],
+    behavior: [
+    "M1%20 AND CR:hyper_web%5|XX|M1%20 AND CR:hyper_web%5",
+    "CR:radiation%2 AND M1%10|CO:2|CR:radiation%2 AND M1%10",
+    "M1%20 AND CR:hyper_web%5|M1|M1%10 AND CR:hyper_web%5",
+],
+    category: "life",
+    state: "solid",
+    breakInto: ["dead_bug", "hot_bomb"],
+    burn: 1,
+    foodNeed: 3,
+    egg: "rad_spider",
+    burnInto: "radiation",
+    tempHigh: 6000,
+    stateHigh: ["radiation", "plague"],
+    reactions: {
+	"spider": { elem2: "rad_spider", chance: 0.5 },
+	"rad_spider": { elem2: "hyper_spider", chance: 0.3 },
+	"dna": { elem2: "rad_spider", chance: 0.1 },
+	"cell": { elem2: "rad_spider", chance: 0.1 },
+	"radiation": { elem2: "rad_spider", chance: 0.1 },
+	"rotten_meat": { elem1: "rotten_meat", chance: 0.01 },
+	"ant": { elem2: null, chance: 0.3, func: behaviors.FEEDPIXEL },
+	"fly": { elem2: null, chance: 0.3, func: behaviors.FEEDPIXEL },
+	"chocolate": { elem2: "hyper_spider", chance: 0.3, func: behaviors.FEEDPIXEL },
     }
 };
 
@@ -421,6 +452,29 @@ elements.rad_web = {
 	"spider": { elem2: "rad_spider", chance: 0.1 },
 	"dna": { elem2: "rad_spider", chance: 0.01 },
 	"cell": { elem2: "rad_spider", chance: 0.01 },
+	"radiation": { elem1: "rad_spider", chance: 0.001 },
+    }
+};
+
+elements.hyper_web = {
+    color: ["#7de387", "#b4d1b7", "#8f9c90"],
+    behavior: [
+    "CR:hyper_web%0.1|CR:radiation%0.1|CR:hyper_web%0.1",
+    "CR:radiation%0.1|CH:radiation%0.1|CR:radiation%0.1",
+    "CR:rad_web%0.01|CR:hyper_web%1|CR:rad_web%0.01",
+],
+    category: "life",
+    hidden: true,
+    state: "solid",
+    breakInto: ["rad_spider", "rad_shard"],
+    burn: 40,
+    burnInto: ["radiation", "plague"],
+    tempHigh: 300,
+    stateHigh: ["radiation", "ash"],
+    reactions: {
+	"spider": { elem2: "rad_spider", chance: 0.1 },
+	"dna": { elem2: "rad_spider", chance: 0.1 },
+	"cell": { elem2: "rad_spider", chance: 0.1 },
 	"radiation": { elem1: "rad_spider", chance: 0.001 },
     }
 };
@@ -1055,7 +1109,8 @@ elements.bad_wind = {
     tempLow: -20,
     stateLow: "tornado",
     reactions: {
-    "good_flying_plane": { elem2: "bad_flying_plane" },
+    "good_flying_plane": { elem2: ["bad_flying_plane", "crashing_plane"] },
+    "fire_flying_plane": { elem2: ["bad_flying_plane", "crashing_plane"] },
     "sand": { elem1: "sandstorm" },
     }
 };
