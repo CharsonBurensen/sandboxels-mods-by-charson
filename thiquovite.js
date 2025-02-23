@@ -980,7 +980,7 @@ elements.good_flying_plane = {
     color: ["#bdbdbd", "#8d9dba"],
     hidden: true,
     behavior: [
-    "XX|EX:3>molten_metal_scrap|M1 AND SH",
+    "XX|EX:3>crashing_plane|M1 AND SH",
     "XX|SH AND CH:crashing_plane%0.1|M1 AND BO AND CH:good_flying_plane>crashing_plane%3",
     "XX|XX|XX",
 ],
@@ -1017,7 +1017,7 @@ elements.crashing_plane = {
     burning: true,
     behavior: [
     "CR:smoke%20|XX|XX",
-    "XX|SH AND EX:3>molten_metal_scrap%5|M1 AND BO AND CH:good_flying_plane>crashing_plane%3",
+    "XX|HT:2|M1 AND BO AND CH:good_flying_plane>crashing_plane%3",
     "XX|M1 AND EX:3>molten_metal_scrap|M1",
 ],
     category: "machines",
@@ -1027,6 +1027,10 @@ elements.crashing_plane = {
     tempHigh: 500,
     stateHigh: "molten_metal_scrap",
     burnInto: "molten_metal_scrap",
+    reactions: {
+    "water": { elem1: "bad_plane" },
+    "dirt": { elem1: "metal_scrap" },
+    }
 };
 
 elements.badwind = {
@@ -1053,7 +1057,7 @@ elements.badwind = {
 elements.fire_plane = {
     name: "FirePlane",
     desc: "Stationary. Produces water.",
-    color: ["#bdbdbd", "#8d9dba"],
+    color: ["#a83632", "#d41e17"],
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
@@ -1074,15 +1078,15 @@ elements.fire_plane = {
 
 elements.fire_flying_plane = {
     desc: "In flight. Produces water.",
-    name: "Plane",
-    color: ["#bdbdbd", "#8d9dba"],
+    name: "FirePlane",
+    color: ["#a83632", "#d41e17"],
     hidden: true,
     behavior: [
-    "XX|EX:3>molten_metal_scrap|M1 AND LB:water",
+    "XX|EX:3>crashing_plane|M1 AND LB:water",
     "XX|XX|M1 AND BO AND LB:water",
     "XX|XX|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
     temp: 20,
     conduct: 3,
