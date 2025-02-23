@@ -901,7 +901,7 @@ elements.thermium = {
     color: ["#f4005e"],
     behavior: [
     "XX|XX|XX",
-    "XX|HT:2|XX",
+    "XX|HT:1|XX",
     "XX|M1|XX",
 ],
     desc: "Hot.",
@@ -927,7 +927,9 @@ elements.cryonine = {
     stateHigh: "thermium",
 };
 
-elements.plane = {
+elements.bad_plane = {
+    name: "Plane",
+    desc: "Stationary. Cheap.",
     color: ["#bdbdbd", "#8d9dba"],
     behavior: [
     "XX|XX|XX",
@@ -936,7 +938,7 @@ elements.plane = {
 ],
     behaviorOn: [
     "XX|XX|XX",
-    "XX|CH:flying_plane|XX",
+    "XX|CH:bad_flying_plane|XX",
     "XX|XX|XX",
 ],
     category: "machines",
@@ -947,11 +949,54 @@ elements.plane = {
     stateHigh: "molten_metal_scrap",
 };
 
-elements.flying_plane = {
+elements.good_plane = {
+    name: "Plane",
+    desc: "Stationary. Expensive.",
     color: ["#bdbdbd", "#8d9dba"],
     behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|M1|XX",
+],
+    behaviorOn: [
+    "XX|XX|XX",
+    "XX|CH:good_flying_plane|XX",
+    "XX|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+    temp: 20,
+    conduct: 3,
+    tempHigh: 500,
+    stateHigh: "molten_metal_scrap",
+};
+
+elements.good_flying_plane = {
+    desc: "In flight. Expensive.",
+    name: "Plane",
+    color: ["#bdbdbd", "#8d9dba"],
+    hidden: true,
+    behavior: [
     "XX|XX|M1 AND SH",
-    "XX|SH|M1 AND EX:15>molten_metal_scrap AND SH",
+    "XX|SH|M1 AND BO",
+    "XX|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+    temp: 20,
+    conduct: 3,
+    tempHigh: 500,
+    stateHigh: "molten_metal_scrap",
+};
+
+elements.bad_flying_plane = {
+    name: "Plane",
+    desc: "In flight. Cheap.",
+    color: ["#bdbdbd", "#8d9dba"],
+    hidden: true,
+    behavior: [
+    "XX|XX|M1 AND SH",
+    "XX|SH|M1 AND EX:15>explosion AND SH",
     "XX|XX|XX",
 ],
     category: "machines",
