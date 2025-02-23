@@ -453,6 +453,7 @@ elements.rad_web = {
 	"dna": { elem2: "rad_spider", chance: 0.01 },
 	"cell": { elem2: "rad_spider", chance: 0.01 },
 	"radiation": { elem1: "rad_spider", chance: 0.001 },
+	"water": { elem1: "glue" },
     }
 };
 
@@ -476,6 +477,7 @@ elements.hyper_web = {
 	"dna": { elem2: "rad_spider", chance: 0.1 },
 	"cell": { elem2: "rad_spider", chance: 0.1 },
 	"radiation": { elem1: "rad_spider", chance: 0.001 },
+	"water": { elem1: "glue" },
     }
 };
 
