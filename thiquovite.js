@@ -1099,7 +1099,7 @@ elements.crashing_plane = {
     behavior: [
     "CR:smoke%20|LB:turbulence%1|XX",
     "EX:3>molten_metal_scrap|HT:2|M1 AND CH:good_flying_plane>crashing_plane%3",
-    "EX:3>molten_metal_scrap|M1 AND EX:3>molten_metal_scrap|EX:3>molten_metal_scrap",
+    "EX:3>molten_metal_scrap|M1 AND EX:10>explosion|EX:3>molten_metal_scrap",
 ],
     category: "machines",
     state: "solid",
@@ -1164,7 +1164,7 @@ elements.fire_flying_plane = {
     color: ["#a83632", "#d41e17"],
     hidden: true,
     behavior: [
-    "XX|EX:3>crashing_plane|M1 AND LB:water",
+    "XX|EX:10>explosion|M1 AND LB:water",
     "XX|XX|M1 AND BO AND LB:water",
     "XX|XX|XX",
 ],
