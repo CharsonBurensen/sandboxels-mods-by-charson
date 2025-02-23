@@ -977,8 +977,8 @@ elements.good_flying_plane = {
     color: ["#bdbdbd", "#8d9dba"],
     hidden: true,
     behavior: [
-    "XX|XX|M1 AND SH",
-    "XX|SH|M1 AND BO",
+    "XX|EX:3>molten_metal_scrap|M1 AND SH",
+    "XX|SH|M1 AND BO AND CH:good_flying_plane>explosion",
     "XX|XX|XX",
 ],
     category: "machines",
@@ -1005,4 +1005,25 @@ elements.bad_flying_plane = {
     conduct: 3,
     tempHigh: 500,
     stateHigh: "molten_metal_scrap",
+};
+
+elements.badwind = {
+    name: "Turbulence",
+    color: ["#bdbdbd", "#8d9dba"],
+    hidden: true,
+    behavior: [
+    "M1|M1|M1",
+    "M1|SH AND DL%0.5|M1",
+    "M1|M1|M1",
+],
+    category: "energy",
+    state: "gas",
+    temp: 20,
+    conduct: 3,
+    tempLow: -20,
+    stateLow: "tornado",
+    reactions: {
+    "good_flying_plane": { elem2: "bad_flying_plane" },
+    "sand": { elem1: "sandstorm" },
+    }
 };
