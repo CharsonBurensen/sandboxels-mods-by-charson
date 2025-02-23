@@ -40,9 +40,9 @@ elements.ring = {
     color: "#9ab3b1",
     maxSize: 1,
     behavior: [
-    "CH:ring>nullium|CR:ru AND CH:ring>nullium|CH:ring>nullium",
+    "XX|CR:ru AND CH:ring>nullium|XX",
     "CR:rl AND CH:ring>nullium|DL|CR:rr AND CH:ring>nullium",
-    "CH:ring>nullium|CR:rd AND CH:ring>nullium|CH:ring>nullium",
+    "XX|CR:rd AND CH:ring>nullium|XX",
 ],
     category: "special",
     state: "solid",
@@ -278,7 +278,21 @@ elements.red_ink = {
 elements.king = {
     color: ["#7d2074", "#63207d", "#9e2626"],
     behavior: [
-    "XX|CR:king_head AND CH:thiquovite>king_head|XX",
+    "XX|XX|XX",
+    "XX|CH:king1,king2,king3,king4|XX",
+    "XX|M1|XX",
+],
+    category: "life",
+    state: "solid",
+    density: 100,
+    breakInto: ["meat", "bone_meal"],
+};
+
+elements.king1 = {
+    color: ["#7d2074", "#63207d", "#9e2626"],
+    name: "King",
+    behavior: [
+    "XX|CR:king_head1 AND CH:thiquovite>king_head1|XX",
     "CR:wall|XX|CR:wall",
     "XX|M1|XX",
 ],
@@ -288,10 +302,53 @@ elements.king = {
     breakInto: ["meat", "bone_meal"],
 };
 
-elements.king_head = {
-    color: ["#998148", "#7a6431", "#bf993f", "#d1b269"],
+elements.king2 = {
+    color: ["#7d2074", "#63207d", "#9e2626"],
+    name: "King",
     behavior: [
-    "CR:brick|CR:gold_coin AND CH:king_head>foam|CR:brick",
+    "XX|CR:king_head2 AND CH:thiquovite>king_head2|XX",
+    "CR:wall|XX|CR:wall",
+    "XX|M1|XX",
+],
+    category: "life",
+    state: "solid",
+    density: 100,
+    breakInto: ["meat", "bone_meal"],
+};
+
+elements.king3 = {
+    color: ["#7d2074", "#63207d", "#9e2626"],
+    name: "King",
+    behavior: [
+    "XX|CR:king_head3 AND CH:thiquovite>king_head3|XX",
+    "CR:wall|XX|CR:wall",
+    "XX|M1|XX",
+],
+    category: "life",
+    state: "solid",
+    density: 100,
+    breakInto: ["meat", "bone_meal"],
+};
+
+elements.king4 = {
+    color: ["#7d2074", "#63207d", "#9e2626"],
+    name: "King",
+    behavior: [
+    "XX|CR:king_head4 AND CH:thiquovite>king_head4|XX",
+    "CR:wall|XX|CR:wall",
+    "XX|M1|XX",
+],
+    category: "life",
+    state: "solid",
+    density: 100,
+    breakInto: ["meat", "bone_meal"],
+};
+
+elements.king_head1 = {
+    color: ["#998148", "#7a6431", "#bf993f", "#d1b269"],
+    name: "KingHead",
+    behavior: [
+    "CR:brick|CR:gold_coin AND CH:king_head1>nullium|CR:brick",
     "CR:gold|XX|CR:gold",
     "XX|M1|XX",
 ],
@@ -300,6 +357,50 @@ elements.king_head = {
     density: 100,
     breakInto: ["meat", "bone_meal"],
 };
+
+elements.king_head2 = {
+    name: "KingHead",
+    color: ["#998148", "#7a6431", "#bf993f", "#d1b269"],
+    behavior: [
+    "CR:brick|CR:gold_coin AND CH:king_head2>nullium|CR:brick",
+    "CR:gold|XX|CR:gold",
+    "XX|M1|XX",
+],
+    category: "life",
+    state: "solid",
+    density: 100,
+    breakInto: ["meat", "bone_meal"],
+};
+
+elements.king_head3 = {
+    name: "KingHead",
+    color: ["#998148", "#7a6431", "#bf993f", "#d1b269"],
+    behavior: [
+    "CR:brick|CR:gold_coin AND CH:king_head3>nullium|CR:brick",
+    "CR:gold|XX|CR:gold",
+    "XX|M1|XX",
+],
+    category: "life",
+    state: "solid",
+    density: 100,
+    breakInto: ["meat", "bone_meal"],
+};
+
+elements.king_head4 = {
+    name: "KingHead",
+    color: ["#998148", "#7a6431", "#bf993f", "#d1b269"],
+    behavior: [
+    "CR:brick|CR:gold_coin AND CH:king_head4>nullium|CR:brick",
+    "CR:gold|XX|CR:gold",
+    "XX|M1|XX",
+],
+    category: "life",
+    state: "solid",
+    density: 100,
+    breakInto: ["meat", "bone_meal"],
+};
+
+
 
 elements.tiger = {
     color: ["#c4711d", "#d16813", "#ff7300"],
