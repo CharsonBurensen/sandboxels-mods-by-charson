@@ -967,6 +967,7 @@ elements.good_plane = {
 ],
     category: "machines",
     state: "solid",
+    hidden: true,
     temp: 20,
     conduct: 3,
     tempHigh: 500,
@@ -998,7 +999,7 @@ elements.bad_flying_plane = {
     hidden: true,
     behavior: [
     "XX|XX|M1 AND SH",
-    "XX|SH|M1 AND EX:15>explosion AND SH",
+    "XX|SH|M1 AND LB:carbon_dioxide AND EX:15>explosion AND SH",
     "XX|XX|XX",
 ],
     category: "machines2",
@@ -1048,3 +1049,50 @@ elements.badwind = {
     "sand": { elem1: "sandstorm" },
     }
 };
+
+elements.fire_plane = {
+    name: "FirePlane",
+    desc: "Stationary. Produces water.",
+    color: ["#bdbdbd", "#8d9dba"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|M1|XX",
+],
+    behaviorOn: [
+    "XX|XX|XX",
+    "XX|CH:fire_flying_plane|XX",
+    "XX|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+    temp: 20,
+    conduct: 3,
+    tempHigh: 500,
+    stateHigh: "molten_metal_scrap",
+};
+
+elements.fire_flying_plane = {
+    desc: "In flight. Produces water.",
+    name: "Plane",
+    color: ["#bdbdbd", "#8d9dba"],
+    hidden: true,
+    behavior: [
+    "XX|EX:3>molten_metal_scrap|M1 AND LB:water",
+    "XX|XX|M1 AND BO AND LB:water",
+    "XX|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+    temp: 20,
+    conduct: 3,
+    tempHigh: 500,
+    stateHigh: "molten_metal_scrap",
+};
+
+if (!elements.feather.reactions) { // Include this block once
+    elements.feather.reactions = {} // This creates the property if it doesn't exist
+}
+elements.feather.reactions.iron = { elem2: "bad_plane" }
+elements.feather.reactions.aluminum = { elem2: "good_plane" }
+elements.feather.reactions.steel = { elem2: "fire_plane" }
