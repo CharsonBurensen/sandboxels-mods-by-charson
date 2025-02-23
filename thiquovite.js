@@ -935,9 +935,24 @@ elements.plane = {
     "XX|M1|XX",
 ],
     behaviorOn: [
-    "SH|SH|M1 AND SH",
-    "SH|SH|M1 AND EX:15>molten_metal_scrap AND SH",
-    "SH|SH|SH",
+    "XX|XX|XX",
+    "XX|CH:flying_plane|XX",
+    "XX|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+    temp: 20,
+    conduct: 3,
+    tempHigh: 500,
+    stateHigh: "molten_metal_scrap",
+};
+
+elements.flying_plane = {
+    color: ["#bdbdbd", "#8d9dba"],
+    behavior: [
+    "XX|XX|M1 AND SH",
+    "XX|SH|M1 AND EX:15>molten_metal_scrap AND SH",
+    "XX|XX|XX",
 ],
     category: "machines",
     state: "solid",
