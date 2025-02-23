@@ -1008,6 +1008,11 @@ elements.bad_flying_plane = {
     conduct: 3,
     tempHigh: 500,
     stateHigh: "molten_metal_scrap",
+    reactions: {
+    "bless": { elem1: "good_plane" },
+    "aluminum": { elem1: "good_plane" },
+    "metal_scrap": { elem1: "good_plane" },
+    }
 };
 
 elements.crashing_plane = {
