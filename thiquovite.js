@@ -40,9 +40,9 @@ elements.ring = {
     color: "#9ab3b1",
     maxSize: 1,
     behavior: [
-    "XX|CR:ru|XX",
-    "CR:rl|DL|CR:rr",
-    "XX|CR:rd|XX",
+    "CH:ring>nullium|CR:ru AND CH:ring>nullium|CH:ring>nullium",
+    "CR:rl AND CH:ring>nullium|DL|CR:rr AND CH:ring>nullium",
+    "CH:ring>nullium|CR:rd AND CH:ring>nullium|CH:ring>nullium",
 ],
     category: "special",
     state: "solid",
@@ -50,6 +50,21 @@ elements.ring = {
     conduct: 1,
     breakInto: ["silver", "diamond"],
 };
+
+elements.nullium = {
+    color: "#000000",
+    behavior: [
+    "XX|XX|XX",
+    "XX|DL|XX",
+    "XX|XX|XX",
+],
+    category: "special",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    hidden: true,
+};
+
 
 elements.rr = {
     hidden: true,
