@@ -403,7 +403,7 @@ elements.hyper_spider = {
     behavior: [
     "M1%20 AND CR:hyper_web%5|XX|M1%20 AND CR:hyper_web%5",
     "CR:radiation%2 AND M1%10|CO:2|CR:radiation%2 AND M1%10",
-    "M1%20 AND CR:hyper_web%5|M1 AND CR:hyper_web%10|M1%10 AND CR:hyper_web%5",
+    "M1%20 AND CR:hyper_web%5|M1 AND CR:hyper_web|M1%10 AND CR:hyper_web%5",
 ],
     category: "life",
     state: "solid",
@@ -461,8 +461,8 @@ elements.hyper_web = {
     color: ["#4fe85e", "#4fbfe8", "#b2ccd6"],
     behavior: [
     "CR:hyper_web%0.1|CR:radiation%0.1|CR:hyper_web%0.1",
-    "CR:radiation%0.1|CH:ruins%2|CR:radiation%0.1",
-    "CR:rad_web%0.01|CR:hyper_web%1|CR:rad_web%0.01",
+    "CR:radiation%0.1|CH:ruins%0.1|CR:radiation%0.1",
+    "CR:rad_web%0.01|CR:hyper_web%5|CR:rad_web%0.01",
 ],
     category: "life",
     hidden: true,
