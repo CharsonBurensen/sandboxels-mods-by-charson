@@ -20,11 +20,15 @@ elements.thiquovite = {
 
 elements.screen = {
     color: ["#505e4c", "#4b6943"],
-    behavior: behaviors.WALL,
-    behaviorOn: [
+    behavior: [
     "XX|XX|XX",
-    "SW:screen|XX|SW:screen",
-    "XX|CR:light|XX",
+    "XX|CC:#505e4c|XX",
+    "XX|XX|XX",
+],
+    behaviorOn: [
+    "CC:#4b6943|CR:light|CC:#4b6943",
+    "SW:screen|CC:#ffffff|SW:screen",
+    "CC:#4b6943|CR:light|CC:#4b6943",
 ],
     category: "machines",
     state: "solid",
