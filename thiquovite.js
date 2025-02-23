@@ -56,7 +56,7 @@ elements.rr = {
     "XX|CH:silver|CR:diamond_block",
     "XX|CR:diamond_block|CR:diamond_block",
 ],
-    category: "special",
+    category: "special2",
     state: "solid",
     density: 100,
     conduct: 1,
@@ -72,7 +72,7 @@ elements.rl = {
     "CR:diamond_block|CH:silver|XX",
     "CR:diamond_block|CR:diamond_block|XX",
 ],
-    category: "special",
+    category: "special2",
     state: "solid",
     density: 100,
     conduct: 1,
@@ -88,7 +88,7 @@ elements.ru = {
     "CR:diamond_block|CH:silver|CR:diamond_block",
     "XX|XX|XX",
 ],
-    category: "special",
+    category: "special2",
     state: "solid",
     density: 100,
     conduct: 1,
@@ -104,7 +104,7 @@ elements.rd = {
     "CR:diamond_block|CH:silver|CR:diamond_block",
     "CR:diamond_block|CR:diamond_block|CR:diamond_block",
 ],
-    category: "special",
+    category: "special2",
     state: "solid",
     density: 100,
     conduct: 1,
@@ -120,7 +120,7 @@ elements.corner = {
     "CR:ruins|XX|CR:ruins",
     "CR:ruins|CR:ruins|CR:ruins",
 ],
-    category: "special",
+    category: "special2",
     state: "solid",
     density: 100,
     conduct: 1,
@@ -137,6 +137,7 @@ elements.diamond_block = {
     tempHigh: 540,    
     stateHigh: "diamond",
 };
+
 elements.pen = {
     color: "#454545",
     behavior: [
@@ -186,7 +187,7 @@ elements.pen_tip = {
     "XX|XX|XX",
     "XX|CR:ink%2|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
     density: 100,
     conduct: 1,
@@ -200,7 +201,7 @@ elements.red_pen_tip = {
     "XX|XX|XX",
     "XX|CR:red_ink%1|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
     density: 100,
     conduct: 1,
@@ -214,7 +215,7 @@ elements.blue_pen_tip = {
     "XX|XX|XX",
     "XX|CR:blue_ink%1|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
     density: 100,
     conduct: 1,
@@ -579,7 +580,7 @@ elements.bvw = {
     "XX|CH:bw|XX",
     "XX|CR:bvw|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
 };
 
@@ -593,7 +594,7 @@ elements.bhw = {
     "CR:bhw|CH:bw|CR:bhw",
     "XX|XX|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
 };
 
@@ -607,7 +608,7 @@ elements.bbltr = {
     "XX|CH:bw|XX",
     "CR:bbltr|XX|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
 };
 
@@ -621,7 +622,7 @@ elements.btlbr = {
     "XX|CH:bw|XX",
     "XX|XX|CR:btlbr",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
 };
 
@@ -635,7 +636,7 @@ elements.uvw = {
     "XX|XX|XX",
     "XX|CR:uvw|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
 };
 
@@ -649,7 +650,7 @@ elements.uhw = {
     "CR:uhw|XX|CR:uhw",
     "XX|XX|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
 };
 
@@ -663,7 +664,7 @@ elements.ubltr = {
     "XX|XX|XX",
     "CR:ubltr|XX|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
 };
 
@@ -677,7 +678,7 @@ elements.utlbr = {
     "XX|XX|XX",
     "XX|XX|CR:utlbr",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
 };
 
@@ -692,7 +693,7 @@ elements.uevw = {
     "XX|SH|XX",
     "XX|CR:uevw|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
 };
 
@@ -707,7 +708,7 @@ elements.uehw = {
     "CR:uehw|SH|CR:uehw",
     "XX|XX|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
 };
 
@@ -717,13 +718,14 @@ elements.uew = {
     hard: 1,
     charge: 2,
     conduct: 1,
+    hidden: true,
     color: ["#6be8be"],
     behavior: [
     "XX|XX|XX",
     "XX|SH|XX",
     "XX|XX|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
 };
 
@@ -738,7 +740,7 @@ elements.uebltr = {
     "XX|SH|XX",
     "CR:uebltr|XX|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
 };
 
@@ -753,7 +755,7 @@ elements.uetlbr = {
     "XX|SH|XX",
     "XX|XX|CR:uetlbr",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
 };
 
@@ -981,7 +983,7 @@ elements.good_flying_plane = {
     "XX|SH AND CH:crashing_plane%0.1|M1 AND BO AND CH:good_flying_plane>crashing_plane%3",
     "XX|XX|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
     temp: 20,
     conduct: 3,
@@ -999,7 +1001,7 @@ elements.bad_flying_plane = {
     "XX|SH|M1 AND EX:15>explosion AND SH",
     "XX|XX|XX",
 ],
-    category: "machines",
+    category: "machines2",
     state: "solid",
     temp: 20,
     conduct: 3,
@@ -1023,6 +1025,7 @@ elements.crashing_plane = {
     conduct: 3,
     tempHigh: 500,
     stateHigh: "molten_metal_scrap",
+    burnInto: "molten_metal_scrap",
 };
 
 elements.badwind = {
