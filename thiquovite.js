@@ -980,8 +980,8 @@ elements.good_flying_plane = {
     color: ["#bdbdbd", "#8d9dba"],
     hidden: true,
     behavior: [
-    "XX|EX:3>crashing_plane|M1 AND SH",
-    "XX|SH AND CH:crashing_plane%0.1|M1 AND BO AND CH:good_flying_plane>crashing_plane%3",
+    "XX|CH:crashing_plane|M1 AND SH",
+    "XX|SH AND CH:crashing_plane%0.1|M1 AND BO",
     "XX|XX|XX",
 ],
     category: "machines2",
@@ -1012,9 +1012,10 @@ elements.bad_flying_plane = {
 
 elements.crashing_plane = {
     name: "Plane",
-    color: ["#bdbdbd", "#8d9dba"],
+    color: ["#bf931b"],
     hidden: true,
     burning: true,
+    burnTime: 300,
     behavior: [
     "CR:smoke%20|XX|XX",
     "XX|HT:2|M1 AND BO AND CH:good_flying_plane>crashing_plane%3",
@@ -1033,7 +1034,7 @@ elements.crashing_plane = {
     }
 };
 
-elements.badwind = {
+elements.bad_wind = {
     name: "Turbulence",
     color: ["#bdbdbd", "#8d9dba"],
     behavior: [
@@ -1097,6 +1098,6 @@ elements.fire_flying_plane = {
 if (!elements.feather.reactions) { // Include this block once
     elements.feather.reactions = {} // This creates the property if it doesn't exist
 }
-elements.feather.reactions.iron = { elem2: "bad_plane" }
-elements.feather.reactions.aluminum = { elem2: "good_plane" }
-elements.feather.reactions.steel = { elem2: "fire_plane" }
+elements.feather.reactions.iron = { elem1: null, elem2: "bad_plane" }
+elements.feather.reactions.aluminum = { elem1: null, elem2: "good_plane" }
+elements.feather.reactions.steel = { elem1: null, elem2: "fire_plane" }
