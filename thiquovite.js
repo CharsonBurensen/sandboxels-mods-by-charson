@@ -34,6 +34,30 @@ elements.screen = {
     state: "solid",
     conduct: 1,
     breakInto: ["glass_shard", "electric"],
+    reactions: {
+        "bread": { elem2:"food_screen" },
+	"cheese": { elem2:"food_screen" },
+    }
+};
+
+elements.food_screen = {
+    name: "Screen",
+    desc: "Now on Food Channel.",
+    color: ["#505e4c", "#4b6943"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|CC:#505e4c|XX",
+    "XX|XX|XX",
+],
+    behaviorOn: [
+    "CC:#d91f16|CR:light|CC:#d91f16",
+    "CR:toast,melted_cheese|CC:#ffffff|CR:toast,melted_cheese",
+    "CC:#d91f16|CR:light|CC:#d91f16",
+],
+    category: "machines",
+    state: "solid",
+    conduct: 1,
+    breakInto: ["glass_shard", "electric"],
 };
 
 elements.ring = {
@@ -289,11 +313,12 @@ elements.king = {
 };
 
 elements.king1 = {
-    color: ["#7d2074", "#63207d", "#9e2626"],
+    color: ["#7d2074"],
+	hidden: true,
     name: "King",
     behavior: [
     "XX|CR:king_head1 AND CH:thiquovite>king_head1|XX",
-    "CR:wall|XX|CR:wall",
+    "M1%3 AND CH:king_head1>nullium|XX|M1%3 AND CH:king_head1>nullium",
     "XX|M1|XX",
 ],
     category: "life",
@@ -303,11 +328,12 @@ elements.king1 = {
 };
 
 elements.king2 = {
-    color: ["#7d2074", "#63207d", "#9e2626"],
+    color: ["#63207d"],
+	hidden: true,
     name: "King",
     behavior: [
     "XX|CR:king_head2 AND CH:thiquovite>king_head2|XX",
-    "CR:wall|XX|CR:wall",
+    "M1%3 AND CH:king_head2>nullium|XX|M1%3 AND CH:king_head2>nullium",
     "XX|M1|XX",
 ],
     category: "life",
@@ -317,11 +343,12 @@ elements.king2 = {
 };
 
 elements.king3 = {
-    color: ["#7d2074", "#63207d", "#9e2626"],
+    color: ["#9e2626"],
+	hidden: true,
     name: "King",
     behavior: [
     "XX|CR:king_head3 AND CH:thiquovite>king_head3|XX",
-    "CR:wall|XX|CR:wall",
+    "M1%3 AND CH:king_head3>nullium|XX|M1%3 AND CH:king_head3>nullium",
     "XX|M1|XX",
 ],
     category: "life",
@@ -331,11 +358,12 @@ elements.king3 = {
 };
 
 elements.king4 = {
-    color: ["#7d2074", "#63207d", "#9e2626"],
+    color: ["#7d2074"],
+	hidden: true,
     name: "King",
     behavior: [
     "XX|CR:king_head4 AND CH:thiquovite>king_head4|XX",
-    "CR:wall|XX|CR:wall",
+    "M1%3 AND CH:king_head4>nullium|XX|M1%3 AND CH:king_head4>nullium",
     "XX|M1|XX",
 ],
     category: "life",
@@ -345,11 +373,12 @@ elements.king4 = {
 };
 
 elements.king_head1 = {
-    color: ["#998148", "#7a6431", "#bf993f", "#d1b269"],
+    color: ["#998148"],
+	hidden: true,
     name: "KingHead",
     behavior: [
-    "CR:brick|CR:gold_coin AND CH:king_head1>nullium|CR:brick",
-    "CR:gold|XX|CR:gold",
+    "XX|CR:crown AND CH:king_head1>nullium|XX",
+    "CH:crown>nullium|XX|CH:crown>nullium",
     "XX|M1|XX",
 ],
     category: "life",
@@ -359,11 +388,12 @@ elements.king_head1 = {
 };
 
 elements.king_head2 = {
+    color: ["#7a6431"],
+	hidden: true,
     name: "KingHead",
-    color: ["#998148", "#7a6431", "#bf993f", "#d1b269"],
     behavior: [
-    "CR:brick|CR:gold_coin AND CH:king_head2>nullium|CR:brick",
-    "CR:gold|XX|CR:gold",
+    "XX|CR:crown AND CH:king_head2>nullium|XX",
+    "CH:crown>nullium|XX|CH:crown>nullium",
     "XX|M1|XX",
 ],
     category: "life",
@@ -373,11 +403,12 @@ elements.king_head2 = {
 };
 
 elements.king_head3 = {
+    color: ["#bf993f"],
+	hidden: true,
     name: "KingHead",
-    color: ["#998148", "#7a6431", "#bf993f", "#d1b269"],
     behavior: [
-    "CR:brick|CR:gold_coin AND CH:king_head3>nullium|CR:brick",
-    "CR:gold|XX|CR:gold",
+    "XX|CR:crown AND CH:king_head3>nullium|XX",
+    "CH:crown>nullium|XX|CH:crown>nullium",
     "XX|M1|XX",
 ],
     category: "life",
@@ -387,13 +418,14 @@ elements.king_head3 = {
 };
 
 elements.king_head4 = {
+    color: ["#d1b269"],
     name: "KingHead",
-    color: ["#998148", "#7a6431", "#bf993f", "#d1b269"],
     behavior: [
-    "CR:brick|CR:gold_coin AND CH:king_head4>nullium|CR:brick",
-    "CR:gold|XX|CR:gold",
+    "XX|CR:crown AND CH:king_head4>nullium|XX",
+    "CH:crown>nullium|XX|CH:crown>nullium",
     "XX|M1|XX",
 ],
+    hidden: true,
     category: "life",
     state: "solid",
     density: 100,
@@ -401,6 +433,16 @@ elements.king_head4 = {
 };
 
 
+elements.crown = {
+    color: ["#ffde00"],
+    name: "Crown",
+    behavior: behaviors.STURDYPOWDER,
+    category: "powders",
+    hidden: true,
+    state: "solid",
+    density: 100,
+    breakInto: ["gold_coin"],
+};
 
 elements.tiger = {
     color: ["#c4711d", "#d16813", "#ff7300"],
