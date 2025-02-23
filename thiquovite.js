@@ -434,9 +434,13 @@ elements.king_head4 = {
 
 
 elements.crown = {
-    color: ["#ffde00"],
+    color: ["#ffde00", "#d9b516", "#b39824"],
     name: "Crown",
-    behavior: behaviors.STURDYPOWDER,
+    behavior: [
+    "CH:crown>nullium|CH:crown>nullium|CH:crown>nullium",
+    "CH:crown>nullium|XX|CH:crown>nullium",
+    "CH:crown>nullium|M1|XCH:crown>nulliumX",
+],
     category: "powders",
     hidden: true,
     state: "solid",
