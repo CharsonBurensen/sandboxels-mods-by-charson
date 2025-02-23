@@ -50,11 +50,12 @@ elements.food_screen = {
     "XX|XX|XX",
 ],
     behaviorOn: [
-    "CC:#d91f16|CR:light|CC:#d91f16",
-    "CR:toast,melted_cheese|CC:#ffffff|CR:toast,melted_cheese",
-    "CC:#d91f16|CR:light|CC:#d91f16",
+    "XX|CR:light|XX",
+    "CR:toast,melted_cheese|CC:d91f16|CR:toast,melted_cheese",
+    "CR:toast,melted_cheese|CR:light|CR:toast,melted_cheese",
 ],
     category: "machines",
+    hidden: true,
     state: "solid",
     conduct: 1,
     breakInto: ["glass_shard", "electric"],
@@ -186,7 +187,7 @@ elements.pen = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:pen,pen_tip|XX",
+    "XX|CR:pen_length|XX",
 ],
     category: "machines",
     state: "solid",
@@ -200,7 +201,7 @@ elements.red_pen = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:red_pen,red_pen_tip|XX",
+    "XX|CR:red_pen_length|XX",
 ],
     category: "machines",
     state: "solid",
@@ -214,7 +215,55 @@ elements.blue_pen = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|CR:blue_pen,blue_pen_tip|XX",
+    "XX|CR:blue_pen_length|XX",
+],
+    category: "machines",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["blue_ink", "plastic"],
+};
+
+elements.pen_length = {
+    name: "Pen",
+    hidden: true,
+    color: "#454545",
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|CR:pen_length,pen_tip|XX",
+],
+    category: "machines",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["ink", "plastic"],
+};
+
+elements.red_pen_length = {
+    name: "RedPen",
+    hidden: true,
+    color: "#801f1f",
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|CR:red_pen_length,red_pen_tip|XX",
+],
+    category: "machines",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["red_ink", "plastic"],
+};
+
+elements.blue_pen_length = {
+    name: "BluePen",
+    hidden: true,
+    color: "#19235e",
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|CR:blue_pen_length,blue_pen_tip|XX",
 ],
     category: "machines",
     state: "solid",
@@ -468,10 +517,11 @@ elements.tiger = {
     state: "solid",
     breakInto: ["meat", "bone_meal"],
     reactions: {
-        "rat": { elem2: null, chance: 0.2, func: behaviors.KILLPIXEL2 },
+        "rat": { elem2: "blood", chance: 0.2, func: behaviors.KILLPIXEL2 },
 	"head": { elem2:"bone", chance: 0.01, func: behaviors.KILLPIXEL2 },
 	"body": { elem2:"bone", chance: 0.01, func: behaviors.FEEDPIXEL },
 	"bird": { elem2:"feather", chance: 0.3, func: behaviors.FEEDPIXEL },
+	"meat": { elem2: null, chance: 0.3, func: behaviors.FEEDPIXEL },
 	"ant": { elem2: null, func: behaviors.KILLPIXEL2 },
 	"spider": { elem2: null, func: behaviors.KILLPIXEL2 },
 	"fish": { elem2: null, func: behaviors.FEEDPIXEL },
@@ -1329,3 +1379,64 @@ if (!elements.feather.reactions) { // Include this block once
 elements.feather.reactions.iron = { elem1: null, elem2: "bad_plane" }
 elements.feather.reactions.aluminum = { elem1: null, elem2: "good_plane" }
 elements.feather.reactions.steel = { elem1: null, elem2: "fire_plane" }
+
+elements.green_pen = {
+    color: "#158f56",
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|CR:green_pen_length|XX",
+],
+    category: "machines",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["green_ink", "plastic"],
+};
+
+elements.green_pen_length = {
+    name: "Pen",
+    hidden: true,
+    color: "#158f56",
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|CR:green_pen_length,green_pen_tip|XX",
+],
+    category: "machines",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["green_ink", "plastic"],
+};
+
+elements.green_pen_tip = {
+    color: "#0acf73",
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|CR:green_ink%2|XX",
+],
+    category: "machines2",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["green_ink", "metal_scrap"],
+};
+
+elements.green_ink = {
+    color: "#05ff8a",
+    behavior: behaviors.LIQUID,
+    category: "liquids",
+    state: "liquid",
+    stain: 0.3,
+    breakInto: ["ink", "oxidized_copper"],
+    burn: 115,
+    burnInto: "dioxin",
+    tempHigh: 350,
+    stateHigh: "dioxin",
+    reactions: {
+        "alcohol": { elem2:"acid" },
+	"head": { elem2:"bone", func: behaviors.KILLPIXEL2 },
+    }
+};
