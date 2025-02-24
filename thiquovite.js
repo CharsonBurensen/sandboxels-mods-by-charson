@@ -1542,4 +1542,16 @@ elements.hacked_screen = {
     breakInto: ["glass_shard", "electric"],
 };
 
+elements.thiquovite_ray = {
+    name: "ThiquoviteRay",
+    desc: "I'm in the thick of it, everybody knows They know me where it snows, I skied in and they froze I don't know no nothin' 'bout no ice, I'm just cold Forty somethin' milli' subs or so, I've been told",
+    color: ["#3df5d6", "#6edbc9"],
+    behavior: [
+    "CO:5|CR:thiquovite%10|CO:5",
+    "CO:5|CO:5 AND DL%5|CO:5",
+    "CO:5|M1 AND LB:cold_fire AND CO:5|CO:5",
+],
+    category: "energy",
+    state: "gas",
+};
 
