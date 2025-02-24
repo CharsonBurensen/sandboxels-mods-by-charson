@@ -1441,3 +1441,25 @@ elements.green_ink = {
 	"head": { elem2:"bone", func: behaviors.KILLPIXEL2 },
     }
 };
+
+if (!elements.nitrous_oxide.reactions) { // Include this block once
+    elements.nitrous_oxide.reactions = {} // This creates the property if it doesn't exist
+}
+elements.nitrous_oxide.reactions.hydrogen = { elem1: null, elem2: "nitric_acid" }
+
+elements.nitric_acid = {
+    color: "#05ff8a",
+    behavior: behaviors.LIQUID,
+    category: "liquids",
+    state: "liquid",
+    density: 1.51,
+    stain: 0.3,
+    breakInto: ["whmisium_c"],
+    burn: 115,
+    burnInto: "nitrogen",
+    tempHigh: 83,
+    tempLow: -42,
+    reactions: {
+	"head": { elem2:"bone", func: behaviors.KILLPIXEL2 },
+    }
+};
