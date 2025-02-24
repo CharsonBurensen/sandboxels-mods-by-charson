@@ -26,9 +26,9 @@ elements.screen = {
     "XX|XX|XX",
 ],
     behaviorOn: [
-    "CC:#4b6943|CR:light|CC:#4b6943",
-    "SW:screen|CC:#ffffff|SW:screen",
-    "CC:#4b6943|CR:light|CC:#4b6943",
+    "XX|CR:light|XX",
+    "SW:screen|CC:#8bcc78|SW:screen",
+    "XX|CR:light|XX",
 ],
     category: "machines",
     state: "solid",
@@ -45,9 +45,9 @@ elements.food_screen = {
     desc: "Now on Food Channel.",
     color: ["#505e4c", "#4b6943"],
     behavior: [
-    "XX|XX|XX",
-    "XX|CC:#505e4c|XX",
-    "XX|XX|XX",
+    "CH:screen>food_screen|CH:screen>food_screen|CH:screen>food_screen",
+    "CH:screen>food_screen|CC:#505e4c|CH:screen>food_screen",
+    "CH:screen>food_screen|CH:screen>food_screen|CH:screen>food_screen",
 ],
     behaviorOn: [
     "XX|CR:light|XX",
