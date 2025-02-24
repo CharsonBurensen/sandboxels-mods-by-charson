@@ -50,7 +50,7 @@ elements.food_screen = {
     "CH:screen>food_screen|CH:screen>food_screen|CH:screen>food_screen",
 ],
     behaviorOn: [
-    "XX|CR:light|XX",
+    "XX|CR:light AND CR:toast,melted_cheese|XX",
     "CR:toast,melted_cheese|CC:d91f16|CR:toast,melted_cheese",
     "CR:toast,melted_cheese|CR:light|CR:toast,melted_cheese",
 ],
@@ -193,7 +193,7 @@ elements.pen = {
     state: "solid",
     density: 100,
     conduct: 1,
-    breakInto: ["ink", "plastic"],
+    breakInto: ["foam", "plastic"],
 };
 
 elements.red_pen = {
@@ -237,7 +237,7 @@ elements.pen_length = {
     state: "solid",
     density: 100,
     conduct: 1,
-    breakInto: ["ink", "plastic"],
+    breakInto: ["foam", "plastic"],
 };
 
 elements.red_pen_length = {
@@ -283,7 +283,7 @@ elements.pen_tip = {
     state: "solid",
     density: 100,
     conduct: 1,
-    breakInto: ["ink", "metal_scrap"],
+    breakInto: ["foam", "metal_scrap"],
 };
 
 elements.red_pen_tip = {
@@ -320,7 +320,7 @@ elements.blue_ink = {
     category: "liquids",
     state: "liquid",
     stain: 0.3,
-    breakInto: ["ink", "copper_sulfate"],
+    breakInto: ["foam", "copper_sulfate"],
     burn: 115,
     burnInto: "dioxin",
     tempHigh: 350,
@@ -337,7 +337,7 @@ elements.red_ink = {
     category: "liquids",
     state: "liquid",
     stain: 0.3,
-    breakInto: ["ink", "brick_rubble"],
+    breakInto: ["foam", "brick_rubble"],
     burn: 115,
     burnInto: "dioxin",
     tempHigh: 350,
@@ -1247,6 +1247,24 @@ elements.good_plane = {
     stateHigh: "molten_metal_scrap",
 };
 
+elements.takeoff_plane = {
+    desc: "Taking off. Expensive.",
+    name: "Plane",
+    color: ["#a1b3bf", "#8ec7ed"],
+    hidden: true,
+    behavior: [
+    "XX|XX|M1 AND SH",
+    "XX|CH:good_flying_plane%10|M1",
+    "XX|XX|XX",
+],
+    category: "states",
+    state: "solid",
+    temp: 20,
+    conduct: 3,
+    tempHigh: 500,
+    stateHigh: "molten_metal_scrap",
+};
+
 elements.good_flying_plane = {
     desc: "In flight. Expensive.",
     name: "Plane",
@@ -1431,7 +1449,7 @@ elements.green_ink = {
     category: "liquids",
     state: "liquid",
     stain: 0.3,
-    breakInto: ["ink", "oxidized_copper"],
+    breakInto: ["foam", "oxidized_copper"],
     burn: 115,
     burnInto: "dioxin",
     tempHigh: 350,
@@ -1442,24 +1460,86 @@ elements.green_ink = {
     }
 };
 
-if (!elements.nitrous_oxide.reactions) { // Include this block once
-    elements.nitrous_oxide.reactions = {} // This creates the property if it doesn't exist
-}
-elements.nitrous_oxide.reactions.hydrogen = { elem1: null, elem2: "nitric_acid" }
+elements.orange_pen = {
+    color: "#db730b",
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|CR:orange_pen_length|XX",
+],
+    category: "machines",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["orange_ink", "plastic"],
+};
 
-elements.nitric_acid = {
+elements.orange_pen_length = {
+    name: "OrangePen",
+    hidden: true,
+    color: "#db730b",
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|CR:orange_pen_length,orange_pen_tip|XX",
+],
+    category: "machines",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["orange_ink", "plastic"],
+};
+
+elements.orange_pen_tip = {
+    color: "#ffa347",
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|CR:orange_ink%2|XX",
+],
+    category: "machines2",
+    state: "solid",
+    density: 100,
+    conduct: 1,
+    breakInto: ["orange_ink", "metal_scrap"],
+};
+
+elements.orange_ink = {
     color: "#05ff8a",
     behavior: behaviors.LIQUID,
     category: "liquids",
     state: "liquid",
-    density: 1.51,
     stain: 0.3,
-    breakInto: ["whmisium_c"],
+    breakInto: ["foam", "rust"],
     burn: 115,
-    burnInto: "nitrogen",
-    tempHigh: 83,
-    tempLow: -42,
+    burnInto: "dioxin",
+    tempHigh: 350,
+    stateHigh: "dioxin",
     reactions: {
+        "alcohol": { elem2:"acid" },
 	"head": { elem2:"bone", func: behaviors.KILLPIXEL2 },
     }
 };
+
+elements.hacked_screen = {
+    name: "Screen",
+    desc: "Error 404.",
+    color: ["#505e4c", "#4b6943"],
+    behavior: [
+    "CH:screen>hacked_screen|CH:screen>hacked_screen|CH:screen>hacked_screen",
+    "CH:screen>hacked_screen|CC:#ff00dc|CH:screen>hacked_screen",
+    "CH:screen>hacked_screen|CH:screen>hacked_screen|CH:screen>hacked_screen",
+],
+    behaviorOn: [
+    "XX|CR:light AND CR:malware,snake|XX",
+    "CR:malware,snake|CC:d91f16|CR:malware,snake",
+    "CR:laser|CR:light|CR:laser",
+],
+    category: "machines",
+    hidden: true,
+    state: "solid",
+    conduct: 1,
+    breakInto: ["glass_shard", "electric"],
+};
+
+
