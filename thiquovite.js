@@ -35,8 +35,8 @@ elements.screen = {
     conduct: 1,
     breakInto: ["glass_shard", "electric"],
     reactions: {
-        "bread": { elem2:"food_screen" },
-	"cheese": { elem2:"food_screen" },
+        "bread": { elem1:"food_screen" },
+	"cheese": { elem1:"food_screen" },
     }
 };
 
@@ -648,6 +648,7 @@ if (!elements.radiation.reactions) { // Include this block once
 }
 elements.radiation.reactions.web = { elem2: "rad_web" }
 elements.radiation.reactions.spider = { elem2: "rad_spider" }
+elements.radiation.reactions.snow = { elem2: "thiquovite" }
 
 elements.rad_web = {
     color: ["#7de387", "#b4d1b7", "#8f9c90"],
@@ -1226,7 +1227,7 @@ elements.bad_plane = {
 elements.good_plane = {
     name: "Plane",
     desc: "Stationary. Expensive.",
-    color: ["#bdbdbd", "#8d9dba"],
+    color: ["#a1b3bf", "#8ec7ed"],
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
@@ -1249,7 +1250,7 @@ elements.good_plane = {
 elements.good_flying_plane = {
     desc: "In flight. Expensive.",
     name: "Plane",
-    color: ["#bdbdbd", "#8d9dba"],
+    color: ["#a1b3bf", "#8ec7ed"],
     hidden: true,
     behavior: [
     "XX|CH:crashing_plane|M1 AND SH",
@@ -1271,7 +1272,7 @@ elements.bad_flying_plane = {
     hidden: true,
     behavior: [
     "XX|XX|M1 AND SH",
-    "XX|SH|M1 AND LB:carbon_dioxide AND EX:15>explosion AND SH",
+    "XX|SH|M1 AND LB:carbon_dioxide%1 AND EX:15>explosion AND SH",
     "XX|XX|XX",
 ],
     category: "machines2",
@@ -1395,7 +1396,7 @@ elements.green_pen = {
 };
 
 elements.green_pen_length = {
-    name: "Pen",
+    name: "GreenPen",
     hidden: true,
     color: "#158f56",
     behavior: [
