@@ -1505,7 +1505,7 @@ elements.orange_pen_tip = {
 };
 
 elements.orange_ink = {
-    color: "#05ff8a",
+    color: "#faa850",
     behavior: behaviors.LIQUID,
     category: "liquids",
     state: "liquid",
@@ -1555,3 +1555,81 @@ elements.thiquovite_ray = {
     state: "gas",
 };
 
+elements.marble = {
+    color: ["#50fa6c", "#50fae3", "#508efa"],
+    behavior: [
+    "XX|XX|XX",
+    "M1%5|XX|M1%5",
+    "M1|M1|M1",
+],
+    category: "special",
+    state: "solid",
+    density: 100,
+    conduct: 100,
+    alpha: 0.7,
+    breakInto: ["glass_shard", "confetti"],
+        reactions: {
+        "glass": { elem2:"glass_shard" },
+	"body": { elem2:"bone", func: behaviors.KILLPIXEL2 },
+    }
+};
+
+elements.avw = {
+    name: "Vertical Wall",
+    desc: "Makes a wall that goes up and down, like this line: |",
+    hard: 1,
+    color: ["#fc5858", "#fcef58", "#aafc58", "#58fc87", "#58c0fc"],     
+	customColor: true,
+    behavior: [
+    "XX|CR:avw|XX",
+    "XX|XX|XX",
+    "XX|CR:avw|XX",
+],
+    category: "machines2",
+    state: "solid",
+};
+
+elements.ahw = {
+    name: "Horizontal Wall",
+    desc: "Makes a wall that goes left and right, like this line: -",
+    hard: 1,
+    color: ["#fc5858", "#fcef58", "#aafc58", "#58fc87", "#58c0fc"],     
+	customColor: true,
+    behavior: [
+    "XX|XX|XX",
+    "CR:ahw|XX|CR:ahw",
+    "XX|XX|XX",
+],
+    category: "machines2",
+    state: "solid",
+};
+
+elements.abltr = {
+    name: "BL-TR Wall",
+    desc: "Creates a slope from bottom left to top right, like this slash: /",
+    hard: 1,
+    color: ["#fc5858", "#fcef58", "#aafc58", "#58fc87", "#58c0fc"],
+    customColor: true,
+    behavior: [
+    "XX|XX|CR:abltr",
+    "XX|CH:wall|XX",
+    "CR:abltr|XX|XX",
+],
+    category: "machines2",
+    state: "solid",
+};
+
+elements.atlbr = {
+    name: "TL-BR Wall",
+    desc: "Creates a slope from top left to bottom right, like this slash: \\",
+    hard: 1,
+    color: ["#fc5858", "#fcef58", "#aafc58", "#58fc87", "#58c0fc"],
+	customColor: true,
+    behavior: [
+    "CR:atlbr|XX|XX",
+    "XX|CH:wall|XX",
+    "XX|XX|CR:atlbr",
+],
+    category: "machines2",
+    state: "solid",
+};
