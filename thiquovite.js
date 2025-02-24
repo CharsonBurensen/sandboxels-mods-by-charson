@@ -1137,9 +1137,9 @@ elements.whmisium_d3 = {
 elements.whmisium_e = {
     color: ["#ff738c", "#ff739a", "#ff73b7"],
     behavior: [
-    "XX|CR:rad_steam%1|XX",
-    "M1 AND CH:rad_steam|XX|M1 AND CH:rad_steam",
-    "M1|M1|M1",
+    "XX|CR:rad_steam%2|XX",
+    "M1 AND CR:rad_steam%0.2|XX|M1 AND CR:rad_steam%0.2",
+    "M1|M1 AND CH:rust%5|M1",
 ],
     desc: "Class E - Corrosive Material - Causes severe eye and skin Irritation upon contact. Can cause severe tissue damage with prolonged exposure. May be harmful to the respiratory system if inhaled.",
     category: "special",
@@ -1147,6 +1147,7 @@ elements.whmisium_e = {
     reactions: {
 	"head": { elem1: ["explosion", "poison_gas"], elem2: "cancer", chance: 0.5, func: behaviors.KILLPIXEL2 },
 	"body": { elem1: ["explosion", "poison_gas"], elem2: "cancer", chance: 0.5, func: behaviors.KILLPIXEL2 },
+	"rust": { elem2: "nitrogen", chance: 0.5 },
     }
 };
 
