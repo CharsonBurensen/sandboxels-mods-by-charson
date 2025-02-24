@@ -1548,8 +1548,8 @@ elements.thiquovite_ray = {
     color: ["#3df5d6", "#6edbc9"],
     behavior: [
     "CO:5|CR:thiquovite%10|CO:5",
-    "CO:5|CO:5 AND DL%5|CO:5",
-    "CO:5|M1 AND LB:cold_fire AND CO:5|CO:5",
+    "CO:5|CO:5|CO:5",
+    "CO:5|M1 AND LB:cold_fire AND CO:5 AND EX:10>freeze_ray|CO:5",
 ],
     category: "energy",
     state: "gas",
