@@ -1734,7 +1734,7 @@ elements.cerulium = {
     stateHigh: "cerulic_liquid",
 };
 
-elements.random = {
+elements.random_element = {
     color: ["#ff9f9c", "#c91c1c", "#1c53c9", "#0e2963"],
     category: "tools",
     behavior:  [
