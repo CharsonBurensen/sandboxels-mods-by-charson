@@ -1733,3 +1733,13 @@ elements.cerulium = {
     tempHigh: 1500,
     stateHigh: "cerulic_liquid",
 };
+
+elements.random = {
+    color: ["#ff9f9c", "#c91c1c", "#1c53c9", "#0e2963"],
+    category: "tools",
+    behavior:  [
+    "XX|XX|XX",
+    "XX|CH:random|XX",
+    "XX|XX|XX",
+],
+};
