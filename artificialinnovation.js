@@ -1567,9 +1567,9 @@ elements.molten_silvanite = {
 elements.hawk = {
     color: ["#8b5a2b", "#b07540", "#d8a070"],
     behavior: [
-        "M1%40|M1%30|M1%40", // Reduced upward movement
-        "M1%20|XX|M1%20",
-        "XX|M1%10|XX",
+        "M1%20|M1%15|M1%20", // Reduced upward movement (M1%40 changed to M1%20)
+        "M1%15|XX|M1%15",     // Left and right values remain unchanged
+        "XX|M1%5|XX",         // Small downward chance
     ],
     category: "life",
     state: "solid",
@@ -1595,9 +1595,9 @@ elements.hawk = {
 elements.juvenile_hawk = {
     color: ["#a77b50", "#c69566"],
     behavior: [
-        "M1%20|M1%10|M1%20", // Reduced flight overall
-        "M1%10|CH:hawk%0.3|M1%10",
-        "XX|M1%5|XX",
+        "M1%10|M1%10|M1%10", // Reduced upward movement
+        "M1%5|CH:hawk%0.3|M1%5", // Reduced upward corner M1
+        "XX|M1%5|XX",           // Minimal upward movement
     ],
     category: "life",
     state: "solid",
@@ -1616,6 +1616,7 @@ elements.juvenile_hawk = {
         "radiation": { elem1: "rotten_meat", chance: 0.1 },
     }
 };
+
 
 elements.hatchling = {
     color: ["#e3c7a5", "#f1dab5"],
