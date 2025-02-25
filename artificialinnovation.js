@@ -1567,9 +1567,9 @@ elements.molten_silvanite = {
 elements.hawk = {
     color: ["#8b5a2b", "#b07540", "#d8a070"],
     behavior: [
-        "M1%50|M1%30|M1%50", // More likely to move horizontally
-        "M1%20|XX|M1%20",    // Moves less often in the same row
-        "XX|M1%10|XX",       // Rarely moves downward
+        "M1%40|M1%30|M1%40", // Reduced upward movement
+        "M1%20|XX|M1%20",
+        "XX|M1%10|XX",
     ],
     category: "life",
     state: "solid",
@@ -1595,7 +1595,7 @@ elements.hawk = {
 elements.juvenile_hawk = {
     color: ["#a77b50", "#c69566"],
     behavior: [
-        "M1%40|M1%20|M1%40",
+        "M1%20|M1%10|M1%20", // Reduced flight overall
         "M1%10|CH:hawk%0.3|M1%10",
         "XX|M1%5|XX",
     ],
@@ -1654,10 +1654,10 @@ elements.hawk_egg = {
     stateLow: ["frozen_egg"],
 };
 
-// Egg-related elements
+// Egg-related elements with gravity
 elements.egg_shell = {
     color: ["#f0e7cf", "#dcd0b0"],
-    behavior: ["XX|XX|XX", "XX|XX|XX", "XX|XX|XX"],
+    behavior: ["XX|XX|XX", "XX|XX|XX", "XX|M1|XX"], // Falls down
     category: "food",
     state: "solid",
     breakInto: null,
@@ -1665,7 +1665,7 @@ elements.egg_shell = {
 
 elements.cooked_egg = {
     color: ["#f5d78a", "#ffe29a"],
-    behavior: ["XX|XX|XX", "XX|XX|XX", "XX|XX|XX"],
+    behavior: ["XX|XX|XX", "XX|XX|XX", "XX|M1|XX"], // Falls down
     category: "food",
     state: "solid",
     reactions: {
@@ -1681,6 +1681,7 @@ elements.frozen_egg = {
     tempHigh: 0,
     stateHigh: "hawk_egg",
 };
+
 
 
 
