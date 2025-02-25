@@ -1564,6 +1564,123 @@ elements.molten_silvanite = {
     stateLow: "silvanite",
 }
 
+elements.hawk = {
+    color: ["#8b5a2b", "#b07540", "#d8a070"],
+    behavior: [
+        "M1%50|M1%30|M1%50", // More likely to move horizontally
+        "M1%20|XX|M1%20",    // Moves less often in the same row
+        "XX|M1%10|XX",       // Rarely moves downward
+    ],
+    category: "life",
+    state: "solid",
+    egg: "hawk_egg",
+    baby: "juvenile_hawk",
+    foodNeed: 10,
+    burn: 90,
+    burnInto: "cooked_meat",
+    tempHigh: 150,
+    stateHigh: ["cooked_meat", "ash"],
+    tempLow: -20,
+    stateLow: ["frozen_meat"],
+    breakInto: ["feather", "meat"],
+    reactions: {
+        "rat": { elem2: "blood", chance: 0.4, func: behaviors.KILLPIXEL2 },
+        "bird": { elem2: "feather", chance: 0.5, func: behaviors.KILLPIXEL2 },
+        "fish": { elem2: null, chance: 0.3, func: behaviors.FEEDPIXEL },
+        "grass": { elem2: "dead_plant" },
+        "radiation": { elem1: "rotten_meat", chance: 0.1 },
+    }
+};
+
+elements.juvenile_hawk = {
+    color: ["#a77b50", "#c69566"],
+    behavior: [
+        "M1%40|M1%20|M1%40",
+        "M1%10|CH:hawk%0.3|M1%10",
+        "XX|M1%5|XX",
+    ],
+    category: "life",
+    state: "solid",
+    foodNeed: 8,
+    burn: 90,
+    burnInto: "cooked_meat",
+    tempHigh: 150,
+    stateHigh: ["cooked_meat", "ash"],
+    tempLow: -20,
+    stateLow: ["frozen_meat"],
+    breakInto: ["feather", "meat"],
+    reactions: {
+        "rat": { elem1: "hawk", chance: 0.3, elem2: "blood", func: behaviors.KILLPIXEL2 },
+        "bird": { elem2: "feather", chance: 0.3, func: behaviors.KILLPIXEL2 },
+        "fish": { elem1: "hawk", chance: 0.3, elem2: null, func: behaviors.FEEDPIXEL },
+        "radiation": { elem1: "rotten_meat", chance: 0.1 },
+    }
+};
+
+elements.hatchling = {
+    color: ["#e3c7a5", "#f1dab5"],
+    behavior: [
+        "XX|XX|XX",
+        "M1%5|CH:juvenile_hawk%0.3|M1%5",
+        "XX|M1|XX",
+    ],
+    category: "life",
+    state: "solid",
+    burn: 90,
+    burnInto: "cooked_meat",
+    tempHigh: 150,
+    stateHigh: ["cooked_meat", "ash"],
+    tempLow: -20,
+    stateLow: ["frozen_meat"],
+    breakInto: ["feather", "meat"],
+    reactions: {
+        "radiation": { elem1: "rotten_meat", chance: 0.1 },
+    }
+};
+
+elements.hawk_egg = {
+    color: ["#e0dfb1", "#d1c893"],
+    behavior: [
+        "XX|XX|XX",
+        "XX|CH:hatchling%0.2|XX",
+        "XX|XX|XX",
+    ],
+    category: "life",
+    state: "solid",
+    breakInto: ["egg_shell"],
+    tempHigh: 80,
+    stateHigh: ["cooked_egg", "ash"],
+    tempLow: -10,
+    stateLow: ["frozen_egg"],
+};
+
+// Egg-related elements
+elements.egg_shell = {
+    color: ["#f0e7cf", "#dcd0b0"],
+    behavior: ["XX|XX|XX", "XX|XX|XX", "XX|XX|XX"],
+    category: "food",
+    state: "solid",
+    breakInto: null,
+};
+
+elements.cooked_egg = {
+    color: ["#f5d78a", "#ffe29a"],
+    behavior: ["XX|XX|XX", "XX|XX|XX", "XX|XX|XX"],
+    category: "food",
+    state: "solid",
+    reactions: {
+        "head": { elem1: null, func: behaviors.FEEDPIXEL },
+    }
+};
+
+elements.frozen_egg = {
+    color: ["#cfe2f3", "#b0d0e8"],
+    behavior: ["XX|XX|XX", "XX|XX|XX", "XX|XX|XX"],
+    category: "food",
+    state: "solid",
+    tempHigh: 0,
+    stateHigh: "hawk_egg",
+};
 
 
 
