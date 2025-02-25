@@ -1549,7 +1549,7 @@ elements.thiquovite_ray = {
     behavior: [
     "CO:5|CR:thiquovite%10|CO:5",
     "CO:5|CO:5|CO:5",
-    "CO:5|M1 AND LB:cold_fire AND CO:5 AND EX:10>freeze_ray|CO:5",
+    "CO:5|M1 AND LB:cold_fire AND CO:5 AND EX:10>cold_fire|CO:5",
 ],
     category: "energy",
     state: "gas",
@@ -1558,8 +1558,8 @@ elements.thiquovite_ray = {
 elements.marble = {
     color: ["#50fa6c", "#50fae3", "#508efa"],
     behavior: [
-    "XX|XX|XX",
-    "M1%5|XX|M1%5",
+    "M2|XX|M2",
+    "M1%1|XX|M1%50",
     "M1|M1|M1",
 ],
     category: "special",
