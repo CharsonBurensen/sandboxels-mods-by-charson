@@ -1549,7 +1549,7 @@ elements.thiquovite_ray = {
     behavior: [
     "CO:5|CR:thiquovite%10|CO:5",
     "CO:5|CO:5|CO:5",
-    "CO:5|M1 AND LB:cold_fire AND CO:5 AND EX:10>cold_fire|CO:5",
+    "CO:5|M1 AND LB:cold_fire AND CO:5 AND EX:3>thiquovite,ice|CO:5",
 ],
     category: "energy",
     state: "gas",
@@ -1657,4 +1657,79 @@ elements.aw = {
 ],
     category: "machines2",
     state: "solid",
+};
+
+elements.cerulite = {
+    color: "#438CFF",
+    behavior: [
+    "XX|CR:cerulic_oxide%5 AND CR:flash%25|XX",
+    "XX|XX|XX",
+    "M1%5|M1|M1%5",
+],
+    category: "land",
+    state: "solid",
+    density: 250,
+    conduct: 30,
+    tempHigh: 239,
+    stateHigh: "cerulic_liquid",
+    reactions: {
+        "rock": { elem1:"cerulium" },
+	"head": { elem2:"bone", func: behaviors.KILLPIXEL2 },
+    }
+};
+
+elements.cerulic_liquid = {
+    color: ["#BE7B00", "#F6A300", "#FFAE6F"],
+    behavior: [
+    "XX|CR:cerulic_oxide%2 AND CR:fire%2 AND CR:pop|XX",
+    "XX|XX|XX",
+    "M1|M1|M1",
+],
+    category: "liquids",
+    temp: 300,
+    state: "solid",
+    density: 125,
+    conduct: 30,
+    tempLow: 40,
+    stateLow: "cerulium",
+    reactions: {
+        "magma": { elem1:"cerulium" },
+	"head": { elem2:"bone", func: behaviors.KILLPIXEL2 },
+    }
+};
+
+elements.cerulic_oxide = {
+    color: ["#08009E", "#0E00EF"],
+    behavior: [
+    "M1|M1|M1",
+    "M1|DL%10|M1",
+    "M1|M1|M1",
+],
+    category: "gases",
+    temp: 300,
+    state: "gas",
+    density: 250,
+    conduct: 30,
+    tempHigh: 300,
+    stateHigh: "pop",
+    reactions: {
+        "ash": { elem1:"cerulium" },
+	"oxygen": { elem1:"cerulite" },
+	"head": { elem2:"bone", func: behaviors.KILLPIXEL2 },
+    }
+};
+
+elements.cerulium = {
+    color: ["#4F5AFF", "#658FFF", "#5DC8FF"],
+    behavior: [
+    "XX|CR:cerulic_oxide%0.1|XX",
+    "XX|XX|XX",
+    "XX|M1|XX",
+],
+    category: "solids",
+    state: "solid",
+    density: 250,
+    conduct: 30,
+    tempHigh: 1500,
+    stateHigh: "cerulic_liquid",
 };
