@@ -1575,14 +1575,16 @@ elements.marble = {
 };
 
 elements.avw = {
-    name: "Vertical Wall",
+    name: "Colourful Vertical Wall",
     desc: "Makes a wall that goes up and down, like this line: |",
-    hard: 1,
-    color: ["#fc5858", "#fcef58", "#aafc58", "#58fc87", "#58c0fc"],     
-	customColor: true,
+    hard: 0.5,
+     color: ["#E3333E", "#0BBD60", "#6D40AE", "#0974DC", "#0679EA"], 
+    tempHigh: 500, 
+    stateHigh: "party_popper",
+	breakInto: "confetti",     
     behavior: [
     "XX|CR:avw|XX",
-    "XX|XX|XX",
+    "XX|CH:aw|XX",
     "XX|CR:avw|XX",
 ],
     category: "machines2",
@@ -1590,14 +1592,16 @@ elements.avw = {
 };
 
 elements.ahw = {
-    name: "Horizontal Wall",
+    name: "Colourful Horizontal Wall",
     desc: "Makes a wall that goes left and right, like this line: -",
-    hard: 1,
-    color: ["#fc5858", "#fcef58", "#aafc58", "#58fc87", "#58c0fc"],     
-	customColor: true,
+    hard: 0.5,
+     color: ["#E3333E", "#0BBD60", "#6D40AE", "#0974DC", "#0679EA"], 
+    tempHigh: 500, 
+    stateHigh: "party_popper",
+	breakInto: "confetti",  
     behavior: [
     "XX|XX|XX",
-    "CR:ahw|XX|CR:ahw",
+    "CR:ahw|CH:aw|CR:ahw",
     "XX|XX|XX",
 ],
     category: "machines2",
@@ -1605,14 +1609,16 @@ elements.ahw = {
 };
 
 elements.abltr = {
-    name: "BL-TR Wall",
+    name: "Colourful BL-TR Wall",
     desc: "Creates a slope from bottom left to top right, like this slash: /",
-    hard: 1,
-    color: ["#fc5858", "#fcef58", "#aafc58", "#58fc87", "#58c0fc"],
-    customColor: true,
+    hard: 0.5,
+     color: ["#E3333E", "#0BBD60", "#6D40AE", "#0974DC", "#0679EA"], 
+    tempHigh: 500, 
+    stateHigh: "party_popper",
+	breakInto: "confetti",
     behavior: [
     "XX|XX|CR:abltr",
-    "XX|CH:wall|XX",
+    "XX|CH:aw|XX",
     "CR:abltr|XX|XX",
 ],
     category: "machines2",
@@ -1620,15 +1626,34 @@ elements.abltr = {
 };
 
 elements.atlbr = {
-    name: "TL-BR Wall",
+    name: "Colourful TL-BR Wall",
     desc: "Creates a slope from top left to bottom right, like this slash: \\",
-    hard: 1,
-    color: ["#fc5858", "#fcef58", "#aafc58", "#58fc87", "#58c0fc"],
-	customColor: true,
+    hard: 0.5,
+     color: ["#E3333E", "#0BBD60", "#6D40AE", "#0974DC", "#0679EA"], 
+    tempHigh: 500, 
+    stateHigh: "party_popper",
+	breakInto: "confetti",
     behavior: [
     "CR:atlbr|XX|XX",
-    "XX|CH:wall|XX",
+    "XX|CH:aw|XX",
     "XX|XX|CR:atlbr",
+],
+    category: "machines2",
+    state: "solid",
+};
+
+elements.aw = {
+    name: "Colourful Wall",
+    desc: "oooo colourful",
+    hard: 0.5,
+     color: ["#E3333E", "#0BBD60", "#6D40AE", "#0974DC", "#0679EA"], 
+    tempHigh: 500, 
+    stateHigh: "party_popper",
+	breakInto: "confetti",     
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|XX|XX",
 ],
     category: "machines2",
     state: "solid",
