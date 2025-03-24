@@ -2267,6 +2267,11 @@ elements.blessing_nuke = {
 elements.blessing_firework = {
     color: ["#f53874"],
     behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|M1|XX",
+],
+    behaviorOn: [
     "XX|M1 AND EX:20>blessed_explosion AND LB:bless|XX",
     "XX|XX|XX",
     "XX|XX|XX",
