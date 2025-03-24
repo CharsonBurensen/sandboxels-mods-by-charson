@@ -1290,6 +1290,11 @@ elements.beryllium_oxide = {
 elements.superwire = {
     color: ["#4d4d4d", "#6e140d", "#0d516e", "#3e484d"],
     behavior: behaviors.WALL,
+    behaviorOn: [
+    "SH|XX|SH",
+    "XX|XX|XX",
+    "SH|XX|SH",
+],
     singleColor: true,
     category: "machines",
     state: "solid",
@@ -2146,7 +2151,6 @@ elements.blessing_missile_right = {
     fireColor: ["#ff00bb", "#ff80bb", "#ffffbb", "#00ffbb", "#bb00ff", "#80bb80"],
     fireElement: "blessed_fire",
     conduct: 10,
-    charge: 3,
 };
 
 elements.blessing_missile_left = {
@@ -2166,7 +2170,6 @@ elements.blessing_missile_left = {
     fireColor: ["#ff00bb", "#ff80bb", "#ffffbb", "#00ffbb", "#bb00ff", "#80bb80"],
     fireElement: "blessed_fire",
     conduct: 10,
-    charge: 3,
 };
 
 elements.blessed_explosion = {
@@ -2182,7 +2185,6 @@ elements.blessed_explosion = {
     temp: 40,
     breakInto: "bless",
     conduct: 10,
-    charge: 3,
 };
 
 elements.blessed_fire = {
@@ -2198,7 +2200,6 @@ elements.blessed_fire = {
     temp: 40,
     breakInto: "bless",
     conduct: 10,
-    charge: 3,
 };
 
 elements.blessing_nuke = {
@@ -2208,7 +2209,7 @@ elements.blessing_nuke = {
     "XX|XX|XX",
     "XX|M1 AND EX:42>blessed_explosion|XX",
 ],
-    category: "special",
+    category: "weapons",
     state: "solid",
     temp: 40,
     burning: true,
@@ -2218,11 +2219,10 @@ elements.blessing_nuke = {
     fireColor: ["#ff00bb", "#ff80bb", "#ffffbb", "#00ffbb", "#bb00ff", "#80bb80"],
     fireElement: "blessed_fire",
     conduct: 10,
-    charge: 3,
 };
 
 elements.blessing_firework = {
-    color: ["#47446e", "#3a32a8"],
+    color: ["#f53874"],
     behavior: [
     "XX|M1 AND EX:20>blessed_explosion AND LB:bless|XX",
     "XX|XX|XX",
@@ -2239,6 +2239,30 @@ elements.blessing_firework = {
     fireElement: "blessed_fire",
     conduct: 10,
     charge: 3,
+};
+
+elements.brioche_nuke = {
+    color: ["#bd6019", "#874009"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|M1 AND EX:42>brioche_explosion|XX",
+],
+    category: "weapons",
+    state: "solid",
+    temp: 0,
+};
+
+elements.brioche_explosion = {
+    color: ["#bd6019", "#874009"],
+    behavior: [
+    "CR:melted_butter%3|CR:melted_butter%3X|CR:melted_butter%3X",
+    "CR:melted_butter%3|CH:brioche|CR:melted_butter%3",
+    "CR:melted_butter%3|CR:melted_butter%3|CR:melted_butter%3",
+],
+    category: "food",
+    state: "solid",
+    temp: 0,
 };
 
 
