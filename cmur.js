@@ -1302,7 +1302,7 @@ elements.superwire = {
     tempHigh: 9000,
     stateHigh: "molten_slag",
     insulate: 1,
-    conduct: 10,
+    conduct: 5,
     tempLow: 0,
     stateLow: "off_superwire",
     hardness: 1,
@@ -1314,7 +1314,7 @@ elements.off_superwire = {
     behavior: behaviors.WALL,
     behaviorOn: [
     "XX|XX|XX",
-    "XX|CH:rust%5|XX",
+    "XX|CH:rust%10|XX",
     "XX|XX|XX",
 ],
     singleColor: true,
