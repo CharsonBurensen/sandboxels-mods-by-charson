@@ -2144,7 +2144,6 @@ elements.blessing_missile_right = {
     category: "missiles",
     state: "solid",
     temp: 40,
-    burning: true,
     tempHigh: 2000,
     stateHigh: "bless",
     breakInto: "bless",
@@ -2163,7 +2162,6 @@ elements.blessing_missile_left = {
     category: "missiles",
     state: "solid",
     temp: 40,
-    burning: true,
     tempHigh: 2000,
     stateHigh: "bless",
     breakInto: "bless",
@@ -2212,7 +2210,6 @@ elements.blessing_nuke = {
     category: "weapons",
     state: "solid",
     temp: 40,
-    burning: true,
     tempHigh: 2000,
     stateHigh: "bless",
     breakInto: "bless",
@@ -2231,7 +2228,6 @@ elements.blessing_firework = {
     category: "special",
     state: "solid",
     temp: 40,
-    burning: true,
     tempHigh: 2000,
     stateHigh: "bless",
     breakInto: "bless",
@@ -2246,25 +2242,50 @@ elements.brioche_nuke = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|M1 AND EX:42>brioche_explosion|XX",
+    "XX|M1 AND EX:33>brioche_explosion|XX",
 ],
     category: "weapons",
     state: "solid",
-    temp: 0,
+    temp: 10,
 };
 
 elements.brioche_explosion = {
     color: ["#bd6019", "#874009"],
     behavior: [
-    "CR:melted_butter%3|CR:melted_butter%3X|CR:melted_butter%3X",
-    "CR:melted_butter%3|CH:brioche|CR:melted_butter%3",
-    "CR:melted_butter%3|CR:melted_butter%3|CR:melted_butter%3",
+    "CR:pop|CR:melted_butter%3|CR:pop",
+    "CR:brioche%3|CH:brioche|CR:brioche%3",
+    "CR:pop|CR:melted_butter%3|CR:pop",
 ],
     category: "food",
     state: "solid",
-    temp: 0,
+    temp: 20,
 };
 
+elements.dirt_floor = {
+    color: ["#ff0000"],
+    behavior: [
+    "XX|M2|XX",
+    "XX|CH:grass_floor%0.05|M1 AND LB:dirt,dirt,dirt,dirt,sand,sand,rock AND BO",
+    "XX|XX|XX",
+],
+    breakInto: "grass_floor",
+    category: "machines",
+    state: "solid",
+    temp: 20,
+};
+
+elements.grass_floor = {
+    color: ["#ff0000"],
+    behavior: [
+    "XX|M2|XX",
+    "XX|CH:sapling%0.05|M1 AND LB:grass,grass,seeds,grass,worm,dirt AND BO",
+    "XX|XX|XX",
+],
+    breakInto: null,
+    category: "machines",
+    state: "solid",
+    temp: 20,
+};
 
 //ignore these
 
