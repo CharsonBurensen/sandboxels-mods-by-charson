@@ -2262,23 +2262,49 @@ elements.brioche_explosion = {
 };
 
 elements.dirt_floor = {
-    color: ["#ff0000"],
+    color: ["#6e3b0e"],
     behavior: [
-    "XX|M2|XX",
-    "XX|CH:grass_floor%0.05|M1 AND LB:dirt,dirt,dirt,dirt,sand,sand,rock AND BO",
+    "XX|M2 AND C2:dirt_floor2|XX",
+    "XX|XX|M1 AND LB:dirt,dirt,dirt,dirt,sand,sand,rock AND BO",
     "XX|XX|XX",
 ],
-    breakInto: "grass_floor",
+    breakInto: null,
+    category: "machines",
+    state: "solid",
+    temp: 20,
+};
+
+elements.dirt_floor2 = {
+    color: ["#b05e17"],
+    behavior: [
+    "XX|M2 AND C2:grass_floor|XX",
+    "XX|XX|M1 AND LB:dirt,dirt,dirt,dirt,sand,sand,rock AND BO",
+    "XX|XX|XX",
+],
+    breakInto: null,
     category: "machines",
     state: "solid",
     temp: 20,
 };
 
 elements.grass_floor = {
-    color: ["#ff0000"],
+    color: ["#107312"],
     behavior: [
-    "XX|M2|XX",
-    "XX|CH:sapling%0.05|M1 AND LB:grass,grass,seeds,grass,worm,dirt AND BO",
+    "XX|M2 AND C2:grass_floor2|XX",
+    "XX|XX|M1 AND LB:grass,grass,grass,grass,grass,grass,grass,grass,seeds,plant,grass,worm,ant,bee,dirt AND BO",
+    "XX|XX|XX",
+],
+    breakInto: null,
+    category: "machines",
+    state: "solid",
+    temp: 20,
+};
+
+elements.grass_floor2 = {
+    color: ["#17b019"],
+    behavior: [
+    "XX|M2 AND C2:sapling|XX",
+    "XX|XX|M1 AND LB:grass,grass,grass,grass,grass,grass,grass,grass,seeds,plant,grass,worm,ant,bee,dirt AND BO",
     "XX|XX|XX",
 ],
     breakInto: null,
