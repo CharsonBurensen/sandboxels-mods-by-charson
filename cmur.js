@@ -1291,9 +1291,9 @@ elements.superwire = {
     color: ["#4d4d4d", "#6e140d", "#0d516e", "#3e484d"],
     behavior: behaviors.WALL,
     behaviorOn: [
-    "SH%1|XX|SH%1",
+    "XX|CR:electric%1|XX",
     "XX|XX|XX",
-    "SH%1|XX|SH%1",
+    "XX|XX|XX",
 ],
     singleColor: true,
     category: "machines",
