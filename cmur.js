@@ -2120,7 +2120,7 @@ elements.blessing_missile_right = {
     temp: 40,
     burning: true,
     tempHigh: 2000,
-    stateHigh: "room_temp",
+    stateHigh: "petal",
     breakInto: "bless",
     fireColor: ["#ff00bb", "#ff80bb", "#ffffbb", "#00ffbb", "#bb00ff", "#80bb80"],
     fireElement: "blessed_fire",
@@ -2140,7 +2140,7 @@ elements.blessing_missile_left = {
     temp: 40,
     burning: true,
     tempHigh: 2000,
-    stateHigh: "room_temp",
+    stateHigh: "petal",
     breakInto: "bless",
     fireColor: ["#ff00bb", "#ff80bb", "#ffffbb", "#00ffbb", "#bb00ff", "#80bb80"],
     fireElement: "blessed_fire",
@@ -2148,13 +2148,13 @@ elements.blessing_missile_left = {
     charge: 3,
 };
 
-elements.blessing_explosion = {
+elements.blessed_explosion = {
     color: ["#47446e", "#ffff00"],
     alpha: 0.5,
     behavior: [
-    "CR:room_temp|CR:room_temp|CR:room_temp",
-    "CR:room_temp|CH:bless,bless,cooked_meat,brioche,chocolate%5|CR:room_temp",
-    "CR:room_temp|CR:room_temp|CR:room_temp",
+    "CR:petal|CR:petal|CR:petal",
+    "CR:petal|CH:bless,bless,cooked_meat,brioche,chocolate%5|CR:petal",
+    "CR:petal|CR:petal|CR:petal",
 ],
     category: "special",
     state: "gas",
@@ -2168,9 +2168,9 @@ elements.blessed_fire = {
     color: ["#ff00bb", "#ff80bb", "#ffffbb", "#00ffbb", "#bb00ff", "#80bb80"],
     alpha: 0.5,
     behavior: [
-    "CR:room_temp AND M1|CR:bless AND M1|CR:room_temp AND M1",
-    "CR:bless|CR:bless%10 AND DL%5|CR:room_temp",
-    "CR:room_temp|CR:bless|CR:room_temp",
+    "CR:petal AND M1|CR:bless AND M1|CR:petal AND M1",
+    "CR:bless|CR:bless%10 AND DL%5|CR:petal",
+    "CR:petal|CR:bless|CR:petal",
 ],
     category: "special",
     state: "gas",
