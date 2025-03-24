@@ -1281,6 +1281,24 @@ elements.beryllium_oxide = {
     state: "solid",
     temp: 20,
     insulate: 1,
+    conduct: 10,
+    reactions: {
+        "aluminium": { elem1: "superwire", elem2: "foam" },
+    } 
+};
+
+elements.superwire = {
+    color: ["#4d4d4d", "#6e140d", "#0d516e", "#3e484d"],
+    behavior: behaviors.WALL,
+    singleColor: true,
+    category: "machines",
+    state: "solid",
+    temp: 20,
+    tempHigh: 9000,
+    stateHigh: "molten_slag",
+    insulate: 1,
+    conduct: 100,
+    hardness: 1,
 };
 
 elements.emerald = {
@@ -2073,7 +2091,7 @@ elements.skibidiness = {
 
 elements.right_missile = {
     color: ["#8a9499", "#9e9e9e", "#d1d1d1"],
-    category: "weapons",
+    category: "missiles",
     state: "solid",
     temp: 40,
     burning: true,
@@ -2093,7 +2111,7 @@ elements.right_missile.behavior = [
 
 elements.left_missile = {
     color: ["#8a9499", "#9e9e9e", "#d1d1d1"],
-    category: "weapons",
+    category: "missiles",
     state: "solid",
     temp: 40,
     burning: true,
@@ -2118,7 +2136,7 @@ elements.blessing_missile_right = {
     "XX|XX|M1 AND EX:20>blessed_explosion",
     "XX|XX|XX",
 ],
-    category: "special",
+    category: "missiles",
     state: "solid",
     temp: 40,
     burning: true,
@@ -2138,7 +2156,7 @@ elements.blessing_missile_left = {
     "M1 AND EX:20>blessed_explosion|XX|XX",
     "XX|XX|XX",
 ],
-    category: "special",
+    category: "missiles",
     state: "solid",
     temp: 40,
     burning: true,
@@ -2155,11 +2173,11 @@ elements.blessed_explosion = {
     color: ["#47446e", "#ffff00"],
     alpha: 0.5,
     behavior: [
-    "CR:bless|CR:bless|CR:bless",
-    "CR:bless|CH:bless,bless,cooked_meat,brioche,chocolate%5|CR:bless",
-    "CR:bless|CR:bless|CR:bless",
+    "CR:bless%3.5|CR:bless%3.5|CR:bless%3.5",
+    "CR:bless%3.5|CH:bless,bless,cooked_meat,brioche,chocolate%5|CR:bless%3.5",
+    "CR:bless%3.5|CR:bless%3.5|CR:bless%3.5",
 ],
-    category: "special",
+    category: "weapons",
     state: "gas",
     temp: 40,
     breakInto: "bless",
@@ -2171,11 +2189,11 @@ elements.blessed_fire = {
     color: ["#ff00bb", "#ff80bb", "#ffffbb", "#00ffbb", "#bb00ff", "#80bb80"],
     alpha: 0.5,
     behavior: [
-    "CR:bless AND M1|CR:bless AND M1|CR:bless AND M1",
-    "CR:bless|CR:bless%10 AND DL%5|CR:bless",
-    "CR:bless|CR:bless|CR:bless",
+    "CR:bless%3.5 AND M1|CR:bless%3.5 AND M1|CR:bless%3.5 AND M1",
+    "CR:bless%3.5|CR:bless%3.5%10 AND DL%5|CR:bless%3.5",
+    "CR:bless%3.5|CR:bless%3.5|CR:bless%3.5",
 ],
-    category: "special",
+    category: "energy",
     state: "gas",
     temp: 40,
     breakInto: "bless",
@@ -2183,6 +2201,45 @@ elements.blessed_fire = {
     charge: 3,
 };
 
+elements.blessing_nuke = {
+    color: ["#47446e", "#3a32a8"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|M1 AND EX:42>blessed_explosion|XX",
+],
+    category: "special",
+    state: "solid",
+    temp: 40,
+    burning: true,
+    tempHigh: 2000,
+    stateHigh: "bless",
+    breakInto: "bless",
+    fireColor: ["#ff00bb", "#ff80bb", "#ffffbb", "#00ffbb", "#bb00ff", "#80bb80"],
+    fireElement: "blessed_fire",
+    conduct: 10,
+    charge: 3,
+};
+
+elements.blessing_firework = {
+    color: ["#47446e", "#3a32a8"],
+    behavior: [
+    "XX|M1 AND EX:20>blessed_explosion AND LB:bless|XX",
+    "XX|XX|XX",
+    "XX|XX|XX",
+],
+    category: "special",
+    state: "solid",
+    temp: 40,
+    burning: true,
+    tempHigh: 2000,
+    stateHigh: "bless",
+    breakInto: "bless",
+    fireColor: ["#ff00bb", "#ff80bb", "#ffffbb", "#00ffbb", "#bb00ff", "#80bb80"],
+    fireElement: "blessed_fire",
+    conduct: 10,
+    charge: 3,
+};
 
 
 //ignore these
