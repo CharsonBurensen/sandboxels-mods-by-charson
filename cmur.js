@@ -1303,6 +1303,26 @@ elements.superwire = {
     stateHigh: "molten_slag",
     insulate: 1,
     conduct: 10,
+    tempLow: 0,
+    stateLow: "off_superwire",
+    hardness: 1,
+};
+
+elements.off_superwire = {
+    color: ["#4d4d4d", "#6e140d", "#0d516e", "#3e484d"],
+    behavior: behaviors.WALL,
+    behaviorOn: [
+    "XX|XX|XX",
+    "XX|CH:superwire|XX",
+    "XX|XX|XX",
+],
+    singleColor: true,
+    category: "states",
+    state: "solid",
+    hidden: true,
+    temp: 20,
+    insulate: 1,
+    conduct: 0,
     hardness: 1,
 };
 
