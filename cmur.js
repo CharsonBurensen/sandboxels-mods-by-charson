@@ -1302,7 +1302,7 @@ elements.superwire = {
     tempHigh: 9000,
     stateHigh: "molten_slag",
     insulate: 1,
-    conduct: 100,
+    conduct: 10,
     hardness: 1,
 };
 
