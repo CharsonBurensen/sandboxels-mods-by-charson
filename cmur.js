@@ -1309,17 +1309,21 @@ elements.superwire = {
 };
 
 elements.off_superwire = {
-    color: ["#4d4d4d", "#6e140d", "#0d516e", "#3e484d"],
+    name: "DefectiveWire",
+    color: ["#208a2a", "#e3591e", "#732e10"],
     behavior: behaviors.WALL,
     behaviorOn: [
     "XX|XX|XX",
-    "XX|CH:superwire|XX",
+    "XX|CH:rust%5|XX",
     "XX|XX|XX",
 ],
     singleColor: true,
     category: "states",
     state: "solid",
     hidden: true,
+    breakInto: "rust",
+    stateHigh: "molten_metal_scrap",
+    tempHigh: 570,
     temp: 20,
     insulate: 1,
     conduct: 0,
