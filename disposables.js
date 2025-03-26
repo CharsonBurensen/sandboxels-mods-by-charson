@@ -49,7 +49,7 @@ elements.medusa_ray = {
     behavior: [
     "XX|XX|XX",
     "XX|XX|XX",
-    "XX|M1 AND LB:flash AND EX>5:stone_blast|XX",
+    "XX|M1 AND LB:flash AND EX:5>stone_blast|XX",
 ],
     category: "energy",
     state: "gas",
