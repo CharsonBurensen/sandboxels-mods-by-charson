@@ -1,6 +1,6 @@
 elements.breakable_cloner = {
     name: "BreakableCloner",
-    color: ["#2030b3"],
+    color: ["#c1c7f7", "#dfe0eb"],
     behavior: [
     "XX|CF|XX",
     "CF|XX|CF",
@@ -25,9 +25,9 @@ elements.shrapnel = {
     "XX|M1|XX",
 ],
     behaviorOn: [
-    "CR:pop%5|XX|M1 AND BO",
+    "CR:flash%5 AND M1 AND BO|XX|M1 AND BO",
     "XX|CH:metal_scrap%0.2|XX",
-    "XX|XX|CR:pop%5",
+    "XX|XX|CR:flash%5",
 ],
     category: "solids",
     state: "solid",
