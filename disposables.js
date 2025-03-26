@@ -1,5 +1,4 @@
 elements.breakable_cloner = {
-    name: "BreakableCloner",
     color: ["#c1c7f7", "#dfe0eb"],
     behavior: [
     "XX|CF|XX",
@@ -44,5 +43,28 @@ elements.shrapnel = {
         "brick": { elem1: "explosion" },
         "steel": { elem1: "explosion" },
     }
+
+elements.medusa_ray = {
+    color: ["#35db59", "#61ff83"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|M1 AND LB:flash AND EX>5:stone_blast|XX",
+],
+    category: "energy",
+    state: "gas",
+    temp: 20,
+};
+
+elements.stone_blast = {
+    color: ["#35db59", "#61ff83"],
+    behavior: [
+    "CH:rock|CH:rock AND CR:fire|CH:rock",
+    "CH:rock|DL%30|CH:rock",
+    "CH:rock|CH:rock|CH:rock",
+],
+    category: "energy",
+    state: "gas",
+    temp: 45,
 };
 
