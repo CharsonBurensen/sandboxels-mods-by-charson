@@ -25,8 +25,8 @@ elements.shrapnel = {
     "XX|M1|XX",
 ],
     behaviorOn: [
-    "CR:pop%5|M1 AND BO|XX",
-    "XX|CH:metal_scrap%2|XX",
+    "CR:pop%5|XX|M1 AND BO",
+    "XX|CH:metal_scrap%0.2|XX",
     "XX|XX|CR:pop%5",
 ],
     category: "solids",
