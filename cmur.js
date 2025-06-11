@@ -34,6 +34,7 @@ elements.calcium_chloride = {
         "dust": { elem2: null, chance: 0.5 },
         "water": { elem2: null, chance: 0.8 },
         "rotten_meat": { elem2: "meat" },
+"laser": { elem1: ["calcium","chlorine"] },
     }
 };
 
@@ -44,6 +45,22 @@ if (!elements.calcium.reactions) { // Include this block once
     elements.calcium.reactions = {} // This creates the property if it doesn't exist
 }
 elements.calcium.reactions.chlorine = { elem1: "calcium_chloride" }
+
+if (!elements.calcium.reactions) { // Include this block once
+    elements.calcium.reactions = {} // This creates the property if it doesn't exist
+}
+elements.sand.reactions.clay_soil = { elem1: "silt" }
+
+if (!elements.calcium.reactions) { // Include this block once
+    elements.calcium.reactions = {} // This creates the property if it doesn't exist
+}
+elements.wet_sand.reactions.water = { elem1: "quicksand", chance: 0.02 }
+
+
+if (!elements.water.reactions) { // Include this block once
+    elements.water.reactions = {} // This creates the property if it doesn't exist
+}
+elements.water.reactions.rust = { elem1: "hydrated_iron_oxide" }
 
 
 
@@ -60,6 +77,11 @@ if (!elements.aluminum.reactions) { // Include this block once
     elements.aluminum.reactions = {} // This creates the property if it doesn't exist
 }
 elements.aluminum.reactions.oxygen = { elem1: "alumina" }
+
+if (!elements.plastic.reactions) { // Include this block once
+    elements.plastic.reactions = {} // This creates the property if it doesn't exist
+}
+elements.plastic.reactions.radiation = { elem1: "latex", chance: 0.5 }
 
 
 
@@ -112,6 +134,7 @@ elements.sodium_carbonate = {
     reactions: {
         "calcium_chloride": { elem1:"foam", elem2:"colour_pick_chalk" },
         "chlorine": { elem1:"salt", elem2:"carbon_dioxide" },
+        "laser": { elem1: ["carbon_dioxide","sodium","baking_soda"] },
     }
 };
 
@@ -124,12 +147,68 @@ elements.silicon = {
     desc: "Silicon is a chemical element. It has symbol Si and atomic number 14. It is a hard, brittle crystalline solid with a blue-grey metallic lustre, and is a tetravalent metalloid and semiconductor.",
     category: "solids",
     state: "solid",
+    conduct: 1,
+    breakInto: ["silicon_shard", "silica"],
     tempHigh: 1414,
     reactions: {
         "oxygen": { elem1:"silicate", elem2:"pop" },
         "dough": { elem1:"boiling_catalyst", elem2:"pop", minTemp: 1000 },
     }
 };
+
+elements.silt = {
+    color: ["#8a7965", "#6e604f"],
+    behavior:  [
+    "XX|SW:water|XX",
+    "XX|XX|XX",
+    "XX|M1|XX",
+],
+    behaviorOn: [
+    "M1%3|XX|M1%3",
+    "M1|XX|M1",
+    "XX|M1%5|XX",
+],
+    category: "land",
+    conduct: 0.5,
+    state: "solid",
+renderer: renderPresets.HEATGLOW,
+    tempHigh: 800,
+    stateHigh: "glass",
+    reactions: {
+        "water": { elem1:"carried_silt", chance: 0.5 },
+    }
+};
+
+elements.carried_silt = {
+    color: ["#8a7965", "#6e604f"],
+    behavior: [
+    "M1%3|SW:water|M1%3",
+    "XX|CH:silt%10|M1",
+    "XX|M1|XX",
+],
+    category: "states",
+hidden:true,
+    conduct: 0.5,
+    state: "solid",
+    tempHigh: 800,
+    stateHigh: "glass",
+};
+
+elements.silicon_shard = {
+    color: ["#95b1cf", "#8d9eb0"],
+    behavior: behaviors.POWDER,
+    category: "powders",
+    state: "solid",
+    tempHigh: 1414,
+renderer: renderPresets.HEATGLOW,
+    stateHigh: "glass",
+    breakInto: ["silicon_shard", "silicon_shard", "dust", "silica"],
+    conduct: 1,
+    reactions: {
+    "oxygen": { elem1:"silicate", elem2:"pop", chance: 0.5 },
+    }
+};
+
 
 elements.boiling_catalyst = {
     color: ["#9ed4e2", "#67a7b8"],
@@ -141,7 +220,7 @@ elements.boiling_catalyst = {
     tempLow: 800,
     stateLow: "catalyst",
     reactions: {
-        "boiling_catalyst": { elem1:["steam","bubble","foam"] },
+        "boiling_catalyst": { elem1:["steam","bubble","foam"], chance: 0.1 },
     }
 };
 
@@ -167,9 +246,25 @@ elements.catalyst = {
     stateLow: "silica",
     reactions: {
         "mercury": { elem1: null, chance: 0.3 },
+        "molten_plastic": { elem2: "latex_catalyst", chance: 0.3 },
     }
 };
 
+
+elements.latex_catalyst = {
+    color: ["#8a9c9a", "#6d7877"],
+    singleColor: true,
+    behavior: behaviors.LIQUID,
+    category: "states",
+    hidden: true,
+    state: "liquid",
+    temp: 20,
+    tempLow: -20,
+    stateLow: "latex",
+    reactions: {
+        "ammonia": { elem1:["frisket"], elem2:"foam",chance:0.5 },
+    }
+};
 
 
 elements.alumina = {
@@ -209,6 +304,7 @@ elements.hyper_aluminum = {
         "steel": { elem2:"galvanized_steel" },
         "rock_wall": { elem2:"wall" },
         "aluminum": {elem2: "hyper_aluminum", charged:true},
+        "radiation": {elem1: "aluminum", chance:0.4},
     }
 };
 
@@ -246,6 +342,7 @@ elements.hyper_powder = {
 	"sand": { elem1:"hyper_sand", elem2:"flash", minTemp: 300 },
         "rock_wall": { elem2:"wall" },
         "aluminum": {elem2: "hyper_aluminum", charged:true},
+"radiation": {elem1: "rust", chance:0.4},
     }
 };
 
@@ -274,6 +371,7 @@ elements.hyper_sand = {
         "steel": { elem2:"galvanized_steel" },
         "rock_wall": { elem2:"wall" },
         "aluminum": {elem2: "hyper_aluminum", charged:true},
+"radiation": {elem1: "sand", chance:0.4},
     }
 };
 
@@ -289,6 +387,7 @@ elements.hyper_brick = {
 		"w": "#284266"},
     hidden: true,
     state: "solid",
+renderer: renderPresets.HEATGLOW,
     tempHigh: 9500,
     conduct: 1,
     desc: "With a sleek, metallic sheen, this material boasts enhanced durability, resistance to extreme temperatures, and a remarkable ability to withstand corrosion. Hyper Aluminium is the pinnacle of modern materials science—stronger, lighter, and more efficient than ever before, setting the stage for a new era of innovation.",
@@ -300,6 +399,7 @@ elements.hyper_brick = {
         "steel": { elem2:"galvanized_steel" },
         "rock_wall": { elem2:"wall" },
         "aluminum": {elem2: "hyper_aluminum", charged:true},
+"radiation": {elem1: "brick", chance:0.4},
     }
 };
 
@@ -314,6 +414,7 @@ elements.hyper_glass = {
     state: "solid",
     alpha: 0.5,
     tempHigh: 9500,
+renderer: renderPresets.HEATGLOW,
     conduct: 1,
     charge: 3,
     stateHigh: "molten_aluminum",
@@ -323,6 +424,7 @@ elements.hyper_glass = {
         "steel": { elem2:"galvanized_steel" },
         "rock_wall": { elem2:"wall" },
         "aluminum": {elem2: "hyper_aluminum", charged:true},
+"radiation": {elem1: "stained_glass", chance:0.4},
     }
 };
 
@@ -335,6 +437,7 @@ elements.silicate = {
     color: ["#A6B5B8", "#A7A8A0", "#665953", "#BDDAE8"],
     behavior: behaviors.POWDER,
     category: "powders",
+renderer: renderPresets.HEATGLOW,
     hidden: true,
     breakInto: "silica",
     state: "solid",
@@ -351,10 +454,15 @@ elements.silicate = {
 elements.silica = {
     color: ["#ACAA9B", "#CAC7B6", "#979A93"],
     behavior: behaviors.LIGHTWEIGHT,
-    behaviorOn: behaviors.STURDYPOWDER,
+    behaviorOn: [
+    "M1%3|XX|M1%3",
+    "M1|XX|M1",
+    "XX|M1%5|XX",
+],
     conduct: 0.5,
     category: "powders",
     hidden: true,
+renderer: renderPresets.HEATGLOW,
     state: "solid",
     tempHigh: 5000,
     stateHigh: "molten_ash",
@@ -415,9 +523,10 @@ elements.colour_pick_chalk = {
     related: ["art", "calcium"],
     customColor: true,
     category: "solids",
+renderer: renderPresets.HEATGLOW,
     breakInto: "colour_pick_chalk_powder",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -437,7 +546,7 @@ elements.chalk1 = {
     category: "solids",
     breakInto: "chalk_powder1",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -457,7 +566,7 @@ elements.chalk2 = {
     category: "solids",
     breakInto: "chalk_powder2",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -477,7 +586,7 @@ elements.chalk3 = {
     category: "solids",
     breakInto: "chalk_powder3",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -497,7 +606,7 @@ elements.chalk4 = {
     category: "solids",
     breakInto: "chalk_powder4",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -517,7 +626,7 @@ elements.chalk5 = {
     category: "solids",
     breakInto: "chalk_powder5",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -537,7 +646,7 @@ elements.chalk6 = {
     category: "solids",
     breakInto: "chalk_powder6",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -557,7 +666,7 @@ elements.chalk7 = {
     category: "solids",
     breakInto: "chalk_powder7",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -577,7 +686,7 @@ elements.chalk8 = {
     category: "solids",
     breakInto: "chalk_powder8",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -597,7 +706,7 @@ elements.chalk9 = {
     category: "solids",
     breakInto: "chalk_powder9",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -616,7 +725,7 @@ elements.chalk_powder1 = {
     hidden: true,
     category: "powders",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -635,7 +744,7 @@ elements.chalk_powder2 = {
     hidden: true,
     category: "powders",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -654,7 +763,7 @@ elements.chalk_powder3 = {
     hidden: true,
     category: "powders",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -673,7 +782,7 @@ elements.chalk_powder4 = {
     hidden: true,
     category: "powders",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -692,7 +801,7 @@ elements.chalk_powder5 = {
     hidden: true,
     category: "powders",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -711,7 +820,7 @@ elements.chalk_powder6 = {
     hidden: true,
     category: "powders",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -730,7 +839,7 @@ elements.chalk_powder7 = {
     hidden: true,
     category: "powders",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -749,7 +858,7 @@ elements.chalk_powder8 = {
     hidden: true,
     category: "powders",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -768,7 +877,7 @@ elements.chalk_powder9 = {
     hidden: true,
     category: "powders",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -783,7 +892,7 @@ elements.colour_pick_chalk_powder = {
     customColor: true,
     category: "powders",
     state: "solid",
-    tempHigh: 5900,
+    tempHigh: 590,
     stateHigh: "ash",
 };
 
@@ -802,6 +911,9 @@ elements.powdered_lime = {
 ],
     category: "food",
     desc: "Mmm, yum, powder!",
+renderer: renderPresets.HEATGLOW,
+stateHigh: "ash",
+tempHigh: 1000,
     state: "solid",
     reactions: {
         "water": { elem1:"foam", elem2:"limeade", chance: 0.7 },
@@ -932,7 +1044,8 @@ elements.stupid = {
     desc: "stupid",
     temp: 20,
     tempLow: 19,
-    tempHigh: 21,
+    tempHigh: 450,
+renderer: renderPresets.HEATGLOW,
           reactions: {
         "water": { elem1:"blaster", elem2:"nuke", chance: 0.001 },
         "stupid": { elem1:"cloner", elem2:"nuke", chance: 0.5 },
@@ -954,8 +1067,8 @@ elements.di_stupid = {
     hidden: true,
     desc: "stupid",
     temp: 20,
-    tempLow: 19,
-    tempHigh: 21,
+    tempLow: 5,
+    tempHigh: 450,
           reactions: {
         "di_stupid": { elem1:"di_stupid", elem2:"tsunami", chance: 0.001 },
         "stupid": { elem1:"party_popper", elem2:"cloner" },
@@ -972,22 +1085,46 @@ elements.almond = {
     category: "food",
     state: "solid",
     density: 100,
-    desc: "stupid",
+    desc: "no longer stupid",
     temp: 20,
     tempLow: 10,
     tempHigh: 40,
     renderer: renderPresets.WOODCHAR,
     stateHigh: "nut_sauce",
     breakInto: "nut_sauce",
-    stateLow: "cloner",
     conduct: 1,
           reactions: {
         "head": { elem1: null, chance: 0.55, func: behaviors.FEEDPIXEL },
         "juice": { elem1:"party_popper", elem2:"party_popper" },
-        "water": { elem1:"nut_sauce", elem2:"almond_water" },
+        "water": { elem1:"nut_sauce", elem2:"bubble" },
+"laser": { elem1:"almond_tree", elem2:"pop" },
     }
 };
 
+elements.almond_tree = {
+    color: ["#403a35", "#9c836b"], 
+    behavior: [
+    "CR:plant,almond_tree%0.2 AND CC:plant>#243d2b AND CC:wood>#403a35|CR:almond_tree%2 AND CC:plant>#243d2b AND CC:wood>#403a35|CR:plant,almond_tree%0.2 AND CC:plant>#243d2b AND CC:wood>#403a35",
+    "CR:almond_tree%0.5 AND CR:almond%1 AND CC:plant>#243d2b AND CC:wood>#403a35|XX|CR:almond_tree%0.5 AND CR:almond%1 AND CC:plant>#243d2b AND CC:wood>#403a35",
+    "XX|CH:almond_tree>wood%5 AND CC:wood>#403a35|XX",
+],
+    category: "life",
+    singleColor: true,
+    state: "solid",
+    density: 100,
+    temp: 20,
+    tempLow: 10,
+    tempHigh: 40,
+    renderer: renderPresets.WOODCHAR,
+    stateHigh: "dead_plant",
+    breakInto: "dead_plant",
+    conduct: 1,
+          reactions: {
+        "juice": { elem1:"party_popper", elem2:"party_popper" },
+"dirt": { elem2:"almond_tree", chance: 0.1 },
+"grass": { elem2:"almond_tree", chance: 0.1 },
+    }
+};
 
 
 
@@ -3308,7 +3445,7 @@ elements.sunlight = {
     state: "gas",
     glow: true,
     density: 720,
-    stain: 1,
+    stain: 0.5,
     temp: 5600,
     tempLow: -273,
     stateLow: ["liquid_light"],
@@ -3336,10 +3473,30 @@ elements.tocopheryl_acetate = {
     stateHigh: ["tocopheryl_gas"],
         reactions: {
         "zinc": { elem1:"sunscreen", elem2:"sunscreen" },
+        "laser": { elem1:"acetatine" },
         "water": { elem1:"soapy_water", elem2:"soapy_water" },
     }
 };
 
+elements.acetatine = {
+    color: "#7b8b9c",
+    alpha: 0.5,
+    glow: false,
+    behavior: [
+    "XX|SW:water,tocopheryl_acetate|XX",
+    "XX|XX|XX",
+    "M2|M1|M2",
+],
+    category: "powders",
+    state: "solid",
+    density: 720,
+    temp: 15,
+    tempHigh: 154,
+    stateHigh: ["tocopheryl_gas"],
+        reactions: {
+        "plastic": { elem1:"flash", elem2:"sr_pl" },
+    }
+};
 
 
 
@@ -3674,8 +3831,8 @@ elements.blessing_firework = {
     "XX|M1|XX",
 ],
     behaviorOn: [
-    "XX|M1 AND EX:20>blessed_explosion AND LB:bless|XX",
     "XX|XX|XX",
+    "XX|CH:b_flyerwork|XX",
     "XX|XX|XX",
 ],
     category: "special",
@@ -3684,9 +3841,31 @@ elements.blessing_firework = {
     tempHigh: 2000,
     stateHigh: "bless",
     breakInto: "bless",
+    burnInto: "b_flyerwork",
+    buren: 100,
     fireColor: ["#ff00bb", "#ff80bb", "#ffffbb", "#00ffbb", "#bb00ff", "#80bb80"],
     fireElement: "blessed_fire",
-    conduct: 10,
+    conduct: 1,
+};
+
+elements.b_flyerwork = {
+    color: ["#eb4034"],
+    name: "Blessing Firework",
+    hidden: true,
+    behavior: [
+    "XX|M1 AND M1 AND SW AND EX:5>blessed_explosion AND LB:bless,blessed_fire%5|XX",
+    "XX|XX|XX",
+    "XX|XX|XX",
+],
+    category: "states",
+    state: "solid",
+    temp: 40,
+    tempHigh: 2000,
+    stateHigh: "bless",
+    breakInto: "bless",
+    fireColor: ["#ff00bb", "#ff80bb", "#ffffbb", "#00ffbb", "#bb00ff", "#80bb80"],
+    fireElement: "blessed_fire",
+    conduct: 1,
 };
 
 
@@ -3903,8 +4082,14 @@ elements.iodic_acid = {
     stateHigh: "iodic_vapour",
     state: "liquid",
     temp: 20,
+    tempLow: -5,
+    stateLow: "nahnium",
+    stateLowColor: "#604d7d",
     conduct: 1,
     stain: -0.4,
+    reactions: {
+        "bless": { elem1: "glass_shard" },
+    }
 };
 
 
@@ -3924,6 +4109,9 @@ elements.iodic_vapour = {
     tempHigh: 15,
     stateHigh: "iodic_acid",
     stain: 0.4,
+    reactions: {
+        "bless": { elem1: "oxygen" },
+    }
 };
 
 
@@ -3934,17 +4122,17 @@ elements.iodic_vapour = {
 
 
 elements.colour_magma = {
-    color: ["#f15b3c", "#f26d3b", "#f37f3a", "#f39139", "#f4a339", "#f4b537",
-"#f5c836", "#f5da35", "#e7ea38", "#c7f23d", "#a4f546", "#84f652",
-"#68f65f", "#58f671", "#52f689", "#52f6a1", "#52f6b7", "#52f6cc",
-"#52e5e4", "#52ccf1", "#52b3f5", "#529cf6", "#5784f4", "#6e6df2",
-"#8659f2", "#9b4ff2", "#b24ff1", "#c94ff0", "#e04fef", "#f24fc6"],
-    behavior: [
-    "XX|CR:fw_ember,color_smoke%1|XX",
-    "XX|XX|XX",
-    "M1%5|M1|M1%5"
-],
-    singleColor: true,
+    color: ["#ff4d4d","#ffac4d","#ffff4d","#4dff4d","#4dffff","#4d4dff","#ff4dff"],
+	onPlace: behaviors.DO_TICK,
+	tick: function(pixel) {
+		behaviors.MOLTEN(pixel);
+		if (pixel.start-1 <= pixelTicks) {
+			if (pixel.colorstart === undefined) {
+				pixel.colorstart = pixel.start;
+			}
+			pixel.color = "hsl(" + pixel.colorstart + ",100%,65%)";
+		}
+	},
     burning: true,
     burnTime: Infinity,
     fireColor: ["#FF4DFF", "#B24DFF", "#4D52FF", "#4DB0FF", "#4DFFDF", "#64FF4D", "#FFE74D", "#FF994D", "#FF5B4D", "#FF794D", "#FFB14D", "#A8FF4D", "#4DFF85", "#4DD6FF"],
@@ -3961,21 +4149,24 @@ elements.colour_magma = {
 
 
 elements.colour_rock = {
-    color: ["#f15b3c", "#f1653b", "#f26e3b", "#f2783a", "#f3813a", "#f38b39", "#f49439", "#f49e38", "#f5a837", "#f5b236",
-"#f5bc36", "#f5c634", "#f5d033", "#f5da32", "#eef234", "#dff33a", "#cdf442", "#bbf44b", "#aaf454", "#98f45d",
-"#84f566", "#72f570", "#60f57a", "#55f58b", "#52f59e", "#52f5b2", "#52f5c5", "#52f5d7", "#52e6ea", "#52d3f3",
-"#52bef6", "#52a9f6", "#5294f6", "#537ff5", "#576af4", "#5f57f3", "#6d4ff2", "#7c4ff2", "#8b4ff2", "#9a4ff2",
-"#a94ff2", "#b84ff1", "#c64ff0", "#d54fef", "#e34fee", "#f14fed", "#f24fdf", "#f24fce", "#f24fbc", "#f24fa9"],
-    alpha: 1,
-    singleColor: true,
-    behavior: behaviors.STURDYPOWDER,
+    color: ["#ff4d4d","#ffac4d","#ffff4d","#4dff4d","#4dffff","#4d4dff","#ff4dff"],
+	onPlace: behaviors.DO_TICK,
+	tick: function(pixel) {
+		behaviors.STURDYPOWDER(pixel);
+		if (pixel.start-1 <= pixelTicks) {
+			if (pixel.colorstart === undefined) {
+				pixel.colorstart = pixel.start;
+			}
+			pixel.color = "hsl(" + pixel.colorstart + ",70%,45%)";
+		}
+	},
     category: "land",
     state: "solid",
     renderer: renderPresets.HEATGLOW,
     density: 2520,
     tempHigh: 950,
     stateHigh: "colour_magma",
-    breakInto: "color_sand",
+    breakInto: ["color_sand", "color_sand", "color_sand", "bead"],
 };
 
 
@@ -4222,6 +4413,51 @@ elements.sour_sauce = {
     }
 };
 
+elements.cremoid = {
+    color: ["#f2fffe"],
+    behavior: [
+    "XX|SW:milk,lactoid,butyroid,melted_butter,water AND CR:bubble%1|XX",
+    "M1 AND SW:water|CH:butyroid%0.1|M1 AND SW:water",
+    "M1|M1|M1",
+],
+    category: "food",
+    state: "liquid",
+    temp: 20,
+    tempHigh: 100,
+    tempLow: -25,
+    density: 12,
+    conduct: 1,
+    desc: "this is NOT cream",
+    stateHigh: ["pyrane", "steam"],
+    stateLow: ["icecream", "hydroid_milkshake"],
+    reactions: {
+        "fire": { elem2: "explosion" },
+        "head": { elem1: null, chance: 0.01, func: behaviors.FEEDPIXEL },
+        "ice": { elem1: "lactoid_ice", elem2: "lactoid_ice" },
+        "slush": { elem1: "hydroid_milkshake", elem2: "hydroid_milkshake" },
+    }
+};
+
+elements.butyroid = {
+    color: ["#a3f1ff"],
+    behavior: [
+    "XX|XX|XX",
+    "M1%2|CH:butter%0.1|M1%2",
+    "M1|M1|M1",
+],
+    category: "food",
+    state: "liquid",
+    temp: 20,
+    tempHigh: 33,
+    density: 120,
+    conduct: 1,
+    desc: "this is NOT cream",
+    stateHigh: ["pyrane", "melted_butter"],
+    reactions: {
+        "fire": { elem2: "explosion" },
+        "head": { elem1: null, chance: 0.01, func: behaviors.FEEDPIXEL },
+    }
+};
 
 elements.sweet_savour = {
     color: "#ff1133",
@@ -4260,7 +4496,26 @@ elements.sweet_syrup = {
     }
 };
 
-
+elements.hydrated_iron_oxide = {
+    color: "#bd5515",
+    behavior: [
+    "XX|XX|XX",
+    "M1|XX|M1",
+    "M1|M1 AND CH:plant,grass,sapling,flower_seed,petal,vine>dead_plant%1 AND CH:iron,steel,aluminium>rust AND SW:rust,blood,infection%5|M1",
+],
+    hidden: false,
+    category: "liquids",
+    state: "liquid",
+    temp: 20,
+    stain: 0.1,
+    tempHigh: 100,
+    stateHigh: ["rust", "steam"],
+    reactions: {
+        "head": { elem2: ["infection", "rust"], chance: 0.03 },
+        "body": { elem2: ["infection", "rust"], chance: 0.03 },
+        "bless": { elem1: "iron" },
+    }
+};
 
 
 
@@ -4414,26 +4669,27 @@ elements.chemical_odour = {
 
 
 elements.quicksand = {
-    color: ["#E7D678"],
+    color: ["#9e9045", "#b4a75d"],
     behavior: [
-    "XX|SW:body,head,water,rock,dirt AND CH:water,blood>sand AND CH:sand>quicksand|XX",
-    "M2%0.1 AND CH:blood>sand|XX|M2%0.1 AND CH:blood>sand",
-    "M2%5|M1%85 AND CH:blood>sand|M2%5"
+    "XX|SW:body,head,water,rock,dirt AND CH:blood>sand AND CH:sand>wet_sand%5 AND SW:wet_sand%3 AND SW:sand%1 AND CC:head,body,bone,blood,cooked_meat,meat,rotten_meat>#9f9146|XX",
+    "M2%0.1 AND CH:blood>sand AND CH:sand>wet_sand%5 AND SW:wet_sand%1|XX|M2%0.1 AND CH:blood>sand AND CH:sand>wet_sand%5 AND SW:wet_sand%1",
+    "M2%5|M1%85 AND CH:blood>sand AND CH:sand>wet_sand%5 AND CC:water>9e9045,b4a75d AND CC:head,body,bone,blood,cooked_meat,meat,rotten_meat>#9f9146|M2%5"
 ],
     category: "land",
     temp: 20,
     tempHigh: 1700,
     tempLow: 0,
     state: "solid",
-    stain: 1,
+    stain: 0.1,
     stateHigh: ["glass", "steam"],
     stateLow: ["wet_sand", "ice"],
         desc: "this is NOT sand",
     burn: 0,
     conduct: 0.4,
     reactions: {
-        "head": { elem1: null, elem2: "bone", chance: 0.01, func: behaviors.KILLPIXEL2 },
-        "body": { elem1: null, elem2: "bone", chance: 0.01, func: behaviors.KILLPIXEL2 },
+        "head": { elem2: "bone", chance: 0.1, func: behaviors.KILLPIXEL2 },
+        "body": { elem2: "bone", chance: 0.1, func: behaviors.KILLPIXEL2 },
+        "bone": { elem2: null, chance: 0.05 },
     }
 };
 
@@ -4532,12 +4788,18 @@ elements.melatonin = {
 elements.asl_hd = {
     name: "Head (Asleep)",
     color: ["#4a4a4a"],
+    //old behavior: [
+    //"XX|CR:yawn%0.1|XX",
+    //"XX|CH:wuh%0.3|XX",
+    //"XX|M1 AND CH:body>asl_bd|XX"
+//],
     behavior: [
-    "XX|CR:yawn%0.1|XX",
-    "XX|CH:wuh%0.3|XX",
+    "XX|XX|XX",
+    "XX|DL|XX",
     "XX|M1 AND CH:body>asl_bd|XX"
 ],
-    category: "life",
+    category: "unused",
+    hidden: true,
     temp: 20,
     breakInto: ["blood", "meat", "bone"],
     tempHigh: 150,
@@ -4548,12 +4810,12 @@ elements.asl_hd = {
 
 
 elements.asl_bd = {
-    name: "Body (Asleep)",
+    name: "Sleeping Human",
     color: ["#50555c"],
-    behavior: [
-    "XX|XX|XX",
-    "XX|XX|XX",
-    "XX|M1|XX"
+behavior: [
+    "DL:blood|DL:blood AND CR:yawn%0.04 AND DL:head|DL:blood",
+    "DL:blood|CH:wub%2|DL:blood",
+    "DL:blood|M1 AND DL:blood|DL:blood"
 ],
     category: "life",
     temp: 20,
@@ -4571,9 +4833,10 @@ elements.wuh = {
     behavior: [
     "DL:blood|DL:blood|DL:blood",
     "DL:blood|CH:head|DL:blood",
-    "DL:blood|CH:asl_bd>body|DL:blood"
+    "DL:blood|CH:wub>body|DL:blood"
 ],
-    category: "life",
+    category: "unused",
+    hidden: true,
     temp: 20,
     breakInto: ["blood", "meat", "bone"],
     tempHigh: 150,
@@ -4587,11 +4850,12 @@ elements.wub = {
     name: "Body (Waking Up)",
     color: ["#8c95a1"],
     behavior: [
-    "XX|CH:asl_hd>head|XX",
-    "XX|CH:body|XX",
-    "XX|XX|XX"
+    "DL:blood|DL:blood AND CR:wuh|DL:blood",
+    "DL:blood|XX|DL:blood",
+    "DL:blood|M1 AND DL:blood|DL:blood"
 ],
     category: "life",
+    state: "liquid",
     temp: 20,
     breakInto: ["blood", "meat", "bone"],
     tempHigh: 150,
@@ -4626,21 +4890,24 @@ elements.yawn = {
     temp: 20,
 };
 
-elements.smash_sauce = {
-    color: ["#6F6F6F", "#868686", "#666666"],
+elements.acetone = {
+    color: ["#b8e3da"],
     behavior: [
-    "XX|XX|XX",
+    "XX|CR:chemical_odour,fragrance,foam%1|XX",
     "M2|XX|M2",
-    "M1|M1 AND SW AND HT:2 AND SM%10|M1",
+    "M1|M1 AND CO:2%40 AND SM%1 AND DL%0.1 AND CC:water>#bce3db |M1",
 ],
     category: "liquids",
-    temp: 30,
+    temp: 20,
     viscosity: 100,
     state: "liquid",
     density: 720,
-    stain: 0.1,
+    stain: 0.2,
+    alpha: 0.8,
     reactions: {
-        "water": { elem1: null, chance: 0.3 },
+        "water": { elem2: "foam", chance: 0.3 },
+        "head": { elem2: null, chance: 0.3 },
+        "body": { elem2: null, chance: 0.3 },
     }
 };
 
@@ -4662,31 +4929,140 @@ elements.drill = {
 };
 
 elements.heat_lamp = {
-    color: "#dcd7d7",
+    color: "#ffd6cf",
     behavior: [
 "XX|XX|XX",
-"M2|XX|M2",
-"M1|M1 AND CH:head>asl_hd%5|M1",
+"XX|XX|XX",
+"XX|XX|XX",
 ],
-    category: "food",
-    state: "liquid",
-    density: 10000,
-    charge: 1,
-    superconductAt: 100,
-    burn: 100,
-    viscosity: 29,
-    tempLow: -7,
-        hidden: true,
-    stateLowName: "banana_ice",
-    tempHigh: 239,
-    stateHigh: "steam",
-    fireColor: "#DD00FF",
-    burnInto: "sour_scent",
+    behaviorOn: [
+"XX|XX|XX",
+"XX|XX|XX",
+"XX|CR:elec_light%5 AND CH:inv_ht%0|XX",
+],
+    category: "machines",
+    state: "solid",
+    charge: 0,
+    tempHigh: 1500,
+    stateHigh: "molten_metal_scrap",
+    breakInto: ["metal_scrap", "electric", "flash"],
     conduct: 1,
     reactions: {
-        "head": { elem1: null, chance: 0.9, func: behaviors.FEEDPIXEL },
-        "asl_hd": { elem1: null, chance: 0.9, func: behaviors.FEEDPIXEL },
+        "malware": { elem1: "fan", chance: 0.9 },
     }
+};
+
+elements.powerful_heat_lamp = {
+    color: "#ffb1a3",
+    behavior: [
+"XX|XX|XX",
+"XX|XX|XX",
+"XX|XX|XX",
+],
+    behaviorOn: [
+"XX|XX|XX",
+"XX|XX|XX",
+"CR:elec_light%1 AND CH:inv_ht%0||CR:elec_light%2 AND CH:inv_ht%0 AND HT:5%10 AND CR:heat_ray%5|CR:elec_light%1 AND CH:inv_ht%0|",
+],
+    category: "machines",
+    state: "solid",
+    temp: 80,
+    tempHigh: 2500,
+    stateHigh: "molten_metal_scrap",
+    breakInto: ["metal_scrap", "electric", "flash", "fire", "heat_ray"],
+    conduct: 1,
+    reactions: {
+        "malware": { elem1: "fan", chance: 0.9 },
+    }
+};
+
+elements.fan = {
+    color: "#cfe2ff",
+    behavior: [
+"XX|XX|XX",
+"XX|XX|XX",
+"XX|XX|XX",
+],
+    behaviorOn: [
+"XX|XX|XX",
+"XX|XX|CR:e_wind%5",
+"XX|XX|XX",
+],
+    category: "machines",
+    state: "solid",
+    charge: 0,
+    tempHigh: 1500,
+    stateHigh: "molten_metal_scrap",
+    breakInto: ["metal_scrap", "electric", "flash", "snow", "freeze_ray"],
+    conduct: 1,
+    reactions: {
+        "malware": { elem1: "heat_lamp", chance: 0.9 },
+    }
+};
+
+elements.inv_ht = {
+    color: "#aa0000",
+    behavior: [
+"XX|XX|XX",
+"XX|XX|XX",
+"XX|M1 AND BO AND HT:3|XX",
+],
+    category: "energy",
+    state: "gas",
+    hidden: true,
+    alpha: 0.1,
+    tempLow: 10,
+    stateLow: null,
+};
+
+elements.inv_co = {
+    color: "#0000aa",
+    behavior: [
+"XX|XX|XX",
+"XX|XX|M1 AND BO AND CO:3",
+"XX|XX|XX",
+],
+    category: "energy",
+    state: "gas",
+    alpha: 0.1,
+    hidden: true,
+    tempHigh: 100,
+    stateHigh: null,
+};
+
+elements.elec_light = {
+    color: "#ddddff",
+    name: "Artificial Light",
+    behavior: [
+"XX|HT:3|XX",
+"HT:4|DL%2|HT:4",
+"XX|M1 AND BO AND HT:4|XX",
+],
+    category: "energy",
+    state: "gas",
+    alpha: 0.7,
+    temp: 40,
+    tempLow: -200,
+    tempHigh: 300,
+    stateLow: "liquid_light",
+    stateHigh: "light",
+};
+
+elements.e_wind = {
+    color: "#eeeefa",
+    name: "Wind",
+    behavior: [
+"XX|CO:3|M1%5 AND BO",
+"CO:3|CH:oxygen%0.4|M1 AND BO AND CO:3",
+"XX|CO:3|M1%5 AND BO",
+],
+    category: "gases",
+    state: "gas",
+    alpha: 0.7,
+    temp: 10,
+    tempLow: -30,
+    tempHigh: 35,
+    stateHigh: "cloud",
 };
 
 elements.frisket = {
@@ -4699,8 +5075,8 @@ elements.frisket = {
     category: "liquids",
     temp: 20,
     tempHigh: 100,
-    tempLow: -20,
-    stateHigh: ["steam", "ammonia", "plastic"],
+    tempLow: -200,
+    stateHigh: ["steam", "ammonia", "liquid_latex"],
     stateLow: ["dried_frisket"],
         desc: "masking fluid used in art that smells like seafood",
     burn: 30,
@@ -4720,9 +5096,100 @@ elements.dried_frisket = {
     alpha: 0.9,
     movable: true,
     tempHigh: 200,
-    stateHigh: ["ammonia", "plastic"],
+    stateHigh: ["ammonia", "latex"],
     breakInto: ["dried_frisket", null],
         desc: "masking fluid used in art that smells like seafood, dried",
     burn: 0.1,
+    conduct: 0.1,
+    reactions: {
+        "nitrogen": { elem1: "frisket", elem2:"foam", chance: 0.1 },
+    }
+};
+
+elements.sr_pl = {
+    name: "Sun Resistant Plastic",
+    color: "#505a66",
+    behavior: [
+"DL:light,sunlight|DL:light,sunlight|DL:light,sunlight",
+"DL:light,sunlight|XX|DL:light,sunlight",
+"DL:light,sunlight|DL:light,sunlight|DL:light,sunlight",
+],
+conduct: 1,
+behaviorOn: [
+"CR:light,sunlight|CR:light,sunlight|CR:light,sunlight",
+"CR:light,sunlight|HT:10|CR:light,sunlight",
+"CR:light,sunlight|CR:light,sunlight|CR:light,sunlight",
+],
+    category: "solids",
+    state: "solid",
+    hidden: true,
+renderer: renderPresets.HEATGLOW,
+stateHigh: ["molten_gallium", "molten_glass", "molten_plastic", "tocopheryl_gas", "molten_rose_gold"],
+    alpha: 0.5,
+    tempHigh: 6177,
+};
+
+elements.latex = {
+    color: ["#aabfbd"],
+    behavior: [
+    "XX|XX|XX",
+    "XX|XX|XX",
+    "XX|XX|XX"
+],
+    category: "solids",
+    renderer: renderPresets.HEATGLOW,
+    temp: 20,
+    movable: true,
+    tempHigh: 200,
+    stateHighName: ["liquid_latex"],
+    burn: 0.03,
+    conduct: 0.03,
+    reactions: {
+        "head": { elem2: "explosion", chance: 0.005, func: behaviors.KILLPIXEL2 },
+        "ammonia": { elem1: "frisket", elem2:"foam", minTemp: 100 },
+    }
+};
+
+elements.human_missile = {
+    color: ["#8a9499", "#9e9e9e", "#d1d1d1"],
+    category: "missiles",
+    state: "solid",
+    temp: 20,
+    tempHigh: 2000,
+    stateHigh: "molten_metal_scrap",
+    breakInto: "metal_scrap",
+    fireColor: "#e342a5",
+};
+
+
+
+
+elements.human_missile.behavior = [
+   ["XX","XX","XX"],
+    ["XX","XX","M1 AND LB:hed_bod%20 AND EX:3>explosion"],
+    ["XX","XX","XX"],   
+];
+
+elements.e_fence = {
+    name: "Electric Fence",
+    color: ["#baba9c"],
+    behavior: [
+"XX|XX|XX",
+"XX|XX|XX",
+"XX|XX|XX",
+],
+    behaviorOn: [
+    "XX|SH|XX",
+    "SH AND CH:head,body>ash,pop,cooked_meat AND HT:3%20|XX|SH AND CH:head,body>ash,pop,cooked_meat AND HT:3%20",
+    "XX|SH|XX"
+],
+    charge: 1,
+    category: "machines",
+    density: 7850,
+    temp: 20,
+    tempHigh: 1956,
+    renderer: renderPresets.HEATGLOW,
+    stateHigh: ["molten_metal_scrap", "molten_steel"],
+    breakInto: ["metal_scrap", "electric", "explosion", "electrum"],
     conduct: 0.1,
 };
